@@ -1,0 +1,934 @@
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    --columns-mobile: 1;
+    --padding-top: {{ section.settings.padding_top }};
+    --padding-bottom: {{ section.settings.padding_bottom }};
+    --overlay-opacity: {{ section.settings.overlay }}%;
+
+    {%- if section.settings.custom_colors -%}
+      --color-foreground: {{ section.settings.color_foreground.red }}, {{ section.settings.color_foreground.green }}, {{ section.settings.color_foreground.blue }};
+      --color-background: {{ section.settings.color_background.red }}, {{ section.settings.color_background.green }}, {{ section.settings.color_background.blue }};
+      --color-gradient: {% if section.settings.color_gradient != blank %}{{ section.settings.color_gradient }}{% else %}{{ section.settings.color_background }}{% endif %};
+    {%- endif -%}
+
+    --auto-play-state: paused;
+    --auto-play-duration: {% if section.settings.auto_play %}{{ section.settings.auto_play_delay }}s{% else %}0s{% endif %};
+  }
+
+  {%- if section.settings.auto_play -%}
+    #shopify-section-{{ section.id }} .slider__controls {
+      --color-foreground: 255, 255, 255;
+    }
+  {%- endif -%}
+
+  {%- for block in section.blocks -%}
+    #shopify-section-{{ section.id }}-Block-{{ block.id }} {
+      --content-width: {{ block.settings.content_width_large }}%;
+      --text-x-axis-mobile: {{ block.settings.text_position_mobile }};
+      --text-y-axis: end;
+
+      {%- comment -%}Extract the values for the text position's x and y axis for large screens{%- endcomment -%}
+      {%- assign text_axis = block.settings.text_position_large | split: ' ' -%}
+      --text-y-axis-large: {{ text_axis | first }};
+      --text-x-axis-large: {{ text_axis | last }};
+    }
+
+    {%- assign block_settings = block.settings -%}
+
+    {%- if section.settings.maintain_background_color_first_slide -%}
+      {%- assign block_settings = section.blocks.first.settings -%}
+    {%- endif -%}
+
+    {%- if block_settings.custom_colors -%}
+      #shopify-section-{{ section.id }}-Block-{{ block.id }} {
+        --color-foreground: {{ block_settings.color_foreground.red }}, {{ block_settings.color_foreground.green }}, {{ block_settings.color_foreground.blue }};
+        --color-background: {{ block_settings.color_background.red }}, {{ block_settings.color_background.green }}, {{ block_settings.color_background.blue }};
+        --color-accent: {{ block_settings.color_accent.red }}, {{ block_settings.color_accent.green }}, {{ block_settings.color_accent.blue }};
+
+        {%- if section.settings.enable_background_image == false -%}
+          --color-gradient: {% if block_settings.color_gradient != blank %}{{ block_settings.color_gradient }}{% else %}{{ block_settings.color_background }}{% endif %};
+        {%- endif -%}
+      }
+    {%- elsif block_settings.custom_colors == false and section.settings.enable_background_image %}
+      #shopify-section-{{ section.id }}-Block-{{ block.id }} {
+        --color-foreground: var(--color-default-background);
+        --color-accent: var(--color-default-background);
+        --color-background: var(--color-default-text);
+      }
+    {%- endif -%}
+  {%- endfor -%}
+
+  /* We add custom styling for when the image is set to "Adapt to first image" for both mobile and large devices */
+  {%- if section.settings.height_mobile == 'auto' or section.settings.height_large == 'auto' -%}
+    {%- if section.settings.height_mobile == 'auto' -%}
+      @media (max-width: 750px) {
+        #shopify-section-{{ section.id }} .media-with-text__media--auto,
+        #shopify-section-{{ section.id }} .banner__media--auto {
+          {%- if section.blocks.first.settings.image_mobile != blank -%}
+            padding-bottom: {{ 1 | divided_by: section.blocks.first.settings.image_mobile.aspect_ratio | times: 100 }}%;
+          {%- else -%}
+            padding-bottom: {{ 1 | divided_by: section.blocks.first.settings.image.aspect_ratio | times: 100 }}%;
+          {%- endif -%}
+        }
+      }
+    {%- endif -%}
+
+    {%- if section.settings.height_large == 'auto' -%}
+      @media (min-width: 751px) {
+        #shopify-section-{{ section.id }} .media-with-text__media--auto,
+        #shopify-section-{{ section.id }} .banner__media--auto {
+          padding-bottom: {{ 1 | divided_by: section.blocks.first.settings.image.aspect_ratio | times: 100 }}%;
+        }
+      }
+    {%- endif -%}
+  {%- endif -%}
+{%- endstyle -%}
+
+{%- capture autoplay_progress -%}
+  <loess-slider-autoplay-progress class="slider__controls">
+    <svg class="slider-progress-bar" aria-hidden="true">
+      <circle cx="50%" cy="50%" r="75" class="slider-progress-bar__circle slider-progress-bar__circle--animation"></circle>
+      <circle cx="50%" cy="50%" r="75" class="slider-progress-bar__circle slider-progress-bar__circle--faded"></circle>
+    </svg>
+  </loess-slider-autoplay-progress>
+{%- endcapture -%}
+
+{%- assign slider_large_id = 'SliderLarge-' | append: section.id -%}
+{%- assign slider_mobile_id = 'SliderMobile-' | append: section.id -%}
+
+<div class="{% if section.settings.custom_colors %}color-custom{% else %}color color-{{ section.settings.color_scheme }}{% endif %} color-gradient">
+  <div class="section-vertical-spacer {% if section.settings.layout == 'full' %}padding-top-0{% else %}container{% endif %}">
+    <div class="hide-mobile">
+      <loess-slider animation="{{ section.settings.animation }}" type="{% if section.settings.enable_background_image %}background-image{% else %}media-with-text{% endif %}" {% if section.settings.auto_play %}auto-play{% endif %}>
+        <div id="{{ slider_large_id }}" class="slider section {% if section.settings.enable_shadow and section.settings.layout == 'fixed' %}shadow{% endif %} {% if section.settings.layout == 'fixed' %}border-radius{% endif %}">
+          {%- if section.settings.enable_background_image -%}
+            {%- for block in section.blocks -%}
+              {%- liquid
+                assign block_settings = block.settings
+
+                if section.settings.maintain_background_color_first_slide
+                  assign block_settings = section.blocks.first.settings
+                endif
+
+                case block.settings.text_size
+                  when 'medium'
+                    assign heading_size = 'h2'
+                  when 'large'
+                    assign heading_size = 'h1'
+                  when 'x-large'
+                    assign heading_size = 'h0'
+                endcase
+
+                capture placeholder_image
+                  cycle 1, 2
+                endcapture
+              -%}
+
+              <div id="shopify-section-{{ section.id }}-Block-{{ block.id }}" class="slider__slide {% if forloop.first %}active{% endif %} banner banner-large--{{ section.settings.height_large }} {% if block.settings.first_button_link != blank and block.settings.first_button_label == blank %}banner--link{% endif %}" {% if block.settings.custom_colors == false and section.settings.enable_background_image == false and block.settings.color_scheme == 'soft' and section.settings.color_scheme != 'soft' %}style="background-color: {{ settings.colors_default_background }};"{% endif %} {{ block.shopify_attributes }}>
+                <div class="banner__text banner__text--overlay">
+                  <div class="rich-text-wrapper container">
+                    <div class="rich-text rich-text--large-contained">
+                      {%- if block.settings.subheading != blank -%}
+                        <div class="large-subtext">
+                          {{ block.settings.subheading | escape }}
+                        </div>
+                      {%- endif -%}
+
+                      {%- if block.settings.title != blank -%}
+                        <h2 {% if settings.animations_heading != 'none' %}is="loess-heading"{% endif %} class="{{ heading_size }} animate">
+                          {% render 'heading', title: block.settings.title %}
+                        </h2>
+                      {%- endif -%}
+
+                      {%- if block.settings.text != blank -%}
+                        <div class="rte body-text">
+                          {{ block.settings.text }}
+                        </div>
+                      {%- endif -%}
+
+                      {%- if block.settings.first_button_label != blank or block.settings.second_button_label != blank -%}
+                        <div class="button-group">
+                          {%- if block.settings.first_button_label != blank -%}
+                            <a href="{{ block.settings.first_button_link }}" class="button {% if block.settings.first_button_style %}button--secondary{% else %}button--primary{% endif %} button--color-overriden tap">
+                              {{ block.settings.first_button_label | escape }}
+                            </a>
+                          {%- endif -%}
+                          {%- if block.settings.second_button_label != blank -%}
+                            <a href="{{ block.settings.second_button_link }}" class="button {% if block.settings.second_button_style %}button--secondary{% else %}button--primary{% endif %} button--color-overriden tap">
+                              {{ block.settings.second_button_label | escape }}
+                            </a>
+                          {%- endif -%}
+                        </div>
+                      {%- endif -%}
+                    </div>
+                  </div>
+                </div>
+
+                {%- capture sizes -%}min({{ settings.styles_max_width }}px, 100vw - 80px){%- endcapture -%}
+
+                <{% if block.settings.first_button_link != blank and block.settings.first_button_label == blank %}a href="{{ block.settings.first_button_link }}"{% else %}div{% endif %} class="banner__media {% if section.settings.height_large == 'auto' %}banner__media--auto{% endif %} {% if block.settings.image == blank %}image--placeholder{% endif %}" parallax="{{ section.settings.enable_parallax }}">
+                  {%- if block.settings.image != blank -%}
+                    {{- block.settings.image | image_url: width: block.settings.image.width | image_tag: is: 'loess-image', loading: 'lazy', sizes: sizes, widths: '200,300,400,500,600,700,800,900,1000,1200,1400,1600,1800,2000,2200,2400,2600,2800,3000,3200' -}}
+                  {%- else -%}
+                    {{ 'lifestyle-' | append: placeholder_image | placeholder_svg_tag }}
+                  {%- endif -%}
+                </{% if block.settings.first_button_link != blank and block.settings.first_button_label == blank %}a{% else %}div{% endif %}>
+              </div>
+            {%- endfor -%}
+          {%- else -%}
+            {%- for block in section.blocks -%}
+              {%- liquid
+                assign block_settings = block.settings
+
+                if section.settings.maintain_background_color_first_slide
+                  assign block_settings = section.blocks.first.settings
+                endif
+
+                case block.settings.text_size
+                  when 'medium'
+                    assign heading_size = 'h2'
+                  when 'large'
+                    assign heading_size = 'h1'
+                  when 'x-large'
+                    assign heading_size = 'h0'
+                endcase
+
+                capture placeholder_image
+                  cycle 1, 2
+                endcapture
+              -%}
+
+              <{% if block.settings.first_button_link != blank and block.settings.first_button_label == blank %}a href="{{ block.settings.first_button_link }}"{% else %}div{% endif %} id="shopify-section-{{ section.id }}-Block-{{ block.id }}" class="slider__slide {% if forloop.first %}active{% endif %} media-with-text media-with-text-large--{{ section.settings.height_large }} {% if block.settings.first_button_link != blank and block.settings.first_button_label == blank %}media-with-text--link{% endif %} {% if block_settings.custom_colors and section.settings.enable_background_image == false %}color-custom{% else %}color color-{{ block_settings.color_scheme }}{% endif %} color-gradient" {{ block.shopify_attributes }}>
+                <div class="media-with-text__text {% if section.settings.layout == 'full' %}media-with-text__text--full{% endif %}">
+                  <div class="rich-text-wrapper container">
+                    <div class="rich-text">
+                      {%- if block.settings.subheading != blank -%}
+                        <span class="large-subtext color-accent">
+                          {{ block.settings.subheading | escape }}
+                        </span>
+                      {%- endif -%}
+
+                      {%- if block.settings.title != blank -%}
+                        <h2 {% if settings.animations_heading != 'none' %}is="loess-heading"{% endif %} class="{{ heading_size }} animate">
+                          {% render 'heading', title: block.settings.title %}
+                        </h2>
+                      {%- endif -%}
+
+                      {%- if block.settings.text != blank -%}
+                        <div class="rte body-text">
+                          {{ block.settings.text }}
+                        </div>
+                      {%- endif -%}
+
+                      {% if block.settings.first_button_label != blank or block.settings.second_button_label != blank %}
+                        <div class="button-group">
+                          {% if block.settings.first_button_label != blank %}
+                            <a href="{{ block.settings.first_button_link }}" class="button {% if block.settings.first_button_style %}button--secondary{% else %}button--primary{% endif %}">
+                              {{ block.settings.first_button_label | escape }}
+                            </a>
+                          {% endif %}
+
+                          {% if block.settings.second_button_label != blank %}
+                            <a href="{{ block.settings.second_button_link }}" class="button {% if block.settings.second_button_style %}button--secondary{% else %}button--primary{% endif %}">
+                              {{ block.settings.second_button_label | escape }}
+                            </a>
+                          {% endif %}
+                        </div>
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
+
+                {%- capture sizes -%}min({{ settings.styles_max_width | divided_by: 2 }}px, 50vw - 80px){%- endcapture -%}
+
+                <div class="media-with-text__media-wrapper">
+                  <div class="media-with-text__media {% if section.settings.height_large != 'auto' %}media-with-text__media--fill{% else %}media-with-text__media--auto{% endif %} {% if block.settings.image.src contains '.png' %}media-with-text__media--transparent{% endif %}" parallax="{{ section.settings.enable_parallax }}">
+                    {%- if block.settings.image != blank -%}
+                      {{- block.settings.image | image_url: width: block.settings.image.width | image_tag: is: 'loess-image', loading: 'lazy', sizes: sizes, widths: '200,300,400,500,600,700,800,900,1000,1200,1400,1600,1800,2000,2200,2400,2600,2800,3000,3200' -}}
+                    {%- else -%}
+                      {{ 'lifestyle-' | append: placeholder_image | placeholder_svg_tag }}
+                    {%- endif -%}
+                  </div>
+                </div>
+              </{% if block.settings.first_button_link != blank and block.settings.first_button_label == blank %}a{% else %}div{% endif %}>
+            {%- endfor -%}
+          {%- endif -%}
+
+          {%- if section.settings.auto_play and section.blocks.size > 1 -%}
+            {{ autoplay_progress }}
+          {%- endif -%}
+        </div>
+
+        <div class="scroller-bar {% if section.settings.layout == 'full' %}container{% endif %}">
+          <loess-slider-progress target="{{ slider_large_id }}" class="scroller-progress-bar scroller-progress-bar--transition" style="--scroller-progress: {{ 100 | divided_by: section.blocks.size }}%;" aria-hidden="true">
+          </loess-slider-progress>
+
+          <loess-slider-buttons class="scroller-buttons slider-buttons">
+            <button class="slider-buttons__previous button button--icon" aria-label="{{ 'general.slider.previous_slide' | t }}">
+              {% render 'icon' with 'arrow-minimal-previous' %}
+            </button>
+
+            <button class="slider-buttons__next button button--icon" aria-label="{{ 'general.slider.next_slide' | t }}">
+              {% render 'icon' with 'arrow-minimal-next' %}
+            </button>
+          </loess-slider-buttons>
+        </div>
+      </loess-slider>
+    </div>
+
+    <div class="hide-tablet-and-up">
+      <loess-scroller {% if section.settings.layout == 'full' %}class="scroller-mobile--full-width"{% endif %} columns-mobile="1" {% if section.settings.auto_play %}auto-play{% endif %}>
+        <ul id="{{ slider_mobile_id }}" class="columns scroller scroller-mobile hide-scrollbar" role="list">
+          {%- for block in section.blocks -%}
+            {%- liquid
+              assign block_settings = block.settings
+
+              if section.settings.maintain_background_color_first_slide
+                assign block_settings = section.blocks.first.settings
+              endif
+
+              case block.settings.text_size
+                when 'medium'
+                  assign heading_size = 'h2'
+                when 'large'
+                  assign heading_size = 'h1'
+                when 'x-large'
+                  assign heading_size = 'h0'
+              endcase
+
+              capture placeholder_image
+                cycle 1, 2
+              endcapture
+            -%}
+
+            <li id="shopify-section-{{ section.id }}-Block-{{ block.id }}" class="border-radius" {% if block.settings.custom_colors == false and section.settings.enable_background_image == false and block.settings.color_scheme == 'soft' and section.settings.color_scheme != 'soft' %}style="background-color: {{ settings.colors_default_background }};"{% endif %} {{ block.shopify_attributes }} {% if forloop.first %}active{% endif %}>
+              {%- if section.settings.enable_background_image -%}
+                <div class="banner {% if block.settings.first_button_link != blank and block.settings.first_button_label == blank %}banner--link{% endif %} banner-mobile--{{ section.settings.height_mobile }}">
+                  <div class="banner__text banner__text--overlay">
+                    <div class="rich-text-wrapper container">
+                      <div class="rich-text rich-text--large-contained">
+                        {%- if block.settings.subheading != blank -%}
+                          <div class="large-subtext">
+                            {{ block.settings.subheading | escape }}
+                          </div>
+                        {%- endif -%}
+
+                        {%- if block.settings.title != blank -%}
+                          <h2 {% if settings.animations_heading != 'none' %}is="loess-heading"{% endif %} class="{{ heading_size }} animate">
+                            {% render 'heading', title: block.settings.title %}
+                          </h2>
+                        {%- endif -%}
+
+                        {%- if block.settings.text != blank -%}
+                          <div class="rte body-text">
+                            {{ block.settings.text }}
+                          </div>
+                        {%- endif -%}
+
+                        {%- if block.settings.first_button_label != blank or block.settings.second_button_label != blank -%}
+                          <div class="button-group">
+                            {%- if block.settings.first_button_label != blank -%}
+                              <a href="{{ block.settings.first_button_link }}" class="button {% if block.settings.first_button_style %}button--secondary{% else %}button--primary{% endif %} button--color-overriden tap">
+                                {{ block.settings.first_button_label | escape }}
+                              </a>
+                            {%- endif -%}
+                            {%- if block.settings.second_button_label != blank -%}
+                              <a href="{{ block.settings.second_button_link }}" class="button {% if block.settings.second_button_style %}button--secondary{% else %}button--primary{% endif %} button--color-overriden tap">
+                                {{ block.settings.second_button_label | escape }}
+                              </a>
+                            {%- endif -%}
+                          </div>
+                        {%- endif -%}
+                      </div>
+                    </div>
+                  </div>
+
+                  <{% if block.settings.first_button_link != blank and block.settings.first_button_label == blank %}a href="{{ block.settings.first_button_link }}"{% else %}div{% endif %} class="banner__media {% if section.settings.height_mobile == 'auto' %}banner__media--auto{% endif %} {% if block.settings.image == blank %}image--placeholder{% endif %}" parallax="{{ section.settings.enable_parallax }}">
+                    {%- if block.settings.image != blank -%}
+                      {%- if block.settings.image_mobile == blank -%}
+                        {{- block.settings.image | image_url: width: block.settings.image.width | image_tag: is: 'loess-image', loading: 'lazy', sizes: 'calc(100vw - 32px)', widths: '200,300,400,500,600,700,800,900,1000,1200,1400,1600,1800,2000,2200,2400,2600,2800,3000,3200' -}}
+                      {%- else -%}
+                        {{- block.settings.image_mobile | image_url: width: block.settings.image_mobile.width | image_tag: is: 'loess-image', loading: 'lazy', sizes: 'calc(100vw - 32px)', widths: '200,300,400,500,600,700,800,900,1000,1200,1400,1600,1800,2000,2200,2400,2600,2800,3000,3200' -}}
+                      {%- endif -%}
+                    {%- else -%}
+                      {{ 'lifestyle-' | append: placeholder_image | placeholder_svg_tag }}
+                    {%- endif -%}
+                  </{% if block.settings.first_button_link != blank and block.settings.first_button_label == blank %}a{% else %}div{% endif %}>
+                </div>
+              {%- else -%}
+                <div id="ImageWithText-{{ block.id }}" class="media-with-text media-with-text-mobile--{{ section.settings.height_mobile }} media-with-text--reverse-mobile {% if block_settings.custom_colors and section.settings.enable_background_image == false %}color-custom{% else %}color color-{{ block_settings.color_scheme }}{% endif %} color-gradient" {{ block.shopify_attributes }}>
+                  <div class="media-with-text__text">
+                    <div class="rich-text-wrapper container">
+                      <div class="rich-text">
+                        {%- if block.settings.subheading != blank -%}
+                          <span class="large-subtext color-accent">
+                            {{ block.settings.subheading | escape }}
+                          </span>
+                        {%- endif -%}
+
+                        {%- if block.settings.title != blank -%}
+                          <h2 {% if settings.animations_heading != 'none' %}is="loess-heading"{% endif %} class="{{ heading_size }} animate">
+                            {% render 'heading', title: block.settings.title %}
+                          </h2>
+                        {%- endif -%}
+
+                        {%- if block.settings.text != blank -%}
+                          <div class="rte body-text">
+                            {{ block.settings.text }}
+                          </div>
+                        {%- endif -%}
+
+                        {% if block.settings.first_button_label != blank or block.settings.second_button_label != blank %}
+                          <div class="button-group">
+                            {% if block.settings.first_button_label != blank %}
+                              <a href="{{ block.settings.first_button_link }}" class="button {% if block.settings.first_button_style %}button--secondary{% else %}button--primary{% endif %}">
+                                {{ block.settings.first_button_label | escape }}
+                              </a>
+                            {% endif %}
+
+                            {% if block.settings.second_button_label != blank %}
+                              <a href="{{ block.settings.second_button_link }}" class="button {% if block.settings.second_button_style %}button--secondary{% else %}button--primary{% endif %}">
+                                {{ block.settings.second_button_label | escape }}
+                              </a>
+                            {% endif %}
+                          </div>
+                        {% endif %}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="media-with-text__media-wrapper">
+                    <div class="media-with-text__media {% if section.settings.height_mobile != 'auto' %}media-with-text__media--fill{% else %}media-with-text__media--auto{% endif %} {% if block.settings.image.src contains '.png' %}media-with-text__media--transparent{% endif %}">
+                      {%- if block.settings.image != blank -%}
+                        {%- if block.settings.image_mobile == blank -%}
+                          {{- block.settings.image | image_url: width: block.settings.image.width | image_tag: loading: 'lazy', sizes: 'calc(100vw - 32px)', widths: '200,300,400,500,600,700,800,900,1000,1200,1400,1600,1800,2000,2200,2400,2600,2800,3000,3200' -}}
+                        {%- else -%}
+                          {{- block.settings.image_mobile | image_url: width: block.settings.image_mobile.width | image_tag: loading: 'lazy', sizes: 'calc(100vw - 32px)', widths: '200,300,400,500,600,700,800,900,1000,1200,1400,1600,1800,2000,2200,2400,2600,2800,3000,3200' -}}
+                        {%- endif -%}
+                      {%- else -%}
+                        {{ 'lifestyle-' | append: placeholder_image | placeholder_svg_tag }}
+                      {%- endif -%}
+                    </div>
+                  </div>
+                </div>
+              {%- endif -%}
+            </li>
+          {%- endfor -%}
+        </ul>
+
+        {%- if section.settings.auto_play and section.blocks.size > 1 -%}
+          {{ autoplay_progress }}
+        {%- endif -%}
+
+        <div class="scroller-bar {% if section.settings.layout == 'full' %}container{% endif %}">
+          <loess-scroller-progress target="{{ slider_mobile_id }}" class="scroller-progress-bar" style="--scroller-progress: 0;" aria-hidden="true">
+          </loess-scroller-progress>
+        </div>
+      </loess-scroller>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Slideshow",
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.overlay"]
+  },
+  "tag": "section",
+  "class": "shopify-section--slideshow",
+  "max_blocks": 5,
+  "settings": [
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "options": [
+        {
+          "value": "fixed",
+          "label": "Fixed width"
+        },
+        {
+          "value": "full",
+          "label": "Full width"
+        }
+      ],
+      "default": "fixed"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_shadow",
+      "label": "Enable shadow",
+      "default": true,
+      "info": "Applicable when the layout is set to “Fixed width“"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_background_image",
+      "label": "Enable background image on large screens",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "height_large",
+      "label": "Section height on large screens",
+      "options": [
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        },
+        {
+          "value": "x-large",
+          "label": "Extra large"
+        },
+        {
+          "value": "auto",
+          "label": "Adapt to first image"
+        },
+        {
+          "value": "fullscreen",
+          "label": "Fullscreen height"
+        }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "select",
+      "id": "height_mobile",
+      "label": "Section height on mobile",
+      "options": [
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        },
+        {
+          "value": "x-large",
+          "label": "Extra large"
+        },
+        {
+          "value": "auto",
+          "label": "Adapt to first image"
+        },
+        {
+          "value": "fullscreen",
+          "label": "Fullscreen height"
+        }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 3,
+      "step": 0.1,
+      "unit": "x",
+      "label": "Padding top",
+      "default": 1,
+      "info": "Applicable when the layout is set to “Fixed width“"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 3,
+      "step": 0.1,
+      "unit": "x",
+      "label": "Padding bottom",
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "overlay",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Image overlay",
+      "default": 25,
+      "info": "Applicable when “Enable background image“ is enabled"
+    },
+    {
+      "type": "header",
+      "content": "Slides"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_parallax",
+      "label": "Enable parallax effect",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "animation",
+      "label": "Image animation",
+      "options": [
+        {
+          "value": "cross-fade",
+          "label": "Cross-fade"
+        },
+        {
+          "value": "fade",
+          "label": "Fade"
+        },
+        {
+          "value": "swipe",
+          "label": "Swipe"
+        },
+        {
+          "value": "explode",
+          "label": "Explode"
+        }
+      ],
+      "default": "fade"
+    },
+    {
+      "type": "checkbox",
+      "id": "maintain_background_color_first_slide",
+      "label": "Maintain background color from first slide",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "auto_play",
+      "label": "Auto-change slides",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "auto_play_delay",
+      "min": 4,
+      "max": 10,
+      "step": 1,
+      "unit": "sec",
+      "label": "Change slides every",
+      "default": 5
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "options": [
+        {
+          "value": "soft",
+          "label": "Soft"
+        },
+        {
+          "value": "default-with-accent-1",
+          "label": "Default"
+        },
+        {
+          "value": "inverse-with-accent-2",
+          "label": "Inverse"
+        },
+        {
+          "value": "accent-1",
+          "label": "Accent 1"
+        },
+        {
+          "value": "accent-2",
+          "label": "Accent 2"
+        },
+        {
+          "value": "accent-3",
+          "label": "Accent 3"
+        }
+      ],
+      "default": "default-with-accent-1"
+    },
+    {
+      "type": "checkbox",
+      "id": "custom_colors",
+      "label": "Override with custom colors",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "color_foreground",
+      "label": "Custom foreground color",
+      "default": "#212121"
+    },
+    {
+      "type": "color",
+      "id": "color_accent",
+      "label": "Custom accent color",
+      "default": "#0D91BD"
+    },
+    {
+      "type": "color",
+      "id": "color_background",
+      "label": "Custom background color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color_background",
+      "id": "color_gradient",
+      "label": "Custom background gradient",
+      "info": "Optional. Overrides “Custom background color”."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_mobile",
+          "label": "Image override on small screens"
+        },
+        {
+          "type": "header",
+          "content": "Content"
+        },
+        {
+          "type": "text",
+          "id": "subheading",
+          "label": "Subheading"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Slide heading"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
+        },
+        {
+          "type": "select",
+          "id": "text_size",
+          "label": "Text size",
+          "options": [
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "large",
+              "label": "Large"
+            },
+            {
+              "value": "x-large",
+              "label": "Extra large"
+            }
+          ],
+          "default": "large"
+        },
+        {
+          "type": "select",
+          "id": "text_position_large",
+          "label": "Text position on large screens",
+          "options": [
+            {
+              "value": "start start",
+              "label": "Top left"
+            },
+            {
+              "value": "start center",
+              "label": "Top center"
+            },
+            {
+              "value": "start end",
+              "label": "Top right"
+            },
+            {
+              "value": "center start",
+              "label": "Middle left"
+            },
+            {
+              "value": "center center",
+              "label": "Middle center"
+            },
+            {
+              "value": "center end",
+              "label": "Middle right"
+            },
+            {
+              "value": "end start",
+              "label": "Bottom left"
+            },
+            {
+              "value": "end center",
+              "label": "Bottom middle"
+            },
+            {
+              "value": "end end",
+              "label": "Bottom right"
+            }
+          ],
+          "default": "center start"
+        },
+        {
+          "type": "range",
+          "id": "content_width_large",
+          "min": 25,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "label": "Content width on large screens",
+          "default": 50,
+          "info": "Applicable to large screens when “Enable background image“ is enabled"
+        },
+        {
+          "type": "select",
+          "id": "text_position_mobile",
+          "label": "Text position on mobile",
+          "options": [
+            {
+              "value": "start",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            }
+          ],
+          "default": "start"
+        },
+        {
+          "type": "text",
+          "id": "first_button_label",
+          "label": "First button label",
+          "info": "Leave the label blank to hide the button"
+        },
+        {
+          "type": "url",
+          "id": "first_button_link",
+          "label": "First button link"
+        },
+        {
+          "type": "checkbox",
+          "id": "first_button_style",
+          "label": "Use outline style",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "second_button_label",
+          "label": "Second button label",
+          "info": "Leave the label blank to hide the button"
+        },
+        {
+          "type": "url",
+          "id": "second_button_link",
+          "label": "Second button link"
+        },
+        {
+          "type": "checkbox",
+          "id": "second_button_style",
+          "label": "Use outline style",
+          "default": true
+        },
+        {
+          "type": "header",
+          "content": "Colors"
+        },
+        {
+          "type": "select",
+          "id": "color_scheme",
+          "label": "Color scheme",
+          "options": [
+            {
+              "value": "soft",
+              "label": "Soft"
+            },
+            {
+              "value": "default-with-accent-1",
+              "label": "Default"
+            },
+            {
+              "value": "inverse-with-accent-2",
+              "label": "Inverse"
+            },
+            {
+              "value": "accent-1",
+              "label": "Accent 1"
+            },
+            {
+              "value": "accent-2",
+              "label": "Accent 2"
+            },
+            {
+              "value": "accent-3",
+              "label": "Accent 3"
+            }
+          ],
+          "default": "default-with-accent-1"
+        },
+        {
+          "type": "checkbox",
+          "id": "custom_colors",
+          "label": "Override with custom colors",
+          "default": false
+        },
+        {
+          "type": "color",
+          "id": "color_foreground",
+          "label": "Custom foreground color",
+          "default": "#212121"
+        },
+        {
+          "type": "color",
+          "id": "color_accent",
+          "label": "Custom accent color",
+          "default": "#0D91BD"
+        },
+        {
+          "type": "color",
+          "id": "color_background",
+          "label": "Custom background color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "color_background",
+          "id": "color_gradient",
+          "label": "Custom background gradient",
+          "info": "Optional. Overrides “Custom background color”."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Slideshow",
+      "blocks": [
+        {
+          "type": "slide"
+        },
+        {
+          "type": "slide"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

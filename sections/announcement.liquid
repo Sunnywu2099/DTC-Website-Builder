@@ -1,0 +1,281 @@
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    --font: var({% if section.settings.font == 'heading' %}--font-h-family{% else %}--font-b-family{% endif %});
+    --scroll-speed: {{ section.settings.sliding_text_speed }}s;
+    --padding-top: {{ section.settings.padding_top }};
+    --padding-bottom: {{ section.settings.padding_bottom }};
+
+    {%- if section.settings.custom_colors -%}
+      --color-foreground: {{ section.settings.color_foreground.red }}, {{ section.settings.color_foreground.green }}, {{ section.settings.color_foreground.blue }};
+      --color-background: {{ section.settings.color_background.red }}, {{ section.settings.color_background.green }}, {{ section.settings.color_background.blue }};
+      --color-gradient: {% if section.settings.color_gradient != blank %}{{ section.settings.color_gradient }}{% else %}{{ section.settings.color_background }}{% endif %};
+    {%- endif -%}
+  }
+{%- endstyle -%}
+
+{%- liquid
+  if section.settings.font == 'heading'
+    case section.settings.text_size
+      when 'x-small'
+        assign text_size = 'h4'
+      when 'small'
+        assign text_size = 'h3'
+      when 'medium'
+        assign text_size = 'h2'
+      when 'large'
+        assign text_size = 'h1'
+      when 'x-large'
+        assign text_size = 'h0'
+    endcase
+  else
+    case section.settings.text_size
+      when 'x-small'
+        assign text_size = 'small-caption'
+      when 'small'
+        assign text_size = 'caption'
+      when 'medium'
+        assign text_size = 'small-body-text'
+      when 'large'
+        assign text_size = 'body'
+      when 'x-large'
+        assign text_size = 'large-body-text'
+    endcase
+  endif
+-%}
+
+{%- if section.settings.layout != 'full' -%}
+  {%- if section.settings.layout == 'fixed-soft' -%}<div class="soft-background">{% endif %}
+  <div class="section-vertical-spacer container container--capped">
+{%- endif -%}
+
+<div class="section {% if section.settings.layout != 'full' and section.settings.enable_shadow %}shadow{% endif %} {% if section.settings.custom_colors %}color-custom{% else %}color color-{{ section.settings.color_scheme }}{% endif %} color-gradient {% if section.settings.layout != 'full' %}border-radius{% endif %}">
+  <div class="announcement {% if section.settings.layout == 'full' %}section-vertical-spacer{% endif %}">
+    <ul class="announcement__content {% if section.settings.reverse_direction %}announcement__content--reverse{% endif %} {{ text_size }}" role="list">
+      {%- for i in (1..5) -%}
+        {%- for block in section.blocks -%}
+          <li class="rte">{{ block.settings.title }}</li>
+        {%- endfor -%}
+      {%- endfor -%}
+    </ul>
+
+    <ul class="announcement__content {% if section.settings.reverse_direction %}announcement__content--reverse{% endif %} {{ text_size }}" aria-hidden="true" role="list">
+      {%- for i in (1..5) -%}
+        {%- for block in section.blocks -%}
+          <li class="rte">{{ block.settings.title }}</li>
+        {%- endfor -%}
+      {%- endfor -%}
+    </ul>
+  </div>
+</div>
+
+{%- if section.settings.layout != 'full' -%}
+  </div>
+  {%- if section.settings.layout == 'fixed-soft' -%}</div>{% endif %}
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Announcement",
+  "disabled_on": {
+    "groups": ["custom.overlay"]
+  },
+  "class": "shopify-section--announcement",
+  "settings": [
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "options": [
+        {
+          "value": "fixed",
+          "label": "Fixed width"
+        },
+        {
+          "value": "fixed-soft",
+          "label": "Fixed width with soft background"
+        },
+        {
+          "value": "full",
+          "label": "Full width"
+        }
+      ],
+      "default": "full"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_shadow",
+      "label": "Enable shadow",
+      "default": true,
+      "info": "Applicable when the layout is set to “Fixed width“"
+    },
+    {
+      "type": "checkbox",
+      "id": "reverse_direction",
+      "label": "Reverse scroller direction",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "sliding_text_speed",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "unit": "sec",
+      "label": "Sliding text speed",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 3,
+      "step": 0.1,
+      "unit": "x",
+      "label": "Padding top",
+      "default": 0.5
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 3,
+      "step": 0.1,
+      "unit": "x",
+      "label": "Padding bottom",
+      "default": 0.5
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "select",
+      "id": "font",
+      "label": "Text style",
+      "options": [
+        {
+          "value": "heading",
+          "label": "Heading"
+        },
+        {
+          "value": "body-text",
+          "label": "Body text"
+        }
+      ],
+      "default": "heading"
+    },
+    {
+      "type": "select",
+      "id": "text_size",
+      "label": "Text size",
+      "options": [
+        {
+          "value": "x-small",
+          "label": "Extra small"
+        },
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        },
+        {
+          "value": "x-large",
+          "label": "Extra large"
+        }
+      ],
+      "default": "x-small"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "options": [
+        {
+          "value": "soft",
+          "label": "Soft"
+        },
+        {
+          "value": "default-with-accent-1",
+          "label": "Default"
+        },
+        {
+          "value": "inverse-with-accent-2",
+          "label": "Inverse"
+        },
+        {
+          "value": "accent-1",
+          "label": "Accent 1"
+        },
+        {
+          "value": "accent-2",
+          "label": "Accent 2"
+        },
+        {
+          "value": "accent-3",
+          "label": "Accent 3"
+        }
+      ],
+      "default": "default-with-accent-1"
+    },
+    {
+      "type": "checkbox",
+      "id": "custom_colors",
+      "label": "Override with custom colors",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "color_foreground",
+      "label": "Custom foreground color",
+      "default": "#212121"
+    },
+    {
+      "type": "color",
+      "id": "color_background",
+      "label": "Custom background color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color_background",
+      "id": "color_gradient",
+      "label": "Custom background gradient",
+      "info": "Optional. Overrides “Custom background color”."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "announcement",
+      "name": "Announcement",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "title",
+          "label": "Text",
+          "default": "Announce something here"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Announcement",
+      "blocks": [
+        {
+          "type": "announcement"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

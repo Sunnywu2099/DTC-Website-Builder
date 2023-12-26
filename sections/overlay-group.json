@@ -1,0 +1,1 @@
+{"type":"custom.overlay","name":"Overlay group","sections":{"popup":{"type":"popup","blocks":{"email-form":{"type":"email-form","settings":{}}},"block_order":["email-form"],"settings":{}},"cookie-acceptance-banner":{"type":"cookie-acceptance-banner","settings":{}}},"order":["popup","cookie-acceptance-banner"]}

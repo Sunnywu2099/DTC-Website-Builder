@@ -1,0 +1,259 @@
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    --padding-top: {{ section.settings.padding_top }};
+    --padding-bottom: {{ section.settings.padding_bottom }};
+
+    {%- if section.settings.custom_colors -%}
+      --color-foreground: {{ section.settings.color_foreground.red }}, {{ section.settings.color_foreground.green }}, {{ section.settings.color_foreground.blue }};
+      --color-background: {{ section.settings.color_background.red }}, {{ section.settings.color_background.green }}, {{ section.settings.color_background.blue }};
+      --color-gradient: {% if section.settings.color_gradient != blank %}{{ section.settings.color_gradient }}{% else %}{{ section.settings.color_background }}{% endif %};
+    {%- endif -%}
+  }
+{%- endstyle -%}
+
+{%- assign items_requiring_shipping = cart.items | where: 'requires_shipping' -%}
+
+{%- if items_requiring_shipping.size > 0 -%}
+  {%- if section.settings.layout != 'full' -%}
+    {%- if section.settings.layout == 'fixed-soft' -%}<div class="soft-background">{% endif %}
+    <div class="section-vertical-spacer container container--capped">
+  {%- endif -%}
+
+  <div class="section {% if section.settings.layout != 'full' and section.settings.enable_shadow %}shadow{% endif %} {% if section.settings.custom_colors %}color-custom{% else %}color color-{{ section.settings.color_scheme }}{% endif %} color-gradient {% if section.settings.layout != 'full' %}border-radius{% endif %}">
+    <div class="vertical-spacer container">
+      {%- if section.settings.heading != '' -%}
+        <div class="shipping-rates__title">
+          <h2 class="h3">
+            {{ section.settings.heading | escape }}
+          </h2>
+          <button
+            is="loess-button"
+            class="shipping-rates__toggle button button--icon tap hide-tablet-and-up"
+            aria-expanded="false"
+            aria-controls="ShippingCalculator"
+          >
+            {% render 'icon' with 'collapse' %}
+            {% render 'icon' with 'expand' %}
+          </button>
+        </div>
+      {%- endif -%}
+
+      <loess-collapsible-panel id="ShippingCalculator" class="collapsible-panel">
+        <loess-shipping-calculator class="shipping-rates__form" role="form">
+          <div class="shipping-rates__inputs caption">
+            <div class="input-group">
+              <label class="input__label input__label--select" for="ShippingRatesCountry">
+                {{ 'customer.addresses.country' | t }}
+              </label>
+              <div class="input__select-wrapper">
+                <select
+                  is="loess-shipping-country-selector"
+                  id="ShippingRatesCountry"
+                  class="input__select"
+                  name="shipping-rates[country]"
+                  aria-owns="ShippingRatesProvinceSelector"
+                  data-default-option="{% if customer and customer.default_address %}{{ customer.default_address.country }}{% elsif section.settings.default_country != '' %}{{ section.settings.default_country }}{% endif %}"
+                >
+                  {{ country_option_tags }}
+                </select>
+                <span>
+                  {% render 'icon' with 'caret' %}
+                </span>
+              </div>
+            </div>
+            <div id="ShippingRatesProvinceSelector" class="input-group input-group--hidden">
+              <label class="input__label input__label--select" for="ShippingRatesProvince">
+                {{ 'customer.addresses.province' | t }}
+              </label>
+              <div class="input__select-wrapper">
+                <select
+                  id="ShippingRatesProvince"
+                  class="input__select"
+                  name="shipping-rates[province]"
+                  {% if customer and customer.default_address %}
+                    data-default-option="{{ customer.default_address.province }}"
+                  {% endif %}
+                ></select>
+                <span>
+                  {% render 'icon' with 'caret' %}
+                </span>
+              </div>
+            </div>
+            <div class="input-group">
+              <input
+                is="loess-input-field"
+                id="ShippingRatesZipCode"
+                type="text"
+                name="shipping-rates[zip]"
+                class="input__field"
+                {% if customer and customer.default_address %}
+                  {{- customer.default_address.zip -}}
+                {% endif %}
+              >
+              <label class="input__label" for="ShippingRatesZipCode">
+                {{ 'customer.addresses.zip' | t }}
+              </label>
+            </div>
+          </div>
+          <button type="button" class="shipping-rates__button button button--secondary">
+            {{ 'customer.addresses.estimate' | t }}
+          </button>
+        </loess-shipping-calculator>
+        <div class="shipping-rates__spinner hide">
+          <svg class="spinner" viewBox="0 0 24 24">
+            <circle class="spinner__value" cx="12" cy="12" r="10" />
+          </svg>
+        </div>
+      </loess-collapsible-panel>
+    </div>
+  </div>
+
+  {%- if section.settings.layout != 'full' -%}
+    </div>
+    {%- if section.settings.layout == 'fixed-soft' -%}</div>{% endif %}
+  {%- endif -%}
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Shipping calculator",
+  "class": "shopify-section--shipping-calculator",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Only displays if there are items in the cart that require shipping."
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "options": [
+        {
+          "value": "fixed",
+          "label": "Fixed width"
+        },
+        {
+          "value": "fixed-soft",
+          "label": "Fixed width with soft background"
+        },
+        {
+          "value": "full",
+          "label": "Full width"
+        }
+      ],
+      "default": "full"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_shadow",
+      "label": "Enable shadow",
+      "default": true,
+      "info": "Applicable when the layout is set to “Fixed width“"
+    },
+    {
+      "type": "checkbox",
+      "id": "collapse_on_mobile",
+      "label": "Collapse on mobile by default",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 3,
+      "step": 0.1,
+      "unit": "x",
+      "label": "Padding top",
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 3,
+      "step": 0.1,
+      "unit": "x",
+      "label": "Padding bottom",
+      "default": 1
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Estimate shipping rates"
+    },
+    {
+      "type": "text",
+      "id": "default_country",
+      "label": "Default country to use",
+      "default": "United States",
+      "info": "If the customer is logged in, the country of their shipping address will be used"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "options": [
+        {
+          "value": "soft",
+          "label": "Soft"
+        },
+        {
+          "value": "default",
+          "label": "Default"
+        },
+        {
+          "value": "inverse",
+          "label": "Inverse"
+        },
+        {
+          "value": "accent-1",
+          "label": "Accent 1"
+        },
+        {
+          "value": "accent-2",
+          "label": "Accent 2"
+        },
+        {
+          "value": "accent-3",
+          "label": "Accent 3"
+        }
+      ],
+      "default": "soft",
+      "info": "Learn more about [color schemes](https://loess.ticksy.com/article/18637/)"
+    },
+    {
+      "type": "checkbox",
+      "id": "custom_colors",
+      "label": "Override with custom colors",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "color_foreground",
+      "label": "Custom foreground color",
+      "default": "#212121"
+    },
+    {
+      "type": "color",
+      "id": "color_background",
+      "label": "Custom background color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color_background",
+      "id": "color_gradient",
+      "label": "Custom background gradient",
+      "info": "Optional. Overrides “Custom background color”."
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,178 @@
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    --alignment: {% if section.settings.center_layout %}center{% else %}start{% endif %};
+
+    {%- if section.settings.custom_colors -%}
+      --color-foreground: {{ section.settings.color_foreground.red }}, {{ section.settings.color_foreground.green }}, {{ section.settings.color_foreground.blue }};
+      --color-background: {{ section.settings.color_background.red }}, {{ section.settings.color_background.green }}, {{ section.settings.color_background.blue }};
+    {%- endif -%}
+  }
+{%- endstyle -%}
+
+{%- if request.design_mode == false -%}
+  <loess-recently-viewed-products fetch-url="{{ routes.search_url }}?type=product&section_id={{ section.id }}" {% if request.page_type == 'product' -%}excluded-product-id="{{ product.id }}"{% endif %}>
+    {%- if request.page_type == 'search' and search.performed and search.results_count > 0 -%}
+      <div class="section block {% if section.settings.custom_colors %}color-custom{% else %}color {% if section.settings.color_scheme != 'soft-background' %}color-{{ section.settings.color_scheme }}{% else %}color-default-with-accent-1{% endif %}{% endif %} color-gradient">
+        {%- if section.settings.color_scheme == 'soft-background' and section.settings.custom_colors == false -%}<div class="recent-products-soft-background">{%- endif -%}
+          <div class="container">
+            <header class="section-heading {% if section.settings.center_layout %}section-heading--centered{% endif %} section-heading--flush section-heading--aligned section-heading--mobile-spaced section-heading--padded">
+              <h2 class="section-heading__heading h4">
+                {{ 'sections.recently_viewed.title' | t }}
+              </h2>
+
+              {%- if section.settings.style != 'non-collapsible' -%}
+                <button is="loess-button" class="section-heading__link button button--secondary button--inherit button--x-small button--icon tap" aria-expanded="{% if section.settings.style == 'open' %}true{% else %}false{% endif %}" aria-controls="RecentViewedProducts-{{ section.id }}">
+                  {% render 'icon' with 'caret' %}
+                </button>
+              {%- endif -%}
+            </header>
+
+            <loess-collapsible-panel id="RecentViewedProducts-{{ section.id }}" class="recent-products-panel collapsible-panel" {% if section.settings.style != 'collapsed' %}open{% endif %}>
+              <div class="recent-products-list">
+                {%- liquid
+                  assign search_terms = search.terms | split: ' OR '
+
+                  for term in search_terms
+                    assign id = term | split: 'id:' | last | times: 1
+
+                    for product in search.results
+                      if id == product.id
+                        render 'recently-viewed-product', product: product, section: section
+                        break
+                      endif
+                    endfor
+                  endfor
+                -%}
+              </div>
+
+              <div class="recent-products-footer">
+                {%- if section.settings.enable_clear_history -%}
+                  <button class="recent-products__clear-button small-caption button button--plain" clear-history>
+                    {{ 'sections.recently_viewed.clear_history' | t }}
+                  </button>
+                {%- endif -%}
+                </div>
+            </loess-collapsible-panel>
+          </div>
+        {%- if section.settings.color_scheme == 'soft-background' and section.settings.custom_colors == false -%}</div>{%- endif -%}
+      </div>
+    {%- endif -%}
+  </loess-recently-viewed-products>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Recently viewed products",
+  "disabled_on": {
+    "groups": ["header", "custom.overlay"]
+  },
+  "tag": "section",
+  "class": "shopify-section--recently-viewed",
+  "limit": 1,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Recently viewed products are only visible when browsing outside of the editor."
+    },
+    {
+      "type": "checkbox",
+      "id": "center_layout",
+      "label": "Center layout",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "style",
+      "label": "Style",
+      "options": [
+        {
+          "value": "open",
+          "label": "Open by default"
+        },
+        {
+          "value": "collapsed",
+          "label": "Collapsed by default"
+        },
+        {
+          "value": "non-collapsible",
+          "label": "Non-collapsible"
+        }
+      ],
+      "default": "open"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_quick_view",
+      "label": "Enable product quick view",
+      "default": false,
+      "info": "If disabled, clicking on a product thumbnail will navigate to its product page"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_clear_history",
+      "label": "Enable clear history",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Color schemes"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "options": [
+        {
+          "value": "soft-background",
+          "label": "Soft"
+        },
+        {
+          "value": "default-with-accent-1",
+          "label": "Default"
+        },
+        {
+          "value": "inverse-with-accent-2",
+          "label": "Inverse"
+        },
+        {
+          "value": "accent-1",
+          "label": "Accent 1"
+        },
+        {
+          "value": "accent-2",
+          "label": "Accent 2"
+        },
+        {
+          "value": "accent-3",
+          "label": "Accent 3"
+        }
+      ],
+      "default": "default-with-accent-1",
+      "info": "Learn more about [color schemes](https://loess.ticksy.com/article/18637/)"
+    },
+    {
+      "type": "checkbox",
+      "id": "custom_colors",
+      "label": "Override with custom colors",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "color_foreground",
+      "label": "Custom foreground color",
+      "default": "#212121"
+    },
+    {
+      "type": "color",
+      "id": "color_background",
+      "label": "Custom background color",
+      "default": "#FFFFFF"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Recently viewed products"
+    }
+  ]
+}
+{% endschema %}
