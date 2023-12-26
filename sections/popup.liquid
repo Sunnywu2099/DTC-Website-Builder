@@ -1,0 +1,656 @@
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    --text-x-axis: {%- if section.settings.center_content -%}center{%- else -%}left{%- endif -%};
+
+    {%- if section.settings.custom_colors -%}
+      --color-foreground: {{ section.settings.color_foreground.red }}, {{ section.settings.color_foreground.green }}, {{ section.settings.color_foreground.blue }};
+      --color-background: {{ section.settings.color_background.red }}, {{ section.settings.color_background.green }}, {{ section.settings.color_background.blue }};
+      --color-accent: {{ section.settings.color_accent.red }}, {{ section.settings.color_accent.green }}, {{ section.settings.color_accent.blue }};
+    {%- endif -%}
+  }
+{%- endstyle -%}
+
+{%- if section.settings.enable -%}
+  <div class='section {% if section.settings.custom_colors %}color-custom{% else %}block color color-{{ section.settings.color_scheme }}{% endif %}'>
+    {%- form 'customer' -%}
+      {%- if form.posted_successfully or form.errors -%}
+        <script>
+          window.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('EmailPopup').open = true;
+          });
+        </script>
+      {%- endif -%}
+
+      <loess-popup
+        id='PopupIconToggle'
+        class='popup popup--{{ section.settings.position }} {% if section.settings.image != blank %}popup--{{ section.settings.image_position }}{% else %}popup--no-image{% endif %}'
+        section-id='{{ section.id }}'
+        delay-visibility='{{ section.settings.delay }}'
+        day-frequency='{{ section.settings.frequency }}'
+      >
+        <div class='popup__inner border-radius'>
+          <button
+            type='button'
+            class='popup__close-button {% if settings.styles_elements_corners != 'square' %}popup__close-button--padded{% endif %} button button--icon button--plain'
+            aria-label='{{ 'general.close' | t }}'
+            close
+          >
+            {% render 'icon' with 'icon-close-small' %}
+          </button>
+          {%- if section.settings.image != blank -%}
+            <div class='popup__image popup__image--{{ section.settings.image_height }} popup__image--{{ section.settings.image_position }}'>
+              {{
+                section.settings.image
+                | image_url: width: 1000
+                | image_tag: alt: section.settings.image.alt, loading: 'lazy'
+              }}
+            </div>
+          {%- endif -%}
+          <div class='popup__content container'>
+            {%- if section.settings.icon != 'none' -%}
+              <loess-icon class='popup__icon color-accent'>
+                {%- render 'icon' with section.settings.icon -%}
+              </loess-icon>
+            {%- endif -%}
+            {%- for block in section.blocks -%}
+              {%- case block.type -%}
+                {%- when '@app' -%}
+                  {% render block %}
+                {%- when 'email-form' -%}
+                  {%- if block.settings.title != blank -%}
+                    <h2 class='{{ block.settings.heading_style }}'>
+                      {{ block.settings.title | escape }}
+                    </h2>
+                  {%- endif -%}
+
+                  {%- if block.settings.text != blank -%}
+                    <span class='{{ block.settings.text_style }}'>
+                      {{ block.settings.text }}
+                    </span>
+                  {%- endif -%}
+
+                  <div>
+                    <div class='input-group {% if form.posted_successfully? %}input-group--hidden text-center{% endif %}'>
+                      <input
+                        is='loess-input-field'
+                        id='EmailPopupInput'
+                        type='email'
+                        name='contact[email]'
+                        class='input__field input__field--has-button'
+                        value='{{ form.email }}'
+                        aria-required='true'
+                        autocorrect='off'
+                        autocapitalize='off'
+                        autocomplete='email'
+                        {% if form.errors %}
+                          autofocus
+                          aria-invalid='true'
+                        {% endif %}
+                        required
+                      >
+                      <label for='user' class='input__label'>Email</label>
+                      <button
+                        type='submit'
+                        class='button button--plain input__button'
+                        name='commit'
+                        aria-label='{{ 'sections.newsletter.subscribe' | t }}'
+                      >
+                        {% render 'icon' with 'arrow-medium' %}
+                      </button>
+                    </div>
+
+                    {%- if form.errors -%}
+                      <small class='form-message small-text'>
+                        {% render 'icon' with 'red-exclamation' -%}
+                        {{- form.errors.translated_fields.email | capitalize }}
+                        {{ form.errors.messages.email }}
+                        <span>{{ 'sections.newsletter.invalid_email' | t }}</span>
+                      </small>
+                    {%- endif -%}
+
+                    {%- if form.posted_successfully? -%}
+                      <h2 class='form-message small-text' tabindex='-1' autofocus>
+                        {% render 'icon' with 'green-check' %}
+                        <span>{{ 'sections.password.thank_you' | t }}</span>
+                      </h2>
+                    {%- endif -%}
+                  </div>
+                {%- when 'text' -%}
+                  {%- if block.settings.title != blank -%}
+                    <h3 class='{{ block.settings.heading_style }}'>
+                      {{ block.settings.title | escape }}
+                    </h3>
+                  {%- endif -%}
+                  {%- if block.settings.text != blank -%}
+                    <span class='{{ block.settings.text_style }}'>
+                      {{ block.settings.text }}
+                    </span>
+                  {%- endif -%}
+                  {%- if block.settings.button_label != blank -%}
+                    <a
+                      href='{{ block.settings.button_link }}'
+                      class='button {% if block.settings.button_outline_style %}button--secondary{% else %}button--primary{% endif %} button--full-width tap'
+                    >
+                      {{ block.settings.button_label | escape }}
+                    </a>
+                  {%- endif -%}
+              {%- endcase -%}
+            {%- endfor -%}
+          </div>
+        </div>
+      </loess-popup>
+
+      <div class='popup-overlay'></div>
+    {%- endform -%}
+  </div>
+
+  <style>
+    {% comment %}
+      Slightly painful way of showing the icon in the header depending on which block type
+      is being used, due to inability to reference section settings in other sections.
+    {% endcomment %}
+
+    {%- if section.settings.enable_header_icon -%}
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'email-form' -%}
+            [data-popup-icon="email"] {
+              display: flex;
+            }
+
+            [data-popup-icon="notice"] {
+              display: none;
+            }
+          {%- else -%}
+            [data-popup-icon="email"] {
+              display: none;
+            }
+
+            [data-popup-icon="notice"] {
+              display: flex;
+            }
+        {%- endcase -%}
+      {%- endfor -%}
+    {%- endif -%}
+  </style>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Popup",
+  "max_blocks": 1,
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable",
+      "label": "Enable popup",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_header_icon",
+      "label": "Enable popup icon in header",
+      "default": true,
+      "info": "Only applies when popup is enabled. This allows a buyer to view the popup after it may have been dismissed."
+    },
+    {
+      "type": "select",
+      "id": "position",
+      "label": "Popup position",
+      "options": [
+        {
+          "value": "center",
+          "label": "Centered"
+        },
+        {
+          "value": "bottom-left",
+          "label": "Bottom left"
+        },
+        {
+          "value": "bottom-center",
+          "label": "Bottom middle"
+        },
+        {
+          "value": "bottom-right",
+          "label": "Bottom right"
+        }
+      ],
+      "default": "center",
+      "info": "Only applies to devices with large screens"
+    },
+    {
+      "type": "range",
+      "id": "delay",
+      "label": "Delay",
+      "unit": "sec",
+      "min": 0,
+      "max": 60,
+      "step": 5,
+      "default": 5,
+      "info": "Delay is disabled in the theme editor for visibility"
+    },
+    {
+      "type": "range",
+      "id": "frequency",
+      "label": "Frequency",
+      "min": 1,
+      "max": 30,
+      "step": 1,
+      "default": 30,
+      "info": "Number of days before a dismissed popup reappears"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "checkbox",
+      "id": "center_content",
+      "label": "Center content",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "icon",
+      "label": "Icon",
+      "options": [
+        { "value": "none", "label": "None" },
+
+        { "value": "icon-24-7", "label": "24/7", "group": "Misc" },
+        { "value": "icon-alert", "label": "Alert", "group": "Misc" },
+        { "value": "icon-box", "label": "Box", "group": "Misc" },
+        { "value": "icon-calendar", "label": "Calendar", "group": "Misc" },
+        { "value": "icon-cash", "label": "Cash", "group": "Misc" },
+        { "value": "icon-certificate", "label": "Certificate", "group": "Misc" },
+        { "value": "icon-clipboard", "label": "Clipboard", "group": "Misc" },
+        { "value": "icon-coupon", "label": "Coupon", "group": "Misc" },
+        { "value": "icon-credit-card", "label": "Credit card", "group": "Misc" },
+        { "value": "icon-currency-dollar", "label": "Currency: Dollar", "group": "Misc" },
+        { "value": "icon-currency-euro", "label": "Currency: Euro", "group": "Misc" },
+        { "value": "icon-currency-pounds", "label": "Currency: Pound", "group": "Misc" },
+        { "value": "icon-currency-yen", "label": "Currency: Yen", "group": "Misc" },
+        { "value": "icon-dollar-bill", "label": "Dollar bill", "group": "Misc" },
+        { "value": "icon-email", "label": "Email", "group": "Misc" },
+        { "value": "icon-feather", "label": "Feather", "group": "Misc" },
+        { "value": "icon-gift", "label": "Gift", "group": "Misc" },
+        { "value": "icon-globe", "label": "Globe", "group": "Misc" },
+        { "value": "icon-handshake", "label": "Handshake", "group": "Misc" },
+        { "value": "icon-heart", "label": "Heart", "group": "Misc" },
+        { "value": "icon-heart-in-hands", "label": "Heart in hands", "group": "Misc" },
+        { "value": "icon-leaf", "label": "Leaf", "group": "Misc" },
+        { "value": "icon-map-pin", "label": "Map pin", "group": "Misc" },
+        { "value": "icon-megaphone", "label": "Megaphone", "group": "Misc" },
+        { "value": "icon-open-24", "label": "Open 24 hours", "group": "Misc" },
+        { "value": "icon-phone", "label": "Phone", "group": "Misc" },
+        { "value": "icon-piggybank", "label": "Piggybank", "group": "Misc" },
+        { "value": "icon-price-tag", "label": "Price tag", "group": "Misc" },
+        { "value": "icon-promotion", "label": "Promotion", "group": "Misc" },
+        { "value": "icon-question", "label": "Question", "group": "Misc" },
+        { "value": "icon-recycle", "label": "Recycle", "group": "Misc" },
+        { "value": "icon-returns", "label": "Returns", "group": "Misc" },
+        { "value": "icon-ruler", "label": "Ruler", "group": "Misc" },
+        { "value": "icon-shield", "label": "Shield", "group": "Misc" },
+        { "value": "icon-shopping-cart", "label": "Shopping cart", "group": "Misc" },
+        { "value": "icon-snowflake", "label": "Snowflake", "group": "Misc" },
+        { "value": "icon-stars", "label": "Stars", "group": "Misc" },
+        { "value": "icon-stethoscope", "label": "Stethoscope", "group": "Misc" },
+        { "value": "icon-store", "label": "Store", "group": "Misc" },
+        { "value": "icon-sun", "label": "Sun", "group": "Misc" },
+        { "value": "icon-support", "label": "Support", "group": "Misc" },
+        { "value": "icon-thumbs-up", "label": "Thumbs up", "group": "Misc" },
+        { "value": "icon-truck", "label": "Truck", "group": "Misc" },
+        { "value": "icon-virus", "label": "Virus", "group": "Misc" },
+        { "value": "icon-wave", "label": "Wave", "group": "Misc" },
+
+        { "value": "icon-beanie", "label": "Beanie", "group": "Apparel" },
+        { "value": "icon-bikini", "label": "Bikini", "group": "Apparel" },
+        { "value": "icon-cap", "label": "Cap", "group": "Apparel" },
+        { "value": "icon-clothes-line", "label": "Clothes line", "group": "Apparel" },
+        { "value": "icon-dryer", "label": "Dryer", "group": "Apparel" },
+        { "value": "icon-eyeglasses", "label": "Eyeglasses", "group": "Apparel" },
+        { "value": "icon-gloves", "label": "Gloves", "group": "Apparel" },
+        { "value": "icon-handwash", "label": "Handwash", "group": "Apparel" },
+        { "value": "icon-highheel", "label": "Highheel", "group": "Apparel" },
+        { "value": "icon-iron", "label": "Iron", "group": "Apparel" },
+        { "value": "icon-pants", "label": "Pants", "group": "Apparel" },
+        { "value": "icon-running-shoe", "label": "Running shoe", "group": "Apparel" },
+        { "value": "icon-shirt", "label": "Shirt", "group": "Apparel" },
+        { "value": "icon-hanger", "label": "Hanger", "group": "Apparel" },
+        { "value": "icon-tshirt", "label": "Tshirt", "group": "Apparel" },
+
+        { "value": "icon-bluetooth", "label": "Bluetooth", "group": "Electronics" },
+        { "value": "icon-earbuds", "label": "Earbuds", "group": "Electronics" },
+        { "value": "icon-headphones", "label": "Headphones", "group": "Electronics" },
+        { "value": "icon-microphone", "label": "Microphone", "group": "Electronics" },
+        { "value": "icon-screen", "label": "Screen", "group": "Electronics" },
+        { "value": "icon-smartphone", "label": "Smartphone", "group": "Electronics" },
+        { "value": "icon-soundwave", "label": "Sound wave", "group": "Electronics" },
+        { "value": "icon-speaker", "label": "Speaker", "group": "Electronics" },
+        { "value": "icon-videogame", "label": "Video game", "group": "Electronics" },
+        { "value": "icon-wifi", "label": "Wifi", "group": "Electronics" },
+
+        { "value": "icon-beetle", "label": "Beetle", "group": "Pet shop" },
+        { "value": "icon-bird", "label": "Bird", "group": "Pet shop" },
+        { "value": "icon-bone", "label": "Bone", "group": "Pet shop" },
+        { "value": "icon-bunny", "label": "Bunny", "group": "Pet shop" },
+        { "value": "icon-cat", "label": "Cat", "group": "Pet shop" },
+        { "value": "icon-cricket", "label": "Cricket", "group": "Pet shop" },
+        { "value": "icon-dog", "label": "Dog", "group": "Pet shop" },
+        { "value": "icon-fish", "label": "Fish", "group": "Pet shop" },
+        { "value": "icon-lizard", "label": "Lizard", "group": "Pet shop" },
+        { "value": "icon-mouse", "label": "Mouse", "group": "Pet shop" },
+        { "value": "icon-paw", "label": "Paw", "group": "Pet shop" },
+        { "value": "icon-turtle", "label": "Turtle", "group": "Pet shop" },
+
+        { "value": "icon-bottle", "label": "Bottle", "group": "Food & drink" },
+        { "value": "icon-cake", "label": "Cake", "group": "Food & drink" },
+        { "value": "icon-can", "label": "Can", "group": "Food & drink" },
+        { "value": "icon-candy", "label": "Candy", "group": "Food & drink" },
+        { "value": "icon-coffee-beans", "label": "Coffee beans", "group": "Food & drink" },
+        { "value": "icon-coffee-mug", "label": "Coffee mug", "group": "Food & drink" },
+        { "value": "icon-cookie", "label": "Cookie", "group": "Food & drink" },
+        { "value": "icon-croissant", "label": "Croissant", "group": "Food & drink" },
+        { "value": "icon-cupcake", "label": "Cupcake", "group": "Food & drink" },
+        { "value": "icon-fruits", "label": "Fruits", "group": "Food & drink" },
+        { "value": "icon-gluten-free", "label": "Gluten-free", "group": "Food & drink" },
+        { "value": "icon-hot-pepper", "label": "Hot pepper", "group": "Food & drink" },
+        { "value": "icon-milk", "label": "Milk", "group": "Food & drink" },
+        { "value": "icon-nut-free", "label": "Nut free", "group": "Food & drink" },
+        { "value": "icon-pizza", "label": "Pizza", "group": "Food & drink" },
+        { "value": "icon-salad", "label": "Salad", "group": "Food & drink" },
+        { "value": "icon-sandwich", "label": "Sandwich", "group": "Food & drink" },
+        { "value": "icon-vegan", "label": "Vegan", "group": "Food & drink" },
+        { "value": "icon-veggies", "label": "Vegetable", "group": "Food & drink" },
+        { "value": "icon-wheat", "label": "Wheat", "group": "Food & drink" }
+      ],
+      "default": "icon-megaphone"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "select",
+      "id": "image_height",
+      "label": "Image height",
+      "options": [
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        },
+        {
+          "value": "x-large",
+          "label": "Extra large"
+        }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image position on large screens",
+      "options": [
+        {
+          "value": "top",
+          "label": "Top"
+        },
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left",
+      "info": "Defaults to “Top” on mobile"
+    },
+    {
+      "type": "header",
+      "content": "Color schemes"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "options": [
+        {
+          "value": "default-with-accent-1",
+          "label": "Default"
+        },
+        {
+          "value": "inverse-with-accent-2",
+          "label": "Inverse"
+        },
+        {
+          "value": "accent-1",
+          "label": "Accent 1"
+        },
+        {
+          "value": "accent-2",
+          "label": "Accent 2"
+        },
+        {
+          "value": "accent-3",
+          "label": "Accent 3"
+        }
+      ],
+      "default": "default-with-accent-1",
+      "info": "Learn more about [color schemes](https://loess.ticksy.com/article/18637/)"
+    },
+    {
+      "type": "checkbox",
+      "id": "custom_colors",
+      "label": "Override with custom colors",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "color_foreground",
+      "label": "Custom foreground color",
+      "default": "#212121"
+    },
+    {
+      "type": "color",
+      "id": "color_accent",
+      "label": "Custom accent color",
+      "default": "#0D91BD"
+    },
+    {
+      "type": "color",
+      "id": "color_background",
+      "label": "Custom background color",
+      "default": "#FFFFFF"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "email-form",
+      "name": "Email form",
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Subscribers are added automatically to your “accepted marketing” customer list. [Learn more](https://help.shopify.com/en/manual/customers/manage-customers)"
+        },
+        {
+          "type": "header",
+          "content": "Content"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Sign up and save!"
+        },
+        {
+          "type": "select",
+          "id": "heading_style",
+          "label": "Heading style",
+          "options": [
+            {
+              "value": "h2",
+              "label": "Big"
+            },
+            {
+              "value": "h3",
+              "label": "Small"
+            },
+            {
+              "value": "large-body-text",
+              "label": "Large body"
+            }
+          ],
+          "default": "h3"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Promotions, new products, and sales. Directly to your inbox.</p>"
+        },
+        {
+          "type": "select",
+          "id": "text_style",
+          "label": "Text style",
+          "options": [
+            {
+              "value": "body",
+              "label": "Body"
+            },
+            {
+              "value": "small-subtext",
+              "label": "Small subtext"
+            },
+            {
+              "value": "small-body-text",
+              "label": "Small body"
+            },
+            {
+              "value": "caption",
+              "label": "Caption"
+            },
+            {
+              "value": "small-caption",
+              "label": "Small caption"
+            },
+            {
+              "value": "small-text",
+              "label": "Small text"
+            }
+          ],
+          "default": "caption"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Content"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading"
+        },
+        {
+          "type": "select",
+          "id": "heading_style",
+          "label": "Heading style",
+          "options": [
+            {
+              "value": "h2",
+              "label": "Big"
+            },
+            {
+              "value": "h3",
+              "label": "Small"
+            },
+            {
+              "value": "large-body-text",
+              "label": "Large body"
+            }
+          ],
+          "default": "h3"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Promotions, new products, and sales. Directly to your inbox.</p>"
+        },
+        {
+          "type": "select",
+          "id": "text_style",
+          "label": "Text style",
+          "options": [
+            {
+              "value": "body",
+              "label": "Body"
+            },
+            {
+              "value": "small-subtext",
+              "label": "Small subtext"
+            },
+            {
+              "value": "small-body-text",
+              "label": "Small body"
+            },
+            {
+              "value": "caption",
+              "label": "Caption"
+            },
+            {
+              "value": "small-caption",
+              "label": "Small caption"
+            },
+            {
+              "value": "small-text",
+              "label": "Small text"
+            }
+          ],
+          "default": "caption"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        },
+        {
+          "type": "checkbox",
+          "id": "button_outline_style",
+          "label": "Use outline button style",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      {
+        "type": "email-form"
+      }
+    ]
+  }
+}
+{% endschema %}

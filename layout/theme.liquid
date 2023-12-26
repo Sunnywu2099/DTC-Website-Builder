@@ -1,0 +1,149 @@
+{%- liquid
+  assign language_direction = 'ltr'
+
+  case request.locale.iso_code
+    when 'ar', 'arc', 'dv', 'fa', 'ha', 'he', 'kwh', 'ks', 'ku', 'ps', 'ur', 'yi'
+      assign language_direction = 'rtl'
+  endcase
+-%}
+
+<!doctype html>
+<html class="no-js" lang="{{ request.locale.iso_code }}" dir="{{ language_direction }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="{{ settings.colors_default_background }}">
+
+    {%- if settings.favicon != blank -%}
+      <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+    {%- else -%}
+      <link rel="icon" href="data:,">
+    {%- endif -%}
+
+    <link rel="preconnect" href="https://cdn.shopify.com">
+
+    {%- unless settings.type_headings_font.system? and settings.type_body_font.system? -%}
+      <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
+    {%- endunless -%}
+
+    <title>
+      {%- if template.name == 'password' or template.name == 'gift_card' -%}
+        {{ shop.name }}
+      {%- else -%}
+        {{ page_title }}
+        {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
+        {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
+        {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+      {%- endif -%}
+    </title>
+
+    {% if page_description %}
+      <meta name="description" content="{{ page_description | escape }}">
+    {% endif %}
+
+    {% render 'meta-tags' %}
+
+    {%- unless settings.type_headings_font.system? -%}
+      <link rel="preload" as="font" href="{{ settings.type_headings_font | font_url }}" type="font/woff2" crossorigin>
+    {%- endunless -%}
+
+    {%- unless settings.type_body_font.system? -%}
+      <link rel="preload" as="font" href="{{ settings.type_body_font | font_url }}" type="font/woff2" crossorigin>
+    {%- endunless -%}
+
+    <script async src="{{ 'es-module-shims.min.js' | asset_url }}"></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "@loess/photoswipe": "{{ 'photoswipe.min.js' | asset_url }}",
+          "@loess/theme": "{{ 'theme.js' | asset_url }}",
+          "@loess/vendor": "{{ 'vendor.min.js' | asset_url }}"
+        }
+      }
+    </script>
+
+    <link rel="modulepreload" href="{{ 'vendor.min.js' | asset_url }}" as="script">
+    <link rel="modulepreload" href="{{ 'theme.js' | asset_url }}" as="script">
+
+    {% render 'css-variables' %}
+    {% render 'js-variables' %}
+
+    <script type="module" src="{{ 'vendor.min.js' | asset_url }}"></script>
+    <script type="module" src="{{ 'theme.js' | asset_url }}"></script>
+
+    {{ content_for_header }}
+
+    {{- 'theme.css' | asset_url | stylesheet_tag: preload: true -}}
+  </head>
+
+  <body
+    class="{% if settings.type_headings_capitalize %}capitalize-headings{% endif %} {% if settings.buttons_text_capitalize %}capitalize-buttons{% endif %} {% if settings.navigation_text_capitalize %}capitalize-navigation{% endif %}"
+    {% if settings.enable_page_animation %}
+      is="page-animator"
+    {% endif %}
+  >
+    <a class="skip-to-content-link button button--primary button--large sr-only" href="#MainContent">
+      {{ 'accessibility.skip_to_text' | t }}
+    </a>
+
+    {%- liquid
+      if template.name != 'password' and template.name != 'gift_card'
+        sections 'header-group'
+
+        if settings.cart_flow == 'popup'
+          render 'cart-notification'
+        endif
+      else
+        section 'header-alternate'
+      endif
+    -%}
+
+    {%- if template.name != 'password' and template.name != 'gift_card' -%}
+      <script>
+        (() => {
+          let headerGroupElements = '.shopify-section-group-header-group:not(.shopify-section--announcement-bar):not(.shopify-section--header), .shopify-section-group-header-group .announcement-bar';
+
+          if (!parseInt(getComputedStyle(document.documentElement).getPropertyValue('--enable-transparent-header'))) {
+            headerGroupElements += `, .shopify-section--header`;
+          }
+
+          const headerElements = document.querySelectorAll(headerGroupElements);
+
+          const resizeObserver = new ResizeObserver(entries => {
+            let headerGroupHeight = 0;
+
+            for (const entry of headerElements) {
+              headerGroupHeight += entry.clientHeight;
+            }
+
+            document.documentElement.style.setProperty('--header-group-height', `${headerGroupHeight}px`);
+          });
+
+          headerElements.forEach(element => {
+            resizeObserver.observe(element);
+          });
+        })();
+      </script>
+    {%- endif -%}
+
+    <main id="MainContent" class="template-{{ template.name }}" role="main">
+      {{ content_for_layout }}
+    </main>
+
+    {%- liquid
+      if template.name != 'password' and template.name != 'gift_card'
+        sections 'footer-group'
+        sections 'overlay-group'
+
+        if settings.cart_flow == 'drawer' and template.name != 'cart'
+          render 'cart-drawer'
+        endif
+      elsif template.name == 'password'
+        section 'footer-password'
+      endif
+    -%}
+
+    <loess-overlay class="overlay"></loess-overlay>
+  </body>
+</html>
