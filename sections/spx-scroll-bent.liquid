@@ -320,10 +320,10 @@
             {%endfor %}
           </section>
           <div class="review-principle-tips">
-            {{ section.settings.image-bg | image_url: width: master | image_tag: class: 'img-rotate', loading: 'lazy' }}
+            {{ section.settings.image_bg | image_url: width: master | image_tag: class: 'img-rotate', loading: 'lazy' }}
             <div class="arrow_msk">
                 {% for i in (1..2) %}
-                    {{ section.settings.image-arraw | image_url: width: master | image_tag: class: 'img-arraw', loading: 'lazy' }}
+                    {{ section.settings.image_arrow | image_url: width: master | image_tag: class: 'img-arraw', loading: 'lazy' }}
                 {% endfor %}
             </div>
           </div>
@@ -422,12 +422,12 @@
   "settings": [
     {
         "type": "image_picker",
-        "id": "image-bg",
+        "id": "image_bg",
         "label": "Image background"
     },
     {
         "type": "image_picker",
-        "id": "image-arrow",
+        "id": "image_arrow",
         "label": "Image arrow"
     }
   ],
