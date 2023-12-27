@@ -1,3 +1,302 @@
+<style>
+    .review-principle {
+        padding-top: 80px;
+    }
+    
+    .review-principle .review-principle-p {
+        font-size: 16px;
+        color: #000;
+        line-height: 1.5;
+        max-width: 675px;
+        margin: 0 auto;
+        margin-top: 35px;
+        text-align: center;
+    }
+    
+    .review-principle .space-holder {
+        position: relative;
+        width: 100%;
+    }
+    
+    .review-principle .sticky {
+        position: sticky;
+        top: 80px;
+        height: calc(100vh - 80px);
+        width: 100%;
+        overflow: hidden;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .review-principle .horizontal {
+        /* position: absolute; */
+        flex: 1;
+        height: 100%;
+        will-change: transform;
+        overflow: hidden;
+        position: relative;
+    }
+    /* .review-principle .horizontal::before {
+        position: absolute;
+        content: '';
+        display: block;
+        padding-top: 100%;
+        width: 160%;
+        left: 50%;
+        transform: translateX(-50%);
+        top: calc(40% - 60px);
+        border: 2px dashed #eee;
+        z-index: 1;
+        border-radius: 50%;
+    } */
+    
+    .review-principle .cards {
+        position: relative;
+        /* height: 100%; */
+        padding-left: calc(50vw - 200px);
+        display: flex;
+        justify-content: flex-start;
+        padding-top: 7%;
+        z-index: 2;
+    }
+    
+    .review-principle .cards::before {
+        position: absolute;
+        content: '';
+        display: block;
+        /* height: 100%; */
+        padding-top: 300%;
+        width: 300%;
+        left: 50%;
+        transform: translateX(-50%);
+        top: calc(50% + 60px);
+        border: 2px dashed #eee;
+        z-index: 0;
+        border-radius: 50%;
+    }
+    
+    .review-principle .sample-card {
+        position: relative;
+        margin-right: 35px;
+        flex-shrink: 0;
+        transition: transform 0.2s ease;
+    }
+    
+    .review-principle .card-cont {
+        width: 400px;
+        background-color: #f9f9f9;
+        padding: 20px;
+        padding-bottom: 50px;
+        height: 100%;
+    }
+    
+    .review-principle .card-num {
+        font-size: 43px;
+        color: #000;
+        font-family: var(--heading-font-family);
+        line-height: 1;
+    }
+    
+    .review-principle .sample-card .img {
+        display: block;
+        width: 77.77%;
+        margin: 0 auto;
+    }
+    
+    .review-principle .card-p {
+        font-size: 14px;
+        text-align: center;
+        color: #000;
+        margin-top: 35px;
+    }
+    
+    .review-principle .review-principle-arraw {
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+    }
+    
+    .review-principle .review-principle-arraw-item {
+        background: #000;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        position: relative;
+        cursor: pointer;
+        transition: all .4s ease;
+        margin-right: 40px;
+        border: 2px solid #000;
+    }
+    .review-principle .review-principle-arraw-item:last-child{
+        margin-right: 0;
+    }
+    
+    .review-principle .review-principle-arraw-item:hover {
+        background: #fff;
+    }
+    
+    .review-principle .review-principle-arraw-item::before {
+        position: absolute;
+        content: '';
+        display: block;
+        width: 12px;
+        height: 12px;
+        border-top: 2px solid #fff;
+        border-left: 2px solid #fff;
+        top: 50%;
+        left: 50%;
+        margin-left: 2px;
+        transform: translate(-50% , -50%) rotate(-45deg);
+        transition: all .4s ease;
+    }
+    
+    .review-principle .review-principle-arraw-item:hover::before {
+        border-color: #000;
+    }
+    
+    .review-principle .review-principle-arraw-item:last-child {
+        transform: scale(-1,-1);
+    }
+    .review-principle .review-principle-tips{
+        position: relative;
+        margin-top: 100px;
+    }
+    
+    .review-principle .review-principle-tips .img-rotate{
+        display: block;
+        margin: 0 auto;
+        width: 200px;
+        animation: img-rotate 6s linear infinite;
+    }
+    
+    .review-principle .review-principle-tips .arrow_msk{
+        position: absolute;
+        display: block;
+        left: 50%;
+        top: 50%;
+        width: 40px;
+        height: 44px;
+        transform: translate(-50%,-50%);
+        overflow: hidden;
+    }
+    
+    .review-principle .review-principle-tips .img-arraw{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 30px;
+        transform: translateZ(0);
+        margin-left: 5px;
+    }
+    
+    .review-principle .review-principle-tips .img-arraw:first-child{
+        animation: img-translate1 1s linear infinite;
+    }
+        
+    .review-principle .review-principle-tips .img-arraw:last-child{
+        transform: translate3d(0,-200%,0);
+        animation: img-translate 1s linear infinite;
+    }
+    @keyframes img-rotate {
+        0% {
+        transform: rotate(0deg);
+        }
+        100% {
+        transform: rotate(360deg);
+        }
+    }
+    
+    @keyframes img-translate {
+        0% {
+        transform: translate3d(0,-200%,0);
+        opacity: 0;
+        }
+        100% {
+        transform: translate3d(0,0%,0);
+        opacity: 1;
+        }
+    }
+    
+    @keyframes img-translate1 {
+        0% {
+        transform: translate3d(0,0,0);
+        opacity: 1;
+        }
+        100% {
+        transform: translate3d(0,200%,0);
+        opacity: 0;
+        }
+    }
+        
+    @media (max-width:1920px) {
+        .review-principle .horizontal::before{
+        top: calc(50% - 60px);
+        }
+    }
+    
+    @media (max-width:1600px) {
+        .review-principle .card-cont{
+        width: 335px;
+        }
+    }
+    
+    @media (max-width:1500px) {
+        
+        .review-principle .cards{
+        padding-top: 60px;
+        }
+        .review-principle .horizontal::before{
+        top: calc(40% - 60px);
+        }
+    }
+    
+    @media (max-width:1300px) {
+        .review-principle .sample-card {
+        margin-right: 55px;
+        }
+    }
+    
+    @media (max-width:991px) {
+        .review-principle{
+        padding-top: 60px;
+        }
+        .review-principle .sticky{
+        top: 100px;
+        height: calc(100vh - 100px);
+        }
+        .review-principle .card-cont{
+        width: 242px;
+        padding-bottom: 30px;
+        }
+        .review-principle .horizontal::before{
+        width: 350%;
+        padding-top: 300%;
+        top: 30%;
+        }
+        .review-principle .cards {
+        padding-left: calc(50vw - 121px);
+        padding-top: 60px;
+        }
+        .review-principle .card-num{
+        font-size: 28px;
+        }
+        .review-principle .sample-card{
+        margin-right: 10px;
+        }
+        .review-principle .card-p{
+        margin-top: 25px;
+        }
+        .review-principle .cards::before {
+        top: calc(50% - 30px);
+        }
+        .review-principle .review-principle-tips{
+        margin-top: 60px;
+        zoom: .6;
+        }
+    }
+</style>
+
 {% schema %}
 {
   "name": "水平弯曲滚动",
