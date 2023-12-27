@@ -308,27 +308,17 @@
       </div>
       <div class="sticky">
         <div class="horizontal to-top appear">
-          <section role="feed" class="cards"><article class="sample-card" style="transform: translate(-99.1632px, 5.04882px) rotate(-0.101741rad);">
-                <div class="card-cont to-top appear" style="transition-delay: 0.1s">
-                  <div class="card-num">01</div><img loading="lazy" class="img" width="736" height="737" alt="" src="//www.ulike.com/cdn/shop/files/b1_4b419350-8137-4fdd-96bc-012e8850e4c2_736x.png?v=1699606253" srcset="//www.ulike.com/cdn/shop/files/b1_4b419350-8137-4fdd-96bc-012e8850e4c2_736x.png?v=1699606253 736w"><div class="card-p">The light passes through the skin 's surface and is absorbed by the melanin in the hair follicle.</div>
-                </div>
-              </article><article class="sample-card" style="transform: translate(-70.6806px, 16.9843px) rotate(0.186796rad);">
-                <div class="card-cont to-top appear" style="transition-delay: 0.1s">
-                  <div class="card-num">02</div><img loading="lazy" class="img" width="736" height="737" alt="" src="//www.ulike.com/cdn/shop/files/b2_06c49e8e-a739-4005-9fc2-aa163dbd694f_736x.png?v=1699606253" srcset="//www.ulike.com/cdn/shop/files/b2_06c49e8e-a739-4005-9fc2-aa163dbd694f_736x.png?v=1699606253 736w"><div class="card-p">The light is then converted to heat energy, disabling the hair follicle, resulting in thinner hair regrowth.</div>
-                </div>
-              </article><article class="sample-card" style="transform: translate(-57.1889px, 108.238px) rotate(0.475333rad);">
-                <div class="card-cont to-top appear" style="transition-delay: 0.1s">
-                  <div class="card-num">03</div><img loading="lazy" class="img" width="736" height="737" alt="" src="//www.ulike.com/cdn/shop/files/b3_25ff1da8-53fd-45ac-b98a-ebb4ee6c2b27_736x.png?v=1699606253" srcset="//www.ulike.com/cdn/shop/files/b3_25ff1da8-53fd-45ac-b98a-ebb4ee6c2b27_736x.png?v=1699606253 736w"><div class="card-p">After regular and consistent treatment, Ulike IPL eventually stops any new hairs from regrowing.</div>
-                </div>
-              </article><article class="sample-card" style="transform: translate(-80.6384px, 271.264px) rotate(0.763869rad);">
-                <div class="card-cont to-top appear" style="transition-delay: 0.1s">
-                  <div class="card-num">04</div><img loading="lazy" class="img" width="736" height="737" alt="" src="//www.ulike.com/cdn/shop/files/b4_8f8b3ebc-ad97-4eb8-97be-c57577438ace_736x.png?v=1699606253" srcset="//www.ulike.com/cdn/shop/files/b4_8f8b3ebc-ad97-4eb8-97be-c57577438ace_736x.png?v=1699606253 736w"><div class="card-p">After 4 weeks of proper IPL use, you can expect the treatment area to see significant hair reduction.</div>
-                </div>
-              </article><article class="sample-card" style="transform: translate(-159.925px, 492.585px) rotate(1.05241rad);">
-                <div class="card-cont to-top appear" style="transition-delay: 0.1s">
-                  <div class="card-num">05</div><img loading="lazy" class="img" width="736" height="737" alt="" src="//www.ulike.com/cdn/shop/files/b5_35a217cb-e6aa-4746-860f-eef4f8b500b4_736x.png?v=1699606253" srcset="//www.ulike.com/cdn/shop/files/b5_35a217cb-e6aa-4746-860f-eef4f8b500b4_736x.png?v=1699606253 736w"><div class="card-p">Continuing with the full 12-week cycle, touch-ups may be needed depending on the individual and to ensure every hair is treated during the anagen (growth) phase.</div>
-                </div>
-              </article></section>
+          <section role="feed" class="cards">
+            {%for block in section.blocks %}
+                <article class="sample-card">
+                    <div class="card-cont to-top appear">
+                        <div class="card-num">{{ forloop.index }}</div>
+                        {{ block.settings.image | image_url: width: 200 | image_tag: class: 'img', loading: 'lazy' }}
+                        <div class="card-p">{{ block.settings.text }}</div>
+                    </div>
+                </article>
+            {%endfor %}
+          </section>
           <div class="review-principle-tips">
             <img src="https://cdn.shopify.com/s/files/1/0656/9079/6273/files/f1_e1636eb7-c1eb-46dd-b6b4-db91be41ef5f.png" alt="" class="img-rotate">
             <div class="arrow_msk">
