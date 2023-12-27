@@ -297,8 +297,132 @@
     }
 </style>
 
-<div class="">
-</div>
+<section class="section-box">
+    <div class="review-principle">
+    <div class="space-holder" style="height: 3764px;">
+      <div class="container">
+        <div class="review-text">
+          <div class="title-diy to-top appear">How it works.</div>
+          <div class="review-principle-p to-top appear" style="transition-delay: 0.1s">IPL (Intense Pullsed Light) uses light to target melanin (pigment) in the hair to disrupt the growth cycle and prevent hair regrowth, without damaging the skin.</div>
+        </div>
+      </div>
+      <div class="sticky">
+        <div class="horizontal to-top appear">
+          <section role="feed" class="cards"><article class="sample-card" style="transform: translate(-99.1632px, 5.04882px) rotate(-0.101741rad);">
+                <div class="card-cont to-top appear" style="transition-delay: 0.1s">
+                  <div class="card-num">01</div><img loading="lazy" class="img" width="736" height="737" alt="" src="//www.ulike.com/cdn/shop/files/b1_4b419350-8137-4fdd-96bc-012e8850e4c2_736x.png?v=1699606253" srcset="//www.ulike.com/cdn/shop/files/b1_4b419350-8137-4fdd-96bc-012e8850e4c2_736x.png?v=1699606253 736w"><div class="card-p">The light passes through the skin 's surface and is absorbed by the melanin in the hair follicle.</div>
+                </div>
+              </article><article class="sample-card" style="transform: translate(-70.6806px, 16.9843px) rotate(0.186796rad);">
+                <div class="card-cont to-top appear" style="transition-delay: 0.1s">
+                  <div class="card-num">02</div><img loading="lazy" class="img" width="736" height="737" alt="" src="//www.ulike.com/cdn/shop/files/b2_06c49e8e-a739-4005-9fc2-aa163dbd694f_736x.png?v=1699606253" srcset="//www.ulike.com/cdn/shop/files/b2_06c49e8e-a739-4005-9fc2-aa163dbd694f_736x.png?v=1699606253 736w"><div class="card-p">The light is then converted to heat energy, disabling the hair follicle, resulting in thinner hair regrowth.</div>
+                </div>
+              </article><article class="sample-card" style="transform: translate(-57.1889px, 108.238px) rotate(0.475333rad);">
+                <div class="card-cont to-top appear" style="transition-delay: 0.1s">
+                  <div class="card-num">03</div><img loading="lazy" class="img" width="736" height="737" alt="" src="//www.ulike.com/cdn/shop/files/b3_25ff1da8-53fd-45ac-b98a-ebb4ee6c2b27_736x.png?v=1699606253" srcset="//www.ulike.com/cdn/shop/files/b3_25ff1da8-53fd-45ac-b98a-ebb4ee6c2b27_736x.png?v=1699606253 736w"><div class="card-p">After regular and consistent treatment, Ulike IPL eventually stops any new hairs from regrowing.</div>
+                </div>
+              </article><article class="sample-card" style="transform: translate(-80.6384px, 271.264px) rotate(0.763869rad);">
+                <div class="card-cont to-top appear" style="transition-delay: 0.1s">
+                  <div class="card-num">04</div><img loading="lazy" class="img" width="736" height="737" alt="" src="//www.ulike.com/cdn/shop/files/b4_8f8b3ebc-ad97-4eb8-97be-c57577438ace_736x.png?v=1699606253" srcset="//www.ulike.com/cdn/shop/files/b4_8f8b3ebc-ad97-4eb8-97be-c57577438ace_736x.png?v=1699606253 736w"><div class="card-p">After 4 weeks of proper IPL use, you can expect the treatment area to see significant hair reduction.</div>
+                </div>
+              </article><article class="sample-card" style="transform: translate(-159.925px, 492.585px) rotate(1.05241rad);">
+                <div class="card-cont to-top appear" style="transition-delay: 0.1s">
+                  <div class="card-num">05</div><img loading="lazy" class="img" width="736" height="737" alt="" src="//www.ulike.com/cdn/shop/files/b5_35a217cb-e6aa-4746-860f-eef4f8b500b4_736x.png?v=1699606253" srcset="//www.ulike.com/cdn/shop/files/b5_35a217cb-e6aa-4746-860f-eef4f8b500b4_736x.png?v=1699606253 736w"><div class="card-p">Continuing with the full 12-week cycle, touch-ups may be needed depending on the individual and to ensure every hair is treated during the anagen (growth) phase.</div>
+                </div>
+              </article></section>
+          <div class="review-principle-tips">
+            <img src="https://cdn.shopify.com/s/files/1/0656/9079/6273/files/f1_e1636eb7-c1eb-46dd-b6b4-db91be41ef5f.png" alt="" class="img-rotate">
+            <div class="arrow_msk">
+              <img src="https://cdn.shopify.com/s/files/1/0656/9079/6273/files/f2_deeb87cf-c138-460c-ab66-f636df5c3a59.png" alt="" class="img-arraw">
+              <img src="https://cdn.shopify.com/s/files/1/0656/9079/6273/files/f2_deeb87cf-c138-460c-ab66-f636df5c3a59.png" alt="" class="img-arraw">
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+    
+</section>
+
+<script>
+    class CustomSlider {
+        constructor(containerElement) {
+          this.container = containerElement;
+          this.cards = this.container.querySelectorAll(".sample-card");
+          this.sticky = document.querySelector('.sticky');
+          this.spaceHolder = document.querySelector('.space-holder');
+          this.horizontal = document.querySelector('.horizontal');
+          this.reviewText = document.querySelector('.review-text')
+          this.constraints = null;
+          this.position = 0;
+          this.namespace = "custom-slider-namespace";
+        }
+  
+        enable() {
+          window.addEventListener("scroll", this.handleScroll.bind(this));
+          window.addEventListener("resize." + this.namespace, this.updateConstraints.bind(this));
+          this.updateConstraints();
+          this.spaceHolder.style.height = `${this.calcDynamicHeight(this.horizontal)}px`;
+        }
+  
+        calcDynamicHeight(ref) {
+          const vw = this.sticky.clientWidth;
+          const vh = this.sticky.clientHeight;
+          const objectWidth = ref.scrollWidth;
+          return objectWidth - vw + vh + this.cards[0].getBoundingClientRect().width/2+(this.constraints.mobile ?1000:2000);
+        }
+  
+        reset() {
+            this.cards.forEach(card => card.style.transform = "");
+        }
+  
+        updateConstraints() {
+            this.reset();
+            const cards = this.cards;
+            this.constraints = {
+                mobile: window.innerWidth <= 768,
+                width: window.innerWidth,
+                cardDiff: cards[1].getBoundingClientRect().left - cards[0].getBoundingClientRect().left
+            };
+            this.update(null, {
+                position: this.position
+            });
+        }
+  
+        handleScroll() {
+        const scrollAmount = this.sticky.offsetTop - this.reviewText.clientHeight;
+        this.position = scrollAmount / (this.spaceHolder.offsetHeight - this.reviewText.clientHeight - this.sticky.scrollHeight);
+        this.update(null, {
+          position: this.position
+        });
+        }
+  
+        update() {
+            const cards = this.cards;
+            const constraints = this.constraints;
+            const numCards = cards.length;
+            const ratio1 = constraints.mobile ? 2.5 : 1.15;
+            const ratio2 = constraints.mobile ? 0.6 : 1;
+            const width = constraints.width * ratio1;
+            const angle = Math.atan(constraints.cardDiff / constraints.width) * ratio2;
+  
+            for (let i = 0; i < numCards; i++) {
+                const card = cards[i];
+                const relativePosition = i - this.position * (numCards - 1);
+                const offset = constraints.cardDiff * i;
+                const translation = relativePosition * angle;
+                const x = width * Math.sin(translation) - offset;
+                const y = width - width * Math.cos(translation);
+                card.style.transform = `translate(${x}px, ${y}px) rotate(${translation}rad)`;
+            }
+        }
+    }
+  
+    const containerElement = document.querySelector('.sticky');
+    const customSlider = new CustomSlider(containerElement);
+      customSlider.enable();
+</script>
+
 
 {% schema %}
 {
