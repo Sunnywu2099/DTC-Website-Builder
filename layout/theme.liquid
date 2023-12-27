@@ -69,11 +69,13 @@
     {% render 'css-variables' %}
     {% render 'js-variables' %}
 
+    <script type="module" src="{{ 'swiper.min.js' | asset_url }}"></script>
     <script type="module" src="{{ 'vendor.min.js' | asset_url }}"></script>
     <script type="module" src="{{ 'theme.js' | asset_url }}"></script>
 
     {{ content_for_header }}
 
+    {{- 'swiper.min.css' | asset_url | stylesheet_tag: preload: true -}}
     {{- 'theme.css' | asset_url | stylesheet_tag: preload: true -}}
   </head>
 
