@@ -290,7 +290,9 @@
       <div class="scroller-bar {% if section.settings.layout == 'fixed-gutter' %}color color-soft{% endif %} {% if section.settings.slider_mobile == false and total_articles <= columns_tablet %}hide-tablet{% endif %} {% if section.settings.style_large != 'slider' and total_articles <= columns_large %}hide-desktop{% endif %}">
         <loess-scroller-progress target="{{ scroller_id }}" class="scroller-progress-bar" style="--scroller-progress: 0;" aria-hidden="true">
         </loess-scroller-progress>
-
+   
+        
+        
         <loess-scroller-buttons class="scroller-buttons slider-buttons hide-mobile">
           <button class="slider-buttons__previous button button--icon" aria-label="{{ 'general.slider.previous_slide' | t }}" disabled>
             {% render 'icon' with 'arrow-minimal-previous' %}
