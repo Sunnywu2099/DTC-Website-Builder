@@ -320,10 +320,11 @@
             {%endfor %}
           </section>
           <div class="review-principle-tips">
-            <img src="https://cdn.shopify.com/s/files/1/0656/9079/6273/files/f1_e1636eb7-c1eb-46dd-b6b4-db91be41ef5f.png" alt="" class="img-rotate">
+            {{ section.settings.image-bg | image_url: width: master | image_tag: class: 'img-rotate', loading: 'lazy' }}
             <div class="arrow_msk">
-              <img src="https://cdn.shopify.com/s/files/1/0656/9079/6273/files/f2_deeb87cf-c138-460c-ab66-f636df5c3a59.png" alt="" class="img-arraw">
-              <img src="https://cdn.shopify.com/s/files/1/0656/9079/6273/files/f2_deeb87cf-c138-460c-ab66-f636df5c3a59.png" alt="" class="img-arraw">
+                {% for i in (1..2) %}
+                    {{ section.settings.image-arraw | image_url: width: master | image_tag: class: 'img-arraw', loading: 'lazy' }}
+                {% endfor %}
             </div>
           </div>
         </div>
@@ -419,7 +420,16 @@
   "name": "水平弯曲滚动",
   "max_blocks":8,
   "settings": [
-
+    {
+        "type": "image_picker",
+        "id": "image-bg",
+        "label": "Image background"
+    },
+    {
+        "type": "image_picker",
+        "id": "image-arrow",
+        "label": "Image arrow"
+    }
   ],
   "blocks": [
     {
