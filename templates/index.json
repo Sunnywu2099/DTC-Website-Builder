@@ -60,13 +60,58 @@
         "color_scheme": "soft",
         "custom_colors": false,
         "color_foreground": "#212121",
-        "color_accent": "#0D91BD",
-        "color_background": "#FFFFFF",
+        "color_accent": "#0d91bd",
+        "color_background": "#ffffff",
         "color_gradient": ""
+      }
+    },
+    "9a867374-1d93-481a-8f03-d3f37650ad08": {
+      "type": "spx-scroll-bent",
+      "blocks": {
+        "template--16704114884757__9a867374-1d93-481a-8f03-d3f37650ad08-block-1": {
+          "type": "block",
+          "settings": {
+            "text": "text text text"
+          }
+        },
+        "template--16704114884757__9a867374-1d93-481a-8f03-d3f37650ad08-block-2": {
+          "type": "block",
+          "settings": {
+            "text": "text text text"
+          }
+        },
+        "template--16704114884757__9a867374-1d93-481a-8f03-d3f37650ad08-block-3": {
+          "type": "block",
+          "settings": {
+            "text": "text text text"
+          }
+        },
+        "template--16704114884757__9a867374-1d93-481a-8f03-d3f37650ad08-block-4": {
+          "type": "block",
+          "settings": {
+            "text": "text text text"
+          }
+        },
+        "template--16704114884757__9a867374-1d93-481a-8f03-d3f37650ad08-block-5": {
+          "type": "block",
+          "settings": {
+            "text": "text text text"
+          }
+        }
+      },
+      "block_order": [
+        "template--16704114884757__9a867374-1d93-481a-8f03-d3f37650ad08-block-1",
+        "template--16704114884757__9a867374-1d93-481a-8f03-d3f37650ad08-block-2",
+        "template--16704114884757__9a867374-1d93-481a-8f03-d3f37650ad08-block-3",
+        "template--16704114884757__9a867374-1d93-481a-8f03-d3f37650ad08-block-4",
+        "template--16704114884757__9a867374-1d93-481a-8f03-d3f37650ad08-block-5"
+      ],
+      "settings": {
       }
     }
   },
   "order": [
-    "logo-list"
+    "logo-list",
+    "9a867374-1d93-481a-8f03-d3f37650ad08"
   ]
 }
