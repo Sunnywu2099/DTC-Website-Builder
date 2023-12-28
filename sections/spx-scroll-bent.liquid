@@ -4,6 +4,14 @@
     }
     
     .shopify-section-{{ section.id }} .review-principle .review-principle-p {
+        font-size: 50px;
+        color: #000;
+        font-family: var(--heading-font-family);
+        text-align: center;
+        line-height: 1.2;
+    }
+
+    .shopify-section-{{ section.id }} .review-principle .review-principle-p {
         font-size: 16px;
         color: #000;
         line-height: 1.5;
@@ -303,19 +311,19 @@
       <div class="container">
         <div class="review-text">
           {% if section.settings.heading != blank %}
-            <div class="title-diy to-top appear">{{ section.settings.heading }}</div>
+            <div class="review-principle-title">{{ section.settings.heading }}</div>
           {% endif %}
           {% if section.settings.text != blank %}
-            <div class="review-principle-p to-top appear">{{ section.settings.text }}</div>
+            <div class="review-principle-p">{{ section.settings.text }}</div>
           {% endif %}
         </div>
       </div>
       <div class="sticky">
-        <div class="horizontal to-top appear">
+        <div class="horizontal">
           <section role="feed" class="cards">
             {%for block in section.blocks %}
                 <article class="sample-card">
-                    <div class="card-cont to-top appear">
+                    <div class="card-cont">
                         <div class="card-num">{{ forloop.index | prepend: 0 }}</div>
                         {{ block.settings.image | image_url: width: master | image_tag: class: 'img', loading: 'lazy' }}
                         <div class="card-p">{{ block.settings.text }}</div>
