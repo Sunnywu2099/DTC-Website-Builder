@@ -17,73 +17,31 @@
       </div>
     </div>
 
-    <div node-name="fifthSlide" class="index-page-slide-1 show">
-      <div class="index-page-content">
-        <div class="product-desc">
-          {{ section.settings.menu1_desc }}
-        </div>
-        <div class="fifth-rows">
-          <div class="product-question">{{ section.settings.menu1_remark1 }}</div>
-          <a href="{{ section.settings.menu1_btn_link }}" class="buy-now">
-            {{- section.settings.menu1_btn -}}
-            <i class="icon"></i>
-          </a>
-        </div>
-        <div class="product-remark">{{ section.settings.menu1_remark2 }}</div>
-      </div>
-      <img loading="lazy" class="product-img pc-done" src="{{ section.settings.menu1_pc_backdrop_url | img_url: '1920x' }}" alt="">
-      <img loading="lazy" class="product-img mobile-done" src="{{ section.settings.menu1_mb_backdrop_url | img_url: '750x' }}" alt="">
-    </div>
+    {% for block in section.blocks %}
+        <div node-name="fifthSlide" class="index-page-slide-{{ forloop.index }} {% if forloop.first %}show{% endif %}">
+            <div class="index-page-content">
+                <div class="product-desc">
+                    {{ block.settings.menu_desc }}
+                </div>
+                {% if block.settings.menu_remark1 != blank or block.settings.menu1_btn != blank %}
+                    <div class="fifth-rows">
+                        <div class="product-question">{{ block.settings.menu_remark1 }}</div>
+                        <a href="{{ block.settings.menu_btn_link }}" class="buy-now">
+                            {{- block.settings.menu1_btn -}}
+                            <i class="icon"></i>
+                        </a>
+                    </div>
+                {% endif %}
+                {% if block.settings.menu_remark2 != blank %}
+                    <div class="product-remark">{{ block.settings.menu_remark2 }}</div>
+                {% endif %}
+            </div>
+            
+            {{ block.settings.menu_pc_backdrop_url | image_url: width: '1920x' | image_tag: class: 'product-img pc-done', loading: 'lazy' }}
+            {{ block.settings.menu_mb_backdrop_url | image_url: width: '750x' | image_tag: class: 'product-img mobile-done', loading: 'lazy' }}
 
-    <div node-name="fifthSlide" class="index-page-slide-2">
-      <div class="index-page-content">
-        <div class="product-desc">
-          {{ section.settings.menu2_desc }}
         </div>
-      </div>
-      <img loading="lazy" class="product-img pc-done" src="{{ section.settings.menu2_pc_backdrop_url | img_url: '1920x' }}" alt="">
-      <img loading="lazy" class="product-img mobile-done" src="{{ section.settings.menu2_mb_backdrop_url | img_url: '750x' }}"alt="">
-    </div>
-
-    <div node-name="fifthSlide" class="index-page-slide-3">
-      <div class="index-page-content">
-        <div class="product-desc">
-          {{ section.settings.menu3_desc }}
-        </div>
-      </div>
-      <img loading="lazy" class="product-img pc-done" src="{{ section.settings.menu3_pc_backdrop_url | img_url: '1920x' }}" alt="">
-      <img loading="lazy" class="product-img mobile-done" src="{{ section.settings.menu3_mb_backdrop_url | img_url: '750x' }}"alt="">
-    </div>
-
-    <div node-name="fifthSlide" class="index-page-slide-4">
-      <div class="index-page-content">
-        <div class="product-desc">
-          {{ section.settings.menu4_desc }}
-        </div>
-      </div>
-      <img loading="lazy" class="product-img pc-done" src="{{ section.settings.menu4_pc_backdrop_url | img_url: '1920x' }}" alt="">
-      <img loading="lazy" class="product-img mobile-done" src="{{ section.settings.menu4_mb_backdrop_url | img_url: '750x' }}"alt="">
-    </div>
-
-    <div node-name="fifthSlide" class="index-page-slide-5">
-      <div class="index-page-content">
-        <div class="product-desc">
-          {{ section.settings.menu5_desc }}
-        </div>
-      </div>
-      <img loading="lazy" class="product-img pc-done" src="{{ section.settings.menu5_pc_backdrop_url | img_url: '1920x' }}" alt="">
-      <img loading="lazy" class="product-img mobile-done" src="{{ section.settings.menu5_mb_backdrop_url | img_url: '750x' }}"alt="">
-    </div>
-
-    <div node-name="fifthSlide" class="index-page-slide-6">
-      <div class="index-page-content">
-        <div class="product-desc">
-          {{ section.settings.menu6_desc }}
-        </div>
-      </div>
-      <img loading="lazy" class="product-img pc-done" src="{{ section.settings.menu6_pc_backdrop_url | img_url: '1920x' }}" alt="">
-      <img loading="lazy" class="product-img mobile-done" src="{{ section.settings.menu6_mb_backdrop_url | img_url: '750x' }}"alt="">
-    </div>
+    {% endfor %}
 
     <div node-name="fifthSlide" class="index-page-slide-7">
       <div class="index-page-content">
@@ -118,128 +76,6 @@
       "id": "title2",
       "label": "标题二",
       "default": "One Station to Take Care of All"
-    },
-    
-    {
-      "type": "text",
-      "id": "menu2",
-      "label": "第二屏名称",
-      "default": "Auto Mop Washing"
-    },
-    {
-      "type": "richtext",
-      "id": "menu2_desc",
-      "label": "第二屏简介",
-      "default": "<p>Cleans mops as you would. Spins and washes the mops rapidly against the studded washboard, completely eliminating dirt.</p>"
-    },
-    {
-      "label": "第二屏PC背景图",
-      "type": "image_picker",
-      "info": "请上传5M以内",
-      "id": "menu2_pc_backdrop_url"
-    },
-    {
-      "label": "第二屏H5背景图",
-      "type": "image_picker",
-      "info": "请上传5M以内",
-      "id": "menu2_mb_backdrop_url"
-    },
-    {
-      "type": "text",
-      "id": "menu3",
-      "label": "第三屏名称",
-      "default": "Auto Dual Hot Air Drying"
-    },
-    {
-      "type": "richtext",
-      "id": "menu3_desc",
-      "label": "第三屏简介",
-      "default": "<p>Dual fans & heaters dry mops in 1/2 the time, evenly & safely under optimal 104°F, preventing bacteria & mold growth while smelling fresh.</p>"
-    },
-    {
-      "label": "第三屏PC背景图",
-      "type": "image_picker",
-      "info": "请上传5M以内",
-      "id": "menu3_pc_backdrop_url"
-    },
-    {
-      "label": "第三屏H5背景图",
-      "type": "image_picker",
-      "info": "请上传5M以内",
-      "id": "menu3_mb_backdrop_url"
-    },
-    {
-      "type": "text",
-      "id": "menu4",
-      "label": "第四屏名称",
-      "default": "Auto Dampness Control"
-    },
-    {
-      "type": "richtext",
-      "id": "menu4_desc",
-      "label": "第四屏简介",
-      "default": "<p>Maintains optimal mop dampness to absorb stubborn stains, achieving 2x effective cleaning area (vs industry avg.) on one go.</p>"
-    },
-    {
-      "label": "第四屏PC背景图",
-      "type": "image_picker",
-      "info": "请上传5M以内",
-      "id": "menu4_pc_backdrop_url"
-    },
-    {
-      "label": "第四屏H5背景图",
-      "type": "image_picker",
-      "info": "请上传5M以内",
-      "id": "menu4_mb_backdrop_url"
-    },
-    {
-      "type": "text",
-      "id": "menu5",
-      "label": "第五屏名称",
-      "default": "Auto Solution Dispensing"
-    },
-    {
-      "type": "richtext",
-      "id": "menu5_desc",
-      "label": "第五屏简介",
-      "default": "<p>Automatically refills Freo’s water tank. Precise solution control ensures the optimal clean.</p>"
-    },
-    {
-      "label": "第五屏PC背景图",
-      "type": "image_picker",
-      "info": "请上传5M以内",
-      "id": "menu5_pc_backdrop_url"
-    },
-    {
-      "label": "第五屏H5背景图",
-      "type": "image_picker",
-      "info": "请上传5M以内",
-      "id": "menu5_mb_backdrop_url"
-    },
-    {
-      "type": "text",
-      "id": "menu6",
-      "label": "第六屏名称",
-      "default": "Auto Station Cleaning"
-    },
-    {
-      "type": "richtext",
-      "id": "menu6_desc",
-      "label": "第六屏简介",
-      "default": "<p> Cleans everything, even itself.</p>"
-    },
-
-    {
-      "label": "第六屏PC背景图",
-      "type": "image_picker",
-      "info": "请上传5M以内",
-      "id": "menu6_pc_backdrop_url"
-    },
-    {
-      "label": "第六屏H5背景图",
-      "type": "image_picker",
-      "info": "请上传5M以内",
-      "id": "menu6_mb_backdrop_url"
     },
     {
       "type": "text",
