@@ -7,7 +7,7 @@
       <div class="product-title">{{ section.settings.title2 }}</div>
       <div class="station-menus" node-name="fifthMenus">
         {% for block in section.blocks %}
-            <div node-name="fifthMenu" data-key="{{ forloop.index0 }}" class="station-menu selected">
+            <div node-name="fifthMenu" data-key="{{ forloop.index0 }}" class="station-menu {% if forloop.first %}selected{% endif %}">
                 {{ block.settings.menu }}
                 {% if block.settings.menu_sub != blank %}
                     <span class="sub" data-key="{{ forloop.index0 }}">{{ block.settings.menu_sub }}</span>
