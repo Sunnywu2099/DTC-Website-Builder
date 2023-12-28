@@ -1,0 +1,507 @@
+<style>
+    .shopify-section-{{ section.id }} .review-principle {
+        padding-top: 80px;
+    }
+    
+    .shopify-section-{{ section.id }} .review-principle .review-principle-title {
+        font-size: 50px;
+        color: #000;
+        font-family: var(--heading-font-family);
+        text-align: center;
+        line-height: 1.2;
+    }
+
+    .shopify-section-{{ section.id }} .review-principle .review-principle-p {
+        font-size: 16px;
+        color: #000;
+        line-height: 1.5;
+        max-width: 675px;
+        margin: 0 auto;
+        margin-top: 35px;
+        text-align: center;
+    }
+    
+    .shopify-section-{{ section.id }} .review-principle .space-holder {
+        position: relative;
+        width: 100%;
+    }
+    
+    .shopify-section-{{ section.id }} .review-principle .sticky {
+        position: sticky;
+        top: var(--header-height);
+        /*height: calc(100vh - var(--header-height));*/
+        height: 100vh;
+        width: 100%;
+        overflow: hidden;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .shopify-section-{{ section.id }} .review-principle .horizontal {
+        /* position: absolute; */
+        flex: 1;
+        height: 100%;
+        will-change: transform;
+        overflow: hidden;
+        position: relative;
+    }
+    /* .shopify-section-{{ section.id }} .review-principle .horizontal::before {
+        position: absolute;
+        content: '';
+        display: block;
+        padding-top: 100%;
+        width: 160%;
+        left: 50%;
+        transform: translateX(-50%);
+        top: calc(40% - 60px);
+        border: 2px dashed #eee;
+        z-index: 1;
+        border-radius: 50%;
+    } */
+    
+    .shopify-section-{{ section.id }} .review-principle .cards {
+        position: relative;
+        /* height: 100%; */
+        padding-left: calc(50vw - 200px);
+        display: flex;
+        justify-content: flex-start;
+        padding-top: 6%;
+        z-index: 2;
+    }
+    
+    .shopify-section-{{ section.id }} .review-principle .cards::before {
+        position: absolute;
+        content: '';
+        display: block;
+        /* height: 100%; */
+        padding-top: 300%;
+        width: 300%;
+        left: 50%;
+        transform: translateX(-50%);
+        top: calc(50% + 60px);
+        border: 2px dashed #eee;
+        z-index: 0;
+        border-radius: 50%;
+    }
+    
+    .shopify-section-{{ section.id }} .review-principle .sample-card {
+        position: relative;
+        margin-right: 35px;
+        flex-shrink: 0;
+        transition: transform 0.2s ease;
+    }
+    
+    .shopify-section-{{ section.id }} .review-principle .card-cont {
+        width: 400px;
+        background-color: #f9f9f9;
+        padding: 20px;
+        padding-bottom: 50px;
+        height: 100%;
+    }
+    
+    .shopify-section-{{ section.id }} .review-principle .card-num {
+        font-size: 43px;
+        color: #000;
+        font-family: var(--heading-font-family);
+        line-height: 1;
+    }
+    
+    .shopify-section-{{ section.id }} .review-principle .sample-card .img {
+        display: block;
+        width: 77.77%;
+        margin: 0 auto;
+    }
+    
+    .shopify-section-{{ section.id }} .review-principle .card-p {
+        font-size: 14px;
+        text-align: center;
+        color: #000;
+        margin-top: 35px;
+    }
+    
+    .shopify-section-{{ section.id }} .review-principle .review-principle-arraw {
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+    }
+    
+    .shopify-section-{{ section.id }} .review-principle .review-principle-arraw-item {
+        background: #000;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        position: relative;
+        cursor: pointer;
+        transition: all .4s ease;
+        margin-right: 40px;
+        border: 2px solid #000;
+    }
+    .shopify-section-{{ section.id }} .review-principle .review-principle-arraw-item:last-child{
+        margin-right: 0;
+    }
+    
+    .shopify-section-{{ section.id }} .review-principle .review-principle-arraw-item:hover {
+        background: #fff;
+    }
+    
+    .shopify-section-{{ section.id }} .review-principle .review-principle-arraw-item::before {
+        position: absolute;
+        content: '';
+        display: block;
+        width: 12px;
+        height: 12px;
+        border-top: 2px solid #fff;
+        border-left: 2px solid #fff;
+        top: 50%;
+        left: 50%;
+        margin-left: 2px;
+        transform: translate(-50% , -50%) rotate(-45deg);
+        transition: all .4s ease;
+    }
+    
+    .shopify-section-{{ section.id }} .review-principle .review-principle-arraw-item:hover::before {
+        border-color: #000;
+    }
+    
+    .shopify-section-{{ section.id }} .review-principle .review-principle-arraw-item:last-child {
+        transform: scale(-1,-1);
+    }
+    .shopify-section-{{ section.id }} .review-principle .review-principle-tips{
+        position: relative;
+        margin-top: 100px;
+    }
+    
+    .shopify-section-{{ section.id }} .review-principle .review-principle-tips .img-rotate{
+        display: block;
+        margin: 0 auto;
+        width: 200px;
+        animation: img-rotate 6s linear infinite;
+    }
+    
+    .shopify-section-{{ section.id }} .review-principle .review-principle-tips .arrow_msk{
+        position: absolute;
+        display: block;
+        left: 50%;
+        top: 50%;
+        width: 40px;
+        height: 44px;
+        transform: translate(-50%,-50%);
+        overflow: hidden;
+    }
+    
+    .shopify-section-{{ section.id }} .review-principle .review-principle-tips .img-arraw{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 30px;
+        transform: translateZ(0);
+        margin-left: 5px;
+    }
+    
+    .shopify-section-{{ section.id }} .review-principle .review-principle-tips .img-arraw:first-child{
+        animation: img-translate1 1s linear infinite;
+    }
+        
+    .shopify-section-{{ section.id }} .review-principle .review-principle-tips .img-arraw:last-child{
+        transform: translate3d(0,-200%,0);
+        animation: img-translate 1s linear infinite;
+    }
+    @keyframes img-rotate {
+        0% {
+        transform: rotate(0deg);
+        }
+        100% {
+        transform: rotate(360deg);
+        }
+    }
+    
+    @keyframes img-translate {
+        0% {
+        transform: translate3d(0,-200%,0);
+        opacity: 0;
+        }
+        100% {
+        transform: translate3d(0,0%,0);
+        opacity: 1;
+        }
+    }
+    
+    @keyframes img-translate1 {
+        0% {
+        transform: translate3d(0,0,0);
+        opacity: 1;
+        }
+        100% {
+        transform: translate3d(0,200%,0);
+        opacity: 0;
+        }
+    }
+        
+    @media (max-width:1920px) {
+        .shopify-section-{{ section.id }} .review-principle .horizontal::before{
+        top: calc(50% - 60px);
+        }
+    }
+    
+    @media (max-width:1600px) {
+        .shopify-section-{{ section.id }} .review-principle .card-cont{
+            width: 335px;
+        }
+    }
+    
+    @media (max-width:1500px) {
+        
+        .shopify-section-{{ section.id }} .review-principle .cards{
+            padding-top: 60px;
+        }
+        .shopify-section-{{ section.id }} .review-principle .horizontal::before{
+            top: calc(40% - 60px);
+        }
+    }
+    
+    @media (max-width:1300px) {
+        .shopify-section-{{ section.id }} .review-principle .sample-card {
+            margin-right: 55px;
+        }
+    }
+    
+    @media (max-width:991px) {
+        .shopify-section-{{ section.id }} .review-principle{
+            padding-top: 60px;
+        }
+        .shopify-section-{{ section.id }} .review-principle .review-principle-title {
+            font-size: 28px;
+        }
+        .shopify-section-{{ section.id }} .review-principle .sticky{
+            top: calc(var(--header-height)*2);
+            height: calc(100vh - var(--header-height)*2);
+            
+        }
+        .shopify-section-{{ section.id }} .review-principle .card-cont{
+            width: 242px;
+            padding-bottom: 30px;
+        }
+        .shopify-section-{{ section.id }} .review-principle .horizontal::before{
+            width: 350%;
+            padding-top: 300%;
+            top: 30%;
+        }
+        .shopify-section-{{ section.id }} .review-principle .cards {
+            padding-left: calc(50vw - 121px);
+            padding-top: 60px;
+        }
+        .shopify-section-{{ section.id }} .review-principle .card-num{
+            font-size: 28px;
+        }
+        .shopify-section-{{ section.id }} .review-principle .sample-card{
+            margin-right: 10px;
+        }
+        .shopify-section-{{ section.id }} .review-principle .card-p{
+            margin-top: 25px;
+        }
+        .shopify-section-{{ section.id }} .review-principle .cards::before {
+            top: calc(50% - 30px);
+        }
+        .shopify-section-{{ section.id }} .review-principle .review-principle-tips{
+            margin-top: 60px;
+            zoom: .6;
+        }
+    }
+</style>
+
+<section class="section shopify-section-{{ section.id }}">
+    <div class="review-principle">
+    <div class="space-holder">
+      <div class="container">
+        <div class="review-text">
+          {% if section.settings.heading != blank %}
+            <div class="review-principle-title">{{ section.settings.heading }}</div>
+          {% endif %}
+          {% if section.settings.text != blank %}
+            <div class="review-principle-p">{{ section.settings.text }}</div>
+          {% endif %}
+        </div>
+      </div>
+      <div class="sticky">
+        <div class="horizontal">
+          <section role="feed" class="cards">
+            {%for block in section.blocks %}
+                <article class="sample-card">
+                    <div class="card-cont">
+                        <div class="card-num">{{ forloop.index | prepend: 0 }}</div>
+                        {{ block.settings.image | image_url: width: master | image_tag: class: 'img', loading: 'lazy' }}
+                        <div class="card-p">{{ block.settings.text }}</div>
+                    </div>
+                </article>
+            {%endfor %}
+          </section>
+          <div class="review-principle-tips">
+            {% if section.settings.image_bg != blank %}
+                {{ section.settings.image_bg | image_url: width: master | image_tag: class: 'img-rotate', loading: 'lazy' }}
+            {% endif %}
+            <div class="arrow_msk">
+                {% for i in (1..2) %}
+                    {{ section.settings.image_arrow | image_url: width: master | image_tag: class: 'img-arraw', loading: 'lazy' }}
+                {% endfor %}
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+    
+</section>
+
+<script>
+    class CustomSlider {
+        constructor(containerElement) {
+          this.container = containerElement;
+          this.cards = this.container.querySelectorAll(".sample-card");
+          this.sticky = document.querySelector('.sticky');
+          this.spaceHolder = document.querySelector('.space-holder');
+          this.horizontal = document.querySelector('.horizontal');
+          this.reviewText = document.querySelector('.review-text');
+          this.constraints = null;
+          this.position = 0;
+          this.namespace = "custom-slider-namespace";
+        }
+  
+        enable() {
+          window.addEventListener("scroll", this.handleScroll.bind(this));
+          window.addEventListener("resize." + this.namespace, this.updateConstraints.bind(this));
+          this.updateConstraints();
+          this.spaceHolder.style.height = `${this.calcDynamicHeight(this.horizontal)}px`;
+        }
+  
+        calcDynamicHeight(ref) {
+          const vw = this.sticky.clientWidth;
+          const vh = this.sticky.clientHeight;
+          const objectWidth = ref.scrollWidth;
+          return objectWidth - vw + vh + this.cards[0].getBoundingClientRect().width/2+(this.constraints.mobile ?1000:2000);
+        }
+  
+        reset() {
+            this.cards.forEach(card => card.style.transform = "");
+        }
+  
+        updateConstraints() {
+            this.reset();
+            const cards = this.cards;
+            this.constraints = {
+                mobile: window.innerWidth <= 768,
+                width: window.innerWidth,
+                cardDiff: cards[1].getBoundingClientRect().left - cards[0].getBoundingClientRect().left
+            };
+            this.update(null, {
+                position: this.position
+            });
+        }
+  
+        handleScroll() {
+            const scrollAmount = this.sticky.offsetTop - this.reviewText.clientHeight;
+            this.position = scrollAmount / (this.spaceHolder.offsetHeight - this.reviewText.clientHeight - this.sticky.scrollHeight);
+            this.update(null, {
+            position: this.position
+            });
+        }
+  
+        update() {
+            const cards = this.cards;
+            const constraints = this.constraints;
+            const numCards = cards.length;
+            const ratio1 = constraints.mobile ? 2.5 : 1.15;
+            const ratio2 = constraints.mobile ? 0.6 : 1;
+            const width = constraints.width * ratio1;
+            const angle = Math.atan(constraints.cardDiff / constraints.width) * ratio2;
+  
+            for (let i = 0; i < numCards; i++) {
+                const card = cards[i];
+                const relativePosition = i - this.position * (numCards - 1);
+                const offset = constraints.cardDiff * i;
+                const translation = relativePosition * angle;
+                const x = width * Math.sin(translation) - offset;
+                const y = width - width * Math.cos(translation);
+                card.style.transform = `translate(${x}px, ${y}px) rotate(${translation}rad)`;
+            }
+        }
+    }
+  
+    const containerElement = document.querySelector('.sticky');
+    const customSlider = new CustomSlider(containerElement);
+    customSlider.enable();
+</script>
+
+
+{% schema %}
+{
+  "name": "水平弯曲滚动",
+  "max_blocks":8,
+  "settings": [
+    {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default":"Heading"
+    },
+    {
+        "type": "textarea",
+        "id": "text",
+        "label": "Text",
+        "default":"text text text"
+    },
+    {
+        "type": "image_picker",
+        "id": "image_bg",
+        "label": "Image background"
+    },
+    {
+        "type": "image_picker",
+        "id": "image_arrow",
+        "label": "Image arrow"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "block",
+      "settings": [
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+        },
+        {
+            "type": "textarea",
+            "id": "text",
+            "label": "Text",
+            "default":"text text text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "水平弯曲滚动",
+      "blocks": [
+        {
+          "type": "block"
+        },
+        {
+          "type": "block"
+        },
+        {
+          "type": "block"
+        },
+        {
+          "type": "block"
+        },
+        {
+          "type": "block"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
