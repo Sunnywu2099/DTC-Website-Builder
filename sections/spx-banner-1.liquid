@@ -1,0 +1,301 @@
+<style>
+  .home-banner .container{
+    position: relative;
+  }
+  .home-banner .container .home-swiper{
+    height: 100%;
+  }
+  .home-banner .container .home-swiper .item{
+    height: 100%;
+    position: relative;
+  }
+  .home-banner .container .home-swiper .item .img-box{
+    height: 100%;
+  }
+  .home-banner .container .home-swiper .item .content-box{
+    position: absolute;
+    top: 47%;
+    left: 50%;
+    color: #fff;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 80%;
+  }
+  .home-banner .container .home-swiper .item .content-box a{
+    color: #fff;
+    text-decoration: none;
+  }
+  .home-banner .container .home-swiper .item .content-box .title{
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin: 0;
+    font-size: 5vw;
+    line-height: 1.2;
+    margin-bottom: 15px;
+    text-decoration: none;
+  }
+  .home-banner .container .home-swiper .item .content-box .content{
+    font-size: 2vw;
+    line-height: 1.2;
+    text-decoration: none;
+  }
+  .home-banner .container .home-swiper .item .content-box .visit-btn{
+    font-size: 20px;
+    text-decoration: none;
+    display: inline-block;
+    line-height: 1;
+    margin-top: 45px;
+    background: #F45431;
+    padding: 15px 40px;
+    font-weight: 700;
+    border: 2px solid #F45431;
+  }
+  .home-banner .container .home-swiper .item .content-box .visit-btn:hover{
+    background: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+  }
+  .home-banner .swiper-button-prev.prev,
+  .home-banner .swiper-button-next.next{
+    background-image: none;
+    width: fit-content;
+    height: fit-content;
+    z-index: 9;
+  }
+  .home-banner .swiper-button-prev.prev{
+    left: 3%;
+  }
+  .home-banner .swiper-button-next.next{
+    right: 3%;
+  }
+  .home-banner .swiper-button-prev.prev svg,
+  .home-banner .swiper-button-next.next svg{
+    display: block;
+    transition: all .5s;
+  }
+  .home-banner .swiper-button-prev.prev:hover svg,
+  .home-banner .swiper-button-next.next:hover svg{
+    fill: #F45431;
+    transition: all .5s;
+  }
+  .home-banner .swiper-button-prev.prev:hover circle,
+  .home-banner .swiper-button-next.next:hover circle{
+    stroke: #F45431;
+    transition: all .5s;
+  }
+  .home-banner .container .home-pagination{
+    position: absolute;
+    bottom: 3%;
+    right: calc((100% - 1400px)/2);
+    z-index: 2;
+  }
+  .home-banner .container .home-pagination .swiper-pagination-bullet{
+    width: 12px;
+    height: 12px;
+    border-radius: 0;
+    margin-left: 14px;
+    opacity: 1;
+    background: #fff;
+  }
+  .home-banner .container .home-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active{
+    background: #F45431;
+  }
+  @media only screen and (max-width: 1600px){
+
+
+  }
+  @media only screen and (max-width: 1500px){
+    .home-banner .container .home-pagination{
+      right: 10%;
+    }
+  }
+  @media only screen and (max-width: 1100px){
+    
+  }
+  @media only screen and (max-width: 768px){
+    .home-banner .container .home-swiper .item .content-box{
+      width: 85%;
+    }
+    .home-banner .container .home-swiper .item .content-box .title{
+      font-size: 30px;
+    }
+    .home-banner .container .home-swiper .item .content-box .content{
+      font-size: 18px;
+    }
+    .home-banner .container .home-swiper .item .content-box .visit-btn{
+      font-size: 16px;
+      padding: 13px 30px;
+      margin-top: 30px;
+    }
+    .home-banner .swiper-button-prev.prev,
+    .home-banner .swiper-button-next.next{
+      display: none;
+    }
+    .home-banner .container .home-pagination{
+      left: 50%;
+      right: unset;
+      transform: translateX(-50%);
+    }
+    .home-banner .container .home-pagination .swiper-pagination-bullet{
+      width: 8px;
+      height: 8px;
+      margin-left: 8px;
+    }
+  }
+  @media only screen and (max-width: 590px){
+
+
+  }
+</style>
+
+<div class="home-banner">
+  <div class="container">
+    <div class="home-swiper swiper-container">
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+          {% if block.settings.link != blank %}
+            {% assign link_to = block.settings.link %}
+          {% else %}
+            {% assign link_to = '/' %}
+          {% endif %}
+          
+          <div class="item swiper-slide">
+            <a href="{{ link_to }}">
+              <div class="img-box">
+                <img class="b-lazy hide-mb" src="{{ block.settings.img | img_url: 'master' }}" data-src="{{ block.settings.img | img_url: 'master' }}">
+                <img class="b-lazy hide-pc" src="{{ block.settings.img_mb | img_url: 'master' }}" data-src="{{ block.settings.img_mb | img_url: 'master' }}">
+              </div>
+            </a>
+            <div class="content-box">
+              {% if block.settings.title != blank %}
+                <a href="{{ link_to }}"><div class="title fadein" style="color: {{ block.settings.content_color }};">{{ block.settings.title }}</div></a>
+              {% endif %}
+              {% if block.settings.text != blank %}
+                <a href="{{ link_to }}"><div class="content fadein" style="color: {{ block.settings.content_color }};">{{ block.settings.text }}</div></a>
+              {% endif %}
+              {% if block.settings.link != blank %}
+                <a class="visit-btn fadein fadein2" href="{{ block.settings.link }}" style="color: {{ block.settings.content_color }};">{{ block.settings.btn_name }}</a>
+              {% endif %}
+            </div>
+            
+        
+          </div>
+          
+        {% endfor %}
+      </div>
+    </div>
+    
+    <div class="swiper-button-prev prev">
+      <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="25" cy="25" r="24.5" transform="matrix(-1 0 0 1 50 0)" stroke="white"/>
+        <path d="M29 20L20.6 25.182L29 30.9398" stroke="white" stroke-width="2"/>
+      </svg>
+    </div>
+    <div class="swiper-button-next next">
+      <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="25" cy="25" r="24.5" transform="matrix(-1 0 0 1 50 0)" stroke="white"/>
+        <path d="M20.6 30.9398L29 25.7578L20.6 20" stroke="white" stroke-width="2"/>
+      </svg>
+    </div>
+    <div class="swiper-pagination home-pagination"></div>
+  </div>
+</div>
+
+<script>
+  var home_banner = new Swiper('.home-swiper', {
+      loop: true,
+      slidesPerView: 1,
+    {% if section.settings.auto_change %}
+      autoplay: {
+        delay: {{section.settings.change_time}},
+        disableOnInteraction: false,
+      },
+    {% else %}
+      autoplay: false,
+    {% endif %}
+      navigation: {
+        nextEl: '.swiper-button-next.next',
+        prevEl: '.swiper-button-prev.prev',
+      },
+      pagination: {
+        el: '.swiper-pagination.home-pagination',
+        clickable :true,
+      },
+      breakpoints: {
+      } 
+  })
+</script>
+
+{% schema %}
+  {
+    "name": "SPX Banner 1",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "auto_change",
+        "label": "Auto change images",
+        "default": false
+      },
+      {
+        "type": "range",
+        "id": "change_time",
+        "min": 0,
+        "max": 9000,
+        "step": 500,
+        "label": "Change Time",
+        "default": 7000
+      }
+    ],
+    "blocks": [
+    {
+      "type": "block",
+      "name": "Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "img",
+          "label": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_mb",
+          "label": "Image mobile"
+        },
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "text",
+          "id": "btn_name",
+          "label": "Button name"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Button Link"
+        },
+        {
+          "type": "color",
+          "id": "content_color",
+          "label": "Content Color",
+          "default": "#ffffff"
+        }
+
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "SPX Banner 1"
+    }
+  ]
+    
+  }
+{% endschema %}
