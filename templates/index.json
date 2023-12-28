@@ -112,8 +112,8 @@
         "template--16704114884757__9a867374-1d93-481a-8f03-d3f37650ad08-block-5"
       ],
       "settings": {
-        "image-bg": "shopify:\/\/shop_images\/f1_e1636eb7-c1eb-46dd-b6b4-db91be41ef5f.png",
-        "image-arrow": "shopify:\/\/shop_images\/f2_deeb87cf-c138-460c-ab66-f636df5c3a59.png"
+        "image_bg": "shopify:\/\/shop_images\/f1_e1636eb7-c1eb-46dd-b6b4-db91be41ef5f.png",
+        "image_arrow": "shopify:\/\/shop_images\/f2_deeb87cf-c138-460c-ab66-f636df5c3a59.png"
       }
     }
   },
