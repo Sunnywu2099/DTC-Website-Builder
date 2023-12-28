@@ -65,6 +65,122 @@
         "color_gradient": ""
       }
     },
+    "71ea1a10-a1b7-4474-a465-dbd6f6c1373e": {
+      "type": "spx-scroll-slide",
+      "blocks": {
+        "template--16704114884757__71ea1a10-a1b7-4474-a465-dbd6f6c1373e-slide-1": {
+          "type": "slide",
+          "settings": {
+            "menu": "Auto Water Exchange",
+            "menu_sub": "(Optional)",
+            "menu_desc": "<p>Forget about filling tanks, lugging them around, dumping dirty water, and accidental spills. easy as a washing machine.<\/p>",
+            "menu_remark1": "Is This System Right for My Home?",
+            "menu_remark2": "Offered Separately as an Accessory",
+            "menu_btn": "Find Out!",
+            "menu_btn_link": "https:\/\/us.narwal.com\/pages\/automatic-water-exchange-system"
+          }
+        },
+        "template--16704114884757__71ea1a10-a1b7-4474-a465-dbd6f6c1373e-slide-2": {
+          "type": "slide",
+          "settings": {
+            "menu": "Auto Water Exchange",
+            "menu_sub": "(Optional)",
+            "menu_desc": "<p>Forget about filling tanks, lugging them around, dumping dirty water, and accidental spills. easy as a washing machine.<\/p>",
+            "menu_remark1": "Is This System Right for My Home?",
+            "menu_remark2": "Offered Separately as an Accessory",
+            "menu_btn": "Find Out!",
+            "menu_btn_link": "https:\/\/us.narwal.com\/pages\/automatic-water-exchange-system"
+          }
+        },
+        "template--16704114884757__71ea1a10-a1b7-4474-a465-dbd6f6c1373e-slide-3": {
+          "type": "slide",
+          "settings": {
+            "menu": "Auto Water Exchange",
+            "menu_sub": "(Optional)",
+            "menu_desc": "<p>Forget about filling tanks, lugging them around, dumping dirty water, and accidental spills. easy as a washing machine.<\/p>",
+            "menu_remark1": "Is This System Right for My Home?",
+            "menu_remark2": "Offered Separately as an Accessory",
+            "menu_btn": "Find Out!",
+            "menu_btn_link": "https:\/\/us.narwal.com\/pages\/automatic-water-exchange-system"
+          }
+        },
+        "template--16704114884757__71ea1a10-a1b7-4474-a465-dbd6f6c1373e-slide-4": {
+          "type": "slide",
+          "settings": {
+            "menu": "Auto Water Exchange",
+            "menu_sub": "(Optional)",
+            "menu_desc": "<p>Forget about filling tanks, lugging them around, dumping dirty water, and accidental spills. easy as a washing machine.<\/p>",
+            "menu_remark1": "Is This System Right for My Home?",
+            "menu_remark2": "Offered Separately as an Accessory",
+            "menu_btn": "Find Out!",
+            "menu_btn_link": "https:\/\/us.narwal.com\/pages\/automatic-water-exchange-system"
+          }
+        },
+        "template--16704114884757__71ea1a10-a1b7-4474-a465-dbd6f6c1373e-slide-5": {
+          "type": "slide",
+          "settings": {
+            "menu": "Auto Water Exchange",
+            "menu_sub": "(Optional)",
+            "menu_desc": "<p>Forget about filling tanks, lugging them around, dumping dirty water, and accidental spills. easy as a washing machine.<\/p>",
+            "menu_remark1": "Is This System Right for My Home?",
+            "menu_remark2": "Offered Separately as an Accessory",
+            "menu_btn": "Find Out!",
+            "menu_btn_link": "https:\/\/us.narwal.com\/pages\/automatic-water-exchange-system"
+          }
+        },
+        "template--16704114884757__71ea1a10-a1b7-4474-a465-dbd6f6c1373e-slide-6": {
+          "type": "slide",
+          "settings": {
+            "menu": "Auto Water Exchange",
+            "menu_sub": "(Optional)",
+            "menu_desc": "<p>Forget about filling tanks, lugging them around, dumping dirty water, and accidental spills. easy as a washing machine.<\/p>",
+            "menu_remark1": "Is This System Right for My Home?",
+            "menu_remark2": "Offered Separately as an Accessory",
+            "menu_btn": "Find Out!",
+            "menu_btn_link": "https:\/\/us.narwal.com\/pages\/automatic-water-exchange-system"
+          }
+        },
+        "template--16704114884757__71ea1a10-a1b7-4474-a465-dbd6f6c1373e-slide-7": {
+          "type": "slide",
+          "settings": {
+            "menu": "Auto Water Exchange",
+            "menu_sub": "(Optional)",
+            "menu_desc": "<p>Forget about filling tanks, lugging them around, dumping dirty water, and accidental spills. easy as a washing machine.<\/p>",
+            "menu_remark1": "Is This System Right for My Home?",
+            "menu_remark2": "Offered Separately as an Accessory",
+            "menu_btn": "Find Out!",
+            "menu_btn_link": "https:\/\/us.narwal.com\/pages\/automatic-water-exchange-system"
+          }
+        }
+      },
+      "block_order": [
+        "template--16704114884757__71ea1a10-a1b7-4474-a465-dbd6f6c1373e-slide-1",
+        "template--16704114884757__71ea1a10-a1b7-4474-a465-dbd6f6c1373e-slide-2",
+        "template--16704114884757__71ea1a10-a1b7-4474-a465-dbd6f6c1373e-slide-3",
+        "template--16704114884757__71ea1a10-a1b7-4474-a465-dbd6f6c1373e-slide-4",
+        "template--16704114884757__71ea1a10-a1b7-4474-a465-dbd6f6c1373e-slide-5",
+        "template--16704114884757__71ea1a10-a1b7-4474-a465-dbd6f6c1373e-slide-6",
+        "template--16704114884757__71ea1a10-a1b7-4474-a465-dbd6f6c1373e-slide-7"
+      ],
+      "settings": {
+        "title1": "Automatic Base Station",
+        "title2": "One Station to Take Care of All",
+        "menu2": "Auto Mop Washing",
+        "menu2_desc": "<p>Cleans mops as you would. Spins and washes the mops rapidly against the studded washboard, completely eliminating dirt.<\/p>",
+        "menu3": "Auto Dual Hot Air Drying",
+        "menu3_desc": "<p>Dual fans & heaters dry mops in 1\/2 the time, evenly & safely under optimal 104°F, preventing bacteria & mold growth while smelling fresh.<\/p>",
+        "menu4": "Auto Dampness Control",
+        "menu4_desc": "<p>Maintains optimal mop dampness to absorb stubborn stains, achieving 2x effective cleaning area (vs industry avg.) on one go.<\/p>",
+        "menu5": "Auto Solution Dispensing",
+        "menu5_desc": "<p>Automatically refills Freo’s water tank. Precise solution control ensures the optimal clean.<\/p>",
+        "menu6": "Auto Station Cleaning",
+        "menu6_desc": "<p> Cleans everything, even itself.<\/p>",
+        "menu7": "Convenient LCD Control",
+        "menu7_desc": "<p>A clean home is one touch away. Simple management from the base station.<\/p>",
+        "menu7_pc_video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/ecc752c45c1e4a4e8b79ab40d3640300.mp4",
+        "menu7_mb_video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/af475bf3626d412da3938c6752b2ea41.mp4"
+      }
+    },
     "9a867374-1d93-481a-8f03-d3f37650ad08": {
       "type": "spx-scroll-bent",
       "blocks": {
@@ -112,6 +228,8 @@
         "template--16704114884757__9a867374-1d93-481a-8f03-d3f37650ad08-block-5"
       ],
       "settings": {
+        "heading": "Heading",
+        "text": "text text text",
         "image_bg": "shopify:\/\/shop_images\/f1_e1636eb7-c1eb-46dd-b6b4-db91be41ef5f.png",
         "image_arrow": "shopify:\/\/shop_images\/f2_deeb87cf-c138-460c-ab66-f636df5c3a59.png"
       }
@@ -119,6 +237,7 @@
   },
   "order": [
     "logo-list",
+    "71ea1a10-a1b7-4474-a465-dbd6f6c1373e",
     "9a867374-1d93-481a-8f03-d3f37650ad08"
   ]
 }
