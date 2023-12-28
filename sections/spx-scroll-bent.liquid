@@ -1,6 +1,6 @@
 <style>
     .shopify-section-{{ section.id }} .review-principle {
-        padding-top: var(--header-height);
+        padding-top: 80px;
     }
     
     .shopify-section-{{ section.id }} .review-principle .review-principle-title {
@@ -400,11 +400,11 @@
         }
   
         handleScroll() {
-        const scrollAmount = this.sticky.offsetTop - this.reviewText.clientHeight;
-        this.position = scrollAmount / (this.spaceHolder.offsetHeight - this.reviewText.clientHeight - this.sticky.scrollHeight);
-        this.update(null, {
-          position: this.position
-        });
+            const scrollAmount = this.sticky.offsetTop - this.reviewText.clientHeight;
+            this.position = scrollAmount / (this.spaceHolder.offsetHeight - this.reviewText.clientHeight - this.sticky.scrollHeight);
+            this.update(null, {
+            position: this.position
+            });
         }
   
         update() {
