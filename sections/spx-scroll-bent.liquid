@@ -320,7 +320,9 @@
             {%endfor %}
           </section>
           <div class="review-principle-tips">
-            {{ section.settings.image_bg | image_url: width: master | image_tag: class: 'img-rotate', loading: 'lazy' }}
+            {% if section.settings.image_bg != blank %}
+                {{ section.settings.image_bg | image_url: width: master | image_tag: class: 'img-rotate', loading: 'lazy' }}
+            {% endif %}
             <div class="arrow_msk">
                 {% for i in (1..2) %}
                     {{ section.settings.image_arrow | image_url: width: master | image_tag: class: 'img-arraw', loading: 'lazy' }}
