@@ -376,7 +376,7 @@
   
         calcDynamicHeight(ref) {
           const vw = this.sticky.clientWidth;
-          const vh = this.sticky.clientHeight;
+          const vh = this.sticky.clientHeight*1.2;
           const objectWidth = ref.scrollWidth;
           return objectWidth - vw + vh + this.cards[0].getBoundingClientRect().width/2+(this.constraints.mobile ?1000:2000);
         }
