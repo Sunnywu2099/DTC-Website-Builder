@@ -16,6 +16,7 @@
         {% endfor %}
       </div>
     </div>
+
     <div node-name="fifthSlide" class="index-page-slide-1 show">
       <div class="index-page-content">
         <div class="product-desc">
@@ -25,119 +26,65 @@
           <div class="product-question">{{ section.settings.menu1_remark1 }}</div>
           <a href="{{ section.settings.menu1_btn_link }}" class="buy-now">
             {{- section.settings.menu1_btn -}}
-            <i class="icon"></i
-          ></a>
+            <i class="icon"></i>
+          </a>
         </div>
         <div class="product-remark">{{ section.settings.menu1_remark2 }}</div>
       </div>
-      <img
-        loading="lazy"
-        class="product-img pc-done"
-        src="{{ section.settings.menu1_pc_backdrop_url | img_url: '1920x' }}"
-        alt=""
-      >
-      <img
-        loading="lazy"
-        class="product-img mobile-done"
-        src="{{ section.settings.menu1_mb_backdrop_url | img_url: '750x' }}"
-        alt=""
-      >
+      <img loading="lazy" class="product-img pc-done" src="{{ section.settings.menu1_pc_backdrop_url | img_url: '1920x' }}" alt="">
+      <img loading="lazy" class="product-img mobile-done" src="{{ section.settings.menu1_mb_backdrop_url | img_url: '750x' }}" alt="">
     </div>
+
     <div node-name="fifthSlide" class="index-page-slide-2">
       <div class="index-page-content">
         <div class="product-desc">
           {{ section.settings.menu2_desc }}
         </div>
       </div>
-      <img
-        loading="lazy"
-        class="product-img pc-done"
-        src="{{ section.settings.menu2_pc_backdrop_url | img_url: '1920x' }}"
-        alt=""
-      >
-      <img
-        loading="lazy"
-        class="product-img mobile-done"
-        src="{{ section.settings.menu2_mb_backdrop_url | img_url: '750x' }}"
-        alt=""
-      >
+      <img loading="lazy" class="product-img pc-done" src="{{ section.settings.menu2_pc_backdrop_url | img_url: '1920x' }}" alt="">
+      <img loading="lazy" class="product-img mobile-done" src="{{ section.settings.menu2_mb_backdrop_url | img_url: '750x' }}"alt="">
     </div>
+
     <div node-name="fifthSlide" class="index-page-slide-3">
       <div class="index-page-content">
         <div class="product-desc">
           {{ section.settings.menu3_desc }}
         </div>
       </div>
-      <img
-        loading="lazy"
-        class="product-img pc-done"
-        src="{{ section.settings.menu3_pc_backdrop_url | img_url: '1920x' }}"
-        alt=""
-      >
-      <img
-        loading="lazy"
-        class="product-img mobile-done"
-        src="{{ section.settings.menu3_mb_backdrop_url | img_url: '750x' }}"
-        alt=""
-      >
+      <img loading="lazy" class="product-img pc-done" src="{{ section.settings.menu3_pc_backdrop_url | img_url: '1920x' }}" alt="">
+      <img loading="lazy" class="product-img mobile-done" src="{{ section.settings.menu3_mb_backdrop_url | img_url: '750x' }}"alt="">
     </div>
+
     <div node-name="fifthSlide" class="index-page-slide-4">
       <div class="index-page-content">
         <div class="product-desc">
           {{ section.settings.menu4_desc }}
         </div>
       </div>
-      <img
-        loading="lazy"
-        class="product-img pc-done"
-        src="{{ section.settings.menu4_pc_backdrop_url | img_url: '1920x' }}"
-        alt=""
-      >
-      <img
-        loading="lazy"
-        class="product-img mobile-done"
-        src="{{ section.settings.menu4_mb_backdrop_url | img_url: '750x' }}"
-        alt=""
-      >
+      <img loading="lazy" class="product-img pc-done" src="{{ section.settings.menu4_pc_backdrop_url | img_url: '1920x' }}" alt="">
+      <img loading="lazy" class="product-img mobile-done" src="{{ section.settings.menu4_mb_backdrop_url | img_url: '750x' }}"alt="">
     </div>
+
     <div node-name="fifthSlide" class="index-page-slide-5">
       <div class="index-page-content">
         <div class="product-desc">
           {{ section.settings.menu5_desc }}
         </div>
       </div>
-      <img
-        loading="lazy"
-        class="product-img pc-done"
-        src="{{ section.settings.menu5_pc_backdrop_url | img_url: '1920x' }}"
-        alt=""
-      >
-      <img
-        loading="lazy"
-        class="product-img mobile-done"
-        src="{{ section.settings.menu5_mb_backdrop_url | img_url: '750x' }}"
-        alt=""
-      >
+      <img loading="lazy" class="product-img pc-done" src="{{ section.settings.menu5_pc_backdrop_url | img_url: '1920x' }}" alt="">
+      <img loading="lazy" class="product-img mobile-done" src="{{ section.settings.menu5_mb_backdrop_url | img_url: '750x' }}"alt="">
     </div>
+
     <div node-name="fifthSlide" class="index-page-slide-6">
       <div class="index-page-content">
         <div class="product-desc">
           {{ section.settings.menu6_desc }}
         </div>
       </div>
-      <img
-        loading="lazy"
-        class="product-img pc-done"
-        src="{{ section.settings.menu6_pc_backdrop_url | img_url: '1920x' }}"
-        alt=""
-      >
-      <img
-        loading="lazy"
-        class="product-img mobile-done"
-        src="{{ section.settings.menu6_mb_backdrop_url | img_url: '750x' }}"
-        alt=""
-      >
+      <img loading="lazy" class="product-img pc-done" src="{{ section.settings.menu6_pc_backdrop_url | img_url: '1920x' }}" alt="">
+      <img loading="lazy" class="product-img mobile-done" src="{{ section.settings.menu6_mb_backdrop_url | img_url: '750x' }}"alt="">
     </div>
+
     <div node-name="fifthSlide" class="index-page-slide-7">
       <div class="index-page-content">
         <div class="product-desc">
@@ -146,26 +93,8 @@
       </div>
       <div class="product-video product-img">
         <div class="video-warp">
-          <video
-            node-name="pcVideo"
-            class="screen-video pc-done"
-            src="{{ section.settings.menu7_pc_video_url }}"
-            muted
-            loop
-            playsinline
-            webkit-playsinline
-            preload="metadata"
-          ></video>
-          <video
-            node-name="mobileVideo"
-            class="screen-video mobile-done"
-            src="{{ section.settings.menu7_mb_video_url }}"
-            muted
-            loop
-            playsinline
-            webkit-playsinline
-            preload="metadata"
-          ></video>
+          <video node-name="pcVideo" class="screen-video pc-done" src="{{ section.settings.menu7_pc_video_url }}" muted loop playsinline webkit-playsinline preload="metadata"></video>
+          <video node-name="mobileVideo" class="screen-video mobile-done" src="{{ section.settings.menu7_mb_video_url }}" muted loop playsinline webkit-playsinline preload="metadata"></video>
         </div>
       </div>
     </div>
