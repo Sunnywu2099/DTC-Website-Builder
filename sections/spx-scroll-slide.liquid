@@ -275,8 +275,6 @@
         document.addEventListener('scroll', function() {
             const scrollTop = window.scrollY || document.documentElement.scrollTop;
             runFiveAnime(scrollTop);
-            runThirteenAnime(scrollTop);
-            runFourteenAnime(scrollTop);
             playVideo(scrollTop);
         }, { passive: true });
     
@@ -298,19 +296,6 @@
                 top: getOffset(nodeList.fifthPage).top,
                 height: nodeList.fifthPage.offsetHeight
             };
-    
-            {% comment %} offsetMap.thirteen = {
-                wordNode: nodeList.thirteenthWord,
-                imgNode: nodeList.thirteenthImg,
-                top: getOffset(nodeList.thirteenthPage).top,
-                height: nodeList.thirteenthPage.offsetHeight
-            }; {% endcomment %}
-    
-            {% comment %} offsetMap.fourteen = {
-                node: nodeList.fourteenBox,
-                top: getOffset(nodeList.fourteenPage).top,
-                height: nodeList.fourteenPage.offsetHeight
-            }; {% endcomment %}
     
             const videoList = [];
             const list = isMobile ? nodeList.mobileVideo : nodeList.pcVideo;
@@ -396,7 +381,7 @@
                 fiveSelect = select;
             }
         }
-        
+
     })();
     
 </script>
