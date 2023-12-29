@@ -206,6 +206,14 @@
   var home_banner = new Swiper('.banner-swiper', {
       loop: true,
       slidesPerView: 1,
+      navigation: {
+        nextEl: '.banner-swiper .swiper-button-next',
+        prevEl: '.banner-swiper .swiper-button-prev',
+      },
+      pagination: {
+        el: '.banner-swiper .swiper-pagination',
+        clickable :true,
+      },
     {% if section.settings.auto_change %}
       autoplay: {
         delay: {{section.settings.change_time}},
@@ -214,14 +222,7 @@
     {% else %}
       autoplay: false,
     {% endif %}
-      navigation: {
-        nextEl: '.banner-swiper .swiper-button-next',
-        prevEl: '.banner-swiper .swiper-button-prev',
-      },
-      pagination: {
-        el: 'banner-swiper .swiper-pagination',
-        clickable :true,
-      },
+      
       breakpoints: {
       } 
   })
