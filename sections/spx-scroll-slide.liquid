@@ -309,12 +309,13 @@
                 });
             });
     
+            console.log("videoList before= >",videoList)
             videoList.push({
                 play: false,
                 node: nodeList.video,
                 top: getOffset(nodeList.video).top
             });
-    
+            console.log("videoList after= >",videoList)
             offsetMap.videoList = videoList;
         }
     
