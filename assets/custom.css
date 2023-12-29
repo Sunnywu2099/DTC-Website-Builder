@@ -1,0 +1,15 @@
+.hide-mb{
+    display: block;
+}
+.hide-pc{
+    display: none;
+}
+
+@media screen and (max-width: 768px){
+    .hide-mb{
+        display: none;
+    }
+    .hide-pc{
+        display: block;
+    }
+}
