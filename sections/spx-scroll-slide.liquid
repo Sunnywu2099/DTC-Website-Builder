@@ -211,14 +211,6 @@
             {% endif %}
         </div>
     {% endfor %}
-
-    <div node-name="fifthSlide" class="index-page-slide-7">
-      <div class="index-page-content">
-        <div class="product-desc">
-          {{ section.settings.menu_desc }}
-        </div>
-      </div>
-    </div>
   </div>
 </div>
 
@@ -338,7 +330,7 @@
         nodeList.fifthMenus.addEventListener('click', ev => {
             const height = offsetMap.five.height;
             const top = offsetMap.five.top;
-            const mod = height / 7;
+            const mod = height / nodeList.fifthMenus.lengh;
             const index = ev.target.dataset.key;
             console.log(ev.target, index);
             if (index) {
