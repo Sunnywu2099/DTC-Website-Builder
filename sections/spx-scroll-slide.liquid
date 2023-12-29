@@ -263,7 +263,7 @@
     
         let screenHeight = window.innerHeight;
         let nodeList = getNodeList(box);
-        console.log('nodeList =>',nodeList);
+        console.log(nodeList);
     
         if (!nodeList.fifthMenu) {
             return false;
@@ -396,7 +396,58 @@
             }
         }
     
+        // 第十三屏动画
+        let thirteenSelect = 0;
+    
+        function runThirteenAnime(scrollTop) {
+            if (!offsetMap.thirteen || isMobile) {
+                return false;
+            }
+            const obj = offsetMap.thirteen;
+            const rate = getMoveRate(scrollTop, obj.top, obj.height);
+            let select = 0;
+            if (rate < 50) {
+                select = 0;
+            } else {
+                select = 1;
+            }
+    
+            if (thirteenSelect !== select) {
+                obj.imgNode[thirteenSelect].classList.remove('show');
+                obj.imgNode[select].classList.add('show');
+                obj.wordNode[thirteenSelect].classList.remove('show');
+                obj.wordNode[select].classList.add('show');
+                thirteenSelect = select;
+            }
+        }
+    
+        // 第十四屏动画
+        let fourteenSelect = 0;
+    
+        function runFourteenAnime(scrollTop) {
+            if (!offsetMap.fourteen || isMobile) {
+                return false;
+            }
+            const obj = offsetMap.fourteen;
+            const rate = getMoveRate(scrollTop, obj.top, obj.height);
+            let select = 0;
+            if (rate < 50) {
+                select = 0;
+            } else {
+                select = 1;
+            }
+    
+            if (fourteenSelect !== select) {
+                if (select === 0) {
+                    obj.node.classList.remove('show');
+                } else {
+                    obj.node.classList.add('show');
+                }
+                fourteenSelect = select;
+            }
+        }
     })();
+    
 </script>
 
 {% schema %}
