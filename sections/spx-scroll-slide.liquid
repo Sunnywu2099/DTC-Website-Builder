@@ -298,7 +298,6 @@
             };
     
             const videoList = [];
-            {% comment %} const list = isMobile ? nodeList.mobileVideo : nodeList.pcVideo; {% endcomment %}
             const list = isMobile ? nodeList.mobileVideo instanceof Array ? nodeList.mobileVideo : [nodeList.mobileVideo] : nodeList.pcVideo instanceof Array ? nodeList.pcVideo : [nodeList.pcVideo];
 
             console.log("list",list)
