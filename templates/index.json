@@ -77,7 +77,7 @@
             "menu_remark1": "Is This System Right for My Home?",
             "menu_remark2": "Offered Separately as an Accessory",
             "menu_btn": "Find Out!",
-            "menu_btn_link": "https:\/\/us.narwal.com\/pages\/automatic-water-exchange-system",
+            "menu_btn_link": "",
             "enable_image": true,
             "menu_pc_backdrop_url": "shopify:\/\/shop_images\/page-fifth-backdrop-2_1920x_7e2867ac-d439-4244-b5bd-e91ebb0fc608.jpg",
             "menu_mb_backdrop_url": "shopify:\/\/shop_images\/2_750x_3e42bbe2-64cd-42f9-adfb-39de8c543e08.png",
@@ -124,11 +124,11 @@
           "settings": {
             "menu": "Auto Water Exchange",
             "menu_sub": "(4)",
-            "menu_desc": "<p>Forget about filling tanks, lugging them around, dumping dirty water, and accidental spills. easy as a washing machine.<\/p>",
-            "menu_remark1": "Is This System Right for My Home?",
-            "menu_remark2": "Offered Separately as an Accessory",
-            "menu_btn": "Find Out!",
-            "menu_btn_link": "https:\/\/us.narwal.com\/pages\/automatic-water-exchange-system",
+            "menu_desc": "<p>text<\/p>",
+            "menu_remark1": "",
+            "menu_remark2": "",
+            "menu_btn": "",
+            "menu_btn_link": "",
             "enable_image": true,
             "menu_pc_backdrop_url": "shopify:\/\/shop_images\/page-fifth-backdrop-6_1920x_b59786df-345d-4b1e-bc09-35eba540386b.jpg",
             "menu_mb_backdrop_url": "shopify:\/\/shop_images\/6_750x_8370d7fe-920c-4381-bb75-8633d8421824.png",
@@ -144,28 +144,11 @@
             "menu_desc": "<p>Forget about filling tanks, lugging them around, dumping dirty water, and accidental spills. easy as a washing machine.<\/p>",
             "menu_remark1": "Is This System Right for My Home?",
             "menu_remark2": "Offered Separately as an Accessory",
-            "menu_btn": "Find Out!",
-            "menu_btn_link": "https:\/\/us.narwal.com\/pages\/automatic-water-exchange-system",
+            "menu_btn": "",
+            "menu_btn_link": "",
             "enable_image": true,
             "menu_pc_backdrop_url": "shopify:\/\/shop_images\/page-fifth-backdrop-5_1920x_f2294748-794a-463f-b0a1-2102d7eff2da.jpg",
             "menu_mb_backdrop_url": "shopify:\/\/shop_images\/5_750x_a027b2c6-ba2d-48cc-8192-c6a18710a9aa.png",
-            "menu_pc_video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/ecc752c45c1e4a4e8b79ab40d3640300.mp4",
-            "menu_mb_video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/af475bf3626d412da3938c6752b2ea41.mp4"
-          }
-        },
-        "6ec2a840-378e-4635-aabd-8a1314dda0f3": {
-          "type": "slide",
-          "settings": {
-            "menu": "Auto Water Exchange",
-            "menu_sub": "(6)",
-            "menu_desc": "<p>Forget about filling tanks, lugging them around, dumping dirty water, and accidental spills. easy as a washing machine.<\/p>",
-            "menu_remark1": "Is This System Right for My Home?",
-            "menu_remark2": "Offered Separately as an Accessory",
-            "menu_btn": "Find Out!",
-            "menu_btn_link": "https:\/\/us.narwal.com\/pages\/automatic-water-exchange-system",
-            "enable_image": true,
-            "menu_pc_backdrop_url": "shopify:\/\/shop_images\/page-fifth-backdrop-1_1920x_768b3928-d93e-4975-a256-2250265d1224.jpg",
-            "menu_mb_backdrop_url": "shopify:\/\/shop_images\/page-mb-fifth-backdrop-1_750x_b5afe08f-a38f-48e2-86a1-7b512f07e831.jpg",
             "menu_pc_video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/ecc752c45c1e4a4e8b79ab40d3640300.mp4",
             "menu_mb_video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/af475bf3626d412da3938c6752b2ea41.mp4"
           }
@@ -174,12 +157,12 @@
           "type": "slide",
           "settings": {
             "menu": "Auto Water Exchange",
-            "menu_sub": "(7)",
-            "menu_desc": "<p>Forget about filling tanks, lugging them around, dumping dirty water, and accidental spills. easy as a washing machine.<\/p>",
+            "menu_sub": "(6)",
+            "menu_desc": "",
             "menu_remark1": "Is This System Right for My Home?",
-            "menu_remark2": "Offered Separately as an Accessory",
-            "menu_btn": "Find Out!",
-            "menu_btn_link": "https:\/\/us.narwal.com\/pages\/automatic-water-exchange-system",
+            "menu_remark2": "",
+            "menu_btn": "",
+            "menu_btn_link": "",
             "enable_image": false,
             "menu_pc_video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/ecc752c45c1e4a4e8b79ab40d3640300.mp4",
             "menu_mb_video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/af475bf3626d412da3938c6752b2ea41.mp4"
@@ -192,7 +175,6 @@
         "a9d97c02-71fb-4173-a6db-e81d5b1b8fe0",
         "09abee26-66a9-499c-9884-00b9f15a6266",
         "2c420bfc-2b8f-479a-9ba7-7bb6aebd0080",
-        "6ec2a840-378e-4635-aabd-8a1314dda0f3",
         "template--16704114884757__71ea1a10-a1b7-4474-a465-dbd6f6c1373e-slide-7"
       ],
       "settings": {
