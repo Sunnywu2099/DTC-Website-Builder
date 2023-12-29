@@ -36,23 +36,24 @@
                     <div class="product-remark">{{ block.settings.menu_remark2 }}</div>
                 {% endif %}
             </div>
-            
-            {{ block.settings.menu_pc_backdrop_url | image_url: width: '1920x' | image_tag: class: 'product-img pc-done', loading: 'lazy' }}
-            {{ block.settings.menu_mb_backdrop_url | image_url: width: '750x' | image_tag: class: 'product-img mobile-done', loading: 'lazy' }}
-
+            {% if block.settings.enable_image %}
+                {{ block.settings.menu_pc_backdrop_url | image_url: width: '1920x' | image_tag: class: 'product-img pc-done', loading: 'lazy' }}
+                {{ block.settings.menu_mb_backdrop_url | image_url: width: '750x' | image_tag: class: 'product-img mobile-done', loading: 'lazy' }}
+            {% else %}
+                <div class="product-video product-img">
+                    <div class="video-warp">
+                        <video node-name="pcVideo" class="screen-video pc-done" src="{{ block.settings.menu7_pc_video_url }}" muted loop playsinline webkit-playsinline preload="metadata"></video>
+                        <video node-name="mobileVideo" class="screen-video mobile-done" src="{{ block.settings.menu7_mb_video_url }}" muted loop playsinline webkit-playsinline preload="metadata"></video>
+                    </div>
+              </div>
+            {% endif %}
         </div>
     {% endfor %}
 
     <div node-name="fifthSlide" class="index-page-slide-7">
       <div class="index-page-content">
         <div class="product-desc">
-          {{ section.settings.menu7_desc }}
-        </div>
-      </div>
-      <div class="product-video product-img">
-        <div class="video-warp">
-          <video node-name="pcVideo" class="screen-video pc-done" src="{{ section.settings.menu7_pc_video_url }}" muted loop playsinline webkit-playsinline preload="metadata"></video>
-          <video node-name="mobileVideo" class="screen-video mobile-done" src="{{ section.settings.menu7_mb_video_url }}" muted loop playsinline webkit-playsinline preload="metadata"></video>
+          {{ section.settings.menu_desc }}
         </div>
       </div>
     </div>
@@ -76,45 +77,6 @@
       "id": "title2",
       "label": "标题二",
       "default": "One Station to Take Care of All"
-    },
-    {
-      "type": "text",
-      "id": "menu7",
-      "label": "第七屏名称",
-      "default": "Convenient LCD Control"
-    },
-
-    {
-      "type": "richtext",
-      "id": "menu7_desc",
-      "label": "第七屏简介",
-      "default": "<p>A clean home is one touch away. Simple management from the base station.</p>"
-    },
-    {
-      "label": "第七屏PC背景图",
-      "type": "image_picker",
-      "info": "请上传5M以内",
-      "id": "menu7_pc_backdrop_url"
-    },
-    {
-      "label": "第七屏H5背景图",
-      "type": "image_picker",
-      "info": "请上传5M以内",
-      "id": "menu7_mb_backdrop_url"
-    },
-    {
-      "label": "第七屏PC视频",
-      "type": "text",
-      "info": "请上传5M以内",
-      "id": "menu7_pc_video_url",
-      "default": "https://cdn.shopify.com/videos/c/o/v/ecc752c45c1e4a4e8b79ab40d3640300.mp4"
-    },
-    {
-      "label": "第七屏H5视频",
-      "type": "text",
-      "info": "请上传5M以内",
-      "id": "menu7_mb_video_url",
-      "default": "https://cdn.shopify.com/videos/c/o/v/af475bf3626d412da3938c6752b2ea41.mp4"
     }
   ],
   "blocks": [
@@ -165,16 +127,36 @@
             "default": "https://us.narwal.com/pages/automatic-water-exchange-system"
         },
         {
+            "type":"checkbox",
+            "id":"enable_image",
+            "label":"使用图片？否则应用影片",
+            "default":false
+        },
+        {
             "label": "PC背景图",
             "type": "image_picker",
-            "info": "请上传5M以内",
+            "info": "1920x 请上传5M以内",
             "id": "menu_pc_backdrop_url"
         },
         {
             "label": "H5背景图",
             "type": "image_picker",
-            "info": "请上传5M以内",
+            "info": "750x 请上传5M以内",
             "id": "menu_mb_backdrop_url"
+        },
+        {
+            "label": "PC视频",
+            "type": "text",
+            "info": "请上传5M以内",
+            "id": "menu_pc_video_url",
+            "default": "https://cdn.shopify.com/videos/c/o/v/ecc752c45c1e4a4e8b79ab40d3640300.mp4"
+        },
+        {
+            "label": "H5视频",
+            "type": "text",
+            "info": "请上传5M以内",
+            "id": "menu_mb_video_url",
+            "default": "https://cdn.shopify.com/videos/c/o/v/af475bf3626d412da3938c6752b2ea41.mp4"
         }
       ]
     }
