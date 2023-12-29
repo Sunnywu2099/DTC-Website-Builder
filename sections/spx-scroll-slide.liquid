@@ -298,7 +298,7 @@
             };
     
             const videoList = [];
-            const list = isMobile ? nodeList.mobileVideo : nodeList.pcVideo;
+            const list = [isMobile ? nodeList.mobileVideo : nodeList.pcVideo];
             console.log("list",list.length)
             list.forEach(node => {
                 console.log(node)
