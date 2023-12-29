@@ -1,1 +1,85 @@
-{"type":"header","name":"Header group","sections":{"announcement-bar":{"type":"announcement-bar","blocks":{"announcement-1":{"type":"announcement","settings":{"color_scheme":"accent-3"}}},"block_order":["announcement-1"],"settings":{}},"header":{"type":"header","settings":{}}},"order":["announcement-bar","header"]}
+{
+  "type": "header",
+  "name": "Header group",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement-1": {
+          "type": "announcement",
+          "settings": {
+            "title": "Welcome to our store",
+            "link": "",
+            "enable_expandable_content": true,
+            "height": "x-small",
+            "button_label": "More",
+            "subheading": "Subheading",
+            "heading": "Announcement",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "center_text": true,
+            "heading_size": "h1",
+            "description_size": "regular",
+            "image_style": "fill",
+            "image_padding": false,
+            "overlay": 40,
+            "first_button_label": "View more",
+            "first_button_link": "",
+            "first_button_style": false,
+            "second_button_label": "",
+            "second_button_link": "",
+            "second_button_style": true,
+            "color_scheme": "accent-3",
+            "custom_colors": false,
+            "color_foreground": "#212121",
+            "color_accent": "#0D91BD",
+            "color_background": "#FFFFFF",
+            "color_gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "announcement-1"
+      ],
+      "settings": {
+        "enable_social_icons": true,
+        "enable_language_selector": true,
+        "enable_country_selector": false,
+        "utility_bar_layout": "icons-left",
+        "utility_bar_position": "above",
+        "merge_utility_bar_large": true,
+        "color_scheme": "soft-background",
+        "custom_colors": false,
+        "color_foreground": "#212121",
+        "color_background": "#FFFFFF",
+        "color_gradient": ""
+      }
+    },
+    "header": {
+      "type": "header",
+      "settings": {
+        "menu": "main-menu",
+        "sidebar_menu": "",
+        "mega_menu_list": "",
+        "logo_width": 120,
+        "layout": "left-inline",
+        "enable_sticky": true,
+        "header_style": "transparent",
+        "transparent_header_color": "#FFFFFF",
+        "enable_search": true,
+        "show_separator_line": false,
+        "collapse_navigation_on_tablet": true,
+        "padding": -25,
+        "sidebar_color": "inverse",
+        "color_scheme": "default-with-accent-1",
+        "custom_colors": false,
+        "color_foreground": "#212121",
+        "color_accent": "#0D91BD",
+        "color_background": "#FFFFFF"
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header"
+  ]
+}

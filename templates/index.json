@@ -1,5 +1,55 @@
 {
   "sections": {
+    "c9f769c3-8de5-46ce-9d1d-502717910573": {
+      "type": "spx-banner-1",
+      "blocks": {
+        "ddd49c14-8a47-4c54-8b92-970b3f90036c": {
+          "type": "block",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/banner1.jpg",
+            "img_mb": "shopify:\/\/shop_images\/banner1-m.jpg",
+            "title": "DJI INSPIRE 3",
+            "text": "Master the Unseen",
+            "btn_name": "Buy Now >",
+            "link": "\/",
+            "content_color": "#ffffff"
+          }
+        },
+        "45017d9b-3d72-4631-ba91-58ee7a6d0fee": {
+          "type": "block",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/banner2.jpg",
+            "img_mb": "shopify:\/\/shop_images\/banner2-m.jpg",
+            "title": "DJI MAVIC 3 ENTERPRISE SERIES",
+            "text": "Your Everyday Commercial Drone",
+            "btn_name": "Learn More >",
+            "link": "\/",
+            "content_color": "#ffffff"
+          }
+        },
+        "e4660ac6-2cbc-4216-a26c-d3ff6963c838": {
+          "type": "block",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/banner3.jpg",
+            "img_mb": "shopify:\/\/shop_images\/banner3-m.jpg",
+            "title": "AGRAS T40",
+            "text": "One for All",
+            "btn_name": "Learn More >",
+            "link": "\/",
+            "content_color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "ddd49c14-8a47-4c54-8b92-970b3f90036c",
+        "45017d9b-3d72-4631-ba91-58ee7a6d0fee",
+        "e4660ac6-2cbc-4216-a26c-d3ff6963c838"
+      ],
+      "settings": {
+        "auto_change": false,
+        "change_time": 7000
+      }
+    },
     "logo-list": {
       "type": "logo-list",
       "blocks": {
@@ -118,7 +168,12 @@
     }
   },
   "order": [
+<<<<<<< HEAD
     "logo-list",
     "9a867374-1d93-481a-8f03-d3f37650ad08"
+=======
+    "c9f769c3-8de5-46ce-9d1d-502717910573",
+    "logo-list"
+>>>>>>> 8ca5b72035af6803877e401473f48a1e10daa440
   ]
 }
