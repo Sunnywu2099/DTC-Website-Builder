@@ -152,38 +152,38 @@
 <div class="home-banner">
   <div class="banner-container">
     <div class="banner-swiper swiper">
-      <div class="swiper-wrapper">
-        {% for block in section.blocks %}
-          {% if block.settings.link != blank %}
-            {% assign link_to = block.settings.link %}
-          {% else %}
-            {% assign link_to = '/' %}
-          {% endif %}
-          
-          <div class="item swiper-slide">
-            <a href="{{ link_to }}">
-              <div class="img-box">
-                <img class="hide-mb" src="{{ block.settings.img | img_url: 'master' }}" data-src="{{ block.settings.img | img_url: 'master' }}">
-                <img class="hide-pc" src="{{ block.settings.img_mb | img_url: 'master' }}" data-src="{{ block.settings.img_mb | img_url: 'master' }}">
-              </div>
-            </a>
-            <div class="content-box">
-              {% if block.settings.title != blank %}
-                <a href="{{ link_to }}"><div class="title fadein" style="color: {{ block.settings.content_color }};">{{ block.settings.title }}</div></a>
-              {% endif %}
-              {% if block.settings.text != blank %}
-                <a href="{{ link_to }}"><div class="content fadein" style="color: {{ block.settings.content_color }};">{{ block.settings.text }}</div></a>
-              {% endif %}
-              {% if block.settings.link != blank %}
-                <a class="visit-btn fadein fadein2" href="{{ block.settings.link }}" style="color: {{ block.settings.content_color }};">{{ block.settings.btn_name }}</a>
-              {% endif %}
+        <div class="swiper-wrapper">
+            {% for block in section.blocks %}
+            {% if block.settings.link != blank %}
+                {% assign link_to = block.settings.link %}
+            {% else %}
+                {% assign link_to = '/' %}
+            {% endif %}
+            
+            <div class="item swiper-slide">
+                <a href="{{ link_to }}">
+                <div class="img-box">
+                    <img class="hide-mb" src="{{ block.settings.img | img_url: 'master' }}" data-src="{{ block.settings.img | img_url: 'master' }}">
+                    <img class="hide-pc" src="{{ block.settings.img_mb | img_url: 'master' }}" data-src="{{ block.settings.img_mb | img_url: 'master' }}">
+                </div>
+                </a>
+                <div class="content-box">
+                {% if block.settings.title != blank %}
+                    <a href="{{ link_to }}"><div class="title fadein" style="color: {{ block.settings.content_color }};">{{ block.settings.title }}</div></a>
+                {% endif %}
+                {% if block.settings.text != blank %}
+                    <a href="{{ link_to }}"><div class="content fadein" style="color: {{ block.settings.content_color }};">{{ block.settings.text }}</div></a>
+                {% endif %}
+                {% if block.settings.link != blank %}
+                    <a class="visit-btn fadein fadein2" href="{{ block.settings.link }}" style="color: {{ block.settings.content_color }};">{{ block.settings.btn_name }}</a>
+                {% endif %}
+                </div>
+                
+            
             </div>
             
-        
-          </div>
-          
-        {% endfor %}
-      </div>
+            {% endfor %}
+        </div>
 
         <div class="swiper-button-prev prev">
             <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
