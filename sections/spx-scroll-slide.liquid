@@ -299,7 +299,9 @@
     
             const videoList = [];
             const list = isMobile ? nodeList.mobileVideo : nodeList.pcVideo;
-            console.log("list",list.size)
+            const list = isMobile ? nodeList.mobileVideo instanceof Array ? nodeList.mobileVideo : [nodeList.mobileVideo] : nodeList.pcVideo instanceof Array ? nodeList.pcVideo : [nodeList.pcVideo];
+
+            console.log("list",list)
             list.forEach(node => {
                 console.log(node)
                 videoList.push({
