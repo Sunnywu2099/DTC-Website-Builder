@@ -239,7 +239,7 @@
         }
     
         function getOffset(el) {
-            console.log('el =>',el)
+            {% comment %} console.log('el =>',el) {% endcomment %}
             let box = el.getBoundingClientRect();
             let body = document.body;
             let clientTop = el.clientTop || body.clientTop || 0;
