@@ -76,8 +76,9 @@
 
     {{ content_for_header }}
 
-    {{ 'swiper.min.css' | asset_url | stylesheet_tag }}
+    {{ 'swiper.min.css' | asset_url | stylesheet_tag: preload: true }}
     {{- 'theme.css' | asset_url | stylesheet_tag: preload: true -}}
+    {{- 'custom.css' | asset_url | stylesheet_tag: preload: true -}}
   </head>
 
   <body
