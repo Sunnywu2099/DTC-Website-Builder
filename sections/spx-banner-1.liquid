@@ -1,18 +1,18 @@
 <style>
-  .home-banner .container{
+  .home-banner .banner-container{
     position: relative;
   }
-  .home-banner .container .home-swiper{
+  .home-banner .banner-container .banner-swiper{
     height: 100%;
   }
-  .home-banner .container .home-swiper .item{
+  .home-banner .banner-container .banner-swiper .item{
     height: 100%;
     position: relative;
   }
-  .home-banner .container .home-swiper .item .img-box{
+  .home-banner .banner-container .banner-swiper .item .img-box{
     height: 100%;
   }
-  .home-banner .container .home-swiper .item .content-box{
+  .home-banner .banner-container .banner-swiper .item .content-box{
     position: absolute;
     top: 47%;
     left: 50%;
@@ -21,11 +21,11 @@
     text-align: center;
     width: 80%;
   }
-  .home-banner .container .home-swiper .item .content-box a{
+  .home-banner .banner-container .banner-swiper .item .content-box a{
     color: #fff;
     text-decoration: none;
   }
-  .home-banner .container .home-swiper .item .content-box .title{
+  .home-banner .banner-container .banner-swiper .item .content-box .title{
     font-weight: 700;
     letter-spacing: 0.05em;
     margin: 0;
@@ -34,12 +34,12 @@
     margin-bottom: 15px;
     text-decoration: none;
   }
-  .home-banner .container .home-swiper .item .content-box .content{
+  .home-banner .banner-container .banner-swiper .item .content-box .content{
     font-size: 2vw;
     line-height: 1.2;
     text-decoration: none;
   }
-  .home-banner .container .home-swiper .item .content-box .visit-btn{
+  .home-banner .banner-container .banner-swiper .item .content-box .visit-btn{
     font-size: 20px;
     text-decoration: none;
     display: inline-block;
@@ -50,7 +50,7 @@
     font-weight: 700;
     border: 2px solid #F45431;
   }
-  .home-banner .container .home-swiper .item .content-box .visit-btn:hover{
+  .home-banner .banner-container .banner-swiper .item .content-box .visit-btn:hover{
     background: transparent;
     border: 2px solid #fff;
     color: #fff;
@@ -83,13 +83,13 @@
     stroke: #F45431;
     transition: all .5s;
   }
-  .home-banner .container .home-pagination{
+  .home-banner .banner-container .banner-pagination{
     position: absolute;
     bottom: 3%;
     right: calc((100% - 1400px)/2);
     z-index: 2;
   }
-  .home-banner .container .home-pagination .swiper-pagination-bullet{
+  .home-banner .banner-container .banner-pagination .swiper-pagination-bullet{
     width: 12px;
     height: 12px;
     border-radius: 0;
@@ -97,7 +97,7 @@
     opacity: 1;
     background: #fff;
   }
-  .home-banner .container .home-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active{
+  .home-banner .banner-container .banner-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active{
     background: #F45431;
   }
   @media only screen and (max-width: 1600px){
@@ -105,7 +105,7 @@
 
   }
   @media only screen and (max-width: 1500px){
-    .home-banner .container .home-pagination{
+    .home-banner .banner-container .banner-pagination{
       right: 10%;
     }
   }
@@ -113,16 +113,16 @@
     
   }
   @media only screen and (max-width: 768px){
-    .home-banner .container .home-swiper .item .content-box{
+    .home-banner .banner-container .banner-swiper .item .content-box{
       width: 85%;
     }
-    .home-banner .container .home-swiper .item .content-box .title{
+    .home-banner .banner-container .banner-swiper .item .content-box .title{
       font-size: 30px;
     }
-    .home-banner .container .home-swiper .item .content-box .content{
+    .home-banner .banner-container .banner-swiper .item .content-box .content{
       font-size: 18px;
     }
-    .home-banner .container .home-swiper .item .content-box .visit-btn{
+    .home-banner .banner-container .banner-swiper .item .content-box .visit-btn{
       font-size: 16px;
       padding: 13px 30px;
       margin-top: 30px;
@@ -131,12 +131,12 @@
     .home-banner .swiper-button-next.next{
       display: none;
     }
-    .home-banner .container .home-pagination{
+    .home-banner .banner-container .banner-pagination{
       left: 50%;
       right: unset;
       transform: translateX(-50%);
     }
-    .home-banner .container .home-pagination .swiper-pagination-bullet{
+    .home-banner .banner-container .banner-pagination .swiper-pagination-bullet{
       width: 8px;
       height: 8px;
       margin-left: 8px;
@@ -149,8 +149,8 @@
 </style>
 
 <div class="home-banner">
-  <div class="container">
-    <div class="home-swiper swiper-container">
+  <div class="banner-container">
+    <div class="banner-swiper swiper-container">
       <div class="swiper-wrapper">
         {% for block in section.blocks %}
           {% if block.settings.link != blank %}
@@ -197,12 +197,12 @@
         <path d="M20.6 30.9398L29 25.7578L20.6 20" stroke="white" stroke-width="2"/>
       </svg>
     </div>
-    <div class="swiper-pagination home-pagination"></div>
+    <div class="swiper-pagination banner-pagination"></div>
   </div>
 </div>
 
 <script>
-  var home_banner = new Swiper('.home-swiper', {
+  var home_banner = new Swiper('.banner-swiper', {
       loop: true,
       slidesPerView: 1,
     {% if section.settings.auto_change %}
@@ -218,7 +218,7 @@
         prevEl: '.swiper-button-prev.prev',
       },
       pagination: {
-        el: '.swiper-pagination.home-pagination',
+        el: '.swiper-pagination.banner-pagination',
         clickable :true,
       },
       breakpoints: {
