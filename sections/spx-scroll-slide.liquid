@@ -298,8 +298,8 @@
             };
     
             const videoList = [];
-            const list = [isMobile ? nodeList.mobileVideo : nodeList.pcVideo];
-            console.log("list",list.length)
+            const list = isMobile ? nodeList.mobileVideo : nodeList.pcVideo;
+            console.log("list",list.size)
             list.forEach(node => {
                 console.log(node)
                 videoList.push({
