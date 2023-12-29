@@ -450,8 +450,10 @@
                 select = 4;
             } else if (rate < unit_rate*6) {
                 select = 5;
-            } else {
+            } else if (rate < unit_rate*7) {
                 select = 6;
+            } else {
+                select = 7;
             }
     
             if (fiveSelect !== select) {
