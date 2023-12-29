@@ -415,6 +415,8 @@
     
         // 第五屏动画
         let fiveSelect = 0;
+        let unit_rate = 100 / nodeList.fifthMenus.childElementCount;
+        console.log(unit_rate);
     
         nodeList.fifthMenus.addEventListener('click', ev => {
             const height = offsetMap.five.height;
@@ -429,10 +431,11 @@
     
         function runFiveAnime(scrollTop) {
             if (!offsetMap.five) {
-                console.log('----------------------------')
                 return false;
             }
             const obj = offsetMap.five;
+            const unit_rate = 100 / nodeList.fifthMenus.childElementCount;
+            console.log(unit_rate);
             const rate = getMoveRate(scrollTop, obj.top, obj.height);
             let select = 0;
             if (rate < 14) {
