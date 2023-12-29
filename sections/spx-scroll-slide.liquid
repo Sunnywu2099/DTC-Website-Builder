@@ -321,6 +321,7 @@
         // 播放视频
         function playVideo(scrollTop) {
             const list = offsetMap.videoList;
+            console.log("list ====>",list)
             if (list && list.length > 0) {
                 list.forEach(obj => {
                     if (!obj.play && scrollTop + 200 > obj.top) {
