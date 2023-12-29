@@ -300,7 +300,6 @@
             const videoList = [];
             const list = isMobile ? nodeList.mobileVideo instanceof Array ? nodeList.mobileVideo : [nodeList.mobileVideo] : nodeList.pcVideo instanceof Array ? nodeList.pcVideo : [nodeList.pcVideo];
 
-            console.log("list",list)
             list.forEach(node => {
                 videoList.push({
                     node,
@@ -309,13 +308,6 @@
                 });
             });
     
-            console.log("videoList before= >",videoList)
-            {% comment %} videoList.push({
-                play: false,
-                node: nodeList.video,
-                top: getOffset(nodeList.video).top
-            }); {% endcomment %}
-            console.log("videoList after= >",videoList)
             offsetMap.videoList = videoList;
         }
     
