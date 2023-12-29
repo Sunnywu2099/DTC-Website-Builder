@@ -114,10 +114,21 @@
     margin-left: -600px;
     z-index: 850;
     overflow: hidden;
+    padding-left: 16px;
+  }
+  .home-banner .scroll-box:before{
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    content: '';
+    width: 2px;
+    height: calc(100% / 3);
+    background: #fff;
   }
   .home-banner .scroll-box .scroll-item{
     cursor: pointer;
-    opacity: 0.6;
+    opacity: 0.5;
   }
   .home-banner .scroll-box .scroll-item.swiper-slide-active{
     opacity: 1;
