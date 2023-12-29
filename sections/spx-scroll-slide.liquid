@@ -299,18 +299,18 @@
                 height: nodeList.fifthPage.offsetHeight
             };
     
-            offsetMap.thirteen = {
+            {% comment %} offsetMap.thirteen = {
                 wordNode: nodeList.thirteenthWord,
                 imgNode: nodeList.thirteenthImg,
                 top: getOffset(nodeList.thirteenthPage).top,
                 height: nodeList.thirteenthPage.offsetHeight
-            };
+            }; {% endcomment %}
     
-            offsetMap.fourteen = {
+            {% comment %} offsetMap.fourteen = {
                 node: nodeList.fourteenBox,
                 top: getOffset(nodeList.fourteenPage).top,
                 height: nodeList.fourteenPage.offsetHeight
-            };
+            }; {% endcomment %}
     
             const videoList = [];
             const list = isMobile ? nodeList.mobileVideo : nodeList.pcVideo;
