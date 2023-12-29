@@ -70,7 +70,7 @@
         "enable_search": true,
         "show_separator_line": false,
         "collapse_navigation_on_tablet": true,
-        "padding": -25,
+        "padding": -100,
         "sidebar_color": "inverse",
         "color_scheme": "default-with-accent-1",
         "custom_colors": false,
