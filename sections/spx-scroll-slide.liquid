@@ -275,10 +275,12 @@
                         {% if block.settings.menu_remark1 != blank %}
                             <div class="product-question">{{ block.settings.menu_remark1 }}</div>
                         {% endif %}
-                        <a href="{{ block.settings.menu_btn_link }}" class="buy-now">
-                            {{- block.settings.menu_btn -}}
-                            <i class="icon"></i>
-                        </a>
+                        {% if block.settings.menu_btn != blank %}
+                            <a href="{{ block.settings.menu_btn_link }}" class="buy-now">
+                                {{- block.settings.menu_btn -}}
+                                <i class="icon"></i>
+                            </a>
+                        {% endif %}
                     </div>
                 {% endif %}
                 {% if block.settings.menu_remark2 != blank %}
