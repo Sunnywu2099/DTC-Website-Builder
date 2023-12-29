@@ -231,16 +231,22 @@
 
 <script>
    let homeScroll = new Swiper('.scroll-swiper', {
-      spaceBetween: 5,
-      loop: true,
-      slidesPerView: 3,
-      watchSlidesVisibility: true,
-      direction: 'vertical',
+      centeredSlides: true,
+        height: 100,
+        slidesPerView: 3,
+        touchRatio: 0.2,
+        direction : 'vertical',
+        loop:true,
+        observer: true,
+        observeParents: true,
+        loopedSlides: 7, 
+        slideToClickedSlide: true,
   })
 
   let homeBanner = new Swiper('.banner-swiper', {
       loop: true,
       slidesPerView: 1,
+      effect : 'fade',
       navigation: {
         nextEl: '.banner-swiper .swiper-button-next',
         prevEl: '.banner-swiper .swiper-button-prev',
@@ -249,9 +255,9 @@
         el: '.banner-swiper .swiper-pagination',
         clickable :true,
       },
-      thumbs: {
-        swiper: homeScroll,
-      },
+      controller: {
+          control: galleryThumbs,
+        },
     {% if section.settings.auto_change %}
       autoplay: {
         delay: {{section.settings.change_time}},
@@ -262,7 +268,12 @@
     {% endif %}
   })
 
+        homeBanner.controller.control = homeScroll;
+        homeScroll.controller.control = homeBanner;
+
   
+      
+    
 </script>
 
 {% schema %}
