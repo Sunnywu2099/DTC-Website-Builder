@@ -106,17 +106,10 @@
   .home-banner .banner-container .banner-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active{
     background: #6D2412;
   }
-  @media only screen and (max-width: 1600px){
-
-
-  }
   @media only screen and (max-width: 1500px){
     .home-banner .banner-container .banner-pagination{
       right: 10%;
     }
-  }
-  @media only screen and (max-width: 1100px){
-    
   }
   @media only screen and (max-width: 768px){
     .home-banner .banner-container .banner-swiper{
@@ -209,11 +202,15 @@
         </div>
         <div class="swiper-pagination banner-pagination"></div>
     </div>
+
+    {% comment %} 滚动模块 {% endcomment %}
+    <div class="scroll-box">
+    </div>
   </div>
 </div>
 
 <script>
-  var homeBanner = new Swiper('.banner-swiper', {
+  let homeBanner = new Swiper('.banner-swiper', {
       loop: true,
       slidesPerView: 1,
       navigation: {
