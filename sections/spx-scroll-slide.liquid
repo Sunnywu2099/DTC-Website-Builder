@@ -256,7 +256,7 @@
     
         let screenHeight = window.innerHeight;
         let nodeList = getNodeList(box);
-        console.log(nodeList);
+        {% comment %} console.log(nodeList); {% endcomment %}
     
         if (!nodeList.fifthMenu) {
             return false;
@@ -306,7 +306,7 @@
         // 播放视频
         function playVideo(scrollTop) {
             const list = offsetMap.videoList;
-            console.log("list ====>",list)
+            {% comment %} console.log("list ====>",list) {% endcomment %}
             if (list && list.length > 0) {
                 list.forEach(obj => {
                     if (!obj.play && scrollTop + 200 > obj.top) {
