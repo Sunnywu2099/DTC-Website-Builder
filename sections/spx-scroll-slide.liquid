@@ -1,10 +1,14 @@
+<style>
+
+</style>
+
 <div class="index-page-fifth" node-name="fifthPage">
   <div class="index-page-slide-box">
     <div class="index-page-slide-backdrop">
-      <div class="product-text">
+      <div class="product-text text-align">
         <span class="color">{{ section.settings.title1 }}</span>
       </div>
-      <div class="product-title">{{ section.settings.title2 }}</div>
+      <div class="product-title text-align">{{ section.settings.title2 }}</div>
       <div class="station-menus" node-name="fifthMenus">
         {% for block in section.blocks %}
             <div node-name="fifthMenu" data-key="{{ forloop.index0 }}" class="station-menu {% if forloop.first %}selected{% endif %}">
