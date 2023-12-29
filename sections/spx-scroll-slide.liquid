@@ -121,11 +121,11 @@
                 <div class="product-desc">
                     {{ block.settings.menu_desc }}
                 </div>
-                {% if block.settings.menu_remark1 != blank or block.settings.menu1_btn != blank %}
+                {% if block.settings.menu_remark1 != blank or block.settings.menu_btn != blank %}
                     <div class="fifth-rows">
                         <div class="product-question">{{ block.settings.menu_remark1 }}</div>
                         <a href="{{ block.settings.menu_btn_link }}" class="buy-now">
-                            {{- block.settings.menu1_btn -}}
+                            {{- block.settings.menu_btn -}}
                             <i class="icon"></i>
                         </a>
                     </div>
