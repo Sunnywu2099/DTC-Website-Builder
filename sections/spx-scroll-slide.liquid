@@ -309,12 +309,12 @@
                 });
             });
     
-            console.log("videoList before= >",videoList,nodeList.video)
-            videoList.push({
+            console.log("videoList before= >",videoList)
+            {% comment %} videoList.push({
                 play: false,
                 node: nodeList.video,
                 top: getOffset(nodeList.video).top
-            });
+            }); {% endcomment %}
             console.log("videoList after= >",videoList)
             offsetMap.videoList = videoList;
         }
