@@ -97,7 +97,7 @@
   }
   @media only screen and (max-width: 768px){
     .custom-press {
-      padding: 0;
+      padding: 0 0 36px 16px;
       min-height: unset;
       margin: 40px auto;
     }
@@ -170,7 +170,7 @@
 <script type="module">
   let press_swiper = new Swiper('.press-swiper', {
       loop: true,
-      centeredSlides: true,
+      centeredSlides: false,
       slidesPerView: 1.8,
       spaceBetween : 30,
       loopFillGroupWithBlank: true,
@@ -182,23 +182,23 @@
         el: '.swiper-pagination.press-pagination',
         clickable :true,
       },
-      breakpoints: {
-        1650: {  
-          slidesPerView: 1.5,
+        breakpoints: { 
+            768: {  //当屏幕宽度大于等于768
+                slidesPerView: 1.8,
+                spaceBetween: 10,
+                centeredSlides: true,
+            },
+            1280: {  //当屏幕宽度大于等于1280 
+                slidesPerView: 1.8,
+                spaceBetween: 20,
+                centeredSlides: true,
+            },
+            1650: {  //当屏幕宽度大于等于1650
+                slidesPerView: 1.8,
+                spaceBetween: 30,
+                centeredSlides: true,
+            }
         },
-        1440: {  
-          slidesPerView: 1.8,
-        },
-        1280: {  
-          slidesPerView: 3,
-        },
-        768: {
-          slidesPerView: 1,
-          centeredSlides: false,
-          
-          spaceBetween : 8,
-        },
-      } 
   })
 </script>
 {% schema %}
