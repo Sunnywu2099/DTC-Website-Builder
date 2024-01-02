@@ -1,83 +1,85 @@
 <style>
-.home-fh-blocks{
-    margin: 20px;
-}
-.home-fh-blocks .blocks-container{
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-.home-fh-blocks .blocks-container .item{
-    width: calc( (100% - 20px) / 2 );
-    height: 800px;
-    border-radius: 16px;
-    overflow: hidden;
-    position: relative;
-}
-.home-fh-blocks .blocks-container .item:hover img{
-    transform: scale(1.1);
-    transition: all 0.3s ease 0s;
-}
-.home-fh-blocks .blocks-container .item img{
-    height: 100%;
-    object-fit: cover;
-    object-position: bottom;
-    transition: all 0.3s ease 0s;
-    border-radius: 16px;
-    overflow: hidden;
-}
-.home-fh-blocks .blocks-container .item .content-box{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    text-align: center;
-    padding-top: 48px;
-}
-.home-fh-blocks .blocks-container .item .content-box .title{
-    font-size: 32px;
-    line-height: 1.2;
-}
-.home-fh-blocks .blocks-container .item .content-box .content{
-    width: 80%;
-    margin: 24px auto;
-    line-height: 1.2;
-}
-.home-fh-blocks .blocks-container .item .content-box .btn-box{
-    display: flex;
-    gap: 28px;
-    justify-content: center;
-}
-.home-fh-blocks .blocks-container .item .content-box .btn-box a:hover{
-    color: #6D2412;
-}
-  @media only screen and (max-width: 768px){
+    .home-fh-blocks{
+        margin: 20px;
+    }
+    .home-fh-blocks .blocks-container{
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
     .home-fh-blocks .blocks-container .item{
-        width: 100%;
-        height: unset;
+        width: calc( (100% - 20px) / 2 );
+        height: 800px;
+        border-radius: 16px;
+        overflow: hidden;
+        position: relative;
     }
     .home-fh-blocks .blocks-container .item img{
-        height: auto;
+        height: 100%;
+        object-fit: cover;
+        object-position: bottom;
+        transition: all 0.3s ease 0s;
+        border-radius: 16px;
+        overflow: hidden;
     }
     .home-fh-blocks .blocks-container .item .content-box{
-        position: static;
-        height: auto;
-        padding-top: 0;
-        margin: 16px auto
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        text-align: center;
+        padding-top: 48px;
+    }
+    .home-fh-blocks .blocks-container .item .content-box .title{
+        font-size: 32px;
+        line-height: 1.2;
     }
     .home-fh-blocks .blocks-container .item .content-box .content{
-        width: 100%;
-        margin: 8px auto;
-        line-height: 1;
+        width: 80%;
+        margin: 24px auto;
+        line-height: 1.2;
     }
-  }
-  @media only screen and (max-width: 590px){
+    .home-fh-blocks .blocks-container .item .content-box .btn-box{
+        display: flex;
+        gap: 28px;
+        justify-content: center;
+    }
+    .home-fh-blocks .blocks-container .item .content-box .btn-box a:hover{
+        color: #6D2412;
+    }
+    @media only screen and (min-width: 769px){
+        .home-fh-blocks .blocks-container .item:hover img{
+            transform: scale(1.1);
+            transition: all 0.3s ease 0s;
+        }
+    }
+    @media only screen and (max-width: 768px){
+        .home-fh-blocks .blocks-container .item{
+            width: 100%;
+            height: unset;
+        }
+        .home-fh-blocks .blocks-container .item img{
+            height: auto;
+        }
+        .home-fh-blocks .blocks-container .item .content-box{
+            position: static;
+            height: auto;
+            padding-top: 0;
+            margin: 16px auto
+        }
+        .home-fh-blocks .blocks-container .item .content-box .content{
+            width: 100%;
+            margin: 8px auto;
+            line-height: 1;
+        }
+    }
+    @media only screen and (max-width: 590px){
 
 
-  }
+    }
 </style>
 
 <div class="home-fh-blocks">
