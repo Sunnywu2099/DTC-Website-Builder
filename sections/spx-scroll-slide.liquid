@@ -276,7 +276,7 @@
     }
 </style>
 
-<div class="index-page-fifth" node-name="fifthPage">
+<div class="index-page-fifth section-{{ section.id }}" node-name="fifthPage">
   <div class="index-page-slide-box">
     <div class="scroll-slide-absolute-item index-page-slide-backdrop">
       <div class="product-text text-center">
@@ -446,8 +446,6 @@
     
         // 第五屏动画
         let fiveSelect = 0;
-        let unit_rate = 100 / nodeList.fifthMenus.childElementCount;
-        console.log(unit_rate);
     
         nodeList.fifthMenus.addEventListener('click', ev => {
             const height = offsetMap.five.height;
