@@ -17,8 +17,7 @@
 }
 
 .fadein.active,
-.fadein.fadein2.active,
-.swiper-slide-active .fadein {
+.fadein.fadein2.active{
     opacity: 1;
     transform: translateY(0);
 }
