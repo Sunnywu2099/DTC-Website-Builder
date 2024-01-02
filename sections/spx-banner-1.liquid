@@ -255,7 +255,7 @@
 <script>
     $('document').ready(function(){
         let homeScroll = new Swiper('.scroll-swiper', {
-            centeredSlides: true,
+                centeredSlides: true,
                 height: 100,
                 slidesPerView: 3,
                 touchRatio: 0.2,
@@ -291,15 +291,6 @@
             {% else %}
             autoplay: false,
             {% endif %}
-            on: {
-                init: function(swiper){
-                    let currentSlide = this.slides[this.activeIndex];
-                    let textElements = currentSlide.getElementsByClassName('animate-text');
-                    for (let i = 0; i < textElements.length; i++) {
-                        textElements[i].classList.add('active');
-                    }
-                }, 
-            },
         })
 
         homeBanner.controller.control = homeScroll;
