@@ -44,6 +44,10 @@
     margin: 24px auto;
     line-height: 1.2;
 }
+.home-fh-blocks .blocks-container .item .content-box .btn-box{
+    display: flex;
+    gap: 16px;
+}
   @media only screen and (max-width: 768px){
 
   }
@@ -66,12 +70,14 @@
                     {% if block.settings.text != blank %}
                             <div class="content">{{ block.settings.text }}</div>
                     {% endif %}
-                    {% if block.settings.link != blank %}
-                        <a class="visit-btn" href="{{ block.settings.link }}">{{ block.settings.btn_name }}</a>
-                    {% endif %}
-                    {% if block.settings.link2 != blank %}
-                        <a class="buy-btn" href="{{ block.settings.link2 }}">{{ block.settings.btn_name2 }}</a>
-                    {% endif %}
+                    <div class="btn-box">
+                        {% if block.settings.link != blank %}
+                            <a class="visit-btn" href="{{ block.settings.link }}">{{ block.settings.btn_name }}</a>
+                        {% endif %}
+                        {% if block.settings.link2 != blank %}
+                            <a class="buy-btn" href="{{ block.settings.link2 }}">{{ block.settings.btn_name2 }}</a>
+                        {% endif %}
+                    </div>
                 </div>
         </div>
     {% endfor %}
