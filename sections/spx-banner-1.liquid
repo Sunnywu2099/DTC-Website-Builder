@@ -294,6 +294,7 @@
             slideChange: function () {
                 // 当轮播图切换时，添加动画效果到当前轮播的文字
                 let currentSlide = this.slides[this.activeIndex];
+                $('.animate-text').removeClass('active');
                 let textElements = currentSlide.getElementsByClassName('animate-text');
                 for (let i = 0; i < textElements.length; i++) {
                     textElements[i].classList.add('active');
