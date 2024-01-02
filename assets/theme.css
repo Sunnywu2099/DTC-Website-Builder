@@ -10124,3 +10124,14 @@ input[type=radio].disabled + label {
     transform: translateY(-50%);
   }
 }
+
+/* 2023.12.29 new add */
+.text-gradient{
+  background: linear-gradient(104.59deg,#fa6f43 0%,#ef6ab2 39.32%,#6d61f7 64.84%,#6334e9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  color: transparent;
+} 
+/* 2023.12.29 new add */

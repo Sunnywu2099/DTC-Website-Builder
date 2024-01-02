@@ -65,6 +65,123 @@
         "color_gradient": ""
       }
     },
+    "71ea1a10-a1b7-4474-a465-dbd6f6c1373e": {
+      "type": "spx-scroll-slide",
+      "blocks": {
+        "template--16704114884757__71ea1a10-a1b7-4474-a465-dbd6f6c1373e-slide-1": {
+          "type": "slide",
+          "settings": {
+            "menu": "Auto Water Exchange",
+            "menu_sub": "(Optional)",
+            "menu_desc": "<p>Forget about filling tanks, lugging them around, dumping dirty water, and accidental spills. easy as a washing machine.<\/p>",
+            "menu_remark1": "Is This System Right for My Home?",
+            "menu_remark2": "Offered Separately as an Accessory",
+            "menu_btn": "Find Out!",
+            "menu_btn_link": "",
+            "enable_image": true,
+            "menu_pc_backdrop_url": "shopify:\/\/shop_images\/page-fifth-backdrop-2_1920x_7e2867ac-d439-4244-b5bd-e91ebb0fc608.jpg",
+            "menu_mb_backdrop_url": "shopify:\/\/shop_images\/2_750x_3e42bbe2-64cd-42f9-adfb-39de8c543e08.png",
+            "menu_pc_video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/ecc752c45c1e4a4e8b79ab40d3640300.mp4",
+            "menu_mb_video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/af475bf3626d412da3938c6752b2ea41.mp4"
+          }
+        },
+        "5b7a4e9d-8656-4730-93e9-10a4f93884ff": {
+          "type": "slide",
+          "settings": {
+            "menu": "Auto Water Exchange",
+            "menu_sub": "(2)",
+            "menu_desc": "<p>Forget about filling tanks, lugging them around, dumping dirty water, and accidental spills. easy as a washing machine.<\/p>",
+            "menu_remark1": "",
+            "menu_remark2": "",
+            "menu_btn": "",
+            "menu_btn_link": "",
+            "enable_image": true,
+            "menu_pc_backdrop_url": "shopify:\/\/shop_images\/page-fifth-backdrop-3_1920x_0b0a1f9c-16e0-4471-81a6-fb8b4ea8bb3b.jpg",
+            "menu_mb_backdrop_url": "shopify:\/\/shop_images\/3_750x_a86a0934-5979-4b6a-868d-b71f44260d88.png",
+            "menu_pc_video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/ecc752c45c1e4a4e8b79ab40d3640300.mp4",
+            "menu_mb_video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/af475bf3626d412da3938c6752b2ea41.mp4"
+          }
+        },
+        "a9d97c02-71fb-4173-a6db-e81d5b1b8fe0": {
+          "type": "slide",
+          "settings": {
+            "menu": "Auto Water Exchange",
+            "menu_sub": "(3)",
+            "menu_desc": "<p>Disregardabout filling tanks, lugging them around, dumping dirty water, and accidental spills. easy as a washing machine.<\/p>",
+            "menu_remark1": "",
+            "menu_remark2": "",
+            "menu_btn": "Find Out!",
+            "menu_btn_link": "\/",
+            "enable_image": true,
+            "menu_pc_backdrop_url": "shopify:\/\/shop_images\/page-fifth-backdrop-4_1920x_a9b5d85b-aea8-4774-86ff-fafa165e7f21.webp",
+            "menu_mb_backdrop_url": "shopify:\/\/shop_images\/4_750x_c86b3053-848b-43bc-9c7e-95f5334fcf60.webp",
+            "menu_pc_video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/ecc752c45c1e4a4e8b79ab40d3640300.mp4",
+            "menu_mb_video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/af475bf3626d412da3938c6752b2ea41.mp4"
+          }
+        },
+        "09abee26-66a9-499c-9884-00b9f15a6266": {
+          "type": "slide",
+          "settings": {
+            "menu": "Auto Water Exchange",
+            "menu_sub": "(4)",
+            "menu_desc": "<p>text<\/p>",
+            "menu_remark1": "",
+            "menu_remark2": "",
+            "menu_btn": "",
+            "menu_btn_link": "",
+            "enable_image": true,
+            "menu_pc_backdrop_url": "shopify:\/\/shop_images\/page-fifth-backdrop-6_1920x_b59786df-345d-4b1e-bc09-35eba540386b.jpg",
+            "menu_mb_backdrop_url": "shopify:\/\/shop_images\/6_750x_8370d7fe-920c-4381-bb75-8633d8421824.png",
+            "menu_pc_video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/ecc752c45c1e4a4e8b79ab40d3640300.mp4",
+            "menu_mb_video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/af475bf3626d412da3938c6752b2ea41.mp4"
+          }
+        },
+        "2c420bfc-2b8f-479a-9ba7-7bb6aebd0080": {
+          "type": "slide",
+          "settings": {
+            "menu": "Auto Water Exchange",
+            "menu_sub": "(5)",
+            "menu_desc": "<p>Forget about filling tanks, lugging them around, dumping dirty water, and accidental spills. easy as a washing machine.<\/p>",
+            "menu_remark1": "Is This System Right for My Home?",
+            "menu_remark2": "Offered Separately as an Accessory",
+            "menu_btn": "",
+            "menu_btn_link": "",
+            "enable_image": true,
+            "menu_pc_backdrop_url": "shopify:\/\/shop_images\/page-fifth-backdrop-5_1920x_f2294748-794a-463f-b0a1-2102d7eff2da.jpg",
+            "menu_mb_backdrop_url": "shopify:\/\/shop_images\/5_750x_a027b2c6-ba2d-48cc-8192-c6a18710a9aa.png",
+            "menu_pc_video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/ecc752c45c1e4a4e8b79ab40d3640300.mp4",
+            "menu_mb_video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/af475bf3626d412da3938c6752b2ea41.mp4"
+          }
+        },
+        "template--16704114884757__71ea1a10-a1b7-4474-a465-dbd6f6c1373e-slide-7": {
+          "type": "slide",
+          "settings": {
+            "menu": "Auto Water Exchange",
+            "menu_sub": "(6)",
+            "menu_desc": "",
+            "menu_remark1": "Is This System Right for My Home?",
+            "menu_remark2": "",
+            "menu_btn": "",
+            "menu_btn_link": "",
+            "enable_image": false,
+            "menu_pc_video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/ecc752c45c1e4a4e8b79ab40d3640300.mp4",
+            "menu_mb_video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/af475bf3626d412da3938c6752b2ea41.mp4"
+          }
+        }
+      },
+      "block_order": [
+        "template--16704114884757__71ea1a10-a1b7-4474-a465-dbd6f6c1373e-slide-1",
+        "5b7a4e9d-8656-4730-93e9-10a4f93884ff",
+        "a9d97c02-71fb-4173-a6db-e81d5b1b8fe0",
+        "09abee26-66a9-499c-9884-00b9f15a6266",
+        "2c420bfc-2b8f-479a-9ba7-7bb6aebd0080",
+        "template--16704114884757__71ea1a10-a1b7-4474-a465-dbd6f6c1373e-slide-7"
+      ],
+      "settings": {
+        "title1": "Automatic Base Station",
+        "title2": "One Station to Take Care of All"
+      }
+    },
     "9a867374-1d93-481a-8f03-d3f37650ad08": {
       "type": "spx-scroll-bent",
       "blocks": {
@@ -112,6 +229,8 @@
         "template--16704114884757__9a867374-1d93-481a-8f03-d3f37650ad08-block-5"
       ],
       "settings": {
+        "heading": "Heading",
+        "text": "text text text",
         "image_bg": "shopify:\/\/shop_images\/f1_e1636eb7-c1eb-46dd-b6b4-db91be41ef5f.png",
         "image_arrow": "shopify:\/\/shop_images\/f2_deeb87cf-c138-460c-ab66-f636df5c3a59.png"
       }
@@ -119,6 +238,7 @@
   },
   "order": [
     "logo-list",
+    "71ea1a10-a1b7-4474-a465-dbd6f6c1373e",
     "9a867374-1d93-481a-8f03-d3f37650ad08"
   ]
 }
