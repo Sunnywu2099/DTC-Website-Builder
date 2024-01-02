@@ -1,0 +1,403 @@
+<style>
+  .home-banner .banner-container{
+    position: relative;
+  }
+  .home-banner .banner-container .banner-swiper{
+    height: 800px;
+  }
+  .home-banner .banner-container .banner-swiper .item{
+    height: 100%;
+    position: relative;
+  }
+  .home-banner .banner-container .banner-swiper .item .img-box{
+    height: 100%;
+  }
+  .home-banner .banner-container .banner-swiper .item img{
+    height: 100%;
+    object-fit: cover;
+  }
+  .home-banner .banner-container .banner-swiper .item .content-box{
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    color: #fff;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 80%;
+  }
+  .home-banner .banner-container .banner-swiper .item .content-box a{
+    color: #fff;
+    text-decoration: none;
+  }
+  .home-banner .banner-container .banner-swiper .item .content-box .title{
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin: 0;
+    font-size: 2vw;
+    line-height: 1.2;
+    margin-bottom: 8px;
+    text-decoration: none;
+  }
+  .home-banner .banner-container .banner-swiper .item .content-box .content{
+    font-size: 1.5vw;
+    line-height: 1.2;
+    text-decoration: none;
+  }
+  .home-banner .banner-container .banner-swiper .item .content-box .visit-btn{
+    font-size: 16px;
+    text-decoration: none;
+    display: inline-block;
+    line-height: 1;
+    margin-top: 16px;
+    background: #6D2412;
+    padding: 8px 24px;
+    font-weight: 700;
+    border: 2px solid #6D2412;
+  }
+  .home-banner .banner-container .banner-swiper .item .content-box .visit-btn:hover{
+    background: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+  }
+  .home-banner .swiper-button-prev,
+  .home-banner .swiper-button-next{
+    position: absolute;
+    background-image: none;
+    width: fit-content;
+    height: fit-content;
+    z-index: 9;
+  }
+  .home-banner .swiper-button-prev{
+    left: 3%;
+  }
+  .home-banner .swiper-button-next{
+    right: 3%;
+  }
+  .home-banner .swiper-button-prev svg,
+  .home-banner .swiper-button-next svg{
+    display: block;
+    transition: all .5s;
+  }
+  .home-banner .swiper-button-prev:hover svg,
+  .home-banner .swiper-button-next:hover svg{
+    fill: #6D2412;
+    transition: all .5s;
+  }
+  .home-banner .swiper-button-prev:hover circle,
+  .home-banner .swiper-button-next:hover circle{
+    stroke: #6D2412;
+    transition: all .5s;
+  }
+  .home-banner .banner-container .banner-pagination{
+    position: absolute;
+    bottom: 3%;
+    right: calc((100% - 1400px)/2);
+    z-index: 2;
+    display: none;
+  }
+  .home-banner .banner-container .banner-pagination .swiper-pagination-bullet{
+    width: 12px;
+    height: 12px;
+    border-radius: 0;
+    margin-left: 14px;
+    opacity: 1;
+    background: #fff;
+  }
+  .home-banner .banner-container .banner-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active{
+    background: #6D2412;
+  }
+  .home-banner .scroll-box{
+    position: absolute;
+    bottom: 30px;
+    height: 100px;
+    left: 50%;
+    margin-left: -600px;
+    z-index: 850;
+    overflow: hidden;
+    padding-left: 16px;
+  }
+  .home-banner .scroll-box:before{
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-70%);
+    content: '';
+    width: 3px;
+    height: calc(60% / 3);
+    background: #fff;
+  }
+  .home-banner .scroll-box .scroll-item{
+    cursor: pointer;
+    opacity: 0.5;
+    font-size: 16px;
+  }
+  .home-banner .scroll-box .scroll-item.swiper-slide-active{
+    opacity: 1;
+  }
+  @media only screen and (max-width: 1500px){
+    .home-banner .banner-container .banner-pagination{
+      right: 10%;
+    }
+  }
+  @media only screen and (max-width: 768px){
+    .home-banner .banner-container .banner-swiper{
+      height: 600px;
+    }
+    .home-banner .banner-container .banner-swiper .item .content-box{
+      width: 85%;
+      top: 25%;
+    }
+    .home-banner .banner-container .banner-swiper .item .content-box .title{
+      font-size: 30px;
+    }
+    .home-banner .banner-container .banner-swiper .item .content-box .content{
+      font-size: 18px;
+    }
+    .home-banner .banner-container .banner-swiper .item .content-box .visit-btn{
+      font-size: 16px;
+      padding: 13px 30px;
+      margin-top: 30px;
+    }
+    .home-banner .swiper-button-prev,
+    .home-banner .swiper-button-next{
+      display: none;
+    }
+    .home-banner .banner-container .banner-pagination{
+      left: 50%;
+      right: unset;
+      transform: translateX(-50%);
+      display:  block;
+    }
+    .home-banner .banner-container .banner-pagination .swiper-pagination-bullet{
+      width: 8px;
+      height: 8px;
+      margin-left: 8px;
+    }
+    .home-banner .scroll-box{
+        display: none;
+    }
+  }
+  @media only screen and (max-width: 590px){
+
+
+  }
+</style>
+
+<div class="home-banner">
+  <div class="banner-container">
+    <div class="banner-swiper swiper-container">
+        <div class="swiper-wrapper">
+            {% for block in section.blocks %}
+            {% if block.settings.link != blank %}
+                {% assign link_to = block.settings.link %}
+            {% else %}
+                {% assign link_to = '/' %}
+            {% endif %}
+            
+            <div class="item swiper-slide">
+                {% comment %} <a href="{{ link_to }}"> {% endcomment %}
+                <div class="img-box">
+                    <img class="hide-mb" src="{{ block.settings.img | img_url: 'master' }}" data-src="{{ block.settings.img | img_url: 'master' }}">
+                    <img class="hide-pc" src="{{ block.settings.img_mb | img_url: 'master' }}" data-src="{{ block.settings.img_mb | img_url: 'master' }}">
+                </div>
+                {% comment %} </a> {% endcomment %}
+                <div class="content-box">
+                    {% if block.settings.title != blank %}
+                        {% comment %} <a href="{{ link_to }}"> {% endcomment %}
+                            <div class="animate-text title fadein" style="color: {{ block.settings.content_color }};">{{ block.settings.title }}</div>
+                        {% comment %} </a> {% endcomment %}
+                    {% endif %}
+                    {% if block.settings.text != blank %}
+                        {% comment %} <a href="{{ link_to }}"> {% endcomment %}
+                            <div class="animate-text content fadein" style="color: {{ block.settings.content_color }};">{{ block.settings.text }}</div>
+                        {% comment %} </a> {% endcomment %}
+                    {% endif %}
+                    {% if block.settings.link != blank %}
+                        <a class="animate-text visit-btn fadein fadein2" href="{{ block.settings.link }}" style="color: {{ block.settings.content_color }};">{{ block.settings.btn_name }}</a>
+                    {% endif %}
+                    {% if block.settings.link2 != blank %}
+                        <a class="animate-text visit-btn fadein fadein2" href="{{ block.settings.link2 }}" style="color: {{ block.settings.content_color }};">{{ block.settings.btn_name2 }}</a>
+                    {% endif %}
+                </div>
+                
+            
+            </div>
+            
+            {% endfor %}
+        </div>
+
+        <div class="swiper-button-prev prev">
+            <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="25" cy="25" r="24.5" transform="matrix(-1 0 0 1 50 0)" stroke="white"/>
+                <path d="M29 20L20.6 25.182L29 30.9398" stroke="white" stroke-width="2"/>
+            </svg>
+        </div>
+        <div class="swiper-button-next next">
+            <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="25" cy="25" r="24.5" transform="matrix(-1 0 0 1 50 0)" stroke="white"/>
+                <path d="M20.6 30.9398L29 25.7578L20.6 20" stroke="white" stroke-width="2"/>
+            </svg>
+        </div>
+        <div class="swiper-pagination banner-pagination"></div>
+    </div>
+
+    {% comment %} 滚动模块 {% endcomment %}
+    <div class="scroll-box">
+        <div class="scroll-swiper swiper-container">
+        <div class="swiper-wrapper">
+            {% for block in section.blocks %}
+                <div class="scroll-item swiper-slide" style="color: {{ block.settings.content_color }};">
+                    {% if block.settings.title != blank %}
+                        {{ block.settings.title }}
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+
+    </div>
+    </div>
+  </div>
+</div>
+
+<script type="module">
+    window.onload = function() {
+        let homeScroll = new Swiper('.scroll-swiper', {
+                centeredSlides: true,
+                height: 100,
+                slidesPerView: 3,
+                touchRatio: 0.2,
+                direction : 'vertical',
+                loop:true,
+                observer: true,
+                observeParents: true,
+                slideToClickedSlide: true,
+                loopedSlides: 4,
+        })
+
+        let homeBanner = new Swiper('.banner-swiper', {
+            loop: true,
+            slidesPerView: 1,
+            effect : 'fade',
+            loopedSlides: 4,
+            navigation: {
+                nextEl: '.banner-swiper .swiper-button-next',
+                prevEl: '.banner-swiper .swiper-button-prev',
+            },
+            pagination: {
+                el: '.banner-swiper .swiper-pagination',
+                clickable :true,
+            },
+            controller: {
+                control: homeScroll,
+                },
+            {% if section.settings.auto_change %}
+            autoplay: {
+                delay: {{section.settings.change_time}},
+                disableOnInteraction: false,
+            },
+            {% else %}
+            autoplay: false,
+            {% endif %}
+            {% comment %} on: {
+                init: function(swiper){
+                    let currentSlide = this.slides[this.activeIndex];
+                    let textElements = currentSlide.getElementsByClassName('animate-text');
+                    for (let i = 0; i < textElements.length; i++) {
+                        textElements[i].classList.add('active');
+                    }
+                }, 
+            }, {% endcomment %}
+        })
+
+        homeBanner.controller.control = homeScroll;
+        homeScroll.controller.control = homeBanner;
+    }
+
+  
+      
+    
+</script>
+
+{% schema %}
+  {
+    "name": "SPX Banner 1",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "auto_change",
+        "label": "Auto change images",
+        "default": false
+      },
+      {
+        "type": "range",
+        "id": "change_time",
+        "min": 0,
+        "max": 9000,
+        "step": 500,
+        "label": "Change Time",
+        "default": 7000
+      }
+    ],
+    "blocks": [
+    {
+      "type": "block",
+      "name": "Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "img",
+          "label": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_mb",
+          "label": "Image mobile"
+        },
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "text",
+          "id": "btn_name",
+          "label": "Button name"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Button Link"
+        },
+        {
+          "type": "text",
+          "id": "btn_name2",
+          "label": "Button name"
+        },
+        {
+          "type": "url",
+          "id": "link2",
+          "label": "Button Link"
+        },
+        {
+          "type": "color",
+          "id": "content_color",
+          "label": "Content Color",
+          "default": "#ffffff"
+        }
+
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "SPX Banner 1"
+    }
+  ]
+    
+  }
+{% endschema %}
