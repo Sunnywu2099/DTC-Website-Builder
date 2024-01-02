@@ -203,13 +203,13 @@
                 </a>
                 <div class="content-box">
                 {% if block.settings.title != blank %}
-                    <a href="{{ link_to }}"><div class="title fadein" style="color: {{ block.settings.content_color }};">{{ block.settings.title }}</div></a>
+                    <a href="{{ link_to }}"><div class="animate-text title fadein" style="color: {{ block.settings.content_color }};">{{ block.settings.title }}</div></a>
                 {% endif %}
                 {% if block.settings.text != blank %}
-                    <a href="{{ link_to }}"><div class="content fadein" style="color: {{ block.settings.content_color }};">{{ block.settings.text }}</div></a>
+                    <a href="{{ link_to }}"><div class="animate-text content fadein" style="color: {{ block.settings.content_color }};">{{ block.settings.text }}</div></a>
                 {% endif %}
                 {% if block.settings.link != blank %}
-                    <a class="visit-btn fadein fadein2" href="{{ block.settings.link }}" style="color: {{ block.settings.content_color }};">{{ block.settings.btn_name }}</a>
+                    <a class="animate-text visit-btn fadein fadein2" href="{{ block.settings.link }}" style="color: {{ block.settings.content_color }};">{{ block.settings.btn_name }}</a>
                 {% endif %}
                 </div>
                 
@@ -290,6 +290,16 @@
         {% else %}
         autoplay: false,
         {% endif %}
+        on: {
+            slideChange: function () {
+            // 当轮播图切换时，添加动画效果到当前轮播的文字
+            var currentSlide = this.slides[this.activeIndex];
+            var textElements = currentSlide.getElementsByClassName('animate-text');
+            for (var i = 0; i < textElements.length; i++) {
+                textElements[i].classList.add('show');
+            }
+            },
+        },
     })
 
     homeBanner.controller.control = homeScroll;
