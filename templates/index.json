@@ -50,71 +50,6 @@
         "change_time": 7000
       }
     },
-    "logo-list": {
-      "type": "logo-list",
-      "blocks": {
-        "block-1": {
-          "type": "logo",
-          "settings": {
-            "width": 70,
-            "link": ""
-          }
-        },
-        "block-2": {
-          "type": "logo",
-          "settings": {
-            "width": 70,
-            "link": ""
-          }
-        },
-        "block-3": {
-          "type": "logo",
-          "settings": {
-            "width": 70,
-            "link": ""
-          }
-        },
-        "block-4": {
-          "type": "logo",
-          "settings": {
-            "width": 70,
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "block-1",
-        "block-2",
-        "block-3",
-        "block-4"
-      ],
-      "settings": {
-        "layout": "full",
-        "enable_shadow": true,
-        "slider_large": false,
-        "slider_mobile": false,
-        "columns_large": 5,
-        "columns_mobile": 2,
-        "container_ratio": "auto",
-        "opacity": 50,
-        "padding_top": 0,
-        "padding_bottom": 1,
-        "center_content": true,
-        "title": "",
-        "heading_size": "h2",
-        "text": "",
-        "text_style": "small-subtext",
-        "button_label": "",
-        "button_link": "",
-        "soft_background": false,
-        "color_scheme": "soft",
-        "custom_colors": false,
-        "color_foreground": "#212121",
-        "color_accent": "#0d91bd",
-        "color_background": "#ffffff",
-        "color_gradient": ""
-      }
-    },
     "71ea1a10-a1b7-4474-a465-dbd6f6c1373e": {
       "type": "spx-scroll-slide",
       "blocks": {
@@ -288,7 +223,6 @@
   },
   "order": [
     "c9f769c3-8de5-46ce-9d1d-502717910573",
-    "logo-list",
     "71ea1a10-a1b7-4474-a465-dbd6f6c1373e",
     "9a867374-1d93-481a-8f03-d3f37650ad08"
   ]
