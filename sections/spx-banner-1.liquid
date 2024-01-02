@@ -195,12 +195,12 @@
             {% endif %}
             
             <div class="item swiper-slide">
-                <a href="{{ link_to }}">
+                {% comment %} <a href="{{ link_to }}"> {% endcomment %}
                 <div class="img-box">
                     <img class="hide-mb" src="{{ block.settings.img | img_url: 'master' }}" data-src="{{ block.settings.img | img_url: 'master' }}">
                     <img class="hide-pc" src="{{ block.settings.img_mb | img_url: 'master' }}" data-src="{{ block.settings.img_mb | img_url: 'master' }}">
                 </div>
-                </a>
+                {% comment %} </a> {% endcomment %}
                 <div class="content-box">
                 {% if block.settings.title != blank %}
                     <a href="{{ link_to }}"><div class="animate-text title fadein" style="color: {{ block.settings.content_color }};">{{ block.settings.title }}</div></a>
