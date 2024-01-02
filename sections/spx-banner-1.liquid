@@ -197,8 +197,8 @@
             <div class="item swiper-slide">
                 {% comment %} <a href="{{ link_to }}"> {% endcomment %}
                 <div class="img-box">
-                    <img class="hide-mb" src="{{ block.settings.img | img_url: 'master' }}" data-src="{{ block.settings.img | img_url: 'master' }}">
-                    <img class="hide-pc" src="{{ block.settings.img_mb | img_url: 'master' }}" data-src="{{ block.settings.img_mb | img_url: 'master' }}">
+                    <img class="hide-mb" loading="lazy" src="{{ block.settings.img | img_url: 'master' }}" data-src="{{ block.settings.img | img_url: 'master' }}">
+                    <img class="hide-pc" loading="lazy" src="{{ block.settings.img_mb | img_url: 'master' }}" data-src="{{ block.settings.img_mb | img_url: 'master' }}">
                 </div>
                 {% comment %} </a> {% endcomment %}
                 <div class="content-box">

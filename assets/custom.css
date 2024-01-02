@@ -1,3 +1,7 @@
+img{
+    width: 100%;
+    display: block;
+}
 .hide-mb {
     display: block;
 }
@@ -23,7 +27,23 @@
     opacity: 1;
     transform: translateY(0);
 }
-
+.btn-progress{
+    position: relative;
+}
+.btn-progress::after{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    content: "";
+    height: 5px;
+    background: #6D2412;
+    width: 0%;
+    transition: width 0.3s ease-out;
+}
+.btn-progress:hover::after{
+    width: 100%;
+    transition: width 0.3s ease-out;
+}
 @media screen and (max-width: 768px) {
     .hide-mb {
         display: none;
