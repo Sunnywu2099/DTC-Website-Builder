@@ -62,7 +62,6 @@
         "b68335a0-5986-4397-a052-bf4c13170c22": {
           "type": "block",
           "settings": {
-            "width": "50",
             "img": "shopify:\/\/shop_images\/b1.png",
             "img_mb": "shopify:\/\/shop_images\/b1-m.png",
             "title": "Compare Pool Cleaners",
@@ -76,7 +75,6 @@
         "4b720668-5179-40c8-8708-9ca27a213aa1": {
           "type": "block",
           "settings": {
-            "width": "50",
             "img": "shopify:\/\/shop_images\/b2.png",
             "img_mb": "shopify:\/\/shop_images\/b2-m.png",
             "title": "Genkinno P1",
@@ -93,6 +91,12 @@
         "4b720668-5179-40c8-8708-9ca27a213aa1"
       ],
       "settings": {
+      }
+    },
+    "1c0c39d6-0db9-4ff6-9c22-5ba99800e65d": {
+      "type": "spx-press",
+      "settings": {
+        "title": ""
       }
     },
     "71ea1a10-a1b7-4474-a465-dbd6f6c1373e": {
@@ -269,6 +273,7 @@
   "order": [
     "c9f769c3-8de5-46ce-9d1d-502717910573",
     "dc9556c2-4975-49c8-9283-e9e901a02abb",
+    "1c0c39d6-0db9-4ff6-9c22-5ba99800e65d",
     "71ea1a10-a1b7-4474-a465-dbd6f6c1373e",
     "9a867374-1d93-481a-8f03-d3f37650ad08"
   ]
