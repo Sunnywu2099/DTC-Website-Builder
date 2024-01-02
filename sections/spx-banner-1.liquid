@@ -203,10 +203,14 @@
                 {% comment %} </a> {% endcomment %}
                 <div class="content-box">
                 {% if block.settings.title != blank %}
-                    <a href="{{ link_to }}"><div class="animate-text title fadein" style="color: {{ block.settings.content_color }};">{{ block.settings.title }}</div></a>
+                    {% comment %} <a href="{{ link_to }}"> {% endcomment %}
+                        <div class="animate-text title fadein" style="color: {{ block.settings.content_color }};">{{ block.settings.title }}</div>
+                    {% comment %} </a> {% endcomment %}
                 {% endif %}
                 {% if block.settings.text != blank %}
-                    <a href="{{ link_to }}"><div class="animate-text content fadein" style="color: {{ block.settings.content_color }};">{{ block.settings.text }}</div></a>
+                    {% comment %} <a href="{{ link_to }}"> {% endcomment %}
+                        <div class="animate-text content fadein" style="color: {{ block.settings.content_color }};">{{ block.settings.text }}</div>
+                    {% comment %} </a> {% endcomment %}
                 {% endif %}
                 {% if block.settings.link != blank %}
                     <a class="animate-text visit-btn fadein fadein2" href="{{ block.settings.link }}" style="color: {{ block.settings.content_color }};">{{ block.settings.btn_name }}</a>
