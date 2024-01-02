@@ -56,6 +56,45 @@
         "change_time": 7000
       }
     },
+    "dc9556c2-4975-49c8-9283-e9e901a02abb": {
+      "type": "spx-fixedHeight-blocks",
+      "blocks": {
+        "b68335a0-5986-4397-a052-bf4c13170c22": {
+          "type": "block",
+          "settings": {
+            "width": "50",
+            "img": "shopify:\/\/shop_images\/b1.png",
+            "img_mb": "shopify:\/\/shop_images\/b1-m.png",
+            "title": "Compare Pool Cleaners",
+            "text": "See product overviews and comparisons here",
+            "btn_name": "Learn More >",
+            "link": "\/",
+            "btn_name2": "",
+            "link2": ""
+          }
+        },
+        "4b720668-5179-40c8-8708-9ca27a213aa1": {
+          "type": "block",
+          "settings": {
+            "width": "50",
+            "img": "shopify:\/\/shop_images\/b2.png",
+            "img_mb": "shopify:\/\/shop_images\/b2-m.png",
+            "title": "Genkinno P1",
+            "text": "Discover the future of pool cleaning with a robotic device that's powered by water, for water.",
+            "btn_name": "Learn More >",
+            "link": "\/",
+            "btn_name2": "Buy Now >",
+            "link2": "\/"
+          }
+        }
+      },
+      "block_order": [
+        "b68335a0-5986-4397-a052-bf4c13170c22",
+        "4b720668-5179-40c8-8708-9ca27a213aa1"
+      ],
+      "settings": {
+      }
+    },
     "71ea1a10-a1b7-4474-a465-dbd6f6c1373e": {
       "type": "spx-scroll-slide",
       "blocks": {
@@ -229,6 +268,7 @@
   },
   "order": [
     "c9f769c3-8de5-46ce-9d1d-502717910573",
+    "dc9556c2-4975-49c8-9283-e9e901a02abb",
     "71ea1a10-a1b7-4474-a465-dbd6f6c1373e",
     "9a867374-1d93-481a-8f03-d3f37650ad08"
   ]
