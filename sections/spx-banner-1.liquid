@@ -253,47 +253,47 @@
 </div>
 
 <script>
-   let homeScroll = new Swiper('.scroll-swiper', {
-      centeredSlides: true,
-        height: 100,
-        slidesPerView: 3,
-        touchRatio: 0.2,
-        direction : 'vertical',
-        loop:true,
-        observer: true,
-        observeParents: true,
-        slideToClickedSlide: true,
+    let homeScroll = new Swiper('.scroll-swiper', {
+        centeredSlides: true,
+            height: 100,
+            slidesPerView: 3,
+            touchRatio: 0.2,
+            direction : 'vertical',
+            loop:true,
+            observer: true,
+            observeParents: true,
+            slideToClickedSlide: true,
+            loopedSlides: 7,
+    })
+
+    let homeBanner = new Swiper('.banner-swiper', {
+        loop: true,
+        slidesPerView: 1,
+        effect : 'fade',
         loopedSlides: 7,
-  })
-
-  let homeBanner = new Swiper('.banner-swiper', {
-      loop: true,
-      slidesPerView: 1,
-      effect : 'fade',
-      loopedSlides: 7,
-      navigation: {
-        nextEl: '.banner-swiper .swiper-button-next',
-        prevEl: '.banner-swiper .swiper-button-prev',
-      },
-      pagination: {
-        el: '.banner-swiper .swiper-pagination',
-        clickable :true,
-      },
-      controller: {
-          control: homeScroll,
+        navigation: {
+            nextEl: '.banner-swiper .swiper-button-next',
+            prevEl: '.banner-swiper .swiper-button-prev',
         },
-    {% if section.settings.auto_change %}
-      autoplay: {
-        delay: {{section.settings.change_time}},
-        disableOnInteraction: false,
-      },
-    {% else %}
-      autoplay: false,
-    {% endif %}
-  })
+        pagination: {
+            el: '.banner-swiper .swiper-pagination',
+            clickable :true,
+        },
+        controller: {
+            control: homeScroll,
+            },
+        {% if section.settings.auto_change %}
+        autoplay: {
+            delay: {{section.settings.change_time}},
+            disableOnInteraction: false,
+        },
+        {% else %}
+        autoplay: false,
+        {% endif %}
+    })
 
-        homeBanner.controller.control = homeScroll;
-        homeScroll.controller.control = homeBanner;
+    homeBanner.controller.control = homeScroll;
+    homeScroll.controller.control = homeBanner;
 
   
       
