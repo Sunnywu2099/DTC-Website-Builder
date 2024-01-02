@@ -119,20 +119,13 @@
           "settings": {
             "content": "“A more sustainable option for pool owners who want to reduce their carbon footprint.”"
           }
-        },
-        "875d9e63-81b3-43ea-86a8-114042def6dc": {
-          "type": "block",
-          "settings": {
-            "content": "“A more sustainable option for pool owners who want to reduce their carbon footprint.”"
-          }
         }
       },
       "block_order": [
         "eec4410e-e0e2-4f20-8fa4-a852e2f6e053",
         "c31a054c-31db-420e-a0cb-13c3af70db2c",
         "b2fc4653-9373-47d1-9213-96371d25b187",
-        "b9174922-b92f-4d67-afbb-2d8aa5434534",
-        "875d9e63-81b3-43ea-86a8-114042def6dc"
+        "b9174922-b92f-4d67-afbb-2d8aa5434534"
       ],
       "settings": {
         "title": "Press Room"
