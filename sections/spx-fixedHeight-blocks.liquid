@@ -12,7 +12,14 @@
 </style>
 
 <div class="home-fh-blocks">
-  
+  <div class="blocks-container">
+    {% for block in section.blocks %}
+        <div class="item">
+            <img class="hide-mb" loading="lazy" src="{{ block.settings.img | img_url: 'master' }}" data-src="{{ block.settings.img | img_url: 'master' }}">
+            <img class="hide-pc" loading="lazy" src="{{ block.settings.img_mb | img_url: 'master' }}" data-src="{{ block.settings.img_mb | img_url: 'master' }}">
+        </div>
+    {% endfor %}
+  </div>
 </div>
 
 
@@ -31,7 +38,8 @@
         {
           "type": "text",
           "id": "width",
-          "label": "Width"
+          "label": "Width",
+          "default": "50"
         },
         {
           "type": "image_picker",
