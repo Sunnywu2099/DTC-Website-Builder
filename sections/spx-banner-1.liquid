@@ -202,19 +202,22 @@
                 </div>
                 {% comment %} </a> {% endcomment %}
                 <div class="content-box">
-                {% if block.settings.title != blank %}
-                    {% comment %} <a href="{{ link_to }}"> {% endcomment %}
-                        <div class="animate-text title fadein" style="color: {{ block.settings.content_color }};">{{ block.settings.title }}</div>
-                    {% comment %} </a> {% endcomment %}
-                {% endif %}
-                {% if block.settings.text != blank %}
-                    {% comment %} <a href="{{ link_to }}"> {% endcomment %}
-                        <div class="animate-text content fadein" style="color: {{ block.settings.content_color }};">{{ block.settings.text }}</div>
-                    {% comment %} </a> {% endcomment %}
-                {% endif %}
-                {% if block.settings.link != blank %}
-                    <a class="animate-text visit-btn fadein fadein2" href="{{ block.settings.link }}" style="color: {{ block.settings.content_color }};">{{ block.settings.btn_name }}</a>
-                {% endif %}
+                    {% if block.settings.title != blank %}
+                        {% comment %} <a href="{{ link_to }}"> {% endcomment %}
+                            <div class="animate-text title fadein" style="color: {{ block.settings.content_color }};">{{ block.settings.title }}</div>
+                        {% comment %} </a> {% endcomment %}
+                    {% endif %}
+                    {% if block.settings.text != blank %}
+                        {% comment %} <a href="{{ link_to }}"> {% endcomment %}
+                            <div class="animate-text content fadein" style="color: {{ block.settings.content_color }};">{{ block.settings.text }}</div>
+                        {% comment %} </a> {% endcomment %}
+                    {% endif %}
+                    {% if block.settings.link != blank %}
+                        <a class="animate-text visit-btn fadein fadein2" href="{{ block.settings.link }}" style="color: {{ block.settings.content_color }};">{{ block.settings.btn_name }}</a>
+                    {% endif %}
+                    {% if block.settings.link2 != blank %}
+                        <a class="animate-text visit-btn fadein fadein2" href="{{ block.settings.link2 }}" style="color: {{ block.settings.content_color }};">{{ block.settings.btn_name2 }}</a>
+                    {% endif %}
                 </div>
                 
             
@@ -368,6 +371,16 @@
         {
           "type": "url",
           "id": "link",
+          "label": "Button Link"
+        },
+        {
+          "type": "text",
+          "id": "btn_name2",
+          "label": "Button name"
+        },
+        {
+          "type": "url",
+          "id": "link2",
           "label": "Button Link"
         },
         {
