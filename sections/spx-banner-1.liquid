@@ -253,7 +253,7 @@
 </div>
 
 <script>
-    $('document').ready(function(){
+    window.onload = function() {
         let homeScroll = new Swiper('.scroll-swiper', {
                 centeredSlides: true,
                 height: 100,
@@ -304,7 +304,7 @@
 
         homeBanner.controller.control = homeScroll;
         homeScroll.controller.control = homeBanner;
-    })
+    }
 
   
       
