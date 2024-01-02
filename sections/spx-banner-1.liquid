@@ -195,22 +195,29 @@
             {% endif %}
             
             <div class="item swiper-slide">
-                <a href="{{ link_to }}">
+                {% comment %} <a href="{{ link_to }}"> {% endcomment %}
                 <div class="img-box">
                     <img class="hide-mb" src="{{ block.settings.img | img_url: 'master' }}" data-src="{{ block.settings.img | img_url: 'master' }}">
                     <img class="hide-pc" src="{{ block.settings.img_mb | img_url: 'master' }}" data-src="{{ block.settings.img_mb | img_url: 'master' }}">
                 </div>
-                </a>
+                {% comment %} </a> {% endcomment %}
                 <div class="content-box">
-                {% if block.settings.title != blank %}
-                    <a href="{{ link_to }}"><div class="title fadein" style="color: {{ block.settings.content_color }};">{{ block.settings.title }}</div></a>
-                {% endif %}
-                {% if block.settings.text != blank %}
-                    <a href="{{ link_to }}"><div class="content fadein" style="color: {{ block.settings.content_color }};">{{ block.settings.text }}</div></a>
-                {% endif %}
-                {% if block.settings.link != blank %}
-                    <a class="visit-btn fadein fadein2" href="{{ block.settings.link }}" style="color: {{ block.settings.content_color }};">{{ block.settings.btn_name }}</a>
-                {% endif %}
+                    {% if block.settings.title != blank %}
+                        {% comment %} <a href="{{ link_to }}"> {% endcomment %}
+                            <div class="animate-text title fadein" style="color: {{ block.settings.content_color }};">{{ block.settings.title }}</div>
+                        {% comment %} </a> {% endcomment %}
+                    {% endif %}
+                    {% if block.settings.text != blank %}
+                        {% comment %} <a href="{{ link_to }}"> {% endcomment %}
+                            <div class="animate-text content fadein" style="color: {{ block.settings.content_color }};">{{ block.settings.text }}</div>
+                        {% comment %} </a> {% endcomment %}
+                    {% endif %}
+                    {% if block.settings.link != blank %}
+                        <a class="animate-text visit-btn fadein fadein2" href="{{ block.settings.link }}" style="color: {{ block.settings.content_color }};">{{ block.settings.btn_name }}</a>
+                    {% endif %}
+                    {% if block.settings.link2 != blank %}
+                        <a class="animate-text visit-btn fadein fadein2" href="{{ block.settings.link2 }}" style="color: {{ block.settings.content_color }};">{{ block.settings.btn_name2 }}</a>
+                    {% endif %}
                 </div>
                 
             
@@ -252,48 +259,59 @@
   </div>
 </div>
 
-<script>
-   let homeScroll = new Swiper('.scroll-swiper', {
-      centeredSlides: true,
-        height: 100,
-        slidesPerView: 3,
-        touchRatio: 0.2,
-        direction : 'vertical',
-        loop:true,
-        observer: true,
-        observeParents: true,
-        slideToClickedSlide: true,
-        loopedSlides: 7,
-  })
+<script type="module">
+    window.onload = function() {
+        let homeScroll = new Swiper('.scroll-swiper', {
+                centeredSlides: true,
+                height: 100,
+                slidesPerView: 3,
+                touchRatio: 0.2,
+                direction : 'vertical',
+                loop:true,
+                observer: true,
+                observeParents: true,
+                slideToClickedSlide: true,
+                loopedSlides: 4,
+        })
 
-  let homeBanner = new Swiper('.banner-swiper', {
-      loop: true,
-      slidesPerView: 1,
-      effect : 'fade',
-      loopedSlides: 7,
-      navigation: {
-        nextEl: '.banner-swiper .swiper-button-next',
-        prevEl: '.banner-swiper .swiper-button-prev',
-      },
-      pagination: {
-        el: '.banner-swiper .swiper-pagination',
-        clickable :true,
-      },
-      controller: {
-          control: homeScroll,
-        },
-    {% if section.settings.auto_change %}
-      autoplay: {
-        delay: {{section.settings.change_time}},
-        disableOnInteraction: false,
-      },
-    {% else %}
-      autoplay: false,
-    {% endif %}
-  })
+        let homeBanner = new Swiper('.banner-swiper', {
+            loop: true,
+            slidesPerView: 1,
+            effect : 'fade',
+            loopedSlides: 4,
+            navigation: {
+                nextEl: '.banner-swiper .swiper-button-next',
+                prevEl: '.banner-swiper .swiper-button-prev',
+            },
+            pagination: {
+                el: '.banner-swiper .swiper-pagination',
+                clickable :true,
+            },
+            controller: {
+                control: homeScroll,
+                },
+            {% if section.settings.auto_change %}
+            autoplay: {
+                delay: {{section.settings.change_time}},
+                disableOnInteraction: false,
+            },
+            {% else %}
+            autoplay: false,
+            {% endif %}
+            {% comment %} on: {
+                init: function(swiper){
+                    let currentSlide = this.slides[this.activeIndex];
+                    let textElements = currentSlide.getElementsByClassName('animate-text');
+                    for (let i = 0; i < textElements.length; i++) {
+                        textElements[i].classList.add('active');
+                    }
+                }, 
+            }, {% endcomment %}
+        })
 
         homeBanner.controller.control = homeScroll;
         homeScroll.controller.control = homeBanner;
+    }
 
   
       
@@ -353,6 +371,16 @@
         {
           "type": "url",
           "id": "link",
+          "label": "Button Link"
+        },
+        {
+          "type": "text",
+          "id": "btn_name2",
+          "label": "Button name"
+        },
+        {
+          "type": "url",
+          "id": "link2",
           "label": "Button Link"
         },
         {
