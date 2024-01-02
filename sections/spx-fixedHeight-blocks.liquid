@@ -50,16 +50,16 @@
             <img class="hide-pc" loading="lazy" src="{{ block.settings.img_mb | img_url: 'master' }}" data-src="{{ block.settings.img_mb | img_url: 'master' }}">
                 <div class="content-box">
                     {% if block.settings.title != blank %}
-                            <div class="animate-text title fadein" style="color: {{ block.settings.content_color }};">{{ block.settings.title }}</div>
+                            <div class="title">{{ block.settings.title }}</div>
                     {% endif %}
                     {% if block.settings.text != blank %}
-                            <div class="animate-text content fadein" style="color: {{ block.settings.content_color }};">{{ block.settings.text }}</div>
+                            <div class="content">{{ block.settings.text }}</div>
                     {% endif %}
                     {% if block.settings.link != blank %}
-                        <a class="animate-text visit-btn fadein fadein2" href="{{ block.settings.link }}" style="color: {{ block.settings.content_color }};">{{ block.settings.btn_name }}</a>
+                        <a class="visit-btn" href="{{ block.settings.link }}">{{ block.settings.btn_name }}</a>
                     {% endif %}
                     {% if block.settings.link2 != blank %}
-                        <a class="animate-text visit-btn fadein fadein2" href="{{ block.settings.link2 }}" style="color: {{ block.settings.content_color }};">{{ block.settings.btn_name2 }}</a>
+                        <a class="buy-btn" href="{{ block.settings.link2 }}">{{ block.settings.btn_name2 }}</a>
                     {% endif %}
                 </div>
         </div>
