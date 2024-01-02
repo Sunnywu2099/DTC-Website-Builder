@@ -10,8 +10,10 @@
             "img_mb": "shopify:\/\/shop_images\/banner1-m.jpg",
             "title": "DJI INSPIRE 3",
             "text": "Master the Unseen",
-            "btn_name": "Buy Now >",
+            "btn_name": "Learn More >",
             "link": "\/",
+            "btn_name2": "Buy Now >",
+            "link2": "\/",
             "content_color": "#ffffff"
           }
         },
@@ -24,6 +26,8 @@
             "text": "Your Everyday Commercial Drone",
             "btn_name": "Learn More >",
             "link": "\/",
+            "btn_name2": "Buy Now >",
+            "link2": "\/",
             "content_color": "#ffffff"
           }
         },
@@ -36,6 +40,8 @@
             "text": "One for All",
             "btn_name": "Learn More >",
             "link": "\/",
+            "btn_name2": "Buy Now >",
+            "link2": "\/",
             "content_color": "#ffffff"
           }
         }
