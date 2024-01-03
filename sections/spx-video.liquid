@@ -1,38 +1,38 @@
 
 
 <style>
-  .content-bg {
+  .spx-video {
     background: #000000;
   }
-  .content-bg .custom-container{
+  .spx-video .custom-container{
     margin-top: 0;
     margin-bottom: 0;
     padding-top: 96px;
   }
-  .content-bg .title-box{
+  .spx-video .title-box{
     width: 70%;
     margin: 0 auto;
   }
-  .content-bg .title-box .title{
+  .spx-video .title-box .title{
     font-size: 38px;
     line-height: 46px;
     color: #fff;
     text-align: center;
     margin-bottom: 16px;
   }
-  .content-bg .title-box .text{
+  .spx-video .title-box .text{
     font-size: 20px;
     line-height: 28px;
     color: #fff;
     text-align: center;
   }
-  .content-bg .img-box{
+  .spx-video .img-box{
     border-radius: 16px;
     overflow: hidden;
     margin-top: 48px;
     position: relative;
   }
-  .content-bg .img-box .cover{
+  .spx-video .img-box .cover{
     position: absolute;
     top: 0;
     left: 0;
@@ -42,36 +42,36 @@
     height: 100%;
     object-fit: cover;
   }
-  .content-bg .post-player{
+  .spx-video .post-player{
     width: 100%;
     object-fit: contain;
   }
   @media only screen and (max-width: 768px){
-    .content-bg .custom-container{
+    .spx-video .custom-container{
       padding-top: 40px;
     }
-    .content-bg .title-box{
+    .spx-video .title-box{
       width: calc(100% - 32px);
     }
-    .content-bg .title-box .title{
+    .spx-video .title-box .title{
       font-size: 24px;
       line-height: 32px;
       margin-bottom: 8px;
       text-align: left;
     }
-    .content-bg .title-box .text{
+    .spx-video .title-box .text{
       font-size: 16px;
       line-height: 24px;
       text-align: left;
     }
-    .content-bg .img-box{
+    .spx-video .img-box{
       border-radius: 8px;
       margin-top: 24px;
     }
   }
 </style>
 
-<div class="content-bg">
+<div class="spx-video">
   <div class="custom-container">
     <div class="title-box">
       {% if section.settings.title != blank %}
@@ -101,14 +101,14 @@
   $(document).ready(function() {
       let post_player = $('#post-player2'); 
       post_player.on('play', function() {
-        $('.content-bg .cover').css('display','none');
+        $('.spx-video .cover').css('display','none');
       });
   });
 </script>
 
 {% schema %}
   {
-    "name": "Content with image",
+    "name": "SPX Video",
     "settings": [
           {
             "type": "textarea",
@@ -138,7 +138,7 @@
     ],
   "presets": [
     {
-      "name": "Content with image"
+      "name": "SPX Video"
     }
   ]
     
