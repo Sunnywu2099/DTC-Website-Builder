@@ -175,6 +175,39 @@
         "title": "Path Planning Perfection",
         "text": "With a perfect blend of gyroscope and accelerometer hardware, coupled with intelligent algorithms, our system ensures precise navigation."
       }
+    },
+    "2fbb62c2-71b2-4340-93a7-898a2c908409": {
+      "type": "spx-tab-swiper",
+      "blocks": {
+        "e56bf629-db31-486f-89db-96b35d2088dd": {
+          "type": "block",
+          "settings": {
+            "video": "",
+            "img": "shopify:\/\/shop_images\/1_a729da42-0d12-4fdd-a05c-448979c360e7.png",
+            "img_m": "shopify:\/\/shop_images\/11_f29632a6-173b-4e21-a920-988e6fdf0f88.png",
+            "sub_title": "Poolside parking",
+            "sub_text": "Automatically parks poolside after cleaning for effortless retrieval."
+          }
+        },
+        "9288f6ef-e0d3-4cc9-8d2e-43084fda2ab4": {
+          "type": "block",
+          "settings": {
+            "video": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/1320c38ce15749e4a729b21db9a0e0ac.mp4",
+            "img": "shopify:\/\/shop_images\/2_3dbe2a79-40f1-456d-a165-6d10963d9e89.png",
+            "img_m": "shopify:\/\/shop_images\/33.png",
+            "sub_title": "Basket Reminder",
+            "sub_text": "Provides a notification when the debris basket needs emptying."
+          }
+        }
+      },
+      "block_order": [
+        "e56bf629-db31-486f-89db-96b35d2088dd",
+        "9288f6ef-e0d3-4cc9-8d2e-43084fda2ab4"
+      ],
+      "settings": {
+        "title": "Innate Intelligence",
+        "text": "Equipping the P2 with an extensive array of smart features, we’ve achieved truly hassle-free \npool maintenance."
+      }
     }
   },
   "order": [
@@ -182,6 +215,7 @@
     "bb4f18df-9766-4275-9f4d-c2ac2bab2cf0",
     "7b2998ff-1a6a-457c-b570-e93884904d71",
     "fbaf67e7-7ce3-47be-b302-6bf254e4b860",
-    "10c809a2-4e49-4caa-9dbd-4b2533fc3474"
+    "10c809a2-4e49-4caa-9dbd-4b2533fc3474",
+    "2fbb62c2-71b2-4340-93a7-898a2c908409"
   ]
 }
