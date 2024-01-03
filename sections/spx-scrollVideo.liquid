@@ -149,7 +149,7 @@
         {% if section.settings.main_video != blank and section.settings.btn_name != blank %}
           <div class="open-video">
             <span style="margin-right:4px;">{{ section.settings.btn_name }}</span>
-            <span>{% render 'open-video' %}</span>
+            {% render 'open-video' %}
           </div>
         {% endif %}
       </div>
