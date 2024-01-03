@@ -1,0 +1,386 @@
+<style>
+
+  .p-imgtext2 .container-fluid{
+    padding: 0;
+  }
+  .p-imgtext2 .box{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+  }
+  .p-imgtext2 .item{
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .p-imgtext2 .item.item1{
+    box-shadow: 0px 4px 8px 0px rgba(0, 10, 64, 0.1);
+  }
+  .p-imgtext2 .item.item2 .content-box{
+    box-shadow: 0px 4px 8px 0px rgba(0, 10, 64, 0.1);
+  }
+  {% for block in section.blocks %}
+      .p-imgtext2 .item.item-{{forloop.index}}{
+        width: calc( {{block.settings.width}}% - 16px);
+      }
+  {% endfor %}
+  .p-imgtext2 .item .content-box{
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    font-weight: 700;
+  }
+  .p-imgtext2 .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: right;
+  }
+  .p-imgtext2 .item2{
+    display: flex;
+    flex-direction: column; 
+    gap: 16px;
+    justify-content: space-between;
+  }
+  .p-imgtext2 .item2 .content-box{
+    flex: 1;
+    border-radius: 8px;
+    overflow: hiddem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  /* 颜色 */
+  .p-imgtext2 .item .content-box .color{
+    background: #050505;
+  }
+  .p-imgtext2 .item-1 .content-box .color,
+  .p-imgtext2 .item-2 .content-box .color,
+  .p-imgtext2 .item-3 .content-box .color,
+  .p-imgtext2 .item-5 .content-box .color{
+    background: var(--Paul-1, linear-gradient(270deg, #0d3554 0%, #0d3554 100%));
+  }
+  .p-imgtext2 .item2 .content-box .color1{
+    background: var(--Paul-1, linear-gradient(270deg, #005DAA 0%, #002E54 100%));
+  }
+  .p-imgtext2 .item2 .content-box .color2{
+    background: var(--Paul-2, linear-gradient(270deg, #2E8973 0%, #005A45 100%));
+  }
+  .p-imgtext2 .item-4 .content-box .color{
+    background: #fff;
+  }
+  .p-imgtext2 .item .content-box .color{
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  /* 字体大小 */
+  .p-imgtext2 .item-1 .content-box .title{
+    font-size: 32px;
+    line-height: 32px;
+    font-weight: 700;
+  }
+  .p-imgtext2 .item-1 .content-box .subtitle{
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 700;
+  }
+  .p-imgtext2 .item-2 .content-box .title{
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: 700;
+  }
+  .p-imgtext2 .item-2 .content-box .subtitle{
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 700;
+  }
+  .p-imgtext2 .item-3 .content-box .title{
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: 700;
+  }
+  .p-imgtext2 .item-3 .content-box .subtitle{
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 700;
+  }
+  .p-imgtext2 .item-4 .content-box .title{
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: 700;
+  }
+  .p-imgtext2 .item-4 .content-box .subtitle{
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 700;
+  }
+  .p-imgtext2 .item-5 .content-box .title{
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: 700;
+  }
+  .p-imgtext2 .item-5 .content-box .subtitle{
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 700;
+  }
+  .p-imgtext2 .item-6 .content-box .title{
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: 700;
+    width: 58%;
+  }
+  .p-imgtext2 .item-6 .content-box .subtitle{
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 700;
+  }
+  @media only screen and (max-width: 768px){
+     .content-box{
+       padding:8px;
+     }
+    .p-imgtext2 .box{
+      gap: 8px;
+    }
+    .p-imgtext2 .item .content-box{
+      top: 16px;
+      left: 16px;
+      right: 16px;
+      padding: 0;
+    }
+    .p-imgtext2 .item img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    {% for block in section.blocks %}
+      .p-imgtext2 .item.item-{{forloop.index}}{
+        {% if block.settings.width_m == '100' %}
+          width: calc( {{block.settings.width_m}}% - 0px);
+        {% else %}
+          width: calc( {{block.settings.width_m}}% - 4px);
+        {% endif %}
+      }
+    {% endfor %}
+    .p-imgtext2 .item2{
+      display: flex;
+      flex-direction: column; 
+      gap: 8px;
+    }
+    .p-imgtext2 .item2 .content-box{
+      min-height: 56px;
+    }
+    /* 字体大小 */
+    .p-imgtext2 .item-1 .content-box .title{
+      font-size: 20px;
+    }
+    .p-imgtext2 .item-1 .content-box .subtitle{
+      font-size: 12px;
+      line-height: 14px;
+    }
+    .p-imgtext2 .item-2 .content-box .title{
+      font-size: 16px;
+      line-height: 20px;
+    }
+    .p-imgtext2 .item-2 .content-box .subtitle{
+      font-size: 14px;
+      line-height: 16px;
+    }
+    .p-imgtext2 .item-3 .content-box .title{
+      font-size: 16px;
+      line-height: 20px;
+      margin-bottom: 8px;
+    }
+    .p-imgtext2 .item-3 .content-box .subtitle{
+      font-size: 12px;
+      line-height: 14px;
+    }
+    .p-imgtext2 .item-4 .content-box .title{
+      font-size: 16px;
+      line-height: 20px;
+    }
+    .p-imgtext2 .item-4 .content-box .subtitle{
+      font-size: 14px;
+      line-height: 16px;
+    }
+    .p-imgtext2 .item-5 .content-box .title{
+      font-size: 16px;
+      line-height: 18px;
+    }
+    .p-imgtext2 .item-5 .content-box .subtitle{
+      font-size: 14px;
+      line-height: 16px;
+    }
+    .p-imgtext2 .item-6 .content-box .title{
+      font-size: 16px;
+      line-height: 20px;
+      width: 85%;
+    }
+    .p-imgtext2 .item-6 .content-box .subtitle{
+      font-size: 14px;
+      line-height: 16px;
+    }
+  }
+</style>
+  
+<div class="p-imgtext2">
+  <div class="custom-container">
+    <div class="box">   
+        {% for block in section.blocks %}
+            
+            {% if block.type == 'block2' %}
+              <div class="item item-{{ forloop.index }} item2" style="text-align: center;">
+                  <div class="content-box" style="background: {{ block.settings.background }}; position: static;">
+                    {% if block.settings.title != blank %}
+                      <h3 class="title color color1">{{ block.settings.title }}</h3>
+                    {% endif %}
+                    {% if block.settings.subtitle != blank %}
+                      <h4 class="subtitle color color1" style="">{{ block.settings.subtitle }}</h4>
+                    {% endif %}
+                  </div>
+                  <div class="content-box" style="background: {{ block.settings.background2 }}; position: static;">
+                    {% if block.settings.title2 != blank %}
+                      <h3 class="title color color2">{{ block.settings.title2 }}</h3>
+                    {% endif %}
+                    {% if block.settings.subtitle2 != blank %}
+                      <h4 class="subtitle color color2" style="">{{ block.settings.subtitle2 }}</h4>
+                    {% endif %}
+                  </div>
+                </div> 
+            {% else %}
+              <div class="item item-{{ forloop.index }} item1" {% if block.settings.bg == blank and block.settings.background != blank %}style="background: {{ block.settings.background }};text-align: center;"{% endif %}>
+                {% if block.settings.bg == blank %}
+                  <div class="content-box" style="position: static;">
+                    {% if block.settings.title != blank %}
+                      <h3 class="title color">{{ block.settings.title }}</h3>
+                    {% endif %}
+                    {% if block.settings.subtitle != blank %}
+                      <h4 class="subtitle color" style="">{{ block.settings.subtitle }}</h4>
+                    {% endif %}
+                  </div>
+                {% else %}
+                  <img class="hide-mb" src="{{ block.settings.bg | img_url: 'master' }}">
+                  <img class="hide-pc" src="{{ block.settings.bg_m | img_url: 'master' }}">
+                  <div class="content-box" style="">
+                    {% if block.settings.title != blank %}
+                      <h3 class="title color">{{ block.settings.title }}</h3>
+                    {% endif %}
+                    {% if block.settings.subtitle != blank %}
+                      <h4 class="subtitle color" style="">{{ block.settings.subtitle }}</h4>
+                    {% endif %}
+                  </div>
+                {% endif %}
+                </div> 
+            {% endif %}
+        {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "SPX Blocks with Img",
+    "max_blocks": 7,
+    "blocks":[
+      {
+        "type":"block",
+        "name": "block",
+        "settings":[
+          {
+            "type": "html",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "html",
+            "id": "subtitle",
+            "label": "Sub title"
+          },
+          {
+            "type": "image_picker",
+            "id": "bg",
+            "label": "Image"
+          },
+          {
+            "type": "image_picker",
+            "id": "bg_m",
+            "label": "Image m"
+          },
+          {
+            "type": "color_background",
+            "id": "background",
+            "label": "Background",
+            "default": "linear-gradient(#ffffff, #000000)"
+          },
+          {
+            "type": "text",
+            "id": "width",
+            "label": "Width"
+          },
+          {
+            "type": "text",
+            "id": "width_m",
+            "label": "Width mobile"
+          }
+        ]
+      },
+      {
+        "type":"block2",
+        "name": "block2",
+        "settings":[
+          {
+            "type": "html",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "html",
+            "id": "subtitle",
+            "label": "Sub title"
+          },
+          {
+            "type": "html",
+            "id": "title2",
+            "label": "Title 2"
+          },
+          {
+            "type": "html",
+            "id": "subtitle2",
+            "label": "Sub title 2"
+          },
+          {
+            "type": "color_background",
+            "id": "background",
+            "label": "Background",
+            "default": "linear-gradient(#ffffff, #000000)"
+          },
+          {
+            "type": "color_background",
+            "id": "background2",
+            "label": "Background2",
+            "default": "linear-gradient(#ffffff, #000000)"
+          },
+          {
+            "type": "text",
+            "id": "width",
+            "label": "Width"
+          },
+          {
+            "type": "text",
+            "id": "width_m",
+            "label": "Width mobile"
+          }
+        ]
+      }
+    ],
+   "presets": [
+      {
+		"name": "SPX Blocks with Img"
+      }
+   ]
+  }
+{% endschema %}
+
