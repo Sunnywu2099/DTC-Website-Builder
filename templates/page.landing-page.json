@@ -165,12 +165,23 @@
       "settings": {
         "section_title": ""
       }
+    },
+    "10c809a2-4e49-4caa-9dbd-4b2533fc3474": {
+      "type": "spx-video",
+      "settings": {
+        "video": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/8b9a88ac9dd0487f9173cf5cbe2d6686.mp4",
+        "img": "shopify:\/\/shop_images\/c4.jpg",
+        "img_m": "shopify:\/\/shop_images\/img2_cffe0b18-991f-4d30-8cb5-59f746459f06.png",
+        "title": "Path Planning Perfection",
+        "text": "With a perfect blend of gyroscope and accelerometer hardware, coupled with intelligent algorithms, our system ensures precise navigation."
+      }
     }
   },
   "order": [
     "main",
     "bb4f18df-9766-4275-9f4d-c2ac2bab2cf0",
     "7b2998ff-1a6a-457c-b570-e93884904d71",
-    "fbaf67e7-7ce3-47be-b302-6bf254e4b860"
+    "fbaf67e7-7ce3-47be-b302-6bf254e4b860",
+    "10c809a2-4e49-4caa-9dbd-4b2533fc3474"
   ]
 }
