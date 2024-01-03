@@ -35,11 +35,13 @@
         "dde7c69e-d412-482d-a3a9-ded0c045fa3a": {
           "type": "block",
           "settings": {
-            "title": "",
-            "subtitle": "",
+            "title": "Panoramic Skimmer",
+            "subtitle": "Surface debris removal",
+            "bg": "shopify:\/\/shop_images\/1_e6c94e20-5bed-4b78-b960-91b9a32b01de.jpg",
+            "bg_m": "shopify:\/\/shop_images\/1-m.jpg",
             "background": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(0, 0, 0, 1) 100%)",
-            "width": "",
-            "width_m": ""
+            "width": "50",
+            "width_m": "100"
           }
         },
         "64b48882-e06e-4cbb-bdf7-ed7861318e6f": {
