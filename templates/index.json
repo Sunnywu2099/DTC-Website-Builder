@@ -90,7 +90,8 @@
         "b68335a0-5986-4397-a052-bf4c13170c22",
         "4b720668-5179-40c8-8708-9ca27a213aa1"
       ],
-      "settings": {}
+      "settings": {
+      }
     },
     "1c0c39d6-0db9-4ff6-9c22-5ba99800e65d": {
       "type": "spx-press",
@@ -128,6 +129,19 @@
       ],
       "settings": {
         "title": "Press Room"
+      }
+    },
+    "9de2fcbd-01fc-4989-86e1-080c18f3eba5": {
+      "type": "spx-scrollVideo",
+      "settings": {
+        "img": "shopify:\/\/shop_images\/Exclude_1629c84d-6a69-4801-82d8-b30f99f48f13.png",
+        "img_m": "shopify:\/\/shop_images\/Exclude_e540f7bb-c81a-4de9-8191-d147311129fb.png",
+        "cover": "shopify:\/\/shop_images\/c1.jpg",
+        "title": "",
+        "text": "Make the burden of cleaning your pool a distant memory. No more unsightly gunk on the bottom, no more debris floating on the surface, just a flawlessly maintained pool from top to bottom that's inviting you to dive in. And all this is achieved with the simple press of a button.",
+        "btn_name": "Watch Now",
+        "post_video": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/f7a8e94be8444a35b718bda56950d401.mp4",
+        "main_video": "https:\/\/www.youtube.com\/embed\/nELCLl-kioI?si=01lxempIMJzEBjJx"
       }
     },
     "71ea1a10-a1b7-4474-a465-dbd6f6c1373e": {
@@ -305,6 +319,7 @@
     "c9f769c3-8de5-46ce-9d1d-502717910573",
     "dc9556c2-4975-49c8-9283-e9e901a02abb",
     "1c0c39d6-0db9-4ff6-9c22-5ba99800e65d",
+    "9de2fcbd-01fc-4989-86e1-080c18f3eba5",
     "71ea1a10-a1b7-4474-a465-dbd6f6c1373e",
     "9a867374-1d93-481a-8f03-d3f37650ad08"
   ]
