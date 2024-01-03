@@ -78,7 +78,7 @@
       {% endif %}
     </div>
     <div class="img-box">
-      {% unless section.settings.video != blank %}
+      {% if section.settings.video != blank %}
         <video id="post-player2" class="post-player" playsinline muted autoplay loop>
           <source src="{{ section.settings.video }}" type="video/mp4" />
           <source src="{{ section.settings.video }}" type="video/webm" />
@@ -87,7 +87,7 @@
       {% else %}
         <img class="hide-mb" src="{{ section.settings.img | img_url:'master' }}">
         <img class="hide-pc" src="{{ section.settings.img_m | img_url:'master' }}">
-      {% endunless %}
+      {% endif %}
     </div>
     
   </div>
