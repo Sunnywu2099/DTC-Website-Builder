@@ -41,6 +41,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
   }
   @media only screen and (max-width: 768px){
     .spx-video .custom-container{
@@ -83,7 +84,7 @@
           <source src="{{ section.settings.video }}" type="video/mp4" />
           <source src="{{ section.settings.video }}" type="video/webm" />
         </video>
-        {% comment %} <img class="cover" src="{{ section.settings.img | img_url:'master' }}"> {% endcomment %}
+        <img class="cover" src="{{ section.settings.img | img_url:'master' }}">
       {% else %}
         <img class="hide-mb" src="{{ section.settings.img | img_url:'master' }}">
         <img class="hide-pc" src="{{ section.settings.img_m | img_url:'master' }}">
