@@ -116,11 +116,49 @@
       ],
       "settings": {
       }
+    },
+    "fbaf67e7-7ce3-47be-b302-6bf254e4b860": {
+      "type": "spx-multiple-section",
+      "blocks": {
+        "9fb9a2e8-fe7c-4aed-9766-1905b7cbb536": {
+          "type": "above-and-below",
+          "settings": {
+            "sub_title": "",
+            "title": "Panoramic Skimmer",
+            "text": "Our latest addition to automated cleaning provides a cost-effective method to retrieve debris — including hair, leaves, insect carcasses, and more — floating on the water’s surface. The skimmer conveniently draws in debris from three angles thanks to its triple-side design.",
+            "img": "shopify:\/\/shop_images\/PC101_P306_1_bab094f2-a882-4eb8-9244-70e2dcbdf51e.png",
+            "img_m": "shopify:\/\/shop_images\/img_4da9b7e4-979e-4f5b-a0fd-b58e84a2a695.png"
+          }
+        },
+        "d65577b0-c635-4fc5-a227-3f459ccf3dfe": {
+          "type": "image-with-video",
+          "settings": {
+            "sub_title": "How Does it Work?",
+            "title": "Attach, Sit Back, and Relax",
+            "text": "The panoramic skimmer easily attaches to the main unit through an interchangeable magnetic connection. It’s then guided around your pool’s surface via intelligent path planning from the P2 down below, requiring zero additional setup or configuration.",
+            "img_left1": "shopify:\/\/shop_images\/rolex_Photo_by_ROLEX_on_May_13_2023_3_408a21ad-0b76-4488-85ef-fd8114f1a948.png",
+            "img_left1_m": "shopify:\/\/shop_images\/img_1d4fbc2b-1456-4423-91ea-806f08e82464.png",
+            "img_left2": "shopify:\/\/shop_images\/rolex_Photo_by_ROLEX_on_May_13_2023_2.png",
+            "img_left2_m": "shopify:\/\/shop_images\/img_b5bbe190-524f-4957-b3a0-500a4dac26cf.png",
+            "img_left3": "shopify:\/\/shop_images\/c3.jpg",
+            "img_left3_m": "shopify:\/\/shop_images\/img1_e1dbf277-9989-4aed-a2cc-8bd5be0429f0.png",
+            "link": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/4490b49453354248a4df10d97e5a67f9.mp4"
+          }
+        }
+      },
+      "block_order": [
+        "9fb9a2e8-fe7c-4aed-9766-1905b7cbb536",
+        "d65577b0-c635-4fc5-a227-3f459ccf3dfe"
+      ],
+      "settings": {
+        "section_title": ""
+      }
     }
   },
   "order": [
     "main",
     "bb4f18df-9766-4275-9f4d-c2ac2bab2cf0",
-    "7b2998ff-1a6a-457c-b570-e93884904d71"
+    "7b2998ff-1a6a-457c-b570-e93884904d71",
+    "fbaf67e7-7ce3-47be-b302-6bf254e4b860"
   ]
 }
