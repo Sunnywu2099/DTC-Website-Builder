@@ -83,7 +83,7 @@
           <source src="{{ section.settings.video }}" type="video/mp4" />
           <source src="{{ section.settings.video }}" type="video/webm" />
         </video>
-        <img class="cover" src="{{ section.settings.img | img_url:'master' }}">
+        {% comment %} <img class="cover" src="{{ section.settings.img | img_url:'master' }}"> {% endcomment %}
       {% else %}
         <img class="hide-mb" src="{{ section.settings.img | img_url:'master' }}">
         <img class="hide-pc" src="{{ section.settings.img_m | img_url:'master' }}">
