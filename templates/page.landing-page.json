@@ -47,54 +47,62 @@
         "64b48882-e06e-4cbb-bdf7-ed7861318e6f": {
           "type": "block",
           "settings": {
-            "title": "",
-            "subtitle": "",
+            "title": "Manual Navigation",
+            "subtitle": "Remote control",
+            "bg": "shopify:\/\/shop_images\/Frame_47423.jpg",
+            "bg_m": "shopify:\/\/shop_images\/Frame_47427.jpg",
             "background": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(0, 0, 0, 1) 100%)",
-            "width": "",
-            "width_m": ""
+            "width": "25",
+            "width_m": "50"
           }
         },
         "7146e140-9d6a-4265-ae29-6434a30b073f": {
           "type": "block",
           "settings": {
-            "title": "",
+            "title": "Constant Suction Throughout",
             "subtitle": "",
+            "bg": "shopify:\/\/shop_images\/3_bea415e7-58de-49c3-bff9-fc4371706330.jpg",
+            "bg_m": "shopify:\/\/shop_images\/3-m.jpg",
             "background": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(0, 0, 0, 1) 100%)",
-            "width": "",
-            "width_m": ""
+            "width": "25",
+            "width_m": "50"
           }
         },
         "141a27cb-42dc-4544-8635-131a90321425": {
           "type": "block",
           "settings": {
-            "title": "",
+            "title": "120-Minute <br>Runtime",
             "subtitle": "",
+            "bg": "shopify:\/\/shop_images\/0_831901ee-4b84-4e85-a164-75d0ba51ca01.jpg",
+            "bg_m": "shopify:\/\/shop_images\/Frame_47425.jpg",
             "background": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(0, 0, 0, 1) 100%)",
-            "width": "",
-            "width_m": ""
+            "width": "25",
+            "width_m": "50"
           }
         },
         "898a0787-1631-4fdd-9c9d-4009ee60a23c": {
           "type": "block",
           "settings": {
-            "title": "",
-            "subtitle": "",
+            "title": "AdaptiveNav",
+            "subtitle": "Path Planning",
+            "bg": "shopify:\/\/shop_images\/5_1f23a0c9-8fd8-4358-872a-52d8bd600d70.jpg",
+            "bg_m": "shopify:\/\/shop_images\/5-m.jpg",
             "background": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(0, 0, 0, 1) 100%)",
-            "width": "",
-            "width_m": ""
+            "width": "37.5",
+            "width_m": "50"
           }
         },
         "f3fba63b-bf68-40ab-89b0-e1d899b0e87b": {
           "type": "block2",
           "settings": {
-            "title": "",
+            "title": "Cordless Design",
             "subtitle": "",
-            "title2": "",
+            "title2": "In-Ground and\nAbove-Ground Pools",
             "subtitle2": "",
-            "background": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(0, 0, 0, 1) 100%)",
-            "background2": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(0, 0, 0, 1) 100%)",
-            "width": "",
-            "width_m": ""
+            "background": "linear-gradient(270deg, rgba(225, 234, 250, 1), rgba(187, 206, 249, 1) 1%, rgba(187, 217, 250, 1) 100%)",
+            "background2": "linear-gradient(270deg, rgba(220, 255, 247, 1), rgba(185, 229, 219, 1) 100%)",
+            "width": "37.5",
+            "width_m": "100"
           }
         }
       },
