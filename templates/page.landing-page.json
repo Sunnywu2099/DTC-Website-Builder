@@ -2,11 +2,219 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
+        "layout": "fixed-soft",
+        "enable_shadow": true,
+        "width": "medium",
+        "padding_top": 1,
+        "padding_bottom": 1,
+        "show_heading": true,
+        "color_scheme": "default-with-accent-1",
+        "custom_colors": false,
+        "color_foreground": "#212121",
+        "color_accent": "#0d91bd",
+        "color_background": "#ffffff",
+        "color_gradient": ""
+      }
+    },
+    "bb4f18df-9766-4275-9f4d-c2ac2bab2cf0": {
+      "type": "spx-product-banner",
+      "settings": {
+        "img": "shopify:\/\/shop_images\/Main_kv_cff77c81-045c-4aef-89a4-0cdcd563017a.jpg",
+        "img_mb": "shopify:\/\/shop_images\/Hero-1.png",
+        "title": "Genkinno P2",
+        "text": "Cordless Robotic Pool Cleaner",
+        "btn_name": "Buy Now",
+        "link": "\/"
+      }
+    },
+    "7b2998ff-1a6a-457c-b570-e93884904d71": {
+      "type": "spx-blocks-with-img",
+      "blocks": {
+        "dde7c69e-d412-482d-a3a9-ded0c045fa3a": {
+          "type": "block",
+          "settings": {
+            "title": "Panoramic Skimmer",
+            "subtitle": "Surface debris removal",
+            "bg": "shopify:\/\/shop_images\/1_e6c94e20-5bed-4b78-b960-91b9a32b01de.jpg",
+            "bg_m": "shopify:\/\/shop_images\/1-m.jpg",
+            "background": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(0, 0, 0, 1) 100%)",
+            "width": "50",
+            "width_m": "100"
+          }
+        },
+        "64b48882-e06e-4cbb-bdf7-ed7861318e6f": {
+          "type": "block",
+          "settings": {
+            "title": "Manual Navigation",
+            "subtitle": "Remote control",
+            "bg": "shopify:\/\/shop_images\/Frame_47423.jpg",
+            "bg_m": "shopify:\/\/shop_images\/Frame_47427.jpg",
+            "background": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(0, 0, 0, 1) 100%)",
+            "width": "25",
+            "width_m": "50"
+          }
+        },
+        "7146e140-9d6a-4265-ae29-6434a30b073f": {
+          "type": "block",
+          "settings": {
+            "title": "Constant Suction Throughout",
+            "subtitle": "",
+            "bg": "shopify:\/\/shop_images\/3_bea415e7-58de-49c3-bff9-fc4371706330.jpg",
+            "bg_m": "shopify:\/\/shop_images\/3-m.jpg",
+            "background": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(0, 0, 0, 1) 100%)",
+            "width": "25",
+            "width_m": "50"
+          }
+        },
+        "141a27cb-42dc-4544-8635-131a90321425": {
+          "type": "block",
+          "settings": {
+            "title": "120-Minute <br>Runtime",
+            "subtitle": "",
+            "bg": "shopify:\/\/shop_images\/0_831901ee-4b84-4e85-a164-75d0ba51ca01.jpg",
+            "bg_m": "shopify:\/\/shop_images\/Frame_47425.jpg",
+            "background": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(0, 0, 0, 1) 100%)",
+            "width": "25",
+            "width_m": "50"
+          }
+        },
+        "898a0787-1631-4fdd-9c9d-4009ee60a23c": {
+          "type": "block",
+          "settings": {
+            "title": "AdaptiveNav",
+            "subtitle": "Path Planning",
+            "bg": "shopify:\/\/shop_images\/5_1f23a0c9-8fd8-4358-872a-52d8bd600d70.jpg",
+            "bg_m": "shopify:\/\/shop_images\/5-m.jpg",
+            "background": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(0, 0, 0, 1) 100%)",
+            "width": "37.5",
+            "width_m": "50"
+          }
+        },
+        "f3fba63b-bf68-40ab-89b0-e1d899b0e87b": {
+          "type": "block2",
+          "settings": {
+            "title": "Cordless Design",
+            "subtitle": "",
+            "title2": "In-Ground and\nAbove-Ground Pools",
+            "subtitle2": "",
+            "background": "linear-gradient(270deg, rgba(225, 234, 250, 1), rgba(187, 206, 249, 1) 1%, rgba(187, 217, 250, 1) 100%)",
+            "background2": "linear-gradient(270deg, rgba(220, 255, 247, 1), rgba(185, 229, 219, 1) 100%)",
+            "width": "37.5",
+            "width_m": "100"
+          }
+        }
+      },
+      "block_order": [
+        "dde7c69e-d412-482d-a3a9-ded0c045fa3a",
+        "64b48882-e06e-4cbb-bdf7-ed7861318e6f",
+        "7146e140-9d6a-4265-ae29-6434a30b073f",
+        "141a27cb-42dc-4544-8635-131a90321425",
+        "898a0787-1631-4fdd-9c9d-4009ee60a23c",
+        "f3fba63b-bf68-40ab-89b0-e1d899b0e87b"
+      ],
+      "settings": {}
+    },
+    "fbaf67e7-7ce3-47be-b302-6bf254e4b860": {
+      "type": "spx-multiple-section",
+      "blocks": {
+        "9fb9a2e8-fe7c-4aed-9766-1905b7cbb536": {
+          "type": "above-and-below",
+          "settings": {
+            "sub_title": "",
+            "title": "Panoramic Skimmer",
+            "text": "Our latest addition to automated cleaning provides a cost-effective method to retrieve debris — including hair, leaves, insect carcasses, and more — floating on the water’s surface. The skimmer conveniently draws in debris from three angles thanks to its triple-side design.",
+            "img": "shopify:\/\/shop_images\/PC101_P306_1_bab094f2-a882-4eb8-9244-70e2dcbdf51e.png",
+            "img_m": "shopify:\/\/shop_images\/img_4da9b7e4-979e-4f5b-a0fd-b58e84a2a695.png"
+          }
+        },
+        "d65577b0-c635-4fc5-a227-3f459ccf3dfe": {
+          "type": "image-with-video",
+          "settings": {
+            "sub_title": "How Does it Work?",
+            "title": "Attach, Sit Back, and Relax",
+            "text": "The panoramic skimmer easily attaches to the main unit through an interchangeable magnetic connection. It’s then guided around your pool’s surface via intelligent path planning from the P2 down below, requiring zero additional setup or configuration.",
+            "img_left1": "shopify:\/\/shop_images\/rolex_Photo_by_ROLEX_on_May_13_2023_3_408a21ad-0b76-4488-85ef-fd8114f1a948.png",
+            "img_left1_m": "shopify:\/\/shop_images\/img_1d4fbc2b-1456-4423-91ea-806f08e82464.png",
+            "img_left2": "shopify:\/\/shop_images\/rolex_Photo_by_ROLEX_on_May_13_2023_2.png",
+            "img_left2_m": "shopify:\/\/shop_images\/img_b5bbe190-524f-4957-b3a0-500a4dac26cf.png",
+            "img_left3": "shopify:\/\/shop_images\/c3.jpg",
+            "img_left3_m": "shopify:\/\/shop_images\/img1_e1dbf277-9989-4aed-a2cc-8bd5be0429f0.png",
+            "link": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/4490b49453354248a4df10d97e5a67f9.mp4"
+          }
+        },
+        "e525c93c-2d8b-4d9f-8830-f5f90187d36a": {
+          "type": "column-text",
+          "settings": {
+            "data_left": "<span><span class=\"number\">Zero<\/span><\/span><br>\nWasted Energy",
+            "title_left": "Water-drive Movement",
+            "text_left": "The device’s entire power consumption is dedicated solely to suction, propelling the device forward while effectively eliminating debris.",
+            "data_right": "<span><span class=\"number\">2-3<\/span>x<\/span><br>\nMore Power",
+            "title_right": "Brushless Motor",
+            "text_right": "Provides 2–3 times more energy-efficient suction power and delivers an extended lifespan compared to conventional brushed motors."
+          }
+        }
+      },
+      "block_order": [
+        "9fb9a2e8-fe7c-4aed-9766-1905b7cbb536",
+        "d65577b0-c635-4fc5-a227-3f459ccf3dfe",
+        "e525c93c-2d8b-4d9f-8830-f5f90187d36a"
+      ],
+      "settings": {
+        "section_title": ""
+      }
+    },
+    "10c809a2-4e49-4caa-9dbd-4b2533fc3474": {
+      "type": "spx-video",
+      "settings": {
+        "video": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/8b9a88ac9dd0487f9173cf5cbe2d6686.mp4",
+        "img": "shopify:\/\/shop_images\/c4.jpg",
+        "img_m": "shopify:\/\/shop_images\/img2_cffe0b18-991f-4d30-8cb5-59f746459f06.png",
+        "title": "Path Planning Perfection",
+        "text": "With a perfect blend of gyroscope and accelerometer hardware, coupled with intelligent algorithms, our system ensures precise navigation."
+      }
+    },
+    "2fbb62c2-71b2-4340-93a7-898a2c908409": {
+      "type": "spx-tab-swiper",
+      "blocks": {
+        "e56bf629-db31-486f-89db-96b35d2088dd": {
+          "type": "block",
+          "settings": {
+            "video": "",
+            "img": "shopify:\/\/shop_images\/1_a729da42-0d12-4fdd-a05c-448979c360e7.png",
+            "img_m": "shopify:\/\/shop_images\/11_f29632a6-173b-4e21-a920-988e6fdf0f88.png",
+            "sub_title": "Poolside parking",
+            "sub_text": "Automatically parks poolside after cleaning for effortless retrieval."
+          }
+        },
+        "9288f6ef-e0d3-4cc9-8d2e-43084fda2ab4": {
+          "type": "block",
+          "settings": {
+            "video": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/1320c38ce15749e4a729b21db9a0e0ac.mp4",
+            "img": "shopify:\/\/shop_images\/2_3dbe2a79-40f1-456d-a165-6d10963d9e89.png",
+            "img_m": "shopify:\/\/shop_images\/33.png",
+            "sub_title": "Basket Reminder",
+            "sub_text": "Provides a notification when the debris basket needs emptying."
+          }
+        }
+      },
+      "block_order": [
+        "e56bf629-db31-486f-89db-96b35d2088dd",
+        "9288f6ef-e0d3-4cc9-8d2e-43084fda2ab4"
+      ],
+      "settings": {
+        "title": "Innate Intelligence",
+        "text": "Equipping the P2 with an extensive array of smart features, we’ve achieved truly hassle-free \npool maintenance."
       }
     }
   },
   "order": [
-    "main"
+    "main",
+    "bb4f18df-9766-4275-9f4d-c2ac2bab2cf0",
+    "7b2998ff-1a6a-457c-b570-e93884904d71",
+    "fbaf67e7-7ce3-47be-b302-6bf254e4b860",
+    "10c809a2-4e49-4caa-9dbd-4b2533fc3474",
+    "2fbb62c2-71b2-4340-93a7-898a2c908409"
   ]
 }

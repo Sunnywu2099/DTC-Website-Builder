@@ -1,0 +1,729 @@
+
+<style>
+  .multiple .custom-container{
+    margin: 128px auto;
+  }
+  .multiple .section-title{
+    font-size: 48px;
+    line-height: 56px;
+    background: var(--Paul-1, linear-gradient(270deg, #3D6CEA 0%, #3280E8 100%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    margin-bottom: 96px;
+  }
+  .multiple .wrapper{
+    margin-top: 96px;
+  }
+  .multiple .wrapper-text{
+    margin-top: 16px;
+  }
+  /* wrapper-above */
+  .multiple .wrapper-above .top{
+    width: 70%;
+    margin: 0 auto;
+    margin-bottom: 48px;
+  }
+  .multiple .wrapper-above .bottom{
+    width: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .multiple .wrapper-above .subtitle{
+    background: var(--Paul-1, linear-gradient(270deg, #3D6CEA 0%, #3280E8 100%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    font-size: 20px;
+    line-height: 28px;
+    margin-bottom: 8px;
+  }
+  .multiple .wrapper-above .title{
+    text-align: center;
+    font-size: 38px;
+    line-height: 46px;
+    margin-bottom: 16px;
+  }
+  .multiple .wrapper-above .text{
+    text-align: center;
+    font-size: 20px;
+    line-height: 28px;
+    margin-bottom: 0px;
+  }
+  /* wrapper-column */
+  .multiple .wrapper-column{
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 48px;
+  }
+  .multiple .wrapper-column .item{
+    width: calc( (75% - 16px) / 2 );
+  }
+  .multiple .wrapper-column .item .data{
+    font-size: 30px;
+    line-height: 38px;
+  }
+  .multiple .wrapper-column .item .data .number{
+    font-size: 60px;
+    line-height: 1.2;
+    margin-right: 3px;
+  }
+  .multiple .wrapper-column .item .data span{
+    background: var(--Paul-1, linear-gradient(270deg, #3D6CEA 0%, #3280E8 100%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'SF-Heading-font'!important;
+  }
+  .multiple .wrapper-column .item .title{
+    font-size: 20px;
+    line-height: 28px;
+    margin: 24px 0 8px;
+  }
+  .multiple .wrapper-column .item .text{
+    font-size: 20px;
+    line-height: 28px;
+  }
+  /* wrapper-text */
+  .multiple .wrapper-text .top-title{
+    font-size: 38px;
+    line-height: 46px;
+    margin-bottom: 48px;
+    text-align: center;
+  }
+  .multiple .wrapper-text .bottom{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .multiple .wrapper-text .item{
+    width: calc( (100% - 16px) / 2 );
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .multiple .wrapper-text .item .content-box{
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    width: 56%;
+    padding: 0px;
+  }
+  .multiple .wrapper-text .item .content-box .title{
+    color: #fff;
+    font-size: 24px;
+    line-height: 32px;
+    margin-bottom: 8px;
+  }
+  .multiple .wrapper-text .item .content-box .text{
+    color: #fff;
+    font-size: 16px;
+    line-height: 24px;
+  }
+  /* wrapper-video */
+  .multiple .wrapper-video .top{
+    width: 70%;
+    margin: 0 auto;
+    margin-bottom: 48px;
+  }
+  .multiple .wrapper-video .subtitle{
+    background: var(--Paul-1, linear-gradient(270deg, #3D6CEA 0%, #3280E8 100%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    font-size: 20px;
+    line-height: 28px;
+    margin-bottom: 8px;
+  }
+  .multiple .wrapper-video .title{
+    text-align: center;
+    font-size: 38px;
+    line-height: 46px;
+    margin-bottom: 16px;
+  }
+  .multiple .wrapper-video .text{
+    text-align: center;
+    font-size: 20px;
+    line-height: 28px;
+    margin-bottom: 0px;
+  }
+  .multiple .wrapper-video .bottom.hide-mb{
+    display: flex;
+    gap: 16px;
+    justify-content: space-between;
+  }
+  .multiple .wrapper-video .bottom.hide-pc{
+    display: none;
+  }
+  .multiple .wrapper-video .bottom .left{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: space-between;
+    width: 40%;
+  }
+  .multiple .wrapper-video .bottom .right{
+    width: 60%;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+  }
+  .multiple .wrapper-video .cover{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .multiple .wrapper-video .bottom .right .plyr--video{
+    height: 100%;
+  }
+  .multiple .wrapper-video .bottom .item{
+    border-radius: 16px;
+    overflow: hidden;
+    height: 100%;
+  }
+  .multiple .wrapper-video .bottom img{
+    height: 100%;
+    object-fit: cover;
+  }
+  .multiple .wrapper-video .bottom .right .player{
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+  @media only screen and (max-width: 1200px){
+    .multiple .custom-container{
+      margin: 128px auto;
+    }
+  }
+  @media only screen and (max-width: 768px){
+    .multiple .custom-container{
+      margin: 80px auto;
+    }
+    .multiple .wrapper{
+      margin-top: 40px;
+    }
+    .multiple .wrapper-text{
+      margin-top: 16px;
+    }
+    .multiple .section-title{
+      font-size: 28px;
+      line-height: 36px;
+      margin: 0 auto;
+      margin-bottom: 40px;
+      width: 80%;
+    }
+    .multiple .wrapper-above .title{
+      text-align: left;
+      margin-bottom: 8px;
+      font-size: 24px;
+      line-height: 32px;
+    }
+    .multiple .wrapper-above .text{
+      text-align: left;
+      font-size: 16px;
+      line-height: 24px;
+    }
+    .multiple .wrapper-above .top{
+      width: calc( 100% - 32px);
+      margin-bottom: 24px;
+    }
+    .multiple .wrapper-above .subtitle{
+      text-align: left;
+      font-size: 14px;
+      line-height: 20px;
+      margin-bottom: 4px;
+    }
+    .multiple .wrapper-text .top-title{
+      font-size: 24px;
+      line-height: 32px;
+      margin-bottom: 24px;
+    }
+    .multiple .wrapper-text .item{
+      width: 100%;
+      border-radius: 8px;
+    }
+    .multiple .wrapper-text .item .content-box{
+      top: 24px;
+      left: 24px;
+      right: 24px;
+      width: 80%;
+      bottom: 24px;
+    }
+    .multiple .wrapper-text .item .content-box .title{
+      font-size: 18px;
+      line-height: 26px;
+      color: #000;
+    }
+    .multiple .wrapper-text .item .content-box .text{
+      font-size: 16px;
+      line-height: 24px;
+      color: #000;
+    }
+    .multiple .wrapper-text .item:first-of-type .content-box .title,
+    .multiple .wrapper-text .item:first-of-type .content-box .text{
+      color: #fff;
+    }
+    .multiple .wrapper-video .top{
+      margin-bottom: 24px;
+      width: calc( 100% - 32px);
+    }
+    .multiple .wrapper-video .subtitle{
+      text-align: left;
+      font-size: 14px;
+      line-height: 20px;
+      margin-bottom: 4px;
+    }
+    .multiple .wrapper-video .title{
+      text-align: left;
+      font-size: 24px;
+      line-height: 32px;
+      margin-bottom: 24px;
+    }
+    .multiple .wrapper-video .text{
+      text-align: left;
+      font-size: 16px;
+      line-height: 24px;
+    }
+    .multiple .wrapper-column{
+      gap: 40px;
+    }
+    .multiple .wrapper-column .item{
+      width: calc( 100% - 32px );
+    }
+    .multiple .wrapper-column .item .data{
+      font-size: 24px;
+      line-height: 32px;
+    }
+    .multiple .wrapper-column .item .title{
+      margin: 16px 0 8px;
+      font-size: 18px;
+      line-height: 26px;
+    }
+    .multiple .wrapper-column .item .text{
+      font-size: 16px;
+      line-height: 24px;
+    }
+    .multiple .wrapper-column .item .data span{
+      font-size: 28px;
+    }
+    .multiple .wrapper-column .item .data .number{
+      font-size: 50px;
+      line-height: 1;
+    }
+    .multiple .wrapper-video .bottom.hide-mb{
+      display: none;
+    }
+    .multiple .wrapper-video .bottom.hide-pc{
+      display: block;
+    }
+    .multiple .wrapper-video .bottom .item{
+      border-radius: 8px;
+    }
+    .bottom-swiper{
+      height: 300px;
+    }
+    .bottom-swiper .item video{
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+    .bottom-swiper .b-pagination .swiper-pagination-bullet{
+      width: 24px;
+      height: 4px;
+      border-radius: 9px;
+      background: #000;
+      opacity: .2;
+    }
+    .bottom-swiper .b-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active{
+      opacity: 1;
+    }
+    .bottom-swiper .b-pagination .swiper-pagination-bullet:after{
+      display: none;
+    }
+    .multiple .wrapper-column{
+      margin-top: 24px;
+      gap: 24px;
+    }
+  }
+</style>
+  
+<div class="multiple section-vertical-spacer">
+  <div class="container">
+    {% if section.settings.section_title != blank %}
+      <h2 class="section-title">{{ section.settings.section_title }}</h2>  
+    {% endif %}
+    {% for block in section.blocks %}
+      {% if block.type == "above-and-below" %}
+        <div class="wrapper wrapper-above">
+          <div class="top">
+            {% if block.settings.sub_title != blank %}
+              <h4 class="subtitle">{{ block.settings.sub_title }}</h4>  
+            {% endif %}
+            {% if block.settings.title != blank %}
+              <h3 class="title">{{ block.settings.title }}</h3>  
+            {% endif %}
+            {% if block.settings.text != blank %}
+              <p class="text">{{ block.settings.text }}</p>  
+            {% endif %}
+          </div>
+          <div class="bottom">
+            {% if block.settings.img != blank %}
+              <img class="hide-mb" src="{{ block.settings.img | img_url:'master' }}">
+              <img class="hide-pc"  src="{{ block.settings.img_m | img_url:'master' }}">
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}  
+      {% if block.type == "image-with-video" %}
+        <div class="wrapper wrapper-video">
+          <div class="top">
+            {% if block.settings.sub_title != blank %}
+              <h4 class="subtitle">{{ block.settings.sub_title }}</h4>  
+            {% endif %}
+            {% if block.settings.title != blank %}
+              <h3 class="title">{{ block.settings.title }}</h3>  
+            {% endif %}
+            {% if block.settings.text != blank %}
+              <p class="text">{{ block.settings.text }}</p>  
+            {% endif %}
+          </div>
+          <div class="bottom hide-mb">
+            <div class="left">
+              <div class="item">
+                <img class="hide-mb" src="{{ block.settings.img_left1 | img_url:'master' }}">
+              </div>
+              <div class="item">
+                <img class="hide-mb" src="{{ block.settings.img_left2 | img_url:'master' }}">
+              </div>
+            </div>
+            <div class="right">
+              {% if block.settings.link != blank %}
+                <img id="cover1" class="cover" src="{{ block.settings.img_left3 | img_url:'master' }}">
+                <video id="player1" class="player" playsinline muted autoplay loop data-poster="">
+                  <source src="{{ block.settings.link }}" type="video/mp4" />
+                  <source src="{{ block.settings.link }}" type="video/webm" />
+                </video>
+              {% else %}
+                <div class="item">
+                  <img src="{{ block.settings.img_left3 | img_url:'master' }}">
+                </div>
+              {% endif %}
+            </div>
+          </div>
+          <div class="bottom hide-pc">
+            <div class="bottom-swiper swiper-container">
+              <div class="swiper-wrapper">
+                  <div class="swiper-slide item">
+                    <img class="hide-pc" src="{{ block.settings.img_left1_m | img_url:'master' }}">
+                  </div>
+                  <div class="swiper-slide item">
+                    <img class="hide-pc" src="{{ block.settings.img_left2_m | img_url:'master' }}">
+                  </div>
+                  <div class="swiper-slide item">
+                  {% if block.settings.link != blank %}
+                    <img id="cover11" class="cover" src="{{ block.settings.img_left3_m | img_url:'master' }}">
+                    <video id="player11" class="player" playsinline muted autoplay loop>
+                      <source src="{{ block.settings.link }}" type="video/mp4" />
+                      <source src="{{ block.settings.link }}" type="video/webm" />
+                    </video>
+                  {% else %}
+                      <img src="{{ block.settings.img_left3_m | img_url:'master' }}">
+                  {% endif %}
+                  </div>
+              </div>
+              <div class="swiper-pagination b-pagination"></div>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+      {% if block.type == "image-with-text" %}
+        <div class="wrapper wrapper-text">
+          {% if block.settings.title != blank %}
+            <h3 class="top-title">{{ block.settings.title }}</h3>
+          {% endif %}
+          <div class="bottom">
+            <div class="item">
+              <img class="hide-mb" src="{{ block.settings.img_left | img_url:'master' }}">
+              <img class="hide-pc" src="{{ block.settings.img_left_m | img_url:'master' }}">
+              <div class="content-box">
+                {% if block.settings.title_left != blank %}
+                  <h3 class="title">{{ block.settings.title_left }}</h3>  
+                {% endif %}
+                {% if block.settings.text_left != blank %}
+                  <p class="text">{{ block.settings.text_left }}</p>  
+                {% endif %}
+              </div>
+            </div>
+            <div class="item">
+              <img class="hide-mb" src="{{ block.settings.img_right | img_url:'master' }}">
+              <img class="hide-pc" src="{{ block.settings.img_right_m | img_url:'master' }}">
+              <div class="content-box">
+                {% if block.settings.title_right != blank %}
+                  <h3 class="title">{{ block.settings.title_right }}</h3>  
+                {% endif %}
+                {% if block.settings.text_right != blank %}
+                  <p class="text">{{ block.settings.text_right }}</p>  
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+      {% if block.type == "column-text" %}
+        <div class="wrapper wrapper-column">
+          <div class="item">
+            {% if block.settings.data_left != blank %}
+              <h4 class="data">{{ block.settings.data_left }}</h4>  
+            {% endif %}
+            {% if block.settings.title_left != blank %}
+              <h3 class="title">{{ block.settings.title_left }}</h3>  
+            {% endif %}
+            {% if block.settings.text_left != blank %}
+              <p class="text">{{ block.settings.text_left }}</p>  
+            {% endif %}
+          </div>
+          <div class="item">
+            {% if block.settings.data_right != blank %}
+              <h4 class="data">{{ block.settings.data_right }}</h4>  
+            {% endif %}
+            {% if block.settings.title_right != blank %}
+              <h3 class="title">{{ block.settings.title_right }}</h3>  
+            {% endif %}
+            {% if block.settings.text_right != blank %}
+              <p class="text">{{ block.settings.text_right }}</p>  
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+<script>
+  var b_swiper = new Swiper('.bottom-swiper', {
+      loop: false,
+      slidesPerView: 1,
+      spaceBetween: 8,
+      pagination: {
+        el: '.bottom-swiper .b-pagination',
+        clickable :true,
+      },
+  })
+
+  $(document).ready(function() {
+    let video = $('#player1'); 
+    let video2 = $('#player11'); 
+    video.on('play', function() {
+      $('#cover1').css('display','none');
+    });
+    video2.on('play', function() {
+      $('#cover11').css('display','none');
+    });
+  });
+
+</script>
+
+{% schema %}
+  {
+    "name": "Multiple section",
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "section_title",
+        "label": "Section title"
+      }
+    ],
+    "blocks":[
+      {
+        "type":"above-and-below",
+        "name": "Above and below",
+        "settings":[
+          {
+            "type": "textarea",
+            "id": "sub_title",
+            "label": "Sub title"
+          },
+          {
+            "type": "textarea",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "textarea",
+            "id": "text",
+            "label": "Text"
+          },
+          {
+            "type": "image_picker",
+            "id": "img",
+            "label": "Image pc"
+          },
+          {
+            "type": "image_picker",
+            "id": "img_m",
+            "label": "Image m"
+          }
+        ]
+      },
+      {
+        "type":"image-with-video",
+        "name": "Image with video",
+        "settings":[
+          {
+            "type": "textarea",
+            "id": "sub_title",
+            "label": "Sub title"
+          },
+          {
+            "type": "textarea",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "textarea",
+            "id": "text",
+            "label": "Text"
+          },
+          {
+            "type": "image_picker",
+            "id": "img_left1",
+            "label": "Image left 1"
+          },
+          {
+            "type": "image_picker",
+            "id": "img_left1_m",
+            "label": "Image left 1 M"
+          },
+          {
+            "type": "image_picker",
+            "id": "img_left2",
+            "label": "Image left 2"
+          },
+          {
+            "type": "image_picker",
+            "id": "img_left2_m",
+            "label": "Image left 2 M"
+          },
+          {
+            "type": "image_picker",
+            "id": "img_left3",
+            "label": "Image right"
+          },
+          {
+            "type": "image_picker",
+            "id": "img_left3_m",
+            "label": "Image left 3 M"
+          },
+          {
+            "type": "textarea",
+            "id": "link",
+            "label": "Video link"
+          }
+        ]
+      },
+      {
+        "type":"image-with-text",
+        "name": "Image with text",
+        "settings":[
+          {
+            "type": "textarea",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "image_picker",
+            "id": "img_left",
+            "label": "Image left"
+          },
+          {
+            "type": "image_picker",
+            "id": "img_left_m",
+            "label": "Image left m"
+          },
+          {
+            "type": "textarea",
+            "id": "title_left",
+            "label": "Title left"
+          },
+          {
+            "type": "textarea",
+            "id": "text_left",
+            "label": "Text left"
+          },
+          {
+            "type": "image_picker",
+            "id": "img_right",
+            "label": "Image right"
+          },
+          {
+            "type": "image_picker",
+            "id": "img_right_m",
+            "label": "Image right m"
+          },
+          {
+            "type": "textarea",
+            "id": "title_right",
+            "label": "Title right"
+          },
+          {
+            "type": "textarea",
+            "id": "text_right",
+            "label": "Text right"
+          }
+        ]
+      },
+      {
+        "type":"column-text",
+        "name": "Column text",
+        "settings":[
+          {
+            "type": "textarea",
+            "id": "data_left",
+            "label": "Data left"
+          },
+          {
+            "type": "textarea",
+            "id": "title_left",
+            "label": "Title left"
+          },
+          {
+            "type": "textarea",
+            "id": "text_left",
+            "label": "Text left"
+          },
+          {
+            "type": "textarea",
+            "id": "data_right",
+            "label": "Data right"
+          },
+          {
+            "type": "textarea",
+            "id": "title_right",
+            "label": "Title right"
+          },
+          {
+            "type": "textarea",
+            "id": "text_right",
+            "label": "Text right"
+          }
+        ]
+      }
+    ],
+   "presets": [
+      {
+		"name": "Multiple section"
+      }
+   ]
+  }
+{% endschema %}
+
