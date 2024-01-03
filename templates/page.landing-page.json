@@ -144,11 +144,23 @@
             "img_left3_m": "shopify:\/\/shop_images\/img1_e1dbf277-9989-4aed-a2cc-8bd5be0429f0.png",
             "link": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/4490b49453354248a4df10d97e5a67f9.mp4"
           }
+        },
+        "e525c93c-2d8b-4d9f-8830-f5f90187d36a": {
+          "type": "column-text",
+          "settings": {
+            "data_left": "<span><span class=\"number\">Zero<\/span><\/span><br>\nWasted Energy",
+            "title_left": "Water-drive Movement",
+            "text_left": "The device’s entire power consumption is dedicated solely to suction, propelling the device forward while effectively eliminating debris.",
+            "data_right": "<span><span class=\"number\">2-3<\/span>x<\/span><br>\nMore Power",
+            "title_right": "Brushless Motor",
+            "text_right": "Provides 2–3 times more energy-efficient suction power and delivers an extended lifespan compared to conventional brushed motors."
+          }
         }
       },
       "block_order": [
         "9fb9a2e8-fe7c-4aed-9766-1905b7cbb536",
-        "d65577b0-c635-4fc5-a227-3f459ccf3dfe"
+        "d65577b0-c635-4fc5-a227-3f459ccf3dfe",
+        "e525c93c-2d8b-4d9f-8830-f5f90187d36a"
       ],
       "settings": {
         "section_title": ""
