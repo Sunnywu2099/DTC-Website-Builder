@@ -4,11 +4,6 @@
   .spx-video {
     background: #000000;
   }
-  .spx-video .custom-container{
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-top: 96px;
-  }
   .spx-video .title-box{
     width: 70%;
     margin: 0 auto;
@@ -71,8 +66,8 @@
   }
 </style>
 
-<div class="spx-video">
-  <div class="custom-container">
+<div class="spx-video section-vertical-spacer">
+  <div class="container">
     <div class="title-box">
       {% if section.settings.title != blank %}
         <h2 class="title">{{ section.settings.title }}</h2>
