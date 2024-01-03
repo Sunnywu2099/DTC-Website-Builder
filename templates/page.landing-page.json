@@ -21,10 +21,12 @@
     "bb4f18df-9766-4275-9f4d-c2ac2bab2cf0": {
       "type": "spx-product-banner",
       "settings": {
-        "title": "",
-        "text": "",
-        "btn_name": "",
-        "link": ""
+        "img": "shopify:\/\/shop_images\/Main_kv_cff77c81-045c-4aef-89a4-0cdcd563017a.jpg",
+        "img_mb": "shopify:\/\/shop_images\/Hero-1.png",
+        "title": "Genkinno P2",
+        "text": "Cordless Robotic Pool Cleaner",
+        "btn_name": "Buy Now",
+        "link": "\/"
       }
     }
   },
