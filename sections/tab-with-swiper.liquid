@@ -1,0 +1,297 @@
+<style>
+  .dj-2{
+    background: #000;
+    padding-top: 96px;
+  }
+  .dj-2 .custom-container{
+    margin-top: 0;
+    margin-bottom: -1px;
+  }
+  .dj-2 .content-box{
+    width: 70%;
+    color: #fff;
+    text-align: center;
+    margin: 0 auto 48px;
+  }
+  .dj-2-box .content{
+    color: #fff;
+    font-size: 38px;
+    line-height: 46px;
+    margin-bottom: 16px;
+  }
+  .dj-2-box .content-text{
+    font-size: 20px;
+    line-height: 28px;
+  }
+  .dj-2 .dj-box{
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .dj-box .cover{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .control-box{
+    color: #fff;
+    font-weight: 600;
+    width: 80%;
+    margin: 32px auto 0;
+  }
+  .control-box .top{
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+    margin: 0 auto 16px;
+    gap: 56px;
+    border-bottom: 1px solid #4d4d4d;
+  }
+  .control-box .top .con-item{
+    cursor: pointer;
+    font-size: 20px;
+    line-height: 28px;
+    padding: 0px 0 16px;
+    color: #999;
+  }
+  .control-box .top .con-item:first-of-type{
+    margin-left: 0;
+  }
+  .control-box .top .con-item:last-of-type{
+    margin-right: 0;
+  }
+  .control-box .top .con-item.active{
+    border-bottom: 3px solid #fff;
+    color: #fff;
+  }
+  .control-box .bottom{
+    text-align: center;
+    width: 95%;
+    margin: 0 auto;
+    position: relative;
+    line-height: 1.2;
+  }
+  .control-box .bottom .con-item2{
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: all .3s ease;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 28px;
+    width: 100%;
+    text-align: center;
+  }
+  .control-box .bottom .con-item2:first-of-type{
+    position: static;;
+  }
+  .control-box .bottom .con-item2.active{
+    opacity: 1;
+    transition: all .3s ease;
+  }
+  .dj-2 .post-player{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .tab-swiper .tab-wrapper{
+    position: relative;
+  }
+  .tab-swiper .swiper-item{
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity .2s;
+  }
+  .tab-swiper .swiper-item.active{
+    opacity: 1;
+    transition: opacity .3s;
+  }
+  @media only screen and (max-width: 768px){
+    .dj-2{
+      padding-top: 40px;
+    }
+    .dj-2 .content-box{
+      width: calc(100% - 32px);
+      text-align: left;
+      margin-bottom: 24px;
+      padding: 0;
+    }
+    .dj-2-box .content{
+      font-size: 24px;
+      line-height: 32px;
+      margin: 0 auto 8px;
+      text-align: left;
+    }
+    .dj-2-box .content-text{
+      font-size: 16px;
+      line-height: 24px;
+      text-align: left;
+    }
+    .control-box{
+      width: 100%;
+      margin: 16px 0 0;
+    }
+    .control-box .top{
+      gap: 16px;
+      scrollbar-width: none; /* firefox */
+      -ms-overflow-style: none; /* IE 10+ */
+      overflow-x: scroll;
+      justify-content: center;
+      width: 100%;
+    }
+    .control-box .top::-webkit-scrollbar {
+      display: none; /* Chrome Safari */
+    }
+    .control-box .top .con-item{
+      font-size: 16px;
+      line-height: 24px;
+      white-space: nowrap;
+    }
+    .control-box .bottom{
+      width: 90%;
+    }
+    .control-box .bottom .con-item2{
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+</style>
+
+<section class="dj-2">
+  <div class="dj-2-box custom-container">
+    <div class="content-box">
+      <h3 class="content">{{ section.settings.title }}</h3>
+      <p class="content-text">{{ section.settings.text }}</p>
+    </div>
+    <div class="dj-box">
+      <div class="tab-swiper">
+        <div class="tab-wrapper">
+          {% for block in section.blocks %}
+            <div class="swiper-item {% if forloop.first %}active{% endif %}" style="{% if forloop.first %}position: static;{% endif %}" data-item="{% if block.settings.video != blank %}video{% else %}image{% endif %}">
+              
+              {% if block.settings.video != blank %}
+                <img class="cover" src="{{ block.settings.img | img_url:'master' }}">
+                
+                <video id="post-player-{{ forloop.index0 }}" class="post-player my-pplayer" playsinline muted autoplay loop>
+                  <source src="{{ block.settings.video }}" type="video/mp4" />
+                  <source src="{{ block.settings.video }}" type="video/webm" />
+                </video>
+              {% else %}
+                <img class="hide-mb" src="{{ block.settings.img | img_url:'master' }}">
+                <img class="hide-pc" src="{{ block.settings.img_m | img_url:'master' }}">
+              {% endif %}
+            </div>    
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <div class="control-box">
+      <div class="top-box">
+        <div class="top">
+          {% for block in section.blocks %}
+              <h4 class="con-item {% if forloop.first %}active{% endif %}"
+                data-index="{{ forloop.index0 }}">{{ block.settings.sub_title }}</h4>    
+          {% endfor %}
+        </div>
+      </div>
+      <div class="bottom">
+        {% for block in section.blocks %}
+            <div class="con-item2 {% if forloop.first %}active{% endif %}">{{ block.settings.sub_text }}</div>    
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  $(document).ready(function() {
+      $(`.dj-box .my-pplayer`).on('play', function() {
+          $('.dj-box .cover').css('display','none');
+      });
+  });
+  
+  $('.control-box .con-item').click(function(){
+    if( $(this).hasClass('active') ){
+      return;
+    }else{
+      let currIndex = $(this).attr('data-index');
+
+      let currentItem = $('.tab-swiper .swiper-item').eq(currIndex);
+      let currentItemType = currentItem.attr('data-item');
+      if( currentItemType == 'video' ){
+        $(`#post-player-${ currIndex }`).get(0).currentTime = 0;
+      }
+      $('.tab-swiper .swiper-item').removeClass('active').eq(currIndex).addClass('active');
+      $('.control-box .con-item').removeClass('active');
+      $(this).addClass('active');
+      $('.control-box .con-item2').removeClass('active').eq(currIndex).addClass('active');
+    }
+  })
+  
+</script>
+
+{% schema %}
+  {
+    "name": "Tab with swiper",
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "textarea",
+        "id": "text",
+        "label": "Text"
+      }
+    ],
+    "blocks": [
+    {
+      "type": "block",
+      "name": "Block",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "video",
+          "label": "Video link"
+        },
+        {
+          "type": "image_picker",
+          "id": "img",
+          "label": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_m",
+          "label": "Image m"
+        },
+        {
+          "type": "textarea",
+          "id": "sub_title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "sub_text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Tab with swiper"
+    }
+  ]
+  }
+{% endschema %}
