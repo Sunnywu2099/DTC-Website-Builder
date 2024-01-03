@@ -13,8 +13,8 @@
         "color_scheme": "default-with-accent-1",
         "custom_colors": false,
         "color_foreground": "#212121",
-        "color_accent": "#0D91BD",
-        "color_background": "#FFFFFF",
+        "color_accent": "#0d91bd",
+        "color_background": "#ffffff",
         "color_gradient": ""
       }
     },
@@ -28,10 +28,89 @@
         "btn_name": "Buy Now",
         "link": "\/"
       }
+    },
+    "7b2998ff-1a6a-457c-b570-e93884904d71": {
+      "type": "spx-blocks-with-img",
+      "blocks": {
+        "dde7c69e-d412-482d-a3a9-ded0c045fa3a": {
+          "type": "block",
+          "settings": {
+            "title": "",
+            "subtitle": "",
+            "background": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(0, 0, 0, 1) 100%)",
+            "width": "",
+            "width_m": ""
+          }
+        },
+        "64b48882-e06e-4cbb-bdf7-ed7861318e6f": {
+          "type": "block",
+          "settings": {
+            "title": "",
+            "subtitle": "",
+            "background": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(0, 0, 0, 1) 100%)",
+            "width": "",
+            "width_m": ""
+          }
+        },
+        "7146e140-9d6a-4265-ae29-6434a30b073f": {
+          "type": "block",
+          "settings": {
+            "title": "",
+            "subtitle": "",
+            "background": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(0, 0, 0, 1) 100%)",
+            "width": "",
+            "width_m": ""
+          }
+        },
+        "141a27cb-42dc-4544-8635-131a90321425": {
+          "type": "block",
+          "settings": {
+            "title": "",
+            "subtitle": "",
+            "background": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(0, 0, 0, 1) 100%)",
+            "width": "",
+            "width_m": ""
+          }
+        },
+        "898a0787-1631-4fdd-9c9d-4009ee60a23c": {
+          "type": "block",
+          "settings": {
+            "title": "",
+            "subtitle": "",
+            "background": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(0, 0, 0, 1) 100%)",
+            "width": "",
+            "width_m": ""
+          }
+        },
+        "f3fba63b-bf68-40ab-89b0-e1d899b0e87b": {
+          "type": "block2",
+          "settings": {
+            "title": "",
+            "subtitle": "",
+            "title2": "",
+            "subtitle2": "",
+            "background": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(0, 0, 0, 1) 100%)",
+            "background2": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(0, 0, 0, 1) 100%)",
+            "width": "",
+            "width_m": ""
+          }
+        }
+      },
+      "block_order": [
+        "dde7c69e-d412-482d-a3a9-ded0c045fa3a",
+        "64b48882-e06e-4cbb-bdf7-ed7861318e6f",
+        "7146e140-9d6a-4265-ae29-6434a30b073f",
+        "141a27cb-42dc-4544-8635-131a90321425",
+        "898a0787-1631-4fdd-9c9d-4009ee60a23c",
+        "f3fba63b-bf68-40ab-89b0-e1d899b0e87b"
+      ],
+      "settings": {
+      }
     }
   },
   "order": [
     "main",
-    "bb4f18df-9766-4275-9f4d-c2ac2bab2cf0"
+    "bb4f18df-9766-4275-9f4d-c2ac2bab2cf0",
+    "7b2998ff-1a6a-457c-b570-e93884904d71"
   ]
 }
