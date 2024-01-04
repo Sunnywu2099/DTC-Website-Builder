@@ -224,11 +224,13 @@
         "503d2220-f375-45fb-96dc-5799d4b18d89": {
           "type": "img_text",
           "settings": {
-            "color": "",
-            "color_m": "",
-            "width": 50,
-            "title": "Title Title Title",
-            "desc": "Text Text Text"
+            "color": "#240700",
+            "color_m": "#240700",
+            "width": 40,
+            "img": "shopify:\/\/shop_images\/img_baec02b9-1d7d-487e-a79c-7e26f600b6ef.png",
+            "img_m": "shopify:\/\/shop_images\/img_10.png",
+            "title": "Power That Refuses to Deteriorate",
+            "desc": "Equipped with a hydrodynamic flow body and a Streamline filter, allied to revolutionary AdaptiveSuc technology, P2 ensures consistent suction levels throughout the entire clean."
           }
         },
         "beb46b0f-ddcb-4c47-97cb-eac390478661": {
