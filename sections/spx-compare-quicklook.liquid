@@ -1,0 +1,349 @@
+<style>
+  .compare-quick.custom-container{
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0 80px;
+  }
+  .compare-quick .box-title{
+    font-size: 38px;
+    line-height: 46px;
+    padding-bottom: 32px;
+    margin-bottom: 80px;
+    border-bottom: 0.5px solid rgb(0 0 0 / 10%);
+  }
+  .compare-quick .quick-wrapper{
+    display: flex;
+    gap: 16px;
+  }
+  .compare-quick .quick-wrapper .col-box{
+    width: calc( (100% - 16px) / 2);
+  }
+  .compare-quick .quick-wrapper .col-box .item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .compare-quick .quick-wrapper .col-box .item:not(:last-child){
+    margin-bottom: 42px;
+  }
+  .compare-quick .quick-wrapper .col-box .item .title{
+    text-align: center;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 600;
+    margin-top: 24px;
+    min-height: 72px;
+  }
+  .compare-quick .quick-wrapper .col-box .item-logo img{
+    max-width: 105px;
+    height: 64px;
+    object-fit: contain;
+  }
+  .number{
+    font-size: 56px;
+    font-weight: 600;
+    line-height: 1;
+    text-align: center;
+  }
+  .number span{
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 600;
+  }
+  @media (min-width: 1024px) and (max-width: 1200px){
+    .compare-quick.custom-container{
+      padding: 0 56px;
+    }
+  }
+  @media only screen and (max-width: 1023px){
+      .compare-quick.custom-container{
+        padding: 0 16px;
+      }
+  }
+  @media only screen and (max-width: 768px){
+    .compare-quick.custom-container{
+      padding: 0 24px;
+    }
+    .compare-quick .box-title{
+      font-size: 24px;
+      line-height: 32px;
+      padding-bottom: 8px;
+      margin-bottom: 24px;     
+    }
+    .compare-quick .quick-wrapper{
+      display: flex;
+      gap: 8px;
+    }
+    .compare-quick .quick-wrapper .col-box{
+      width: calc( (100% - 8px) / 2);
+    }
+    .compare-quick .quick-wrapper .col-box .item-logo img{
+      max-width: 80px;
+      height: 48px;
+    }
+    .compare-quick .quick-wrapper .col-box .item .title{
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 400;
+      margin-top: 16px;
+      min-height: 72px;
+    }
+    .compare-quick .quick-wrapper .col-box .item:not(:last-child){
+      margin-bottom: 24px;
+    }
+    .number{
+      font-size: 35px;
+    }
+    .number span{
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+</style>
+
+<div class="compare-quick custom-container">
+  <h2 class="box-title">{{ section.settings.title }}</h2>
+  <div class="quick-wrapper">
+    {% for block in section.blocks %}
+      <div class="col-box">
+        <div class="item">
+          <span class="item-logo">
+            {% if block.settings.img_1 != blank %}
+              <img src="{{ block.settings.img_1 | img_url:'master' }}">
+            {% endif %}
+            {% if block.settings.content_1 != blank and block.settings.img_1 == blank %}
+              <p class="number">{{ block.settings.content_1 }}</p>
+            {% endif %}
+          </span>
+          <p class="title">{{ block.settings.text_1 }}</p>
+        </div>
+        <div class="item">
+          <span class="item-logo">
+            {% if block.settings.img_2 != blank %}
+              <img src="{{ block.settings.img_2 | img_url:'master' }}">
+            {% endif %}
+            {% if block.settings.content_2 != blank and block.settings.img_2 == blank %}
+              <p class="number">{{ block.settings.content_2 }}</p>
+            {% endif %}
+          </span>
+          <p class="title">{{ block.settings.text_2 }}</p>
+        </div>
+        <div class="item">
+          <span class="item-logo">
+            {% if block.settings.img_3 != blank %}
+              <img src="{{ block.settings.img_3 | img_url:'master' }}">
+            {% endif %}
+            {% if block.settings.content_3 != blank and block.settings.img_3 == blank %}
+              <p class="number">{{ block.settings.content_3 }}</p>
+            {% endif %}
+          </span>
+          <p class="title">{{ block.settings.text_3 }}</p>
+        </div>
+        <div class="item">
+          <span class="item-logo">
+            {% if block.settings.img_4 != blank %}
+              <img src="{{ block.settings.img_4 | img_url:'master' }}">
+            {% endif %}
+            {% if block.settings.content_4 != blank and block.settings.img_4 == blank %}
+              <p class="number">{{ block.settings.content_4 }}</p>
+            {% endif %}
+          </span>
+          <p class="title">{{ block.settings.text_4 }}</p>
+        </div>
+        <div class="item">
+          <span class="item-logo">
+            {% if block.settings.img_5 != blank %}
+              <img src="{{ block.settings.img_5 | img_url:'master' }}">
+            {% endif %}
+            {% if block.settings.content_5 != blank and block.settings.img_5 == blank %}
+              <p class="number">{{ block.settings.content_5 }}</p>
+            {% endif %}
+          </span>
+          <p class="title">{{ block.settings.text_5 }}</p>
+        </div>
+        <div class="item">
+          <span class="item-logo">
+            {% if block.settings.img_6 != blank %}
+              <img src="{{ block.settings.img_6 | img_url:'master' }}">
+            {% endif %}
+            {% if block.settings.content_6 != blank and block.settings.img_6 == blank %}
+              <p class="number">{{ block.settings.content_6 }}</p>
+            {% endif %}
+          </span>
+          <p class="title">{{ block.settings.text_6 }}</p>
+        </div>
+        <div class="item">
+          <span class="item-logo">
+            {% if block.settings.img_7 != blank %}
+              <img src="{{ block.settings.img_7 | img_url:'master' }}">
+            {% endif %}
+            {% if block.settings.content_7 != blank and block.settings.img_7 == blank %}
+              <p class="number">{{ block.settings.content_7 }}</p>
+            {% endif %}
+          </span>
+          <p class="title">{{ block.settings.text_7 }}</p>
+        </div>
+        <div class="item">
+          <span class="item-logo">
+            {% if block.settings.img_8 != blank %}
+              <img src="{{ block.settings.img_8 | img_url:'master' }}">
+            {% endif %}
+            {% if block.settings.content_8 != blank and block.settings.img_8 == blank %}
+              <p class="number">{{ block.settings.content_8 }}</p>
+            {% endif %}
+          </span>
+          <p class="title">{{ block.settings.text_8 }}</p>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  
+</div>
+
+{% schema %}
+  {
+    "name": "Compare quick look",
+    "max_blocks": 2,
+    "settings": [
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "Title"
+        }
+    ],
+    "blocks": [
+    {
+      "type": "block",
+      "name": "Block",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "Content 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_1",
+          "label": "Icon 1"
+        },
+        {
+          "type": "textarea",
+          "id": "text_1",
+          "label": "Text 1"
+        },
+        {
+          "type": "textarea",
+          "id": "content_2",
+          "label": "Content 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_2",
+          "label": "Icon 2"
+        },
+        {
+          "type": "textarea",
+          "id": "text_2",
+          "label": "Text 2"
+        },
+        {
+          "type": "textarea",
+          "id": "content_3",
+          "label": "Content 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_3",
+          "label": "Icon 3"
+        },
+        {
+          "type": "textarea",
+          "id": "text_3",
+          "label": "Text 3"
+        },
+        {
+          "type": "textarea",
+          "id": "content_4",
+          "label": "Content 4"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_4",
+          "label": "Icon 4"
+        },
+        {
+          "type": "textarea",
+          "id": "text_4",
+          "label": "Text 4"
+        },
+        {
+          "type": "textarea",
+          "id": "content_5",
+          "label": "Content 5"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_5",
+          "label": "Icon 5"
+        },
+        {
+          "type": "textarea",
+          "id": "text_5",
+          "label": "Text 5"
+        },
+        {
+          "type": "textarea",
+          "id": "content_6",
+          "label": "Content 6"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_6",
+          "label": "Icon 6"
+        },
+        {
+          "type": "textarea",
+          "id": "text_6",
+          "label": "Text 6"
+        },
+        {
+          "type": "textarea",
+          "id": "content_7",
+          "label": "Content 7"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_7",
+          "label": "Icon 7"
+        },
+        {
+          "type": "textarea",
+          "id": "text_7",
+          "label": "Text 7"
+        },
+        {
+          "type": "textarea",
+          "id": "content_8",
+          "label": "Content 8"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_8",
+          "label": "Icon 8"
+        },
+        {
+          "type": "textarea",
+          "id": "text_8",
+          "label": "Text 8"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Compare quick look"
+    }
+  ]
+    
+  }
+{% endschema %}
