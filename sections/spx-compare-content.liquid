@@ -1,0 +1,196 @@
+<style>
+  .compare-content.custom-container{
+    margin-top: 80px;
+    margin-bottom: 0;
+    padding: 0 80px;
+  }
+  .compare-content .box-title{
+    font-size: 38px;
+    line-height: 46px;
+    padding-bottom: 32px;
+    margin-bottom: 32px;
+    border-bottom: 0.5px solid rgb(0 0 0 / 10%);
+  }
+  .compare-content .content-wrapper{
+    display: flex;
+    gap: 16px;
+  }
+  .compare-content .content-wrapper .title{
+    font-size: 20px;
+    line-height: 28px;
+    margin-bottom: 16px;
+  }
+  .compare-content .content-wrapper .item{
+    width: calc( (100% - 16px) / 2);
+  }
+  @media (min-width: 1024px) and (max-width: 1200px){
+    .compare-content.custom-container{
+      padding: 0 56px;
+    }
+  }
+  @media only screen and (max-width: 1023px){
+      .compare-content.custom-container{
+        padding: 0 16px;
+      }
+  }
+  @media only screen and (max-width: 768px){
+    .compare-content.custom-container{
+      margin-top: 64px;
+      padding: 0 24px;
+    }
+    .compare-content .box-title{
+      font-size: 24px;
+      line-height: 32px;
+      padding-bottom: 8px;
+      margin-bottom: 24px;
+    }
+    .compare-content .content-wrapper .title{
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+</style>
+
+<div class="compare-content custom-container">
+  <h2 class="box-title">{{ section.settings.title }}</h2>
+  <div class="content-wrapper">
+    {% for block in section.blocks %}
+      {% if block.settings.content_1 != blank %}
+        <div class="item">
+          <p class="title">{{ block.settings.content_1 }}</p>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+  <div class="content-wrapper">
+    {% for block in section.blocks %}
+      {% if block.settings.content_2 != blank %}
+        <div class="item">
+          <p class="title">{{ block.settings.content_2 }}</p>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+  <div class="content-wrapper">
+    {% for block in section.blocks %}
+      {% if block.settings.content_3 != blank %}
+        <div class="item">
+          <p class="title">{{ block.settings.content_3 }}</p>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+  <div class="content-wrapper">
+    {% for block in section.blocks %}
+      {% if block.settings.content_4 != blank %}
+        <div class="item">
+          <p class="title">{{ block.settings.content_4 }}</p>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+  <div class="content-wrapper">
+    {% for block in section.blocks %}
+      {% if block.settings.content_5 != blank %}
+        <div class="item">
+          <p class="title">{{ block.settings.content_5 }}</p>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+  <div class="content-wrapper">
+    {% for block in section.blocks %}
+      {% if block.settings.content_6 != blank %}
+        <div class="item">
+          <p class="title">{{ block.settings.content_6 }}</p>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+  <div class="content-wrapper">
+    {% for block in section.blocks %}
+      {% if block.settings.content_7 != blank %}
+        <div class="item">
+          <p class="title">{{ block.settings.content_7 }}</p>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+  <div class="content-wrapper">
+    {% for block in section.blocks %}
+      {% if block.settings.content_8 != blank %}
+        <div class="item">
+          <p class="title">{{ block.settings.content_8 }}</p>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Compare content",
+    "max_blocks": 2,
+    "settings": [
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "Title"
+        }
+    ],
+    "blocks": [
+    {
+      "type": "block",
+      "name": "Block",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "Content 1"
+        },
+        {
+          "type": "textarea",
+          "id": "content_2",
+          "label": "Content 2"
+        },
+        {
+          "type": "textarea",
+          "id": "content_3",
+          "label": "Content 3"
+        },
+        {
+          "type": "textarea",
+          "id": "content_4",
+          "label": "Content 4"
+        },
+        {
+          "type": "textarea",
+          "id": "content_5",
+          "label": "Content 5"
+        },
+        {
+          "type": "textarea",
+          "id": "content_6",
+          "label": "Content 6"
+        },
+        {
+          "type": "textarea",
+          "id": "content_7",
+          "label": "Content 7"
+        },
+        {
+          "type": "textarea",
+          "id": "content_8",
+          "label": "Content 8"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Compare content"
+    }
+  ]
+    
+  }
+{% endschema %}
