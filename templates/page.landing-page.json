@@ -236,21 +236,25 @@
         "beb46b0f-ddcb-4c47-97cb-eac390478661": {
           "type": "img_text",
           "settings": {
-            "color": "",
-            "color_m": "",
-            "width": 50,
-            "title": "Title Title Title",
-            "desc": "Text Text Text"
+            "color": "#240700",
+            "color_m": "#240700",
+            "width": 60,
+            "img": "shopify:\/\/shop_images\/img_4_ca0aa6c2-28cd-4b0b-91e5-599d7cb4bc85.png",
+            "img_m": "shopify:\/\/shop_images\/img_2038fe8b-a2c0-490a-a32d-736d2b6e1197.png",
+            "title": "Innate Intelligence",
+            "desc": "Embrace the smarter way to clean with device control via remote, advanced wall detection to prevent unwanted debris scattering, and timely reminders for debris basket maintenance."
           }
         },
         "4b8afa61-9e6d-4e6d-9247-1b7c737f41c9": {
           "type": "img_text",
           "settings": {
-            "color": "",
-            "color_m": "",
-            "width": 50,
-            "title": "Title Title Title",
-            "desc": "Text Text Text"
+            "color": "#240700",
+            "color_m": "#FFFFFF",
+            "width": 60,
+            "img": "shopify:\/\/shop_images\/img1_2.png",
+            "img_m": "shopify:\/\/shop_images\/img_12.png",
+            "title": "User-Friendly Experience",
+            "desc": "Boasting a lightweight, cordless design, P2 is a seamless plug-and-play solution with super-simple deployment and automatic poolside parking. Now this is pool maintenance made easy."
           }
         },
         "4372f5ea-1314-4032-9793-b7fc2cfa76e2": {
