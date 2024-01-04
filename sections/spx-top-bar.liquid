@@ -245,30 +245,8 @@
 </div>
           
 
-<script>
+<script type="module">
        $(document).ready(function () {
-          // const $topbar = $('.top-bar-0');
-          // const topbarOffset = $topbar.offset().top;
-          // let lastScrollTop = 0;
-          // $(window).scroll(function () {
-          //     const currentScrollTop = $(window).scrollTop();
-          //     if ($(window).scrollTop() >= topbarOffset) {
-          //         $topbar.addClass('sticky');
-          //         if (currentScrollTop > lastScrollTop) {
-          //             $topbar.removeClass('sticky-up');
-          //             $topbar.addClass('sticky-down');
-          //         } else {
-          //             $topbar.removeClass('sticky-down');
-          //             $topbar.addClass('sticky-up');
-          //         }
-          //     } else {
-          //         $topbar.removeClass('sticky');
-          //         // $topbar.removeClass('sticky-up');
-          //         // $topbar.removeClass('sticky-down');
-          //     }
-          //     lastScrollTop = currentScrollTop;
-          // });
-
           $(window).on("scroll", function(event) {
             if( $('.sf-header').hasClass('scroll-down') ){
               $('.top-bar').css('position', 'fixed' );
@@ -282,7 +260,6 @@
               $('.top-bar').css('position', 'static' );
             }
           });
-      
       
           $('#first-item').click(function () {
               $('.item i').toggleClass('open');
