@@ -1,0 +1,332 @@
+<style>
+  .itwg_heading{
+    text-align: center;
+    font-family: Metropolis;
+    font-size: 38px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 46px;
+    background: var(--on-light-gradient-blue, linear-gradient(270deg, #2990E5 0%, #4263EB 100%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 96px;
+  }
+  .itwg_layout{
+    --gap-value:16px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:var( --gap-value);
+  }
+  .itwg_layout-item img{
+    width: 100%;
+    /* display: block; */
+    height: 100%;
+    object-fit: cover;
+  
+  }
+  .itwg_layout-item{
+    position:relative;
+    border-radius: 16px;
+    overflow:hidden;
+  }
+  .itwg_layout-item-content{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    padding: 40px;
+  }
+  .itwg_layout-item-content .title{
+    margin:0 0 8px;
+    color:inherit;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 38px;
+  }
+  .itwg_layout-item-content .content{
+    color:inherit;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 28px; 
+    margin-top: 0;
+    width: 70%;
+  }
+  .itwg-pagination .swiper-pagination-bullet{
+    width: 24px;
+    height: 4px;
+    border-radius: 10px;
+    background: #000!important;
+    opacity: 0.2!important;
+  }
+  .itwg-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active{
+    /* background: #fff; */
+    opacity: 1!important;
+  }
+  .itwg_tailing {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    margin: 48px 0;
+  }
+  .itwg_tailing a{
+    color:inherit;
+    text-decoration:none;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    color:#4263EB;
+  }
+  .itwg_container .swiper-pagination-bullet:after{
+    display: none;
+  }
+  {% for block in section.blocks %}
+     .itwg_layout-item-{{ forloop.index }} .itwg_layout-item-content{
+       color:{{ block.settings.color }};
+     }
+  {% endfor %}
+  @media (max-width:768px){
+    .itwg_layout-item{
+      width:100%!important;
+    }
+    .itwg_layout-item-content{
+      /* width: calc(100% - 48px); */
+      padding: 24px;
+    }
+    .itwg_heading{
+      font-size: 28px;
+      line-height: 36px;
+      margin-bottom: 40px;
+    }
+    .itwg_layout-item-content .title{
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 26px;
+    }
+    .itwg_layout-item-content .content{
+      font-size: 16px;
+      line-height: 24px;
+      width: 100%;
+    }
+    .itwg_tailing{
+      margin:16px 0;
+    }
+    {% for block in section.blocks %}
+       .itwg_layout-item-{{ forloop.index }} .itwg_layout-item-content{
+         color:{{ block.settings.color_m }};
+       }
+    {% endfor %}
+  }
+</style>
+
+<div class="itwg_container section-vertical-spacer">
+  <div class="itwg_wrapper container">
+    <h2 class="itwg_heading">{{ section.settings.heading }}</h2>
+    {% if section.blocks.size != 0 %}
+      <div class="itwg_layout">
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {%- when 'img_text' -%}
+              <div class="itwg_layout-item item-img_text itwg_layout-item-{{ forloop.index }}" style="width:{% if block.settings.width != 100 %}calc({{ block.settings.width }}% - var( --gap-value)/2){% else %}{{ block.settings.width }}%{% endif %};" >
+                <img loading="lazy"class="hide-mb" src="{{ block.settings.img | img_url:'master' }}">
+                <img loading="lazy"class="hide-pc" src="{{ block.settings.img_m | img_url:'master' }}">
+                <div class="itwg_layout-item-content">
+                  <h3 class="title">{{ block.settings.title }}</h3>
+                  <p class="content">{{ block.settings.desc }}</p>
+                </div>
+              </div>
+            {%- when 'slide_show' -%}
+              <div class="itwg_layout-item item-slide_show itwg_layout-item-{{ forloop.index }}" style="width:{% if block.settings.width != 100 %}calc({{ block.settings.width }}% - var( --gap-value)/2){% else %}{{ block.settings.width }}%{% endif %};">
+                <div class="swiper-container ">
+                  <div class="swiper-wrapper">
+                    {% for i in (1..2) %}
+                      {% capture item_img %}img0{{ i }}{%endcapture%}
+                      {% capture item_img_m %}m_img0{{ i }}{%endcapture%}
+                      {% capture item_title %}title0{{ i }}{%endcapture%}
+                      {% capture item_desc %}desc0{{ i }}{%endcapture%}
+                      
+                        <div class="swiper-slide">
+                          <img loading="lazy"class="hide-mb" src="{{ block.settings[item_img] | img_url:'master' }}">
+                          <img loading="lazy"class="hide-pc" src="{{ block.settings[item_img_m] | img_url:'master' }}">
+                          <div class="itwg_layout-item-content">
+                            <h3 class="title">{{ block.settings[item_title] }}</h3>
+                            <p class="content">{{ block.settings[item_desc] }}</p>
+                          </div>
+                        </div>
+                      
+                    {% endfor %}
+                  </div>  
+                  <div class="swiper-pagination itwg-pagination"></div>
+                </div>
+              </div>
+          {%- endcase -%}
+        {% endfor %}
+      </div>
+    {% endif %}
+    {% if section.settings.tailing != blank %}
+      <div class="itwg_tailing">
+        {{ section.settings.tailing }}
+        <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M11.4641 6.60662L4.42031 1.10505C4.40191 1.09056 4.37979 1.08156 4.3565 1.07907C4.3332 1.07659 4.30968 1.08072 4.28863 1.091C4.26758 1.10128 4.24986 1.11729 4.2375 1.13719C4.22514 1.15709 4.21864 1.18007 4.21875 1.20349V2.4113C4.21875 2.48787 4.25469 2.5613 4.31406 2.60818L9.93906 7.00037L4.31406 11.3926C4.25313 11.4394 4.21875 11.5129 4.21875 11.5894V12.7972C4.21875 12.9019 4.33906 12.9597 4.42031 12.8957L11.4641 7.39412C11.5239 7.34742 11.5724 7.28768 11.6057 7.21945C11.639 7.15122 11.6563 7.07629 11.6563 7.00037C11.6563 6.92444 11.639 6.84951 11.6057 6.78128C11.5724 6.71305 11.5239 6.65332 11.4641 6.60662Z" fill="#4263EB"/>
+        </svg>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+
+<script>        
+  let itwg_swiperer = new Swiper ('.item-slide_show .swiper-container', {
+    spaceBetween: 10,
+    autoplay: {
+      disableOnInteraction: false,
+    },
+    loop:true,
+    pagination:{
+      el:'.itwg-pagination',
+      clickable :true,
+    }
+  })        
+</script>
+
+{% schema %}
+  {
+    "name": "SPX Product Blocks",
+    "settings": [
+      {
+        "type":"text",
+        "id":"heading",
+        "label":"Heading"
+      },
+      {
+        "type":"richtext",
+        "id":"tailing",
+        "label":"Tailing"
+      }
+    ],
+    "blocks": [
+    {
+      "type": "img_text",
+      "name": "Image text",
+      "settings": [
+        {
+          "type":"color",
+          "id":"color",
+          "label":"Text color"
+        },
+        {
+          "type":"color",
+          "id":"color_m",
+          "label":"Text color M"
+        },
+        {
+          "type": "range",
+          "id": "width",
+          "min": 30,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 50,
+          "label": "Width"
+        },
+        {
+          "type": "image_picker",
+          "id": "img",
+          "label": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_m",
+          "label": "Image mobile"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Title Title Title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "desc",
+          "default": "Text Text Text",
+          "label": "Content"
+        }
+      ]
+    },
+    {
+      "type": "slide_show",
+      "name": "Slideshow",
+      "limit": 1,
+      "settings": [
+        {
+          "type":"color",
+          "id":"color",
+          "label":"Text color"
+        },
+        {
+          "type": "range",
+          "id": "width",
+          "min": 30,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 50,
+          "label": "Width"
+        },
+        {
+          "type": "image_picker",
+          "id": "img01",
+          "label": "Image01"
+        },
+        {
+          "type": "image_picker",
+          "id": "m_img01",
+          "label": "Image01 mobile"
+        },
+        {
+          "type": "text",
+          "id": "title01",
+          "default": "Title01 Title01 Title01",
+          "label": "Title 01"
+        },
+        {
+          "type": "text",
+          "id": "desc01",
+          "default": "Text01 Text01 Text01",
+          "label": "Content 01"
+        },
+        {
+          "type": "image_picker",
+          "id": "img02",
+          "label": "Image02"
+        },
+        {
+          "type": "image_picker",
+          "id": "m_img02",
+          "label": "Image02 mobile"
+        },
+        {
+          "type": "text",
+          "id": "title02",
+          "default": "Title02 Title02 Title02",
+          "label": "Title 02"
+        },
+        {
+          "type": "text",
+          "id": "desc02",
+          "default": "Text02 Text02 Text02",
+          "label": "Content 02"
+        }
+      ]
+    }
+  ],
+    "presets": [
+      {
+        "name": "SPX Product Blocks"
+      }
+    ]
+  }
+{% endschema %}
