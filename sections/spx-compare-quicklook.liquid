@@ -21,16 +21,12 @@
     align-items: center;
     width: calc( (100% - 16px) / 2);
   }
-  .compare-quick .quick-wrapper .item-wrapper .item:not(:last-child){
-    margin-bottom: 42px;
-  }
   .compare-quick .quick-wrapper .item-wrapper .item .title{
     text-align: center;
     font-size: 16px;
     line-height: 24px;
     font-weight: 600;
     margin-top: 24px;
-    min-height: 72px;
   }
   .compare-quick .quick-wrapper .item-wrapper .item-logo img{
     max-width: 105px;
@@ -70,6 +66,9 @@
     }
     .compare-quick .quick-wrapper{
       display: flex;
+      
+    }
+    .compare-quick .quick-wrapper .item-wrapper{
       gap: 8px;
     }
     .compare-quick .quick-wrapper .item-wrapper{
@@ -84,10 +83,6 @@
       line-height: 20px;
       font-weight: 400;
       margin-top: 16px;
-      min-height: 72px;
-    }
-    .compare-quick .quick-wrapper .item-wrapper .item:not(:last-child){
-      margin-bottom: 24px;
     }
     .number{
       font-size: 35px;
