@@ -260,11 +260,13 @@
         "4372f5ea-1314-4032-9793-b7fc2cfa76e2": {
           "type": "img_text",
           "settings": {
-            "color": "",
-            "color_m": "",
-            "width": 50,
-            "title": "Title Title Title",
-            "desc": "Text Text Text"
+            "color": "#FFFFFF",
+            "color_m": "#FFFFFF",
+            "width": 40,
+            "img": "shopify:\/\/shop_images\/img1_b529eccc-f7c0-4c0c-8711-2124a34304e9.png",
+            "img_m": "shopify:\/\/shop_images\/img_f62dcdd4-4103-49cd-8702-7f4aea1199e2.png",
+            "title": "Efficient & Environmentally Friendly",
+            "desc": "Requiring no additional equipment to operate, the P2 outperforms traditional cleaning methods to save you time and money, all while minimizing chemical usage."
           }
         }
       },
