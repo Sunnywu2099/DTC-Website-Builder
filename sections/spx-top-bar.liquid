@@ -246,7 +246,7 @@
           
 
 <script type="module">
-       $(document).ready(function () {
+       {% comment %} $(document).ready(function () {
           $(window).on("scroll", function(event) {
             if( $('.sf-header').hasClass('scroll-down') ){
               $('.top-bar').css('position', 'fixed' );
@@ -265,7 +265,7 @@
               $('.item i').toggleClass('open');
               $('ul .menu').slideToggle();
           })
-      });
+      }); {% endcomment %}
 
 </script>
 
