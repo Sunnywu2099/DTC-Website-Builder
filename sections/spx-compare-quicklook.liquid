@@ -104,98 +104,136 @@
 <div class="compare-quick section-vertical-spacer container">
   <h2 class="box-title">{{ section.settings.title }}</h2>
   <div class="quick-wrapper">
-    {% for block in section.blocks %}
-      <div class="col-box">
-        <div class="item">
-          <span class="item-logo">
-            {% if block.settings.img_1 != blank %}
-              <img src="{{ block.settings.img_1 | img_url:'master' }}">
-            {% endif %}
-            {% if block.settings.content_1 != blank and block.settings.img_1 == blank %}
-              <p class="number">{{ block.settings.content_1 }}</p>
-            {% endif %}
-          </span>
-          <p class="title">{{ block.settings.text_1 }}</p>
-        </div>
-        <div class="item">
-          <span class="item-logo">
-            {% if block.settings.img_2 != blank %}
-              <img src="{{ block.settings.img_2 | img_url:'master' }}">
-            {% endif %}
-            {% if block.settings.content_2 != blank and block.settings.img_2 == blank %}
-              <p class="number">{{ block.settings.content_2 }}</p>
-            {% endif %}
-          </span>
-          <p class="title">{{ block.settings.text_2 }}</p>
-        </div>
-        <div class="item">
-          <span class="item-logo">
-            {% if block.settings.img_3 != blank %}
-              <img src="{{ block.settings.img_3 | img_url:'master' }}">
-            {% endif %}
-            {% if block.settings.content_3 != blank and block.settings.img_3 == blank %}
-              <p class="number">{{ block.settings.content_3 }}</p>
-            {% endif %}
-          </span>
-          <p class="title">{{ block.settings.text_3 }}</p>
-        </div>
-        <div class="item">
-          <span class="item-logo">
-            {% if block.settings.img_4 != blank %}
-              <img src="{{ block.settings.img_4 | img_url:'master' }}">
-            {% endif %}
-            {% if block.settings.content_4 != blank and block.settings.img_4 == blank %}
-              <p class="number">{{ block.settings.content_4 }}</p>
-            {% endif %}
-          </span>
-          <p class="title">{{ block.settings.text_4 }}</p>
-        </div>
-        <div class="item">
-          <span class="item-logo">
-            {% if block.settings.img_5 != blank %}
-              <img src="{{ block.settings.img_5 | img_url:'master' }}">
-            {% endif %}
-            {% if block.settings.content_5 != blank and block.settings.img_5 == blank %}
-              <p class="number">{{ block.settings.content_5 }}</p>
-            {% endif %}
-          </span>
-          <p class="title">{{ block.settings.text_5 }}</p>
-        </div>
-        <div class="item">
-          <span class="item-logo">
-            {% if block.settings.img_6 != blank %}
-              <img src="{{ block.settings.img_6 | img_url:'master' }}">
-            {% endif %}
-            {% if block.settings.content_6 != blank and block.settings.img_6 == blank %}
-              <p class="number">{{ block.settings.content_6 }}</p>
-            {% endif %}
-          </span>
-          <p class="title">{{ block.settings.text_6 }}</p>
-        </div>
-        <div class="item">
-          <span class="item-logo">
-            {% if block.settings.img_7 != blank %}
-              <img src="{{ block.settings.img_7 | img_url:'master' }}">
-            {% endif %}
-            {% if block.settings.content_7 != blank and block.settings.img_7 == blank %}
-              <p class="number">{{ block.settings.content_7 }}</p>
-            {% endif %}
-          </span>
-          <p class="title">{{ block.settings.text_7 }}</p>
-        </div>
-        <div class="item">
-          <span class="item-logo">
-            {% if block.settings.img_8 != blank %}
-              <img src="{{ block.settings.img_8 | img_url:'master' }}">
-            {% endif %}
-            {% if block.settings.content_8 != blank and block.settings.img_8 == blank %}
-              <p class="number">{{ block.settings.content_8 }}</p>
-            {% endif %}
-          </span>
-          <p class="title">{{ block.settings.text_8 }}</p>
-        </div>
-      </div>
-    {% endfor %}
+    <div class="item-wrapper">
+      {% for block in section.blocks %}
+        {% if block.settings.content_1 != blank %}
+          <div class="item">
+            <span class="item-logo">
+              {% if block.settings.img_1 != blank %}
+                <img src="{{ block.settings.img_1 | img_url:'master' }}">
+              {% endif %}
+              {% if block.settings.content_1 != blank and block.settings.img_1 == blank %}
+                <p class="number">{{ block.settings.content_1 }}</p>
+              {% endif %}
+            </span>
+            <p class="title">{{ block.settings.text_1 }}</p>
+          </div>
+        {% endif %}
+      {% endfor %}
+
+      {% for block in section.blocks %}
+        {% if block.settings.content_2 != blank %}
+          <div class="item">
+            <span class="item-logo">
+              {% if block.settings.img_2 != blank %}
+                <img src="{{ block.settings.img_2 | img_url:'master' }}">
+              {% endif %}
+              {% if block.settings.content_2 != blank and block.settings.img_2 == blank %}
+                <p class="number">{{ block.settings.content_2 }}</p>
+              {% endif %}
+            </span>
+            <p class="title">{{ block.settings.text_2 }}</p>
+          </div>
+        {% endif %}
+      {% endfor %}
+
+      {% for block in section.blocks %}
+        {% if block.settings.content_3 != blank %}
+          <div class="item">
+            <span class="item-logo">
+              {% if block.settings.img_3 != blank %}
+                <img src="{{ block.settings.img_3 | img_url:'master' }}">
+              {% endif %}
+              {% if block.settings.content_3 != blank and block.settings.img_3 == blank %}
+                <p class="number">{{ block.settings.content_3 }}</p>
+              {% endif %}
+            </span>
+            <p class="title">{{ block.settings.text_3 }}</p>
+          </div>
+        {% endif %}
+      {% endfor %}
+
+      {% for block in section.blocks %}
+        {% if block.settings.content_4 != blank %}
+          <div class="item">
+            <span class="item-logo">
+              {% if block.settings.img_4 != blank %}
+                <img src="{{ block.settings.img_4 | img_url:'master' }}">
+              {% endif %}
+              {% if block.settings.content_4 != blank and block.settings.img_4 == blank %}
+                <p class="number">{{ block.settings.content_4 }}</p>
+              {% endif %}
+            </span>
+            <p class="title">{{ block.settings.text_4 }}</p>
+          </div>
+        {% endif %}
+      {% endfor %}
+
+      {% for block in section.blocks %}
+        {% if block.settings.content_5 != blank %}
+          <div class="item">
+            <span class="item-logo">
+              {% if block.settings.img_5 != blank %}
+                <img src="{{ block.settings.img_5 | img_url:'master' }}">
+              {% endif %}
+              {% if block.settings.content_5 != blank and block.settings.img_5 == blank %}
+                <p class="number">{{ block.settings.content_5 }}</p>
+              {% endif %}
+            </span>
+            <p class="title">{{ block.settings.text_5 }}</p>
+          </div>
+        {% endif %}
+      {% endfor %}
+
+      {% for block in section.blocks %}
+        {% if block.settings.content_6 != blank %}
+          <div class="item">
+            <span class="item-logo">
+              {% if block.settings.img_6 != blank %}
+                <img src="{{ block.settings.img_6 | img_url:'master' }}">
+              {% endif %}
+              {% if block.settings.content_6 != blank and block.settings.img_6 == blank %}
+                <p class="number">{{ block.settings.content_6 }}</p>
+              {% endif %}
+            </span>
+            <p class="title">{{ block.settings.text_6 }}</p>
+          </div>
+        {% endif %}
+      {% endfor %}
+
+      {% for block in section.blocks %}
+        {% if block.settings.content_7 != blank %}
+          <div class="item">
+            <span class="item-logo">
+              {% if block.settings.img_7 != blank %}
+                <img src="{{ block.settings.img_7 | img_url:'master' }}">
+              {% endif %}
+              {% if block.settings.content_7 != blank and block.settings.img_7 == blank %}
+                <p class="number">{{ block.settings.content_7 }}</p>
+              {% endif %}
+            </span>
+            <p class="title">{{ block.settings.text_7 }}</p>
+          </div>
+        {% endif %}
+      {% endfor %}
+
+      {% for block in section.blocks %}
+        {% if block.settings.content_8 != blank %}
+          <div class="item">
+            <span class="item-logo">
+              {% if block.settings.img_8 != blank %}
+                <img src="{{ block.settings.img_8 | img_url:'master' }}">
+              {% endif %}
+              {% if block.settings.content_8 != blank and block.settings.img_8 == blank %}
+                <p class="number">{{ block.settings.content_8 }}</p>
+              {% endif %}
+            </span>
+            <p class="title">{{ block.settings.text_8 }}</p>
+          </div>
+        {% endif %}
+      {% endfor %}
+      
+    </div>
   </div>
   
 </div>
