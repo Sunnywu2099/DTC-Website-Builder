@@ -1,5 +1,67 @@
 {
   "sections": {
+    "408f1dee-a11f-4c82-b89e-1ae0a132e30d": {
+      "type": "spx-top-bar",
+      "blocks": {
+        "d8ea9076-f5f0-487a-aad5-1bdad7954e67": {
+          "type": "block",
+          "settings": {
+            "content": "Overvoew",
+            "link": "\/",
+            "sub_content_1": "",
+            "sub_link_1": "",
+            "sub_content_2": "",
+            "sub_link_2": "",
+            "sub_content_3": "",
+            "sub_link_3": "",
+            "sub_content_4": "",
+            "sub_link_4": ""
+          }
+        },
+        "2e35f749-4917-47d7-b30d-67ea8967296d": {
+          "type": "block",
+          "settings": {
+            "content": "Spec",
+            "link": "\/",
+            "sub_content_1": "",
+            "sub_link_1": "",
+            "sub_content_2": "",
+            "sub_link_2": "",
+            "sub_content_3": "",
+            "sub_link_3": "",
+            "sub_content_4": "",
+            "sub_link_4": ""
+          }
+        },
+        "cc44f5b3-8313-49bf-a5ae-84cc06a70fd1": {
+          "type": "block",
+          "settings": {
+            "content": "Support",
+            "link": "\/",
+            "sub_content_1": "Faq",
+            "sub_link_1": "\/",
+            "sub_content_2": "Download",
+            "sub_link_2": "\/",
+            "sub_content_3": "Accessories",
+            "sub_link_3": "\/",
+            "sub_content_4": "",
+            "sub_link_4": ""
+          }
+        }
+      },
+      "block_order": [
+        "d8ea9076-f5f0-487a-aad5-1bdad7954e67",
+        "2e35f749-4917-47d7-b30d-67ea8967296d",
+        "cc44f5b3-8313-49bf-a5ae-84cc06a70fd1"
+      ],
+      "settings": {
+        "name": "Main Product",
+        "link_to": "\/",
+        "buy_name": "Buy",
+        "buy_name_mb": "Buy",
+        "buy": "\/"
+      }
+    },
     "main": {
       "type": "main-page",
       "disabled": true,
@@ -114,7 +176,8 @@
         "898a0787-1631-4fdd-9c9d-4009ee60a23c",
         "f3fba63b-bf68-40ab-89b0-e1d899b0e87b"
       ],
-      "settings": {}
+      "settings": {
+      }
     },
     "fbaf67e7-7ce3-47be-b302-6bf254e4b860": {
       "type": "spx-multiple-section",
@@ -210,6 +273,7 @@
     }
   },
   "order": [
+    "408f1dee-a11f-4c82-b89e-1ae0a132e30d",
     "main",
     "bb4f18df-9766-4275-9f4d-c2ac2bab2cf0",
     "7b2998ff-1a6a-457c-b570-e93884904d71",
