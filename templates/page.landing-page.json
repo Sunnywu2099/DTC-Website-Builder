@@ -1,5 +1,67 @@
 {
   "sections": {
+    "408f1dee-a11f-4c82-b89e-1ae0a132e30d": {
+      "type": "spx-top-bar",
+      "blocks": {
+        "d8ea9076-f5f0-487a-aad5-1bdad7954e67": {
+          "type": "block",
+          "settings": {
+            "content": "Overvoew",
+            "link": "\/",
+            "sub_content_1": "",
+            "sub_link_1": "",
+            "sub_content_2": "",
+            "sub_link_2": "",
+            "sub_content_3": "",
+            "sub_link_3": "",
+            "sub_content_4": "",
+            "sub_link_4": ""
+          }
+        },
+        "2e35f749-4917-47d7-b30d-67ea8967296d": {
+          "type": "block",
+          "settings": {
+            "content": "Spec",
+            "link": "\/",
+            "sub_content_1": "",
+            "sub_link_1": "",
+            "sub_content_2": "",
+            "sub_link_2": "",
+            "sub_content_3": "",
+            "sub_link_3": "",
+            "sub_content_4": "",
+            "sub_link_4": ""
+          }
+        },
+        "cc44f5b3-8313-49bf-a5ae-84cc06a70fd1": {
+          "type": "block",
+          "settings": {
+            "content": "Support",
+            "link": "\/",
+            "sub_content_1": "Faq",
+            "sub_link_1": "\/",
+            "sub_content_2": "Download",
+            "sub_link_2": "\/",
+            "sub_content_3": "Accessories",
+            "sub_link_3": "\/",
+            "sub_content_4": "",
+            "sub_link_4": ""
+          }
+        }
+      },
+      "block_order": [
+        "d8ea9076-f5f0-487a-aad5-1bdad7954e67",
+        "2e35f749-4917-47d7-b30d-67ea8967296d",
+        "cc44f5b3-8313-49bf-a5ae-84cc06a70fd1"
+      ],
+      "settings": {
+        "name": "Main Product",
+        "link_to": "\/",
+        "buy_name": "Buy",
+        "buy_name_mb": "Buy",
+        "buy": "\/"
+      }
+    },
     "main": {
       "type": "main-page",
       "disabled": true,
@@ -114,7 +176,113 @@
         "898a0787-1631-4fdd-9c9d-4009ee60a23c",
         "f3fba63b-bf68-40ab-89b0-e1d899b0e87b"
       ],
-      "settings": {}
+      "settings": {
+      }
+    },
+    "448d7502-868c-4841-b553-69d9bf739815": {
+      "type": "spx-product-blocks",
+      "blocks": {
+        "20c79b8d-0c78-4d84-b6fa-535ed109490b": {
+          "type": "img_text",
+          "settings": {
+            "color": "#240700",
+            "color_m": "#ffffff",
+            "width": 100,
+            "img": "shopify:\/\/shop_images\/img_aea9cd78-4374-4580-9193-43f051bfe7ad.png",
+            "img_m": "shopify:\/\/shop_images\/img_7.png",
+            "title": "Revolutionary Panoramic Skimmer",
+            "desc": "There's nothing on the market quite like this. Discover our groundbreaking triple-side design that effortlessly removes debris from the water's surface at three angles."
+          }
+        },
+        "4909dee1-1327-4de5-bbd7-0849c87159e8": {
+          "type": "slide_show",
+          "settings": {
+            "color": "#240700",
+            "width": 60,
+            "img01": "shopify:\/\/shop_images\/img_3a8516be-6783-4915-82d3-0d6ed3da3ddf.png",
+            "m_img01": "shopify:\/\/shop_images\/img1_0c9f1573-4759-4b78-b88a-d6bb73f343a8.png",
+            "title01": "AdaptiveNav Path Planning",
+            "desc01": "Intelligent algorithms adapt to the unique contours of any pool shape. From classic ovals to custom shapes, AdaptiveNav calculates the most efficient route, every time.",
+            "img02": "shopify:\/\/shop_images\/Group_2742.png",
+            "m_img02": "shopify:\/\/shop_images\/Group_2757.png",
+            "title02": "AdaptiveNav Path Planning",
+            "desc02": "Intelligent algorithms adapt to the unique contours of any pool shape. From classic ovals to custom shapes, AdaptiveNav calculates the most efficient route, every time."
+          }
+        },
+        "37855bc8-6a65-40de-86f3-064a02edecb3": {
+          "type": "img_text",
+          "settings": {
+            "color": "#ffffff",
+            "color_m": "#ffffff",
+            "width": 40,
+            "img": "shopify:\/\/shop_images\/img1_433ae8d6-e706-460b-a798-2ad8916eff46.png",
+            "img_m": "shopify:\/\/shop_images\/img_f8a65908-a22b-48be-b41d-c96f8eacb850.png",
+            "title": "Suction at Its Core",
+            "desc": "Powered by a brushless motor, P2 harnesses the force of incoming water to drive its movement forward, in turn dedicating all power consumption to suction."
+          }
+        },
+        "503d2220-f375-45fb-96dc-5799d4b18d89": {
+          "type": "img_text",
+          "settings": {
+            "color": "#240700",
+            "color_m": "#240700",
+            "width": 40,
+            "img": "shopify:\/\/shop_images\/img_baec02b9-1d7d-487e-a79c-7e26f600b6ef.png",
+            "img_m": "shopify:\/\/shop_images\/img_10.png",
+            "title": "Power That Refuses to Deteriorate",
+            "desc": "Equipped with a hydrodynamic flow body and a Streamline filter, allied to revolutionary AdaptiveSuc technology, P2 ensures consistent suction levels throughout the entire clean."
+          }
+        },
+        "beb46b0f-ddcb-4c47-97cb-eac390478661": {
+          "type": "img_text",
+          "settings": {
+            "color": "#240700",
+            "color_m": "#240700",
+            "width": 60,
+            "img": "shopify:\/\/shop_images\/img_4_ca0aa6c2-28cd-4b0b-91e5-599d7cb4bc85.png",
+            "img_m": "shopify:\/\/shop_images\/img_2038fe8b-a2c0-490a-a32d-736d2b6e1197.png",
+            "title": "Innate Intelligence",
+            "desc": "Embrace the smarter way to clean with device control via remote, advanced wall detection to prevent unwanted debris scattering, and timely reminders for debris basket maintenance."
+          }
+        },
+        "4b8afa61-9e6d-4e6d-9247-1b7c737f41c9": {
+          "type": "img_text",
+          "settings": {
+            "color": "#240700",
+            "color_m": "#ffffff",
+            "width": 60,
+            "img": "shopify:\/\/shop_images\/img1_2.png",
+            "img_m": "shopify:\/\/shop_images\/img_12.png",
+            "title": "User-Friendly Experience",
+            "desc": "Boasting a lightweight, cordless design, P2 is a seamless plug-and-play solution with super-simple deployment and automatic poolside parking. Now this is pool maintenance made easy."
+          }
+        },
+        "4372f5ea-1314-4032-9793-b7fc2cfa76e2": {
+          "type": "img_text",
+          "settings": {
+            "color": "#ffffff",
+            "color_m": "#ffffff",
+            "width": 40,
+            "img": "shopify:\/\/shop_images\/img1_b529eccc-f7c0-4c0c-8711-2124a34304e9.png",
+            "img_m": "shopify:\/\/shop_images\/img_f62dcdd4-4103-49cd-8702-7f4aea1199e2.png",
+            "title": "Efficient & Environmentally Friendly",
+            "desc": "Requiring no additional equipment to operate, the P2 outperforms traditional cleaning methods to save you time and money, all while minimizing chemical usage."
+          }
+        }
+      },
+      "block_order": [
+        "20c79b8d-0c78-4d84-b6fa-535ed109490b",
+        "4909dee1-1327-4de5-bbd7-0849c87159e8",
+        "37855bc8-6a65-40de-86f3-064a02edecb3",
+        "503d2220-f375-45fb-96dc-5799d4b18d89",
+        "beb46b0f-ddcb-4c47-97cb-eac390478661",
+        "4b8afa61-9e6d-4e6d-9247-1b7c737f41c9",
+        "4372f5ea-1314-4032-9793-b7fc2cfa76e2"
+      ],
+      "settings": {
+        "heading": "Take a Closer Look",
+        "tailing": "<p><a href=\"\/pages\/genkinno-p2\" title=\"Genkinno P2\">Learn More<\/a><\/p>"
+      }
     },
     "fbaf67e7-7ce3-47be-b302-6bf254e4b860": {
       "type": "spx-multiple-section",
@@ -207,14 +375,208 @@
         "title": "Innate Intelligence",
         "text": "Equipping the P2 with an extensive array of smart features, we’ve achieved truly hassle-free \npool maintenance."
       }
+    },
+    "c773eba7-bed9-4804-b29c-f2d634ef938b": {
+      "type": "spx-compare-product",
+      "blocks": {
+        "8126fddf-0ce9-41fd-9f7d-7c18893cab47": {
+          "type": "block",
+          "settings": {
+            "product_title": "Genkinno P2",
+            "img": "shopify:\/\/shop_images\/PC101_P5102_1_5d618077-6aa5-4dc3-9fc6-d7dae38512ea.png",
+            "img_m": "shopify:\/\/shop_images\/Rectangle_1032.png",
+            "color_value": "#8C8C8C",
+            "color": "Gray",
+            "color_value2": "#F5F5F5",
+            "color2": "White",
+            "btn_name": "Buy Now",
+            "link": "\/",
+            "btn_name2": "Learn More >",
+            "link2": "\/"
+          }
+        },
+        "8da471e4-0dd0-4b7f-bda8-f1a18251b41d": {
+          "type": "block",
+          "settings": {
+            "product_title": "Genkinno P1",
+            "img": "shopify:\/\/shop_images\/PC101_P5102_2_5cbaee13-ebef-4828-9c17-8793c555600d.png",
+            "img_m": "shopify:\/\/shop_images\/Rectangle_1031.png",
+            "color_value": "#F5F5F5",
+            "color": "White",
+            "color_value2": "",
+            "color2": "",
+            "btn_name": "Buy Now",
+            "link": "\/",
+            "btn_name2": "Learn More >",
+            "link2": "\/"
+          }
+        }
+      },
+      "block_order": [
+        "8126fddf-0ce9-41fd-9f7d-7c18893cab47",
+        "8da471e4-0dd0-4b7f-bda8-f1a18251b41d"
+      ],
+      "settings": {
+        "title": "Compare Genkinno Models"
+      }
+    },
+    "406cc730-968e-4576-9f1e-d666a572321e": {
+      "type": "spx-compare-quicklook",
+      "blocks": {
+        "56babd7b-3910-4787-89fd-805802c72084": {
+          "type": "block",
+          "settings": {
+            "content_1": "",
+            "img_1": "shopify:\/\/shop_images\/4_d95371e6-81f1-45fd-8025-c5f9d9d78fa4.png",
+            "text_1": "Cordless <br>\nwith Magnetic Connection",
+            "content_2": "",
+            "img_2": "shopify:\/\/shop_images\/4_d95371e6-81f1-45fd-8025-c5f9d9d78fa4.png",
+            "text_2": "Cordless <br>\nwith Magnetic Connection",
+            "content_3": "147 μm",
+            "text_3": "Filtration",
+            "content_4": "",
+            "img_4": "shopify:\/\/shop_images\/4_d95371e6-81f1-45fd-8025-c5f9d9d78fa4.png",
+            "text_4": "Cordless <br>\nwith Magnetic Connection",
+            "content_5": "",
+            "text_5": "",
+            "content_6": "",
+            "text_6": "",
+            "content_7": "",
+            "text_7": "",
+            "content_8": "",
+            "text_8": ""
+          }
+        },
+        "9aa73d7c-49b1-44e4-a260-3eddb5c3d0f4": {
+          "type": "block",
+          "settings": {
+            "content_1": "",
+            "img_1": "shopify:\/\/shop_images\/6_4e02762d-033f-4788-a2ce-fe4f73a09c94.png",
+            "text_1": "Cordless <br>\nwith Magnetic Connection",
+            "content_2": "",
+            "img_2": "shopify:\/\/shop_images\/6_4e02762d-033f-4788-a2ce-fe4f73a09c94.png",
+            "text_2": "Cordless <br>\nwith Magnetic Connection",
+            "content_3": "147 μm",
+            "text_3": "Filtration",
+            "content_4": "",
+            "text_4": "",
+            "content_5": "",
+            "text_5": "",
+            "content_6": "",
+            "text_6": "",
+            "content_7": "",
+            "text_7": "",
+            "content_8": "",
+            "text_8": ""
+          }
+        }
+      },
+      "block_order": [
+        "56babd7b-3910-4787-89fd-805802c72084",
+        "9aa73d7c-49b1-44e4-a260-3eddb5c3d0f4"
+      ],
+      "settings": {
+        "title": "Quick Look"
+      }
+    },
+    "a8ce3dbb-9e84-47e2-a965-c16eb4e82498": {
+      "type": "spx-compare-content",
+      "blocks": {
+        "a2a010cd-ecb6-4dce-9aac-7d97e3d67334": {
+          "type": "block",
+          "settings": {
+            "content_1": "AdaptiveNav Algorithms for irregular pool shapes",
+            "content_2": "Magnetic connection",
+            "content_3": "Basket full reminder",
+            "content_4": "Pool-side parking",
+            "content_5": "Wall detection",
+            "content_6": "Silicon wheels for improved grip",
+            "content_7": "",
+            "content_8": ""
+          }
+        },
+        "8a32d81a-ac44-4bf7-97c2-81bd3b09638f": {
+          "type": "block",
+          "settings": {
+            "content_1": "Path Planning",
+            "content_2": "-",
+            "content_3": "-",
+            "content_4": "-",
+            "content_5": "-",
+            "content_6": "-",
+            "content_7": "",
+            "content_8": ""
+          }
+        }
+      },
+      "block_order": [
+        "a2a010cd-ecb6-4dce-9aac-7d97e3d67334",
+        "8a32d81a-ac44-4bf7-97c2-81bd3b09638f"
+      ],
+      "settings": {
+        "title": "Features"
+      }
+    },
+    "6ef1319d-be0f-4984-99ca-d7a04ceed3a6": {
+      "type": "spx-compare-product2",
+      "blocks": {
+        "8d3cca81-4154-4447-a4b1-c1100634d8f1": {
+          "type": "block",
+          "settings": {
+            "product_title": "Genkinno P2",
+            "text": "Cordless Robotic Pool Vacuum Cleaner",
+            "tags": "Panoramic Skimmer,AdaptiveNav Path Planning,AdaptiveSuc™ Technology,App &amp; Remote Control,120-min runtime",
+            "img": "shopify:\/\/shop_images\/PC101_P5102_1_5d618077-6aa5-4dc3-9fc6-d7dae38512ea.png",
+            "img_m": "shopify:\/\/shop_images\/Rectangle_1032.png",
+            "color_value": "#8C8C8C",
+            "color": "Gray",
+            "color_value2": "#f5f5f5",
+            "color2": "White",
+            "btn_name": "Buy Now >",
+            "link": "\/",
+            "btn_name2": "Learn More >",
+            "link2": "\/"
+          }
+        },
+        "736b5af9-21fd-4c0d-bfc0-658b1365093e": {
+          "type": "block",
+          "settings": {
+            "product_title": "Genkinno P1",
+            "text": "Cordless Robotic Pool Vacuum Cleaner",
+            "tags": "All-In on Suction,Smart Path Planning,AdaptiveSuc™ Technology,High-Capacity Battery,Remote Control",
+            "img": "shopify:\/\/shop_images\/PC101_P5102_2_5cbaee13-ebef-4828-9c17-8793c555600d.png",
+            "img_m": "shopify:\/\/shop_images\/Rectangle_1031.png",
+            "color_value": "#f5f5f5",
+            "color": "White",
+            "color_value2": "",
+            "color2": "",
+            "btn_name": "Buy Now >",
+            "link": "\/",
+            "btn_name2": "Learn More >",
+            "link2": "\/"
+          }
+        }
+      },
+      "block_order": [
+        "8d3cca81-4154-4447-a4b1-c1100634d8f1",
+        "736b5af9-21fd-4c0d-bfc0-658b1365093e"
+      ],
+      "settings": {
+      }
     }
   },
   "order": [
+    "408f1dee-a11f-4c82-b89e-1ae0a132e30d",
     "main",
     "bb4f18df-9766-4275-9f4d-c2ac2bab2cf0",
     "7b2998ff-1a6a-457c-b570-e93884904d71",
+    "448d7502-868c-4841-b553-69d9bf739815",
     "fbaf67e7-7ce3-47be-b302-6bf254e4b860",
     "10c809a2-4e49-4caa-9dbd-4b2533fc3474",
-    "2fbb62c2-71b2-4340-93a7-898a2c908409"
+    "2fbb62c2-71b2-4340-93a7-898a2c908409",
+    "c773eba7-bed9-4804-b29c-f2d634ef938b",
+    "406cc730-968e-4576-9f1e-d666a572321e",
+    "a8ce3dbb-9e84-47e2-a965-c16eb4e82498",
+    "6ef1319d-be0f-4984-99ca-d7a04ceed3a6"
   ]
 }
