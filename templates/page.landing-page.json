@@ -179,6 +179,103 @@
       "settings": {
       }
     },
+    "448d7502-868c-4841-b553-69d9bf739815": {
+      "type": "spx-product-blocks",
+      "blocks": {
+        "20c79b8d-0c78-4d84-b6fa-535ed109490b": {
+          "type": "img_text",
+          "settings": {
+            "color": "#240700",
+            "color_m": "#FFFFFF",
+            "width": 100,
+            "img": "shopify:\/\/shop_images\/img_aea9cd78-4374-4580-9193-43f051bfe7ad.png",
+            "img_m": "shopify:\/\/shop_images\/img_7.png",
+            "title": "Revolutionary Panoramic Skimmer",
+            "desc": "There's nothing on the market quite like this. Discover our groundbreaking triple-side design that effortlessly removes debris from the water's surface at three angles."
+          }
+        },
+        "4909dee1-1327-4de5-bbd7-0849c87159e8": {
+          "type": "slide_show",
+          "settings": {
+            "color": "#240700",
+            "width": 60,
+            "img01": "shopify:\/\/shop_images\/img_3a8516be-6783-4915-82d3-0d6ed3da3ddf.png",
+            "m_img01": "shopify:\/\/shop_images\/img1_0c9f1573-4759-4b78-b88a-d6bb73f343a8.png",
+            "title01": "AdaptiveNav Path Planning",
+            "desc01": "Intelligent algorithms adapt to the unique contours of any pool shape. From classic ovals to custom shapes, AdaptiveNav calculates the most efficient route, every time.",
+            "img02": "shopify:\/\/shop_images\/Group_2742.png",
+            "m_img02": "shopify:\/\/shop_images\/Group_2757.png",
+            "title02": "AdaptiveNav Path Planning",
+            "desc02": "Intelligent algorithms adapt to the unique contours of any pool shape. From classic ovals to custom shapes, AdaptiveNav calculates the most efficient route, every time."
+          }
+        },
+        "37855bc8-6a65-40de-86f3-064a02edecb3": {
+          "type": "img_text",
+          "settings": {
+            "color": "#FFFFFF",
+            "color_m": "#FFFFFF",
+            "width": 40,
+            "img": "shopify:\/\/shop_images\/img1_433ae8d6-e706-460b-a798-2ad8916eff46.png",
+            "img_m": "shopify:\/\/shop_images\/img_f8a65908-a22b-48be-b41d-c96f8eacb850.png",
+            "title": "Suction at Its Core",
+            "desc": "Powered by a brushless motor, P2 harnesses the force of incoming water to drive its movement forward, in turn dedicating all power consumption to suction."
+          }
+        },
+        "503d2220-f375-45fb-96dc-5799d4b18d89": {
+          "type": "img_text",
+          "settings": {
+            "color": "",
+            "color_m": "",
+            "width": 50,
+            "title": "Title Title Title",
+            "desc": "Text Text Text"
+          }
+        },
+        "beb46b0f-ddcb-4c47-97cb-eac390478661": {
+          "type": "img_text",
+          "settings": {
+            "color": "",
+            "color_m": "",
+            "width": 50,
+            "title": "Title Title Title",
+            "desc": "Text Text Text"
+          }
+        },
+        "4b8afa61-9e6d-4e6d-9247-1b7c737f41c9": {
+          "type": "img_text",
+          "settings": {
+            "color": "",
+            "color_m": "",
+            "width": 50,
+            "title": "Title Title Title",
+            "desc": "Text Text Text"
+          }
+        },
+        "4372f5ea-1314-4032-9793-b7fc2cfa76e2": {
+          "type": "img_text",
+          "settings": {
+            "color": "",
+            "color_m": "",
+            "width": 50,
+            "title": "Title Title Title",
+            "desc": "Text Text Text"
+          }
+        }
+      },
+      "block_order": [
+        "20c79b8d-0c78-4d84-b6fa-535ed109490b",
+        "4909dee1-1327-4de5-bbd7-0849c87159e8",
+        "37855bc8-6a65-40de-86f3-064a02edecb3",
+        "503d2220-f375-45fb-96dc-5799d4b18d89",
+        "beb46b0f-ddcb-4c47-97cb-eac390478661",
+        "4b8afa61-9e6d-4e6d-9247-1b7c737f41c9",
+        "4372f5ea-1314-4032-9793-b7fc2cfa76e2"
+      ],
+      "settings": {
+        "heading": "Take a Closer Look",
+        "tailing": "<p><a href=\"\/pages\/genkinno-p2\" title=\"Genkinno P2\">Learn More<\/a><\/p>"
+      }
+    },
     "fbaf67e7-7ce3-47be-b302-6bf254e4b860": {
       "type": "spx-multiple-section",
       "blocks": {
@@ -277,6 +374,7 @@
     "main",
     "bb4f18df-9766-4275-9f4d-c2ac2bab2cf0",
     "7b2998ff-1a6a-457c-b570-e93884904d71",
+    "448d7502-868c-4841-b553-69d9bf739815",
     "fbaf67e7-7ce3-47be-b302-6bf254e4b860",
     "10c809a2-4e49-4caa-9dbd-4b2533fc3474",
     "2fbb62c2-71b2-4340-93a7-898a2c908409"
