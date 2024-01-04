@@ -419,6 +419,44 @@
       "settings": {
         "title": "Compare Genkinno Models"
       }
+    },
+    "a8ce3dbb-9e84-47e2-a965-c16eb4e82498": {
+      "type": "spx-compare-content",
+      "blocks": {
+        "a2a010cd-ecb6-4dce-9aac-7d97e3d67334": {
+          "type": "block",
+          "settings": {
+            "content_1": "AdaptiveNav Algorithms for irregular pool shapes",
+            "content_2": "Magnetic connection",
+            "content_3": "Basket full reminder",
+            "content_4": "Pool-side parking",
+            "content_5": "Wall detection",
+            "content_6": "Silicon wheels for improved grip",
+            "content_7": "",
+            "content_8": ""
+          }
+        },
+        "8a32d81a-ac44-4bf7-97c2-81bd3b09638f": {
+          "type": "block",
+          "settings": {
+            "content_1": "Path Planning",
+            "content_2": "-",
+            "content_3": "-",
+            "content_4": "-",
+            "content_5": "-",
+            "content_6": "-",
+            "content_7": "",
+            "content_8": ""
+          }
+        }
+      },
+      "block_order": [
+        "a2a010cd-ecb6-4dce-9aac-7d97e3d67334",
+        "8a32d81a-ac44-4bf7-97c2-81bd3b09638f"
+      ],
+      "settings": {
+        "title": "Features"
+      }
     }
   },
   "order": [
@@ -430,6 +468,7 @@
     "fbaf67e7-7ce3-47be-b302-6bf254e4b860",
     "10c809a2-4e49-4caa-9dbd-4b2533fc3474",
     "2fbb62c2-71b2-4340-93a7-898a2c908409",
-    "c773eba7-bed9-4804-b29c-f2d634ef938b"
+    "c773eba7-bed9-4804-b29c-f2d634ef938b",
+    "a8ce3dbb-9e84-47e2-a965-c16eb4e82498"
   ]
 }
