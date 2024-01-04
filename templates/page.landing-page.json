@@ -457,6 +457,53 @@
       "settings": {
         "title": "Features"
       }
+    },
+    "6ef1319d-be0f-4984-99ca-d7a04ceed3a6": {
+      "type": "spx-compare-product2",
+      "blocks": {
+        "8d3cca81-4154-4447-a4b1-c1100634d8f1": {
+          "type": "block",
+          "settings": {
+            "product_title": "Genkinno P2",
+            "text": "Cordless Robotic Pool Vacuum Cleaner",
+            "tags": "Panoramic Skimmer,AdaptiveNav Path Planning,AdaptiveSuc™ Technology,App &amp; Remote Control,120-min runtime",
+            "img": "shopify:\/\/shop_images\/PC101_P5102_1_5d618077-6aa5-4dc3-9fc6-d7dae38512ea.png",
+            "img_m": "shopify:\/\/shop_images\/Rectangle_1032.png",
+            "color_value": "#8C8C8C",
+            "color": "Gray",
+            "color_value2": "#f5f5f5",
+            "color2": "White",
+            "btn_name": "Buy Now >",
+            "link": "\/",
+            "btn_name2": "Learn More >",
+            "link2": "\/"
+          }
+        },
+        "736b5af9-21fd-4c0d-bfc0-658b1365093e": {
+          "type": "block",
+          "settings": {
+            "product_title": "Genkinno P1",
+            "text": "Cordless Robotic Pool Vacuum Cleaner",
+            "tags": "All-In on Suction,Smart Path Planning,AdaptiveSuc™ Technology,High-Capacity Battery,Remote Control",
+            "img": "shopify:\/\/shop_images\/PC101_P5102_2_5cbaee13-ebef-4828-9c17-8793c555600d.png",
+            "img_m": "shopify:\/\/shop_images\/Rectangle_1031.png",
+            "color_value": "#f5f5f5",
+            "color": "White",
+            "color_value2": "",
+            "color2": "",
+            "btn_name": "Buy Now >",
+            "link": "\/",
+            "btn_name2": "Learn More >",
+            "link2": "\/"
+          }
+        }
+      },
+      "block_order": [
+        "8d3cca81-4154-4447-a4b1-c1100634d8f1",
+        "736b5af9-21fd-4c0d-bfc0-658b1365093e"
+      ],
+      "settings": {
+      }
     }
   },
   "order": [
@@ -469,6 +516,7 @@
     "10c809a2-4e49-4caa-9dbd-4b2533fc3474",
     "2fbb62c2-71b2-4340-93a7-898a2c908409",
     "c773eba7-bed9-4804-b29c-f2d634ef938b",
-    "a8ce3dbb-9e84-47e2-a965-c16eb4e82498"
+    "a8ce3dbb-9e84-47e2-a965-c16eb4e82498",
+    "6ef1319d-be0f-4984-99ca-d7a04ceed3a6"
   ]
 }
