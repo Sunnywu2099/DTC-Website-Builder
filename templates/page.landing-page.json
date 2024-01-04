@@ -420,6 +420,65 @@
         "title": "Compare Genkinno Models"
       }
     },
+    "406cc730-968e-4576-9f1e-d666a572321e": {
+      "type": "spx-compare-quicklook",
+      "blocks": {
+        "56babd7b-3910-4787-89fd-805802c72084": {
+          "type": "block",
+          "settings": {
+            "content_1": "",
+            "img_1": "shopify:\/\/shop_images\/4_d95371e6-81f1-45fd-8025-c5f9d9d78fa4.png",
+            "text_1": "Cordless <br>\nwith Magnetic Connection",
+            "content_2": "",
+            "img_2": "shopify:\/\/shop_images\/4_d95371e6-81f1-45fd-8025-c5f9d9d78fa4.png",
+            "text_2": "Cordless <br>\nwith Magnetic Connection",
+            "content_3": "147 μm",
+            "text_3": "Filtration",
+            "content_4": "",
+            "img_4": "shopify:\/\/shop_images\/4_d95371e6-81f1-45fd-8025-c5f9d9d78fa4.png",
+            "text_4": "Cordless <br>\nwith Magnetic Connection",
+            "content_5": "",
+            "text_5": "",
+            "content_6": "",
+            "text_6": "",
+            "content_7": "",
+            "text_7": "",
+            "content_8": "",
+            "text_8": ""
+          }
+        },
+        "9aa73d7c-49b1-44e4-a260-3eddb5c3d0f4": {
+          "type": "block",
+          "settings": {
+            "content_1": "",
+            "img_1": "shopify:\/\/shop_images\/6_4e02762d-033f-4788-a2ce-fe4f73a09c94.png",
+            "text_1": "Cordless <br>\nwith Magnetic Connection",
+            "content_2": "",
+            "img_2": "shopify:\/\/shop_images\/6_4e02762d-033f-4788-a2ce-fe4f73a09c94.png",
+            "text_2": "Cordless <br>\nwith Magnetic Connection",
+            "content_3": "147 μm",
+            "text_3": "Filtration",
+            "content_4": "",
+            "text_4": "",
+            "content_5": "",
+            "text_5": "",
+            "content_6": "",
+            "text_6": "",
+            "content_7": "",
+            "text_7": "",
+            "content_8": "",
+            "text_8": ""
+          }
+        }
+      },
+      "block_order": [
+        "56babd7b-3910-4787-89fd-805802c72084",
+        "9aa73d7c-49b1-44e4-a260-3eddb5c3d0f4"
+      ],
+      "settings": {
+        "title": "Quick Look"
+      }
+    },
     "a8ce3dbb-9e84-47e2-a965-c16eb4e82498": {
       "type": "spx-compare-content",
       "blocks": {
@@ -516,6 +575,7 @@
     "10c809a2-4e49-4caa-9dbd-4b2533fc3474",
     "2fbb62c2-71b2-4340-93a7-898a2c908409",
     "c773eba7-bed9-4804-b29c-f2d634ef938b",
+    "406cc730-968e-4576-9f1e-d666a572321e",
     "a8ce3dbb-9e84-47e2-a965-c16eb4e82498",
     "6ef1319d-be0f-4984-99ca-d7a04ceed3a6"
   ]
