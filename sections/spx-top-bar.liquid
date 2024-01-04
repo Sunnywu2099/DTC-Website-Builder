@@ -10,7 +10,7 @@
     width: 100%;
     transition: all .4s ease;
   }
-  .top-bar .container-fluid{
+  .top-bar .container{
     display: flex;
     justify-content: space-between;
     color: #fff;
@@ -18,22 +18,22 @@
     padding-top: 8px;
     padding-bottom: 8px;
   }
-  .top-bar .container-fluid .cate-box{
+  .top-bar .container .cate-box{
     display: flex;
     align-items: center;
   }
-  .top-bar .container-fluid .cate-box.mb-hide{
+  .top-bar .container .cate-box.mb-hide{
     display: flex;
   }
-  .top-bar .container-fluid .cate-box.pc-hide{
+  .top-bar .container .cate-box.pc-hide{
     display: none;
   }
-  .top-bar .container-fluid .cate-box .item{
+  .top-bar .container .cate-box .item{
     position: relative;
     font-size: 14px;
     line-height: 22px;
   }
-  .top-bar .container-fluid .cate-box .item.buy{
+  .top-bar .container .cate-box .item.buy{
     font-size: 16px;
     line-height: 24px;
     color: #000;
@@ -41,15 +41,15 @@
     border-radius: 12px;
     padding: 5px 16px;
   }
-    .top-bar .container-fluid .cate-box .item.buy:hover{
+    .top-bar .container .cate-box .item.buy:hover{
     border-radius: 12px;
     background: linear-gradient(0deg, rgba(255, 255, 255, 0.20) 0%, rgba(255, 255, 255, 0.20) 100%), #65A4FC;
   }
   
-  .top-bar .container-fluid .cate-box .item:not(:first-child){
+  .top-bar .container .cate-box .item:not(:first-child){
     margin-left: 24px;
   }
-  .top-bar .container-fluid .cate-box .item .sub-menu{
+  .top-bar .container .cate-box .item .sub-menu{
     width: 160px;
     position: absolute;
     bottom: auto;
@@ -59,28 +59,28 @@
     visibility: hidden;
     color: #000;
   }
-  .top-bar .container-fluid .cate-box .item .sub-menu .sub-item{
+  .top-bar .container .cate-box .item .sub-menu .sub-item{
     padding: 8px 24px;
     background: #fff;
   }
-  .top-bar .container-fluid .cate-box .item .sub-menu .sub-item:first-of-type{
+  .top-bar .container .cate-box .item .sub-menu .sub-item:first-of-type{
     padding-top: 16px;
   }
-  .top-bar .container-fluid .cate-box .item .sub-menu .sub-item:last-of-type{
+  .top-bar .container .cate-box .item .sub-menu .sub-item:last-of-type{
     padding-bottom: 16px;
   }
-  .top-bar .container-fluid .cate-box .item .sub-menu .box{
+  .top-bar .container .cate-box .item .sub-menu .box{
     padding-top: 16px;
     padding-bottom: 16px;
   }
-  .top-bar .container-fluid .cate-box .item:hover .sub-menu{
+  .top-bar .container .cate-box .item:hover .sub-menu{
     opacity: 1;
     visibility: visible;
   }
-  .top-bar .container-fluid .cate-box ul{
+  .top-bar .container .cate-box ul{
     position: relative;
   }
-  .top-bar .container-fluid .cate-box ul .menu{
+  .top-bar .container .cate-box ul .menu{
     position: absolute;
     display: none;
     background: #fff;
@@ -90,20 +90,20 @@
     left: -40%;
     z-index: 10;
   }
-  .top-bar .container-fluid .cate-box ul .item{
+  .top-bar .container .cate-box ul .item{
     margin-left: 0!important;
     display: flex;
     align-items: center;
     margin-bottom: 8px;
   }
-  .top-bar .container-fluid .cate-box ul .item.first{
+  .top-bar .container .cate-box ul .item.first{
     margin-bottom: 0px;
   }
-  .top-bar .container-fluid .cate-box ul .item i{
+  .top-bar .container .cate-box ul .item i{
     margin-left: 6px;
     transition: all .2s;
   }
-  .top-bar .container-fluid .cate-box ul .item i.open{
+  .top-bar .container .cate-box ul .item i.open{
     transform: rotate(180deg);
     transition: all .5s;
   }
@@ -130,17 +130,17 @@
   .MB_show{
     display:block;
   }
-    .top-bar .container-fluid .cate-box.mb-hide{
+    .top-bar .container .cate-box.mb-hide{
       display: none;
     }
-    .top-bar .container-fluid .cate-box.pc-hide{
+    .top-bar .container .cate-box.pc-hide{
       display: flex;
       {% if section.settings.name == blank %}
         width: 100%;
         justify-content: space-between;
       {% endif %}
     }
-    .top-bar .container-fluid .cate-box ul .menu{
+    .top-bar .container .cate-box ul .menu{
       {% if section.settings.name == blank %}
         left: 0;
         top: calc(100% + 30px);
@@ -150,7 +150,7 @@
 </style>
   
 <div class="top-bar">
-  <div class="container-fluid">
+  <div class="container">
     <a href="{{ section.settings.link_to }}" class="product-name">{{ section.settings.name }}</a>
     <div class="cate-box mb-hide">
       {% for block in section.blocks %}
