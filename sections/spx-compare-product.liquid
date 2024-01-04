@@ -1,0 +1,250 @@
+<style>
+  .compare-box.custom-container{
+    margin-bottom: 56px;
+    padding: 0 80px;
+  }
+  .compare-box .box-title{
+    font-size: 48px;
+    line-height: 56px;
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 128px;
+    background: linear-gradient(270deg, #2990E6 0%, #4263EB 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .compare-box .box-wrapper{
+    display: flex;
+    gap: 16px;
+    justify-content: space-between;
+  }
+  .compare-box .box-wrapper .item{
+    width: calc( (100% - 16px) / 2);
+  }
+  .compare-box .p-title{
+    font-size: 24px;
+    line-height: 32px;
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 24px;
+  }
+  .compare-box .color-box{
+    display: flex;
+    justify-content: center;
+    /* border-bottom: 0.5px solid rgb(0 0 0 / 10%); */
+    /* padding-bottom: 32px; */
+    /* margin-bottom: 32px; */
+    margin-bottom: 24px;
+  }
+  .compare-box .color-box .color-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .compare-box .color-box .color-item:not(:first-child){
+    margin-left: 24px;
+  }
+  .compare-box .color-box .color-item .color{
+    display: block;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    box-shadow: -2px 3px 2px 0px #0000000D inset;
+    margin-bottom: 8px;
+  }
+  .compare-box .color-box .color-item .color-name{
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 500;
+  }
+  .compare-box .btn-box{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .compare-box .btn-box .buy{
+    background: #4263EB;
+    color:#fff;
+    padding: 8px 16px;
+    border-radius: 32px;
+    margin-bottom: 32px;
+  }
+  .compare-box .btn-box .learn{
+    color:#4263EB;
+  }
+  @media (min-width: 1024px) and (max-width: 1200px){
+    .compare-box.custom-container{
+      padding: 0 56px;
+    }
+  }
+  @media only screen and (max-width: 1023px){
+      .compare-box.custom-container{
+        padding: 0 16px;
+      }
+  }
+  @media only screen and (max-width: 768px){
+    .compare-box .box-wrapper{
+      gap: 8px;
+    }
+    .compare-box .box-wrapper .item{
+      width: calc( (100% - 8px) / 2);
+    }
+    .compare-box.custom-container{
+      margin-top: 64px;
+      margin-bottom: 64px;
+      padding: 0 24px;
+    }
+    .compare-box .box-title{
+      font-size: 32px;
+      line-height: 40px;
+      margin-bottom: 64px;
+    }
+    .compare-box .p-title{
+      font-size: 14px;
+      line-height: 22px;
+      /* border-bottom: 0.5px solid rgb(0 0 0 / 10%);
+      padding-bottom: 24px; */
+    }
+    .compare-box .color-box{
+      /* padding-bottom: 24px; */
+      margin: 24px 0;
+    }
+    .compare-box .color-box .color-item .color-name{
+      font-size: 14px;
+      line-height: 20px;
+    }
+    .compare-box .color-box .color-item .color{
+      width: 26px;
+      height: 26px;
+    }
+    .compare-box .color-box .color-item:not(:first-child){
+      margin-left: 19px;
+    }
+    .compare-box .btn-box .buy{
+      margin-bottom: 24px;
+    }
+  }
+</style>
+
+<div class="compare-box custom-container">
+  <h2 class="box-title">{{ section.settings.title }}</h2>
+  <div class="box-wrapper">
+    {% for block in section.blocks %}
+      {% assign color_imgs = block.settings.color_svg | split:',' %}
+      {% assign color_names = block.settings.color | split:',' %}
+      
+      <div class="item">
+        <h3 class="p-title">{{ block.settings.product_title }}</h3>
+        <img class="hide-mb" src="{{ block.settings.img | img_url:'master' }}">
+        <img class="hide-pc" src="{{ block.settings.img_m | img_url:'master' }}">
+        
+        <div class="color-box">
+          {% if block.settings.color_value != blank %}
+            <div class="color-item">
+              <span class="color" style="background-color:{{ block.settings.color_value }};"></span>
+              <span class="color-name">{{ block.settings.color }}</span>
+            </div>
+          {% endif %}
+          {% if block.settings.color_value2 != blank %}
+            <div class="color-item">
+              <span class="color" style="background-color:{{ block.settings.color_value2 }};"></span>
+              <span class="color-name">{{ block.settings.color2 }}</span>
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="btn-box">
+          <a class="buy" href="{{ block.settings.link }}">{{ block.settings.btn_name }}</a>
+          <a class="learn" href="{{ block.settings.link2 }}">{{ block.settings.btn_name2 }}</a>
+        </div>
+      </div>  
+    {% endfor %}
+  </div>
+  
+</div>
+
+{% schema %}
+  {
+    "name": "Compare product",
+    "max_blocks": 2,
+    "settings": [
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "Title"
+        }
+    ],
+    "blocks": [
+    {
+      "type": "block",
+      "name": "Block",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "product_title",
+          "label": "Product title"
+        },
+        {
+          "type": "image_picker",
+          "id": "img",
+          "label": "Product image"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_m",
+          "label": "Product image M"
+        },
+        {
+          "type": "textarea",
+          "id": "color_value",
+          "label": "Color"
+        },
+        {
+          "type": "textarea",
+          "id": "color",
+          "label": "Color name"
+        },
+        {
+          "type": "textarea",
+          "id": "color_value2",
+          "label": "Color2"
+        },
+        {
+          "type": "textarea",
+          "id": "color2",
+          "label": "Color2 name"
+        },
+        {
+          "type": "text",
+          "id": "btn_name",
+          "label": "Button name"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Button Link"
+        },
+        {
+          "type": "text",
+          "id": "btn_name2",
+          "label": "Button name 2"
+        },
+        {
+          "type": "url",
+          "id": "link2",
+          "label": "Button Link 2"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Compare product"
+    }
+  ]
+    
+  }
+{% endschema %}
