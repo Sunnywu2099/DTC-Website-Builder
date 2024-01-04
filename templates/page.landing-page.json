@@ -186,7 +186,7 @@
           "type": "img_text",
           "settings": {
             "color": "#240700",
-            "color_m": "#FFFFFF",
+            "color_m": "#ffffff",
             "width": 100,
             "img": "shopify:\/\/shop_images\/img_aea9cd78-4374-4580-9193-43f051bfe7ad.png",
             "img_m": "shopify:\/\/shop_images\/img_7.png",
@@ -212,8 +212,8 @@
         "37855bc8-6a65-40de-86f3-064a02edecb3": {
           "type": "img_text",
           "settings": {
-            "color": "#FFFFFF",
-            "color_m": "#FFFFFF",
+            "color": "#ffffff",
+            "color_m": "#ffffff",
             "width": 40,
             "img": "shopify:\/\/shop_images\/img1_433ae8d6-e706-460b-a798-2ad8916eff46.png",
             "img_m": "shopify:\/\/shop_images\/img_f8a65908-a22b-48be-b41d-c96f8eacb850.png",
@@ -249,7 +249,7 @@
           "type": "img_text",
           "settings": {
             "color": "#240700",
-            "color_m": "#FFFFFF",
+            "color_m": "#ffffff",
             "width": 60,
             "img": "shopify:\/\/shop_images\/img1_2.png",
             "img_m": "shopify:\/\/shop_images\/img_12.png",
@@ -260,8 +260,8 @@
         "4372f5ea-1314-4032-9793-b7fc2cfa76e2": {
           "type": "img_text",
           "settings": {
-            "color": "#FFFFFF",
-            "color_m": "#FFFFFF",
+            "color": "#ffffff",
+            "color_m": "#ffffff",
             "width": 40,
             "img": "shopify:\/\/shop_images\/img1_b529eccc-f7c0-4c0c-8711-2124a34304e9.png",
             "img_m": "shopify:\/\/shop_images\/img_f62dcdd4-4103-49cd-8702-7f4aea1199e2.png",
@@ -375,6 +375,50 @@
         "title": "Innate Intelligence",
         "text": "Equipping the P2 with an extensive array of smart features, we’ve achieved truly hassle-free \npool maintenance."
       }
+    },
+    "c773eba7-bed9-4804-b29c-f2d634ef938b": {
+      "type": "spx-compare-product",
+      "blocks": {
+        "8126fddf-0ce9-41fd-9f7d-7c18893cab47": {
+          "type": "block",
+          "settings": {
+            "product_title": "Genkinno P2",
+            "img": "shopify:\/\/shop_images\/PC101_P5102_1_5d618077-6aa5-4dc3-9fc6-d7dae38512ea.png",
+            "img_m": "shopify:\/\/shop_images\/Rectangle_1032.png",
+            "color_value": "#8C8C8C",
+            "color": "Gray",
+            "color_value2": "#F5F5F5",
+            "color2": "White",
+            "btn_name": "Buy Now",
+            "link": "\/",
+            "btn_name2": "Learn More >",
+            "link2": "\/"
+          }
+        },
+        "8da471e4-0dd0-4b7f-bda8-f1a18251b41d": {
+          "type": "block",
+          "settings": {
+            "product_title": "Genkinno P1",
+            "img": "shopify:\/\/shop_images\/PC101_P5102_2_5cbaee13-ebef-4828-9c17-8793c555600d.png",
+            "img_m": "shopify:\/\/shop_images\/Rectangle_1031.png",
+            "color_value": "#F5F5F5",
+            "color": "White",
+            "color_value2": "",
+            "color2": "",
+            "btn_name": "Buy Now",
+            "link": "\/",
+            "btn_name2": "Learn More >",
+            "link2": "\/"
+          }
+        }
+      },
+      "block_order": [
+        "8126fddf-0ce9-41fd-9f7d-7c18893cab47",
+        "8da471e4-0dd0-4b7f-bda8-f1a18251b41d"
+      ],
+      "settings": {
+        "title": "Compare Genkinno Models"
+      }
     }
   },
   "order": [
@@ -385,6 +429,7 @@
     "448d7502-868c-4841-b553-69d9bf739815",
     "fbaf67e7-7ce3-47be-b302-6bf254e4b860",
     "10c809a2-4e49-4caa-9dbd-4b2533fc3474",
-    "2fbb62c2-71b2-4340-93a7-898a2c908409"
+    "2fbb62c2-71b2-4340-93a7-898a2c908409",
+    "c773eba7-bed9-4804-b29c-f2d634ef938b"
   ]
 }
