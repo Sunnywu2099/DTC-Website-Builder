@@ -334,8 +334,9 @@
   </div>
 </div>
 
-<script>
-    (function() {
+<script defer>
+    {% comment %} (function() { {% endcomment %}
+
         const box = document.getElementById('MainContent');
     
         let isMobile = /android|iphone|ipad|ipod|micromessenger/gi.test(navigator.userAgent.toLocaleLowerCase()) || window.innerWidth <= 1000;
@@ -492,7 +493,7 @@
             }
         }
 
-    })();
+    {% comment %} })(); {% endcomment %}
     
 </script>
 
