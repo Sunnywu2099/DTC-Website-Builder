@@ -335,7 +335,7 @@
 </div>
 
 <script type="module">
-    document.addEventListener('DOMContentLoaded', function() {
+    window.onload = function() {
         const box = document.getElementById('MainContent');
     
         let isMobile = /android|iphone|ipad|ipod|micromessenger/gi.test(navigator.userAgent.toLocaleLowerCase()) || window.innerWidth <= 1000;
