@@ -11,6 +11,11 @@
           {{ block.settings.text }}
         </span>
 
+      {%- when 'size_match' -%}
+        <span class="main-product__block-text {% if block.settings.uppercase %}main-product__block-text--uppercase{% endif %} {{ block.settings.text_style }}" {{ block.shopify_attributes }}>
+          {{ block.settings.text }}
+        </span>
+
       {%- when 'title' -%}
         <div>
           {%- if settings.product_show_breadcrumbs -%}
