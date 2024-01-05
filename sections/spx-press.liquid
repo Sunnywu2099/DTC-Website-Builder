@@ -1,0 +1,235 @@
+<style>
+  .custom-press {
+    min-height: 550px;
+    position: relative;
+    margin: 80px auto;
+  }
+  .custom-press .title{
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 46px;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .custom-press .press-swiper .swiper-wrapper{
+    align-items: center;
+  }
+  .custom-press .press-swiper .item{
+    border-radius: 32px;
+    background: linear-gradient(270deg, #E7F1FB 0%, #C9E0FB 100%);
+    opacity: .4;
+    padding: 65px 81px 81px;
+  }
+  .custom-press .press-swiper .item-box.swiper-slide-active .item{
+    padding: 90px 108px 108px;
+    opacity: 1;
+    margin: 0 auto;
+  }
+  .custom-press .press-swiper .item .sign{
+    margin-bottom: 21px;
+    width: 43px;
+  }
+  .custom-press .press-swiper .item .sign svg{
+    display: block;
+    width: 100%;
+  }
+  .custom-press .press-swiper .item .content{
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 32px;
+  }
+  .press-pagination{
+    position: absolute;
+    left: 50%;
+    bottom: 12%;
+    transform: translateX(-50%);
+  }
+  .press-pagination .swiper-pagination-bullet{
+    width: 24px;
+    height: 4px;
+    border-radius: 9px;
+    background: #000000;
+    opacity: .2;
+    margin: 0 5px;
+  }
+  .press-pagination .swiper-pagination-bullet:after{
+    display: none;
+  }
+  .press-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active{
+    opacity: 1;
+  }
+  .custom-press .press-prev,
+  .custom-press .press-next{
+    position: absolute;
+    background-image: none;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .custom-press .press-prev{
+    left: calc( (100% - 1000px) / 2 );
+  }
+  .custom-press .press-next{
+    right: calc( (100% - 1000px) / 2 );
+  }
+  @media only screen and (min-width: 1800px){
+    .custom-press .press-swiper .item-box.swiper-slide-active .item{
+        max-width: 880px;
+    }
+  }
+  @media only screen and (max-width: 1440px){
+    .custom-press .press-prev{
+      left: calc( (100% - 750px) / 2 );
+    }
+    .custom-press .press-next{
+      right: calc( (100% - 750px) / 2 );
+    }
+  }
+  @media only screen and (max-width: 1280px){
+    .press-pagination{
+      bottom: 8%;
+    }
+    .custom-press .press-prev{
+      left: 13%;
+    }
+    .custom-press .press-next{
+      right: 13%;
+    }
+  }
+  @media only screen and (max-width: 768px){
+    .custom-press {
+      padding: 0 0 36px 16px;
+      min-height: unset;
+      margin: 40px auto;
+    }
+    .custom-press .title{
+      font-size: 28px;
+      line-height: 36px;
+      margin-bottom: 24px;
+    }
+    .custom-press .press-swiper .item{
+      padding: 39px 24px 56px;
+      min-height:289px;
+    }
+    .custom-press .press-prev,
+    .custom-press .press-next{
+      display: none;
+    }
+    .custom-press .press-swiper .item-box.swiper-slide-active .item{
+      padding: 39px 24px 56px;
+    }
+    .custom-press .press-swiper .item .sign{
+      margin-bottom: 24px;
+      width: 37px;
+    }
+    .press-pagination{
+      bottom: 0
+    }
+    .custom-press .press-swiper .item .content{
+      font-size: 24px;
+    }
+  }
+</style>
+  
+<div class="custom-press">
+  {% if section.settings.title != blank %}
+    <h3 class="title">{{ section.settings.title }}</h3>
+  {% endif %}
+  <div class="box">
+    <div class="press-swiper swiper-container">
+        <div class="swiper-wrapper">
+          {% for block in section.blocks %}
+            <div class="item-box swiper-slide">
+              <div class="item">
+                {% if block.settings.content != blank %}
+                  <div class="sign">
+                    <svg width="49" height="42" viewBox="0 0 49 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M0 20.8301C0 16.9629 0.791016 13.4766 2.37305 10.3711C4.01367 7.26562 6.38672 4.80469 9.49219 2.98828C12.5977 1.11328 16.3184 0.117188 20.6543 0V9.14062C16.9629 9.14062 14.209 10.166 12.3926 12.2168C10.6348 14.2676 9.75586 17.1387 9.75586 20.8301V22.9395H19.7754V41.5723H0V20.8301ZM48.6914 9.14062C45 9.14062 42.2461 10.166 40.4297 12.2168C38.6719 14.2676 37.793 17.1387 37.793 20.8301V22.9395H47.8125V41.5723H28.0371V20.8301C28.0371 16.9629 28.8281 13.4766 30.4102 10.3711C32.0508 7.26562 34.4238 4.80469 37.5293 2.98828C40.6348 1.11328 44.3555 0.117188 48.6914 0V9.14062Z" fill="#2990E6"/>
+                    </svg>
+                  </div>
+                  <div class="content">{{ block.settings.content }}</div>
+                {% endif %}
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="swiper-button-prev press-prev">
+        <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17.6792 4.63242V2.56189C17.6792 2.38242 17.473 2.28332 17.3337 2.39314L5.2587 11.8244C5.15611 11.9042 5.07309 12.0063 5.01599 12.1231C4.95888 12.2398 4.9292 12.3681 4.9292 12.498C4.9292 12.628 4.95888 12.7563 5.01599 12.873C5.07309 12.9898 5.15611 13.0919 5.2587 13.1717L17.3337 22.603C17.4757 22.7128 17.6792 22.6137 17.6792 22.4342V20.3637C17.6792 20.2324 17.6176 20.1065 17.5158 20.0262L7.87299 12.4994L17.5158 4.96992C17.6176 4.88957 17.6792 4.76367 17.6792 4.63242Z" fill="black" fill-opacity="0.85"/>
+        </svg>
+      </div>
+      <div class="swiper-button-next press-next">
+        <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18.7955 11.8256L6.72054 2.39438C6.68899 2.36954 6.65107 2.3541 6.61114 2.34984C6.57121 2.34558 6.53088 2.35266 6.4948 2.37029C6.45871 2.38791 6.42833 2.41535 6.40714 2.44946C6.38595 2.48357 6.37481 2.52297 6.375 2.56313V4.63366C6.375 4.76491 6.43661 4.89081 6.5384 4.97116L16.1813 12.5006L6.5384 20.0301C6.43393 20.1104 6.375 20.2363 6.375 20.3676V22.4381C6.375 22.6176 6.58125 22.7167 6.72054 22.6069L18.7955 13.1756C18.8982 13.0956 18.9812 12.9932 19.0383 12.8762C19.0954 12.7592 19.1251 12.6308 19.1251 12.5006C19.1251 12.3705 19.0954 12.242 19.0383 12.1251C18.9812 12.0081 18.8982 11.9057 18.7955 11.8256Z" fill="black" fill-opacity="0.85"/>
+        </svg>
+      </div>
+  </div>
+  <div class="swiper-pagination press-pagination"></div>
+</div>
+
+<script type="module">
+  let press_swiper = new Swiper('.press-swiper', {
+      loop: true,
+      centeredSlides: false,
+      slidesPerView: 1.2,
+      spaceBetween : 30,
+      loopFillGroupWithBlank: true,
+      navigation: {
+        nextEl: '.swiper-button-next.press-next',
+        prevEl: '.swiper-button-prev.press-prev',
+      },
+      pagination: {
+        el: '.swiper-pagination.press-pagination',
+        clickable :true,
+      },
+        breakpoints: { 
+            768: {  //当屏幕宽度大于等于768
+                slidesPerView: 1.8,
+                spaceBetween: 10,
+                centeredSlides: true,
+            },
+            1280: {  //当屏幕宽度大于等于1280 
+                slidesPerView: 1.8,
+                spaceBetween: 20,
+                centeredSlides: true,
+            },
+            1650: {  //当屏幕宽度大于等于1650
+                slidesPerView: 1.8,
+                spaceBetween: 30,
+                centeredSlides: true,
+            }
+        },
+  })
+</script>
+{% schema %}
+  {
+    "name": "SPX press",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Section title"
+      }
+	],
+    "blocks":[
+      {
+        "type":"block",
+        "name":"block",
+        "settings":[
+          {
+            "type": "textarea",
+            "id": "content",
+            "label": "Content"
+          }
+        ]
+      }
+    ],
+   "presets": [
+      {
+		"name": "SPX press ",
+		"category": "review"
+      }
+   ]
+  }
+{% endschema %}
+
