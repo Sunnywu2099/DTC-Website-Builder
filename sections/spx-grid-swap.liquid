@@ -10,6 +10,7 @@
                 {% for block in section.blocks %}
                     {% case block.type %}
                         {% when 'block2' %}
+                            <div class="spx-gs-item spx-gs-item_2">
                             {% for i in (1..2) %} 
                                 {%- liquid 
                                     assign item_title = 'title0' | append: i
@@ -20,7 +21,6 @@
                                     assign item_link = 'link0' | append: i
                                 -%}
                             {% endfor %}
-                            <div class="spx-gs-item spx-gs-item_2">
                                 {{ item_title }}
                             </div>
                         {% when 'block3' %}
