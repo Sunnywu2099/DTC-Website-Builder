@@ -313,6 +313,63 @@
         "image_bg": "shopify:\/\/shop_images\/f1_e1636eb7-c1eb-46dd-b6b4-db91be41ef5f.png",
         "image_arrow": "shopify:\/\/shop_images\/f2_deeb87cf-c138-460c-ab66-f636df5c3a59.png"
       }
+    },
+    "9752e660-9d0e-4d6b-b8e2-384e2ac27bbe": {
+      "type": "spx-grid-swap",
+      "blocks": {
+        "template--16704114884757__9752e660-9d0e-4d6b-b8e2-384e2ac27bbe-block2-1": {
+          "type": "block2",
+          "settings": {
+            "title01": "title title title",
+            "menu_sub01": "<p>text text text.<\/p>",
+            "btn01": "shop",
+            "link01": "",
+            "title02": "title title title",
+            "menu_sub02": "<p>text text text.<\/p>",
+            "btn02": "shop",
+            "link02": ""
+          }
+        },
+        "template--16704114884757__9752e660-9d0e-4d6b-b8e2-384e2ac27bbe-block3-1": {
+          "type": "block3",
+          "settings": {
+            "title01": "title title title",
+            "menu_sub01": "<p>text text text.<\/p>",
+            "btn01": "shop",
+            "link01": "",
+            "title02": "title title title",
+            "menu_sub02": "<p>text text text.<\/p>",
+            "btn02": "shop",
+            "link02": "",
+            "title03": "title title title",
+            "menu_sub03": "<p>text text text.<\/p>",
+            "btn03": "shop",
+            "link03": ""
+          }
+        },
+        "template--16704114884757__9752e660-9d0e-4d6b-b8e2-384e2ac27bbe-block2-2": {
+          "type": "block2",
+          "settings": {
+            "title01": "title title title",
+            "menu_sub01": "<p>text text text.<\/p>",
+            "btn01": "shop",
+            "link01": "",
+            "title02": "title title title",
+            "menu_sub02": "<p>text text text.<\/p>",
+            "btn02": "shop",
+            "link02": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--16704114884757__9752e660-9d0e-4d6b-b8e2-384e2ac27bbe-block2-1",
+        "template--16704114884757__9752e660-9d0e-4d6b-b8e2-384e2ac27bbe-block3-1",
+        "template--16704114884757__9752e660-9d0e-4d6b-b8e2-384e2ac27bbe-block2-2"
+      ],
+      "settings": {
+        "title1": "Automatic Base Station",
+        "title2": "One Station to Take Care of All"
+      }
     }
   },
   "order": [
@@ -321,6 +378,7 @@
     "1c0c39d6-0db9-4ff6-9c22-5ba99800e65d",
     "9de2fcbd-01fc-4989-86e1-080c18f3eba5",
     "71ea1a10-a1b7-4474-a465-dbd6f6c1373e",
-    "9a867374-1d93-481a-8f03-d3f37650ad08"
+    "9a867374-1d93-481a-8f03-d3f37650ad08",
+    "9752e660-9d0e-4d6b-b8e2-384e2ac27bbe"
   ]
 }
