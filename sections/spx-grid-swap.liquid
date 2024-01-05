@@ -20,8 +20,9 @@
                                     assign item_btn = 'btn0' | append: i
                                     assign item_link = 'link0' | append: i
                                 -%}
-                                <div class="">
-                                    {{ item_title }}
+                                <div class="spx-gs-item_box">
+                                    <div class="spx-gs-item_title">{{ item_title }}</div>
+                                    <div class="spx-gs-item_img"></div>
                                 </div>
                             {% endfor %}
                             </div>
