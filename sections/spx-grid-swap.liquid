@@ -23,7 +23,7 @@
                                 <div class="spx-gs-item_box">
                                     <div class="spx-gs-item_title">{{ item_title }}</div>
                                     <div class="spx-gs-item_img">
-                                        {% comment %} {{ block.settings[] | image_url: width: master | image_tag: class: 'img', loading: 'lazy' }} {% endcomment %}
+                                        {{ block.settings['item_image'] | image_url: width: master | image_tag: class: 'img', loading: 'lazy' }}
                                     </div>
                                 </div>
                             {% endfor %}
