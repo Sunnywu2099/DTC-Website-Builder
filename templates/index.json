@@ -320,12 +320,12 @@
         "template--16704114884757__9752e660-9d0e-4d6b-b8e2-384e2ac27bbe-block2-1": {
           "type": "block2",
           "settings": {
-            "title01": "title title title",
-            "menu_sub01": "<p>text text text.<\/p>",
+            "title01": "title title title111111",
+            "subtitle01": "<p>text text text.<\/p>",
             "btn01": "shop",
             "link01": "",
-            "title02": "title title title",
-            "menu_sub02": "<p>text text text.<\/p>",
+            "title02": "title title title22222",
+            "subtitle02": "<p>text text text.<\/p>",
             "btn02": "shop",
             "link02": ""
           }
@@ -334,15 +334,15 @@
           "type": "block3",
           "settings": {
             "title01": "title title title",
-            "menu_sub01": "<p>text text text.<\/p>",
+            "subtitle01": "<p>text text text.<\/p>",
             "btn01": "shop",
             "link01": "",
             "title02": "title title title",
-            "menu_sub02": "<p>text text text.<\/p>",
+            "subtitle02": "<p>text text text.<\/p>",
             "btn02": "shop",
             "link02": "",
             "title03": "title title title",
-            "menu_sub03": "<p>text text text.<\/p>",
+            "subtitle03": "<p>text text text.<\/p>",
             "btn03": "shop",
             "link03": ""
           }
@@ -351,11 +351,11 @@
           "type": "block2",
           "settings": {
             "title01": "title title title",
-            "menu_sub01": "<p>text text text.<\/p>",
+            "subtitle01": "<p>text text text.<\/p>",
             "btn01": "shop",
             "link01": "",
-            "title02": "title title title",
-            "menu_sub02": "<p>text text text.<\/p>",
+            "title02": "title title titledff",
+            "subtitle02": "<p>text text text.<\/p>",
             "btn02": "shop",
             "link02": ""
           }
