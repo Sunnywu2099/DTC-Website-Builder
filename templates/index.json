@@ -90,11 +90,13 @@
         "b68335a0-5986-4397-a052-bf4c13170c22",
         "4b720668-5179-40c8-8708-9ca27a213aa1"
       ],
+      "disabled": true,
       "settings": {
       }
     },
     "9de2fcbd-01fc-4989-86e1-080c18f3eba5": {
       "type": "spx-scrollVideo",
+      "disabled": true,
       "settings": {
         "img": "shopify:\/\/shop_images\/Exclude_1629c84d-6a69-4801-82d8-b30f99f48f13.png",
         "img_m": "shopify:\/\/shop_images\/Exclude_e540f7bb-c81a-4de9-8191-d147311129fb.png",
@@ -140,6 +142,7 @@
         "b2fc4653-9373-47d1-9213-96371d25b187",
         "b9174922-b92f-4d67-afbb-2d8aa5434534"
       ],
+      "disabled": true,
       "settings": {
         "title": "Press Room"
       }
