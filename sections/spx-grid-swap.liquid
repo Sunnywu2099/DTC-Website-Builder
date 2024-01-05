@@ -21,7 +21,7 @@
                                     assign item_link = 'link0' | append: i
                                 -%}
                                 <div class="spx-gs-item_box">
-                                    <div class="spx-gs-item_title">{{ item_title }}</div>
+                                    <div class="spx-gs-item_title">{{ block.settings['item_title'] }}</div>
                                     <div class="spx-gs-item_img">
                                         {% comment %} {{ block.settings['item_image'] | image_url: width: master | image_tag: class: 'img', loading: 'lazy' }} {% endcomment %}
                                     </div>
