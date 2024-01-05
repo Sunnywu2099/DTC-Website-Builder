@@ -19,10 +19,10 @@
                                     assign item_btn = 'btn0' | append: i
                                     assign item_link = 'link0' | append: i
                                 -%}
-                                <div class="spx-gs-item spx-gs-item_2">
-                                    {{ item_title }}
-                                </div>
                             {% endfor %}
+                            <div class="spx-gs-item spx-gs-item_2">
+                                {{ item_title }}
+                            </div>
                         {% when 'block3' %}
                     {% endcase %}
                 {% endfor %}
