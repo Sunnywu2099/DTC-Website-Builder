@@ -322,10 +322,12 @@
           "settings": {
             "title01": "title title title111111",
             "subtitle01": "<p>text text text.<\/p>",
+            "image01": "shopify:\/\/shop_images\/54b0cc202f3139869ec3662c652ed0c7.png",
             "btn01": "shop",
             "link01": "",
             "title02": "title title title22222",
             "subtitle02": "<p>text text text.<\/p>",
+            "image02": "shopify:\/\/shop_images\/10aa7001acef0dc3ba56e2a5beb8d153.png",
             "btn02": "shop",
             "link02": ""
           }
