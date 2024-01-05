@@ -20,8 +20,10 @@
                                     assign item_btn = 'btn0' | append: i
                                     assign item_link = 'link0' | append: i
                                 -%}
+                                <div class="">
+                                    {{ item_title }}
+                                </div>
                             {% endfor %}
-                                {{ item_title }}
                             </div>
                         {% when 'block3' %}
                     {% endcase %}
