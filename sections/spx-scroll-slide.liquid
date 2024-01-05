@@ -335,7 +335,7 @@
 </div>
 
 <script type="module">
-    
+    document.addEventListener('DOMContentLoaded', function() {
         const box = document.getElementById('MainContent');
     
         let isMobile = /android|iphone|ipad|ipod|micromessenger/gi.test(navigator.userAgent.toLocaleLowerCase()) || window.innerWidth <= 1000;
@@ -490,7 +490,7 @@
                 fiveSelect = select;
             }
         }
-    
+    });
 </script>
 
 {% schema %}
