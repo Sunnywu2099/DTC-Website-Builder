@@ -334,8 +334,8 @@
   </div>
 </div>
 
-<script>
-    (function() {
+<script type="module">
+    document.addEventListener('DOMContentLoaded', function() {
         const box = document.getElementById('MainContent');
     
         let isMobile = /android|iphone|ipad|ipod|micromessenger/gi.test(navigator.userAgent.toLocaleLowerCase()) || window.innerWidth <= 1000;
@@ -456,7 +456,6 @@
                 window.scrollTo(0, top + mod * index - (index > 0 ? 10 : 0));
             }
         });
-    
         function runFiveAnime(scrollTop) {
             if (!offsetMap.five) {
                 return false;
@@ -491,9 +490,7 @@
                 fiveSelect = select;
             }
         }
-
-    })();
-    
+    });
 </script>
 
 {% schema %}
