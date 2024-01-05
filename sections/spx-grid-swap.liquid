@@ -23,7 +23,7 @@
                                 <div class="spx-gs-item_box">
                                     <div class="spx-gs-item_title">{{ block.settings[item_title] }}</div>
                                     <div class="spx-gs-item_img">
-                                        {% comment %} {{ block.settings[item_image] | image_url: width: master | image_tag: class: 'img', loading: 'lazy' }} {% endcomment %}
+                                        {{ block.settings[item_image] | image_url: width: master | image_tag: class: 'img', loading: 'lazy' }}
                                     </div>
                                 </div>
                             {% endfor %}
@@ -78,7 +78,8 @@
         {
             "type": "image_picker",
             "id": "image01",
-            "label": "图片01"
+            "label": "图片01",
+            "info":"320*254px"
         },
         {
             "type": "image_picker",
