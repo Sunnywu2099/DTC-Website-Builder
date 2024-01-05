@@ -1,0 +1,110 @@
+{% schema %}
+{
+  "name": "Index page fifth",
+  "class": "shopify-new-index",
+  "tag": "section",
+  "max_blocks":8,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title1",
+      "label": "标题一",
+      "default": "Automatic Base Station"
+    },
+    {
+      "type": "text",
+      "id": "title2",
+      "label": "标题二",
+      "default": "One Station to Take Care of All"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "block",
+      "settings": [
+        {
+            "type":"header",
+            "content":"第一组"
+        },
+        {
+            "type": "text",
+            "id": "title01",
+            "label": "名称01",
+            "default": "title title title"
+        },
+        {
+            "type": "richtext",
+            "id": "menu_sub01",
+            "label": "描述01",
+            "default": "<p>text text text.</p>"
+        },
+        {
+            "type": "image_picker",
+            "id": "image01",
+            "label": "图片01"
+        },
+        {
+            "type": "text",
+            "id": "btn01",
+            "label": "按钮文案01",
+            "default": "shop"
+        },
+        {
+            "type": "url",
+            "id": "link01",
+            "label": "按钮链接01"
+        },
+        {
+            "type":"header",
+            "content":"第二组"
+        },
+        {
+            "type": "text",
+            "id": "title02",
+            "label": "名称02",
+            "default": "title title title"
+        },
+        {
+            "type": "richtext",
+            "id": "menu_sub02",
+            "label": "描述02",
+            "default": "<p>text text text.</p>"
+        },
+        {
+            "type": "image_picker",
+            "id": "image02",
+            "label": "图片02"
+        },
+        {
+            "type": "text",
+            "id": "btn02",
+            "label": "按钮文案02",
+            "default": "shop"
+        },
+        {
+            "type": "url",
+            "id": "link02",
+            "label": "按钮链接02"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+        "name": "格子切换",
+        "blocks": [
+        {
+            "type": "block"
+        },
+        {
+            "type": "block"
+        },
+        {
+            "type": "block"
+        }
+        ]
+    }
+  ]
+}
+{% endschema %}
