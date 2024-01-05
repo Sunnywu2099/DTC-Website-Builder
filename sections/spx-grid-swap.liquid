@@ -9,8 +9,9 @@
             <div class="spx-gs-item">
                 {% for block in section.blocks %}
                     {% case block.type %}
-                        {% when block.type = 'block2' %}
-                        {% when block.type = 'block3' %}
+                        {% when 'block2' %}
+                            
+                        {% when 'block3' %}
                     {% endcase %}
                 {% endfor %}
             </div>
