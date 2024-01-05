@@ -7,7 +7,12 @@
         <div class="spx-gs-two">
             <div class="spx-gs-item-details"></div>
             <div class="spx-gs-item">
-                
+                {% for block in section.blocks %}
+                    {% case block.type %}
+                        {% when block.type = 'block2' %}
+                        {% when block.type = 'block3' %}
+                    {% endcase %}
+                {% endfor %}
             </div>
         </div>
     </div>
