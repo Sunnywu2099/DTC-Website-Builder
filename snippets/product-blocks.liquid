@@ -12,8 +12,18 @@
         </span>
 
       {%- when 'size_match' -%}
+      <style>
+        .size-title{
+          font-weight: 700;
+          font-size: 20px;
+          color: #240700;
+          transform-origin: 10px 0;
+          transform: scale(.6) translateY(-15px) translate(-8px)!important;
+          display: block;
+        }
+      </style>
         <div class="main-product__block-match">
-          <span class="">size match</span>
+          <span class="size-title">Size match</span>
         </div>
 
       {%- when 'title' -%}
