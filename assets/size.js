@@ -13,7 +13,7 @@
         let size1 = ($(this).val());
 
         if (!isNaN(size1) && size1 >= 0) {
-            $('#size2').prop('disabled', false).focus().attr('min', 0);
+            $('#size2').prop('disabled', false).attr('min', 0);
         } else {
             $('#size2, #size3').prop('disabled', true).val('');
         }
@@ -27,7 +27,7 @@
         let size2 = ($(this).val());
 
         if (!isNaN(size2) && size2 >= 0) {
-            $('#size3').prop('disabled', false).focus().attr('min', 0);
+            $('#size3').prop('disabled', false).attr('min', 0);
             filterSize3Options(size1, size2);
         } else {
             $('#size3').prop('disabled', true).val('');
