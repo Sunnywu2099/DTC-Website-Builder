@@ -7,8 +7,6 @@ let sizes = [
     // Add more sizes here
 ];
 
-$('#size2, #size3').prop('disabled', true);
-
 $('#size1').on('input', function () {
     let size1 = $(this).val();
     if (size1 > 0) {
