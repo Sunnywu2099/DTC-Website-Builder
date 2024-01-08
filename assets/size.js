@@ -4,9 +4,10 @@ let size3 = $('#size3');
 
 function getRecommendedSize(s1, s2, s3) {
     var sizes = [
-        { name: 'Small', size1Range: [0, 4], size2Range: [24, 28], size3Range: [32, 36] },
-        { name: 'Medium', size1Range: [4, 8], size2Range: [28, 32], size3Range: [36, 40] },
-        { name: 'Large', size1Range: [8, 12], size2Range: [32, 35], size3Range: [40, 43] },
+        { name: 'XS', size1Range: [25, 39], size2Range: [17, 25], size3Range: [23, 37] },
+        { name: 'S', size1Range: [26, 41], size2Range: [19, 27], size3Range: [25, 39] },
+        { name: 'M', size1Range: [28, 43], size2Range: [20, 29], size3Range: [26, 41] },
+        { name: 'L', size1Range: [30, 44], size2Range: [22, 30], size3Range: [28, 42] },
         // Add more sizes here
     ];
 
