@@ -1,6 +1,6 @@
-let size1 = $('$size1');
-let size2 = $('$size2');
-let size3 = $('$size3');
+let size1 = $('#size1');
+let size2 = $('#size2');
+let size3 = $('#size3');
 
 function getRecommendedSize(s1, s2, s3) {
     var sizes = [
