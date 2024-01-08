@@ -39,47 +39,45 @@ $('#size3').on('input', function () {
     let size2 = $('#size2').val();
     let size3 = $(this).val();
     if (size3 > 0) {
-        filterRecommendedSize(size1, size2, size3);
-    } else {
-
+        let filteredSizes = filterSizesBySize1AndSize2AndSize3(size1, size2, size3);
+        displayResult(filteredSizes.length > 0 ? filteredSizes.map(s => s.name).join(', ') : 'none');
+    }else{
+        displayResult('none');
     }
-    let result = filterSizes(size1, size2, size3);
-    displayResult(result);
 });
 
-function filterSizes(size1, size2, size3) {
-    let filteredSizes = sizes.filter(function (size) {
-        if (size1 !== null && !isInRange(size1, size.size1Range)) {
-            return false;
-        }
-        if (size2 !== null && !isInRange(size2, size.size2Range)) {
-            return false;
-        }
-        if (size3 !== null && !isInRange(size3, size.size3Range)) {
-            return false;
-        }
-        return true;
+function filterSizesBySize1(size1) {
+    return sizes.filter(function (size) {
+        return isInRange(size1, size.size1Range);
     });
-    return filteredSizes.length > 0 ? filteredSizes.map(s => s.name).join(', ') : 'none';
 }
-
-function filterSize3Options(size1, size2) {
-    // 根据size1和size2的值，过滤size3的选项范围
-    // 这里假设根据你的需求编写过滤逻辑
-    // $('#size3').attr('min', someFilteredValueBasedOnSize1AndSize2);
+function filterSizesBySize1AndSize2(size1, size2) {
+    var filteredSizes = filterSizesBySize1(size1);
+    return filteredSizes.filter(function (size) {
+        return isInRange(size2, size.size2Range);
+    });
 }
-
-function filterRecommendedSize(size1, size2, size3) {
-    // 根据size1、size2和size3的值，动态更新推荐尺码
-    // 这里假设根据你的需求编写更新逻辑
-    let recommendedSize = calculateRecommendedSize(size1, size2, size3);
-    $('#recommendedSize').text('Recommended size: ' + recommendedSize);
+function filterSizesBySize1AndSize2AndSize3(size1, size2, size3) {
+    var filteredSizes = filterSizesBySize1AndSize2(size1, size2);
+    return filteredSizes.filter(function (size) {
+        return isInRange(size3, size.size3Range);
+    });
 }
-
+function populateSize2Options(sizes) {
+    $('#size2').empty().prop('disabled', false).append('<option value="">Select size</option>');
+    sizes.forEach(function (size) {
+        $('#size2').append('<option value="' + size.size2Range[0] + '">' + size.size2Range[0] + '</option>');
+    });
+}
+function populateSize3Options(sizes) {
+    $('#size3').empty().prop('disabled', false).append('<option value="">Select size</option>');
+    sizes.forEach(function (size) {
+        $('#size3').append('<option value="' + size.size3Range[0] + '">' + size.size3Range[0] + '</option>');
+    });
+}
 function isInRange(value, range) {
     return value >= range[0] && value <= range[1];
 }
-
 function displayResult(result) {
     $('#result').text(result);
 }
