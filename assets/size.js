@@ -18,7 +18,7 @@ $('#size1').on('input', function () {
     } else {
         $('#size2, #size3').prop('disabled', true).val('');
     }
-    displayResult('none');
+    displayResult('Please enter your size data');
 });
 
 $('#size2').on('input', function () {
@@ -31,7 +31,7 @@ $('#size2').on('input', function () {
     } else {
         $('#size3').prop('disabled', true).val('');
     }
-    displayResult('none');
+    displayResult('Please enter your size data');
 });
 
 $('#size3').on('input', function () {
@@ -40,9 +40,9 @@ $('#size3').on('input', function () {
     let size3 = $(this).val();
     if (size3 > 0) {
         let filteredSizes = filterSizesBySize1AndSize2AndSize3(size1, size2, size3);
-        displayResult(filteredSizes.length > 0 ? filteredSizes.map(s => s.name).join(', ') : 'none');
+        displayResult(filteredSizes.length > 0 ? filteredSizes.map(s => s.name).join(', ') : 'Please enter your size data');
     }else{
-        displayResult('none');
+        displayResult('Please enter your size data');
     }
 });
 
