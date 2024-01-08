@@ -62,7 +62,7 @@
                                     assign item_btn = 'btn0' | append: i
                                     assign item_link = 'link0' | append: i
                                 -%}
-                                <div class="spx-gs-detail {% if forloop.first and detail_open %}open {% assign detail_open = false %}{% endif %}" style="background:#ff{{ forloop.index }};">
+                                <div class="spx-gs-detail{% if forloop.first and detail_open %} open {% assign detail_open = false %}{% endif %}" style="background:#ff{{ forloop.index }};">
                                     {% comment %} <div class="spx-gs-detail_img">
                                         {{ block.settings[item_image_aspect] | image_url: width: master | image_tag: class: 'img', loading: 'lazy' }}
                                     </div> {% endcomment %}
@@ -82,7 +82,7 @@
                                     assign item_btn = 'btn0' | append: i
                                     assign item_link = 'link0' | append: i
                                 -%}
-                                <div class="spx-gs-detail {% if forloop.first and detail_open %}open {% assign detail_open = false %}{% endif %}" style="background:#ff{{ forloop.index }};">
+                                <div class="spx-gs-detail{% if forloop.first and detail_open %} open {% assign detail_open = false %}{% endif %}" style="background:#ff{{ forloop.index }};">
                                     {% comment %} <div class="spx-gs-detail_img">
                                         {{ block.settings[item_image_aspect] | image_url: width: master | image_tag: class: 'img', loading: 'lazy' }}
                                     </div> {% endcomment %}
