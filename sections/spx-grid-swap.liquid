@@ -57,14 +57,13 @@
                                 {%- liquid 
                                     assign item_title = 'title0' | append: i
                                     assign item_subtitle = 'subtitle0' | append: i
-                                    assign item_image = 'image0' | append: i
                                     assign item_image_aspect = 'image_aspect0' | append: i
                                     assign item_btn = 'btn0' | append: i
                                     assign item_link = 'link0' | append: i
                                 -%}
                                 <div class="spx-gs-detail" style="background:#ff{{ forloop.index }};">
                                     {% comment %} <div class="spx-gs-detail_img">
-                                        {{ block.settings[item_image] | image_url: width: master | image_tag: class: 'img', loading: 'lazy' }}
+                                        {{ block.settings[item_image_aspect] | image_url: width: master | image_tag: class: 'img', loading: 'lazy' }}
                                     </div> {% endcomment %}
                                     <div class="spx-gs-detail_box">
                                         <div class="spx-gs-detail_title">{{ block.settings[item_title] }}</div>
@@ -78,7 +77,6 @@
                                 {%- liquid 
                                     assign item_title = 'title0' | append: i
                                     assign item_subtitle = 'subtitle0' | append: i
-                                    assign item_image = 'image0' | append: i
                                     assign item_image_aspect = 'image_aspect0' | append: i
                                     assign item_btn = 'btn0' | append: i
                                     assign item_link = 'link0' | append: i
@@ -105,11 +103,7 @@
                             {% for i in (1..2) %} 
                                 {%- liquid 
                                     assign item_title = 'title0' | append: i
-                                    assign item_subtitle = 'subtitle0' | append: i
                                     assign item_image = 'image0' | append: i
-                                    assign item_image_aspect = 'image_aspect0' | append: i
-                                    assign item_btn = 'btn0' | append: i
-                                    assign item_link = 'link0' | append: i
                                 -%}
                                 <div class="spx-gs-item_box">
                                     <div class="spx-gs-item_title">{{ block.settings[item_title] }}</div>
@@ -124,11 +118,7 @@
                             {% for i in (1..3) %} 
                                 {%- liquid 
                                     assign item_title = 'title0' | append: i
-                                    assign item_subtitle = 'subtitle0' | append: i
                                     assign item_image = 'image0' | append: i
-                                    assign item_image_aspect = 'image_aspect0' | append: i
-                                    assign item_btn = 'btn0' | append: i
-                                    assign item_link = 'link0' | append: i
                                 -%}
                                 <div class="spx-gs-item_box">
                                     <div class="spx-gs-item_title">{{ block.settings[item_title] }}</div>
