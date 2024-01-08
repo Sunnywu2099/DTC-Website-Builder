@@ -12,12 +12,13 @@
     }
     .spx-gs-detail{
         opacity:0;
-        display:none;
+        max-height: 0;
+        overflow: hidden;
         transition: all .3s ease;
     }
     .spx-gs-detail.open{
         opacity:1;
-        display:block;
+        max-height: unset;
     }
     .spx-gs-items {
         display: flex;
