@@ -37,8 +37,10 @@
         let size1 = $('#size1').val();
         let size2 = $('#size2').val();
         let size3 = $(this).val();
-        if (!isNaN(size3) && size3 > 0) {
+        if ( size3 > 0) {
             filterRecommendedSize(size1, size2, size3);
+        }else{
+            
         }
         let result = filterSizes(size1, size2, size3);
         displayResult(result);
