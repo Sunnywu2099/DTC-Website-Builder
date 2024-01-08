@@ -56,11 +56,6 @@ $('#size3').on('input', function () {
     }
 });
 
-
-$('#size1').on('change', function () {
-    $('#size2, #size3').prop('disabled', true).val('');
-    displayResult('Please enter your size data');
-});
 function filterSizesBySize1(size1) {
     return sizes.filter(function (size) {
         return isInRange(size1, size.size1Range);
