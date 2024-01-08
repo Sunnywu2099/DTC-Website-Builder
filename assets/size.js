@@ -13,11 +13,12 @@ $('#size1').on('input', function () {
     let size1 = $(this).val();
     if (size1 > 0) {
         $('#size2').prop('disabled', false);
+        let filteredSizes = filterSizesBySize1(size1);
+        populateSize2Options(filteredSizes);
     } else {
         $('#size2, #size3').prop('disabled', true).val('');
     }
-    let result = filterSizes(size1, null, null);
-    displayResult(result);
+    displayResult('none');
 });
 
 $('#size2').on('input', function () {
@@ -25,12 +26,12 @@ $('#size2').on('input', function () {
     let size2 = $(this).val();
     if (size2 > 0) {
         $('#size3').prop('disabled', false);
-        filterSize3Options(size1, size2);
+        let filteredSizes = filterSizesBySize1AndSize2(size1, size2);
+        populateSize3Options(filteredSizes);
     } else {
         $('#size3').prop('disabled', true).val('');
     }
-    let result = filterSizes(size1, size2, null);
-    displayResult(result);
+    displayResult('none');
 });
 
 $('#size3').on('input', function () {
