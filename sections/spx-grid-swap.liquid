@@ -85,7 +85,7 @@
                                 -%}
                                 <div class="spx-gs-detail" style="background:#ff{{ forloop.index }};">
                                     {% comment %} <div class="spx-gs-detail_img">
-                                        {{ block.settings[item_image] | image_url: width: master | image_tag: class: 'img', loading: 'lazy' }}
+                                        {{ block.settings[item_image_aspect] | image_url: width: master | image_tag: class: 'img', loading: 'lazy' }}
                                     </div> {% endcomment %}
                                     <div class="spx-gs-detail_box">
                                         <div class="spx-gs-detail_title">{{ block.settings[item_title] }}</div>
