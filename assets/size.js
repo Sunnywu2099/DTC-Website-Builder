@@ -14,7 +14,7 @@
         if ( size1 > 0) {
             $('#size2').prop('disabled', false);
         } else {
-            $('#size2, #size3').prop('disabled', true);
+            $('#size2, #size3').prop('disabled', true).val('');
         }
         let result = filterSizes(size1, null, null);
         displayResult(result);
