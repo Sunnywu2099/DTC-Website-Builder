@@ -84,6 +84,6 @@
     }
 
     function displayResult(result) {
-        $('#recommendedSize').text('Recommended sizes: ' + result);
+        $('#result').text(result);
     }
 
