@@ -83,7 +83,7 @@
                                     assign item_btn = 'btn0' | append: i
                                     assign item_link = 'link0' | append: i
                                 -%}
-                                <div class="spx-gs-detail">
+                                <div class="spx-gs-detail" style="background:#ff{{ forloop.index }};">
                                     {% comment %} <div class="spx-gs-detail_img">
                                         {{ block.settings[item_image] | image_url: width: master | image_tag: class: 'img', loading: 'lazy' }}
                                     </div> {% endcomment %}
