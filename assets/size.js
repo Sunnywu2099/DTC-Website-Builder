@@ -1,4 +1,4 @@
-
+// https://carosandoval.com/
 let sizes = [
     { name: 'XS', size1Range: [25, 39], size2Range: [17, 25], size3Range: [23, 37] },
     { name: 'S', size1Range: [26, 41], size2Range: [19, 27], size3Range: [25, 39] },
