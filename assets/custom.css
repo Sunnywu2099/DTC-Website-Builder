@@ -64,6 +64,10 @@ img {
     margin: 0;
     outline: none;
 }
+.size-input{
+    margin-top: -10px;
+    margin-left: -3px;
+}
 
 @media screen and (max-width: 768px) {
     .hide-mb {
