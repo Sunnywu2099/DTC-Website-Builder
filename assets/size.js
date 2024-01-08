@@ -67,7 +67,7 @@ $('#size3').on('input', function () {
         displayResult('Please enter your size data');
     }
 });
-$('#size2').on('keydown', function (e) {
+$('#size3').on('keydown', function (e) {
     if (e.keyCode === 8 || e.keyCode === 46) { // Backspace or Delete key
         $(this).val('').trigger('input');
         displayResult('Please enter your size data');
