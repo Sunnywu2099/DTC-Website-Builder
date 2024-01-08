@@ -7,20 +7,19 @@ let sizes = [
     // Add more sizes here
 ];
 
-$('#size1').on('change', function () {
+$('#size1').on('input', function () {
     let size1 = $(this).val();
-    $('#size2, #size3').prop('disabled', true).val('');
     if (size1 > 0) {
         $('#size2').prop('disabled', false);
         let filteredSizes = filterSizesBySize1(size1);
         populateSize2Options(filteredSizes);
     } else {
-        
+        $('#size2, #size3').prop('disabled', true).val('');
     }
     displayResult('Please enter your size data');
 });
 
-$('#size2').on('change', function () {
+$('#size2').on('input', function () {
     let size1 = $('#size1').val();
     let size2 = $(this).val();
     if (size2 > 0) {
@@ -32,7 +31,7 @@ $('#size2').on('change', function () {
     }
     displayResult('Please enter your size data');
 });
-$('#size3').on('change', function () {
+$('#size3').on('input', function () {
     let size1 = $('#size1').val();
     let size2 = $('#size2').val();
     let size3 = $(this).val();
