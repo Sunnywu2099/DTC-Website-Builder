@@ -40,7 +40,7 @@ $('#size3').on('input', function () {
     let size3 = $(this).val();
     if (size3 > 0) {
         let filteredSizes = filterSizesBySize1AndSize2AndSize3(size1, size2, size3);
-        displayResult(filteredSizes.length > 0 ? filteredSizes.map(s => s.name).join(', ') : 'Please enter your size data');
+        displayResult(filteredSizes.length > 0 ? filteredSizes.map(s => s.name).join(', ') : 'Size not found');
     }else{
         displayResult('Please enter your size data');
     }
