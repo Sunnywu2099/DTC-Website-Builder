@@ -711,7 +711,7 @@ button.shopify-payment-button__button--unbranded,
 
 .button[disabled] {
   opacity: 0.5;
-  cursor: default;
+  cursor: no-drop;
 }
 
 .button--x-small {
