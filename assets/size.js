@@ -9,7 +9,7 @@
 
     $('#size2, #size3').prop('disabled', true);
 
-    $('#size1').on('input', function () {
+    $('#size1').on('change', function () {
         let size1 = $(this).val();
 
         if (!isNaN(size1) && size1 >= 0) {
@@ -22,7 +22,7 @@
         displayResult(result);
     });
 
-    $('#size2').on('input', function () {
+    $('#size2').on('change', function () {
         let size1 = $('#size1').val();
         let size2 = $(this).val();
 
@@ -37,7 +37,7 @@
         displayResult(result);
     });
 
-    $('#size3').on('input', function () {
+    $('#size3').on('change', function () {
         let size1 = $('#size1').val();
         let size2 = $('#size2').val();
         let size3 = $(this).val();
