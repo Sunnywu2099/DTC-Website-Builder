@@ -10,7 +10,7 @@
     $('#size2, #size3').prop('disabled', true);
 
     $('#size1').on('input', function () {
-        let size1 = ($(this).val());
+        let size1 = $(this).val();
 
         if (!isNaN(size1) && size1 >= 0) {
             $('#size2').prop('disabled', false).attr('min', 0);
@@ -23,8 +23,8 @@
     });
 
     $('#size2').on('input', function () {
-        let size1 = ($('#size1').val());
-        let size2 = ($(this).val());
+        let size1 = $('#size1').val();
+        let size2 = $(this).val();
 
         if (!isNaN(size2) && size2 >= 0) {
             $('#size3').prop('disabled', false).attr('min', 0);
@@ -38,9 +38,9 @@
     });
 
     $('#size3').on('input', function () {
-        let size1 = ($('#size1').val());
-        let size2 = ($('#size2').val());
-        let size3 = ($(this).val());
+        let size1 = $('#size1').val();
+        let size2 = $('#size2').val();
+        let size3 = $(this).val();
 
         if (!isNaN(size3) && size3 >= 0) {
             filterRecommendedSize(size1, size2, size3);
