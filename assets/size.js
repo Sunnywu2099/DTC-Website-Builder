@@ -65,7 +65,7 @@ function filterSizes(size1, size2, size3) {
 function filterSize3Options(size1, size2) {
     // 根据size1和size2的值，过滤size3的选项范围
     // 这里假设根据你的需求编写过滤逻辑
-    $('#size3').attr('min', someFilteredValueBasedOnSize1AndSize2);
+    // $('#size3').attr('min', someFilteredValueBasedOnSize1AndSize2);
 }
 
 function filterRecommendedSize(size1, size2, size3) {
