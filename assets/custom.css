@@ -73,7 +73,11 @@ img {
     display: flex;
     gap: 12px;
 }
-
+.result{
+    margin-top: 10px;
+    font-size: 14px;
+    color: green;
+}
 @media screen and (max-width: 768px) {
     .hide-mb {
         display: none;
