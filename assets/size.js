@@ -6,7 +6,7 @@ if(size1&&size2&&size3){
     $('#size1').on('input', function () {
         let size1 = parseInt($(this).val());
         if (!isNaN(size1) && size1 >= 0) {
-            $('#size2').prop('disabled', false).focus();
+            $('#size2').prop('disabled', false);
         } else {
             $('#size2, #size3').prop('disabled', true).val('');
         }
@@ -17,7 +17,7 @@ if(size1&&size2&&size3){
     $('#size2').on('input', function () {
         let size2 = parseInt($(this).val());
         if (!isNaN(size2) && size2 >= 0) {
-            $('#size3').prop('disabled', false).focus();
+            $('#size3').prop('disabled', false);
         } else {
             $('#size3').prop('disabled', true).val('');
         }
