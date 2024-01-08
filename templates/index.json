@@ -317,6 +317,26 @@
     "9752e660-9d0e-4d6b-b8e2-384e2ac27bbe": {
       "type": "spx-grid-swap",
       "blocks": {
+        "template--16704114884757__9752e660-9d0e-4d6b-b8e2-384e2ac27bbe-block3-1": {
+          "type": "block3",
+          "settings": {
+            "title01": "title title title",
+            "subtitle01": "<p>text text text.<\/p>",
+            "image01": "shopify:\/\/shop_images\/cd557478c294724f408a1407dd1842b9.png",
+            "btn01": "shop",
+            "link01": "",
+            "title02": "title title title",
+            "subtitle02": "<p>text text text.<\/p>",
+            "image02": "shopify:\/\/shop_images\/4e43d76ac3706497b7cad66ec76d3169.png",
+            "btn02": "shop",
+            "link02": "",
+            "title03": "title title title",
+            "subtitle03": "<p>text text text.<\/p>",
+            "image03": "shopify:\/\/shop_images\/1587d65982355d643bc794500a9c5087.png",
+            "btn03": "shop",
+            "link03": ""
+          }
+        },
         "template--16704114884757__9752e660-9d0e-4d6b-b8e2-384e2ac27bbe-block2-1": {
           "type": "block2",
           "settings": {
@@ -332,41 +352,31 @@
             "link02": ""
           }
         },
-        "template--16704114884757__9752e660-9d0e-4d6b-b8e2-384e2ac27bbe-block3-1": {
+        "7c714bb0-dd2d-4ac5-88b9-2f2fc59bc838": {
           "type": "block3",
           "settings": {
             "title01": "title title title",
             "subtitle01": "<p>text text text.<\/p>",
+            "image01": "shopify:\/\/shop_images\/0c7dbb550384c6b693902cdc676ed750.png",
             "btn01": "shop",
             "link01": "",
             "title02": "title title title",
             "subtitle02": "<p>text text text.<\/p>",
+            "image02": "shopify:\/\/shop_images\/d7940798c3c710a95d22f50277e761ee.png",
             "btn02": "shop",
             "link02": "",
             "title03": "title title title",
             "subtitle03": "<p>text text text.<\/p>",
+            "image03": "shopify:\/\/shop_images\/2f6ee8fa70d63d5e51ef10fc44e32d8a.png",
             "btn03": "shop",
             "link03": ""
-          }
-        },
-        "template--16704114884757__9752e660-9d0e-4d6b-b8e2-384e2ac27bbe-block2-2": {
-          "type": "block2",
-          "settings": {
-            "title01": "title title title",
-            "subtitle01": "<p>text text text.<\/p>",
-            "btn01": "shop",
-            "link01": "",
-            "title02": "title title titledff",
-            "subtitle02": "<p>text text text.<\/p>",
-            "btn02": "shop",
-            "link02": ""
           }
         }
       },
       "block_order": [
-        "template--16704114884757__9752e660-9d0e-4d6b-b8e2-384e2ac27bbe-block2-1",
         "template--16704114884757__9752e660-9d0e-4d6b-b8e2-384e2ac27bbe-block3-1",
-        "template--16704114884757__9752e660-9d0e-4d6b-b8e2-384e2ac27bbe-block2-2"
+        "template--16704114884757__9752e660-9d0e-4d6b-b8e2-384e2ac27bbe-block2-1",
+        "7c714bb0-dd2d-4ac5-88b9-2f2fc59bc838"
       ],
       "settings": {
         "title1": "Automatic Base Station",
