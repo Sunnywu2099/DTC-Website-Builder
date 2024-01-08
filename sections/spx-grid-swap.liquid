@@ -162,7 +162,11 @@
         var i_index = $(this).data('index');
         $('.spx-gs-detail').each(function(i,e){
             var d_index = i+1;
-            console.log(i_index,d_index) ;
+            $(this).removeClass("open");
+            if( i_index == d_index ){
+                console.log(i_index,d_index) ;
+                $(this).addClass("open");
+            }
         })
     })
 </script>
