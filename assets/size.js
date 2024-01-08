@@ -23,7 +23,7 @@
     $('#size2').on('input', function () {
         let size1 = $('#size1').val();
         let size2 = $(this).val();
-        if (!isNaN(size2) && size2 > 0) {
+        if ( size2 > 0) {
             $('#size3').prop('disabled', false);
             filterSize3Options(size1, size2);
         } else {
