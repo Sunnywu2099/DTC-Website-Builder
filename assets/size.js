@@ -18,10 +18,6 @@ $('#size1').on('input', function () {
     }
     displayResult('Please enter your size data');
 });
-$('#size1').on('change', function () {
-    $('#size2, #size3').prop('disabled', true).val('');
-    displayResult('Please enter your size data');
-});
 
 $('#size2').on('input', function () {
     let size1 = $('#size1').val();
@@ -60,6 +56,11 @@ $('#size3').on('input', function () {
     }
 });
 
+
+$('#size1').on('change', function () {
+    $('#size2, #size3').prop('disabled', true).val('');
+    displayResult('Please enter your size data');
+});
 function filterSizesBySize1(size1) {
     return sizes.filter(function (size) {
         return isInRange(size1, size.size1Range);
