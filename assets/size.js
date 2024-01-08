@@ -5,7 +5,7 @@ let size3 = $('#size3');
 function getRecommendedSize(s1, s2, s3) {
     var sizes = [
         { name: 'Small', size1Range: [0, 4], size2Range: [24, 28], size3Range: [32, 36] },
-        { name: 'Medium', size1Range: [4, 6], size2Range: [28, 32], size3Range: [36, 40] },
+        { name: 'Medium', size1Range: [4, 8], size2Range: [28, 32], size3Range: [36, 40] },
         { name: 'Large', size1Range: [8, 12], size2Range: [32, 35], size3Range: [40, 43] },
         // Add more sizes here
     ];
