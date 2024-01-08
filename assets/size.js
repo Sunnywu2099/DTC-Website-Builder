@@ -35,7 +35,7 @@ function updateRecommendedSize() {
     let size3 = $('#size3').val();
 
     let recommendedSize = getRecommendedSize(size1, size2, size3);
-    $('#recommendedSize').text(recommendedSize);
+    $('#result').text(recommendedSize);
 }
 function getRecommendedSize(s1, s2, s3) {
     let sizes = [
