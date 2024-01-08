@@ -77,8 +77,9 @@
                                     assign item_image_aspect = 'image_aspect0' | append: i
                                     assign item_btn = 'btn0' | append: i
                                     assign item_link = 'link0' | append: i
+                                    assign detail_index = detail_index | plus: 1
                                 -%}
-                                <div class="spx-gs-detail{% if forloop.first and detail_open %} open {% assign detail_open = false %}{% endif %}" data-index="{{ detail_index | plus: 1 }}">
+                                <div class="spx-gs-detail{% if forloop.first and detail_open %} open {% assign detail_open = false %}{% endif %}" data-index="{{ detail_index }}">
                                     <div class="spx-gs-detail_img">
                                         {{ block.settings[item_image_aspect] | image_url: width: master | image_tag: class: 'img', loading: 'lazy' }}
                                     </div>
@@ -97,8 +98,9 @@
                                     assign item_image_aspect = 'image_aspect0' | append: i
                                     assign item_btn = 'btn0' | append: i
                                     assign item_link = 'link0' | append: i
+                                    assign detail_index = detail_index | plus: 1
                                 -%}
-                                <div class="spx-gs-detail{% if forloop.first and detail_open %} open {% assign detail_open = false %}{% endif %}" data-index="{{ detail_index | plus: 1 }}">
+                                <div class="spx-gs-detail{% if forloop.first and detail_open %} open {% assign detail_open = false %}{% endif %}" data-index="{{ detail_index }}">
                                     <div class="spx-gs-detail_img">
                                         {{ block.settings[item_image_aspect] | image_url: width: master | image_tag: class: 'img', loading: 'lazy' }}
                                     </div>
