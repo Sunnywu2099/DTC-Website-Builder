@@ -1,6 +1,16 @@
 let size1 = $('#size1');
 let size2 = $('#size2');
 let size3 = $('#size3');
+if(size1&&size2&&size3){
+    $('#size1, #size2, #size3').on('input', function () {
+        var size1 = $('#size1').val();
+        var size2 = $('#size2').val();
+        var size3 = $('#size3').val();
+    
+        var recommendedSize = getRecommendedSize(size1, size2, size3);
+        $('#result').text(recommendedSize);
+    });
+}
 
 function getRecommendedSize(s1, s2, s3) {
     var sizes = [
