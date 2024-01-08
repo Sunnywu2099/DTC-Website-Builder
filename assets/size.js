@@ -30,12 +30,12 @@ if(size1&&size2&&size3){
     });
 }
 function updateRecommendedSize() {
-    let size1 = parseInt($('#size1').val());
-    let size2 = parseInt($('#size2').val());
-    let size3 = parseInt($('#size3').val());
+    let size1 = $('#size1').val();
+    let size2 = $('#size2').val();
+    let size3 = $('#size3').val();
 
     let recommendedSize = getRecommendedSize(size1, size2, size3);
-    $('#recommendedSize').text('Recommended size: ' + recommendedSize);
+    $('#recommendedSize').text(recommendedSize);
 }
 function getRecommendedSize(s1, s2, s3) {
     let sizes = [
