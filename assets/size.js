@@ -18,6 +18,23 @@ $('#size1').on('input', function () {
     }
     displayResult('Please enter your size data');
 });
+$('#size1').on('change', function () {
+    $('#size2, #size3').prop('disabled', true).val('');
+    displayResult('Please enter your size data');
+});
+
+$('#size2').on('input', function () {
+    let size1 = $('#size1').val();
+    let size2 = $(this).val();
+    if (size2 > 0) {
+        $('#size3').prop('disabled', false);
+        let filteredSizes = filterSizesBySize1AndSize2(size1, size2);
+        populateSize3Options(filteredSizes);
+    } else {
+        $('#size3').prop('disabled', true).val('');
+    }
+    displayResult('Please enter your size data');
+});
 
 $('#size2').on('input', function () {
     let size1 = $('#size1').val();
