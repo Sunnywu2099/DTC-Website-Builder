@@ -33,7 +33,6 @@ $('#size2').on('input', function () {
     }
     displayResult('Please enter your size data');
 });
-
 $('#size3').on('input', function () {
     let size1 = $('#size1').val();
     let size2 = $('#size2').val();
