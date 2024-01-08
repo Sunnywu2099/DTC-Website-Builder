@@ -329,11 +329,13 @@
             "title02": "title title title",
             "subtitle02": "<p>text text text.<\/p>",
             "image02": "shopify:\/\/shop_images\/4e43d76ac3706497b7cad66ec76d3169.png",
+            "image_aspect02": "shopify:\/\/shop_images\/1680617afd6385d8e00022b7bfc4fd4d.jpg",
             "btn02": "shop",
             "link02": "",
             "title03": "title title title",
             "subtitle03": "<p>text text text.<\/p>",
             "image03": "shopify:\/\/shop_images\/1587d65982355d643bc794500a9c5087.png",
+            "image_aspect03": "shopify:\/\/shop_images\/2b78842f48acc25f87317ac80bf55ebb.jpg",
             "btn03": "shop",
             "link03": ""
           }
