@@ -49,7 +49,52 @@
             {% if section.settings.title2 != blank %}<div class="spx-gs-section-subtitle">{{ section.settings.title2 }}</div>{% endif %}
         </div>
         <div class="spx-gs-two">
-            <div class="spx-gs-item-details"></div>
+            <div class="spx-gs-item-details">
+                {% for block in section.blocks %}
+                    {% case block.type %}
+                        {% when 'block2' %}
+                            <div class="spx-gs-detail">
+                            {% for i in (1..2) %} 
+                                {%- liquid 
+                                    assign item_title = 'title0' | append: i
+                                    assign item_subtitle = 'subtitle0' | append: i
+                                    assign item_image = 'image0' | append: i
+                                    assign item_image_aspect = 'image_aspect0' | append: i
+                                    assign item_btn = 'btn0' | append: i
+                                    assign item_link = 'link0' | append: i
+                                -%}
+                                <div class="spx-gs-detail_img">
+                                    {{ block.settings[item_image] | image_url: width: master | image_tag: class: 'img', loading: 'lazy' }}
+                                </div>
+                                <div class="spx-gs-detail_box">
+                                    <div class="spx-gs-detail_title">{{ block.settings[item_title] }}</div>
+                                    <div class="spx-gs-detail_subtitle">{{ block.settings[item_subtitle] }}</div>
+                                    <div class="spx-gs-detail_btn"><a href="{{ block.settings[item_link] }}">{{ block.settings[item_btn] }}</a></div>
+                                </div>
+                            {% endfor %}
+                            </div>
+                        {% when 'block3' %}
+                            <div class="spx-gs-item spx-gs-item_3">
+                            {% for i in (1..3) %} 
+                                {%- liquid 
+                                    assign item_title = 'title0' | append: i
+                                    assign item_subtitle = 'subtitle0' | append: i
+                                    assign item_image = 'image0' | append: i
+                                    assign item_image_aspect = 'image_aspect0' | append: i
+                                    assign item_btn = 'btn0' | append: i
+                                    assign item_link = 'link0' | append: i
+                                -%}
+                                <div class="spx-gs-item_box">
+                                    <div class="spx-gs-item_title">{{ block.settings[item_title] }}</div>
+                                    <div class="spx-gs-item_img">
+                                        {{ block.settings[item_image] | image_url: width: master | image_tag: class: 'img', loading: 'lazy' }}
+                                    </div>
+                                </div>
+                            {% endfor %}
+                            </div>
+                    {% endcase %}
+                {% endfor %}
+            </div>
             <div class="spx-gs-items">
                 {% for block in section.blocks %}
                     {% case block.type %}
@@ -72,25 +117,25 @@
                                 </div>
                             {% endfor %}
                             </div>
-                            {% when 'block3' %}
-                                <div class="spx-gs-item spx-gs-item_3">
-                                {% for i in (1..3) %} 
-                                    {%- liquid 
-                                        assign item_title = 'title0' | append: i
-                                        assign item_subtitle = 'subtitle0' | append: i
-                                        assign item_image = 'image0' | append: i
-                                        assign item_image_aspect = 'image_aspect0' | append: i
-                                        assign item_btn = 'btn0' | append: i
-                                        assign item_link = 'link0' | append: i
-                                    -%}
-                                    <div class="spx-gs-item_box">
-                                        <div class="spx-gs-item_title">{{ block.settings[item_title] }}</div>
-                                        <div class="spx-gs-item_img">
-                                            {{ block.settings[item_image] | image_url: width: master | image_tag: class: 'img', loading: 'lazy' }}
-                                        </div>
+                        {% when 'block3' %}
+                            <div class="spx-gs-item spx-gs-item_3">
+                            {% for i in (1..3) %} 
+                                {%- liquid 
+                                    assign item_title = 'title0' | append: i
+                                    assign item_subtitle = 'subtitle0' | append: i
+                                    assign item_image = 'image0' | append: i
+                                    assign item_image_aspect = 'image_aspect0' | append: i
+                                    assign item_btn = 'btn0' | append: i
+                                    assign item_link = 'link0' | append: i
+                                -%}
+                                <div class="spx-gs-item_box">
+                                    <div class="spx-gs-item_title">{{ block.settings[item_title] }}</div>
+                                    <div class="spx-gs-item_img">
+                                        {{ block.settings[item_image] | image_url: width: master | image_tag: class: 'img', loading: 'lazy' }}
                                     </div>
-                                {% endfor %}
                                 </div>
+                            {% endfor %}
+                            </div>
                     {% endcase %}
                 {% endfor %}
             </div>
