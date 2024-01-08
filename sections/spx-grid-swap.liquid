@@ -126,7 +126,7 @@
                                     assign item_image = 'image0' | append: i
                                     assign item_index = item_index | plus: 1
                                 -%}
-                                <div class="spx-gs-item_box" data-index="{{ detail_index }}">
+                                <div class="spx-gs-item_box" data-index="{{ item_index }}">
                                     <div class="spx-gs-item_title">{{ block.settings[item_title] }}</div>
                                     <div class="spx-gs-item_img">
                                         {{ block.settings[item_image] | image_url: width: master | image_tag: class: 'img', loading: 'lazy' }}
@@ -142,7 +142,7 @@
                                     assign item_image = 'image0' | append: i
                                     assign item_index = item_index | plus: 1
                                 -%}
-                                <div class="spx-gs-item_box" data-index="{{ detail_index }}">
+                                <div class="spx-gs-item_box" data-index="{{ item_index }}">
                                     <div class="spx-gs-item_title">{{ block.settings[item_title] }}</div>
                                     <div class="spx-gs-item_img">
                                         {{ block.settings[item_image] | image_url: width: master | image_tag: class: 'img', loading: 'lazy' }}
