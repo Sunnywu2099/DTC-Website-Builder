@@ -75,6 +75,10 @@
     {{ 'swiper.min.js' | asset_url | script_tag }}
     <script type="module" src="{{ 'vendor.min.js' | asset_url }}"></script>
     <script type="module" src="{{ 'theme.js' | asset_url }}"></script>
+    {% if request.page_type == 'product' %}
+      <script type="module" src="{{ 'size.js' | asset_url }}"></script>
+    {% endif %}
+    
 
     {{ content_for_header }}
 
