@@ -9,12 +9,13 @@ let sizes = [
 
 $('#size1').on('change', function () {
     let size1 = $(this).val();
+    $('#size2, #size3').prop('disabled', true).val('');
     if (size1 > 0) {
         $('#size2').prop('disabled', false);
         let filteredSizes = filterSizesBySize1(size1);
         populateSize2Options(filteredSizes);
     } else {
-        $('#size2, #size3').prop('disabled', true).val('');
+        
     }
     displayResult('Please enter your size data');
 });
