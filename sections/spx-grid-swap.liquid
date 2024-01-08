@@ -63,9 +63,9 @@
                                     assign item_btn = 'btn0' | append: i
                                     assign item_link = 'link0' | append: i
                                 -%}
-                                <div class="spx-gs-detail_img">
+                                {% comment %} <div class="spx-gs-detail_img">
                                     {{ block.settings[item_image] | image_url: width: master | image_tag: class: 'img', loading: 'lazy' }}
-                                </div>
+                                </div> {% endcomment %}
                                 <div class="spx-gs-detail_box">
                                     <div class="spx-gs-detail_title">{{ block.settings[item_title] }}</div>
                                     <div class="spx-gs-detail_subtitle">{{ block.settings[item_subtitle] }}</div>
@@ -84,11 +84,13 @@
                                     assign item_btn = 'btn0' | append: i
                                     assign item_link = 'link0' | append: i
                                 -%}
-                                <div class="spx-gs-item_box">
-                                    <div class="spx-gs-item_title">{{ block.settings[item_title] }}</div>
-                                    <div class="spx-gs-item_img">
-                                        {{ block.settings[item_image] | image_url: width: master | image_tag: class: 'img', loading: 'lazy' }}
-                                    </div>
+                                {% comment %} <div class="spx-gs-detail_img">
+                                    {{ block.settings[item_image] | image_url: width: master | image_tag: class: 'img', loading: 'lazy' }}
+                                </div> {% endcomment %}
+                                <div class="spx-gs-detail_box">
+                                    <div class="spx-gs-detail_title">{{ block.settings[item_title] }}</div>
+                                    <div class="spx-gs-detail_subtitle">{{ block.settings[item_subtitle] }}</div>
+                                    <div class="spx-gs-detail_btn"><a href="{{ block.settings[item_link] }}">{{ block.settings[item_btn] }}</a></div>
                                 </div>
                             {% endfor %}
                             </div>
