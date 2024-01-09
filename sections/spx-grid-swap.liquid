@@ -315,7 +315,7 @@
     $('.spx-gs-item_box').on('click',function(){
         var i_index = $(this).data('index');
         if(window.innerWidth<=767){
-            $('.spx-gs-item-details').addClass('active')
+            $('.spx-gs-item-details').addClass('active');
         }
         $('.spx-gs-detail').each(function(i,e){
             var d_index = i+1;
@@ -324,6 +324,10 @@
                 $(this).addClass("open");
             }
         })
+    })
+    $('.spx-gs-item-details_close').on('click',function(){
+        $('.spx-gs-item-details').removeClass('active');
+
     })
 </script>
 
