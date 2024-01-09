@@ -226,8 +226,9 @@
                                     assign item_title = 'title0' | append: i
                                     assign item_image = 'image0' | append: i
                                     assign item_index = item_index | plus: 1
+                                    assign modulo = item_index | modulo: 2 
                                 -%}
-                                <div class="spx-gs-item_box" data-index="{{ item_index }}">
+                                <div class="spx-gs-item_box {% if modulo == 0 %}even{% endif %}" data-index="{{ item_index }}">
                                     <div class="spx-gs-item_title">{{ block.settings[item_title] }}</div>
                                     <div class="spx-gs-item_img">
                                         {{ block.settings[item_image] | image_url: width: master | image_tag: class: 'img', loading: 'lazy' }}
@@ -242,8 +243,9 @@
                                     assign item_title = 'title0' | append: i
                                     assign item_image = 'image0' | append: i
                                     assign item_index = item_index | plus: 1
+                                    assign modulo = item_index | modulo: 2 
                                 -%}
-                                <div class="spx-gs-item_box" data-index="{{ item_index }}">
+                                <div class="spx-gs-item_box {% if modulo == 0 %}even{% endif %}" data-index="{{ item_index }}">
                                     <div class="spx-gs-item_title">{{ block.settings[item_title] }}</div>
                                     <div class="spx-gs-item_img">
                                         {{ block.settings[item_image] | image_url: width: master | image_tag: class: 'img', loading: 'lazy' }}
