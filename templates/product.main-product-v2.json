@@ -4,7 +4,7 @@
       "type": "main-product-v2",
       "settings": {
         "media_size": "ratio-1x1",
-        "desktop_media_width": 55,
+        "desktop_media_width": 50,
         "thumbnail_layout_on_desktop": "bottom",
         "thumbnail_layout_on_mobile": "hide_thumbnails",
         "pagination_style": "dots",
