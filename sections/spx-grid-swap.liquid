@@ -348,7 +348,7 @@
     $('.spx-gs-item_box').on('click',function(){
         var i_index = $(this).data('index');
         if(window.innerWidth<=767){
-            $('.spx-gs-item-details').css('height',window.screen.availHeight)
+            $('.spx-gs-item-details').css('height',window.innerHeight)
             $('.spx-gs-item-details').addClass('active');
             $('body').addClass('spx-gs-overflow');
         }
@@ -360,8 +360,6 @@
             }
         })
     })
-    alert(window.screen.availHeight)
-    alert(window.innerHeight)
     $('.spx-gs-item-details_close').on('click',function(){
         $('body').removeClass('spx-gs-overflow');
         $('.spx-gs-item-details').removeClass('active');
