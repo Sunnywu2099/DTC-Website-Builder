@@ -1,0 +1,1339 @@
+{%- assign first_3d_model = product.media | where: "media_type", "model" | first -%}
+{%- if first_3d_model -%}
+  <script type="application/json" id="ProductJSON-{{ product.id }}">
+    {{ product.media | where: 'media_type', 'model' | json }}
+  </script>
+  <script src="{{ 'product-model.js' | asset_url }}" defer></script>
+{%- endif -%}
+{% style %}
+  .product__xr-button {
+    background: rgba(var(--color-foreground), 0.08);
+    color: rgb(var(--color-foreground));
+    margin: 1rem auto;
+    box-shadow: none;
+    display: flex;
+    z-index: 1;
+  }
+
+  .button.product__xr-button:hover {
+    box-shadow: none;
+  }
+
+  .product__xr-button[data-shopify-xr-hidden] {
+    visibility: hidden;
+  }
+
+  .shopify-design-mode .product__xr-button[data-shopify-xr-hidden] {
+    display: none;
+  }
+
+  @media screen and (max-width: 749px) {
+    slider-component .product__xr-button {
+      display: none;
+    }
+
+    .active .product__xr-button:not([data-shopify-xr-hidden]) {
+      display: block;
+    }
+  }
+
+  @media screen and (min-width: 750px) {
+    slider-component + .button.product__xr-button {
+      display: none;
+    }
+
+    .product__xr-button[data-shopify-xr-hidden] {
+      display: none;
+    }
+  }
+
+  .product__xr-button .icon {
+    width: 1.4rem;
+    margin-right: 1rem;
+  }
+
+{% endstyle %}
+
+{%- liquid
+  assign current_variant = product.selected_or_first_available_variant
+-%}
+
+{% comment %} 在购买页中以变体图片为节点，将产品图分组，形如 A1 $$ B1;;B2;;B3 $$ C1;;C2 {% endcomment %}
+{%- capture image_list -%}
+  {%- for product_image in product.images -%}
+    {%- if product_image.variants.first.id != blank -%}
+      {%- comment -%} If product image is attached to a variant, image.attached_to_variant not working! {%- endcomment -%}
+      {%- unless forloop.first -%}$${%- endunless -%}
+      {{ product_image.id }}::{{ product_image.position }}||{{ product_image.alt }}
+    {%- else -%}
+      {%- unless forloop.first -%};;{%- endunless -%}{{ product_image.position }}||{{ product_image.alt }}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endcapture -%}
+
+{%- liquid
+  assign show_video = false
+  for media in product.media
+    if media.media_type == 'external_video' or media.media_type == 'video'
+      assign show_video = true
+      assign current_video = media
+      break
+    endif
+  endfor
+comment
+  assign current_product_models = section.blocks | where: "type", "variant" | map: "settings" | where: "product", product.handle
+  if current_product_models
+    assign current_product_model = current_product_models | where: "variant_name", '' | first
+  endif
+endcomment
+
+-%}
+
+<link rel="stylesheet" href="{{ 'media-gallery.min.css' | asset_url }}">
+<div class="purchase-section mb-6 mb-lg-9 mt-0 mt-md-6 as-main-product-v2-container">
+  <input class="as-main-product-v2-script" type="hidden" value="{{ 'main-product-v2.min.js' | asset_url }}" {% if request.design_mode %}data-design-mode="yes"{% endif %}>
+  <div class="container media-wrap-container">
+    <div class="row g-0 media-wrap-row">
+      <div class="media-wrap-col" style="width: {{ section.settings.desktop_media_width | append: '%' }}">
+        <div class="as-sticky-top-section sticky-top-section gallery-wrap">
+          {%- for variant in product.variants -%}
+            {% capture variant_image_strs %}{%- render 'get-product-images-by-variant-id', image_list: image_list, target_variant: variant, all_images: product.images -%}{% endcapture %}
+
+            {%- liquid assign variant_image_strs = variant_image_strs | split: ';;' -%}
+            <media-gallery style="display: block;" class="as-gallery-wrapper {% if current_variant.id != variant.id %}d-none{% endif %}" data-variant-id="{{ variant.id }}">
+              <div class="swiper as-media-swiper-outside">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide as-outer-slide outer-slide{% if section.settings.thumbnail_layout_on_desktop == 'left' %}{% if variant_image_strs.size <= 1 %} thumbnail-left-space{% endif %} d-md-flex flex-row-reverse{% endif %}">
+                    <div class="swiper as-media-swiper-inside media-swiper-inside w-100 bg-gray-100 overflow-hidden product-img-rounded">
+                      <div class="swiper-wrapper">
+                        {%- for variant_image_str in variant_image_strs -%}
+                          {%- liquid
+                            assign variant_image = variant_image_str | split: '||'
+                            assign variant_image_pos = variant_image[0] | plus: 0 | minus: 1
+                            assign variant_image_alt = variant_image[1]
+                          -%}
+                          {%- assign image = product.images[variant_image_pos] -%}
+                          <div class="swiper-slide">
+                            <figure class="ratio {{ section.settings.media_size }} mb-0">
+                              {% if image != blank %}
+                                <picture>
+                                  <img
+                                    class="w-100 h-100 object-fit-cover fs-0"
+                                    srcset="{%- if image.width >= 420 -%}{{ image | img_url: '420x' }} 420w,{%- endif -%}
+                                            {%- if image.width >= 720 -%}{{ image | img_url: '720x' }} 720w,{%- endif -%}
+                                            {%- if image.width >= 840 -%}{{ image | img_url: '840x' }} 840w,{%- endif -%}
+                                            {%- if image.width >= 900 -%}{{ image | img_url: '900x' }} 900w,{%- endif -%}
+                                            {%- if image.width >= 1440 -%}{{ image | img_url: '1440x' }} 1440w,{%- endif -%}
+                                            {%- if image.width >= 1880 -%}{{ image | img_url: '1880x' }} 1880w,{%- endif -%}
+                                            {{ image | img_url: 'master' }} {{ image.width }}w"
+                                    sizes="(min-width: 1440px) 900px, (min-width: 768px) 720px, calc(100vw)"
+                                    src="{{ image | img_url: '600x600' }}"
+                                    alt="{{ variant_image_alt | escape | strip }}"
+                                    loading="lazy"
+                                    width="900"
+                                    height="900" >
+                                </picture>
+                              {% else %}
+                                <picture>
+                                  <div class="object-fit-cover img-placeholder h-100">
+                                    {{ 'image' | placeholder_svg_tag: 'placeholder-svg h-100 w-100' }}
+                                  </div>
+                                </picture>
+                              {% endif %}
+                            </figure>
+                          </div>
+                        {%- endfor -%}
+                      </div>
+                      {% if section.settings.enable_image_zoom %}
+                      <modal-opener class="media-zoom-icon me-5 mb-5">
+                        <div class="as-modal-trigger media-zoom-zone w-100 h-100 icon-wrap-md flex-center {{ section.settings.color_for_zoom_icon }}" data-current-index="0" data-bs-toggle="modal" data-bs-target="#as-gallery-modal-{{variant.id}}">
+                          {% render 'icon-zoom' %}
+                        </div>
+                      </modal-opener>
+                      {% endif %}
+                      {%- if variant_image_strs.size > 1 -%}
+                        <div class="as-inside-prev swiper-button-prev swiper-button-translate-y d-none d-md-block">
+                          <span>{% render 'icon-chevron-circle-left' %}</span>
+                        </div>
+                        <div class="as-inside-next swiper-button-next swiper-button-translate-y d-none d-md-block">
+                          <span>{% render 'icon-chevron-circle-right' %}</span>
+                        </div>
+                        <div class="as-inside-pagination swiper-pagination inside-swiper-pagination inside-swiper-pagination-{{ section.settings.pagination_style }}">
+                        </div>
+                      {%- endif -%}
+                    </div>
+                    {%- if variant_image_strs.size > 1 -%}
+                      {%- liquid
+                        assign thumbnail_pc_show = true
+                        if section.settings.thumbnail_layout_on_desktop == 'bottom'
+                          assign thumbnail_gallery_class = 'd-md-block mt-md-3'
+                          assign direction = 'horizontal'
+                        elsif section.settings.thumbnail_layout_on_desktop == 'left'
+                          assign direction = 'vertical'
+                          assign thumbnail_gallery_class = 'd-md-block me-md-3 thumbnail-swiper-md-left'
+                        else
+                          assign thumbnail_gallery_class = 'd-md-none'
+                          assign thumbnail_pc_show = false
+                        endif
+
+                        assign thumbnail_mob_show = true
+                        if section.settings.thumbnail_layout_on_mobile == 'show_thumbnails'
+                          assign thumbnail_gallery_class = thumbnail_gallery_class | append: ' d-block mt-3'
+                        else
+                          assign thumbnail_gallery_class = thumbnail_gallery_class | append: ' d-none'
+                          assign thumbnail_mob_show = false
+                        endif
+                      -%}
+                      <thumbnail-gallery
+                        class="thumbnail-swiper as-thumbnail-gallery position-relative bottom-0 opacity-0 {{ thumbnail_gallery_class }}"
+                        data-direction="{{ direction }}"
+                        data-pc-show="{{ thumbnail_pc_show }}"
+                        data-mob-show="{{ thumbnail_mob_show }}"
+                      >
+                        <div class="position-relative ">
+                          <div thumbsSlider="" class="swiper as-gallery-thumnails-swiper" data-size="{{ variant_image_strs.size }}">
+                            <div class="swiper-wrapper">
+                              {%- for variant_image_str in variant_image_strs -%}
+                                {%- liquid
+                                  assign variant_image = variant_image_str | split: '||'
+                                  assign variant_image_pos = variant_image[0] | plus: 0 | minus: 1
+                                  assign variant_image_alt = variant_image[1]
+                                -%}
+                                {%- assign image = product.images[variant_image_pos] -%}
+                                <div class="swiper-slide rounded-pill">
+                                  <figure class="ratio ratio-1x1 mb-0">
+                                    {% if image != blank %}
+                                      <picture>
+                                        <img class="object-fit-cover fs-0" width="64" height="64"
+                                          srcset="{{ image | img_url: '64x64' }} 1x, {{ image | img_url: '64x64', scale: 2 }} 2x"
+                                          src="{{ image | img_url: '64x64' }}"
+                                          loading="lazy"
+                                          alt="{{ variant_image_alt | escape | strip }}">
+                                      </picture>
+                                    {% else %}
+                                      <picture>
+                                        <div class="object-fit-cover img-placeholder">
+                                          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                                        </div>
+                                      </picture>
+                                    {% endif %}
+                                  </figure>
+                                </div>
+                              {%- endfor -%}
+                            </div>
+                          </div>
+                          <div class="as-inside-prev swiper-button-prev flex-column justify-content-center {% if section.settings.thumbnail_layout_on_mobile == 'show_thumbnails' %}d-flex{% else %}d-none d-md-flex{% endif %}">
+                            <div class="d-flex">{% render 'icon-chevron-left' %}</div>
+                          </div>
+                          <div class="as-inside-next swiper-button-next flex-column justify-content-center {% if section.settings.thumbnail_layout_on_mobile == 'show_thumbnails' %}d-flex{% else %}d-none d-md-flex{% endif %}">
+                            <div class="d-flex">{% render 'icon-chevron-right' %}</div>
+                          </div>
+                        </div>
+                      </thumbnail-gallery>
+                    {%- endif -%}
+                  </div>
+                  {%- if show_video -%}
+                  <div class="swiper-slide as-outer-slide outer-slide {% if section.settings.thumbnail_layout_on_desktop == 'left' %}thumbnail-left-space{% endif %}">
+                    <div class="ratio {{ section.settings.media_size }} mb-0 bg-gray-100 overflow-hidden product-img-rounded">
+                      <modal-opener class="d-block d-md-none" data-modal="#as-video-modal-{{product.id}}">
+                        <div class="flex-center h-100 icon-wrap-xl media-play-icon position-absolute w-100" data-bs-toggle="modal" data-bs-target="#as-video-modal-{{product.id}}">
+                          {%- render 'icon-play-circle' -%}
+                        </div>
+                        <img
+                          srcset="{% if current_video.preview_image.width >= 493 %}{{ current_video.preview_image | img_url: '493x' }} 493w,{% endif %}
+                            {% if current_video.preview_image.width >= 600 %}{{ current_video.preview_image | img_url: '600x' }} 600w,{% endif %}
+                            {% if current_video.preview_image.width >= 713 %}{{ current_video.preview_image | img_url: '713x' }} 713w,{% endif %}
+                            {% if current_video.preview_image.width >= 823 %}{{ current_video.preview_image | img_url: '823x' }} 823w,{% endif %}
+                            {% if current_video.preview_image.width >= 990 %}{{ current_video.preview_image | img_url: '990x' }} 990w,{% endif %}
+                            {% if current_video.preview_image.width >= 1100 %}{{ current_video.preview_image | img_url: '1100x' }} 1100w,{% endif %}
+                            {% if current_video.preview_image.width >= 1206 %}{{ current_video.preview_image | img_url: '1206x' }} 1206w,{% endif %}
+                            {% if current_video.preview_image.width >= 1346 %}{{ current_video.preview_image | img_url: '1346x' }} 1346w,{% endif %}
+                            {% if current_video.preview_image.width >= 1426 %}{{ current_video.preview_image | img_url: '1426x' }} 1426w,{% endif %}
+                            {% if current_video.preview_image.width >= 1646 %}{{ current_video.preview_image | img_url: '1646x' }} 1646w,{% endif %}
+                            {% if current_video.preview_image.width >= 1946 %}{{ current_video.preview_image | img_url: '1946x' }} 1946w,{% endif %}
+                            {{ current_video.preview_image | img_url: 'master' }} {{ current_video.preview_image.width }}w"
+                          src="{{ current_video | img_url: '1946x' }}"
+                          class="w-100 h-100 object-fit-cover"
+                          sizes="(min-width: 1920px) {{ 1920 | minus: 100 | times: 0.5 | round }}px, (min-width: 990px) calc({{ 0.5 | times: 100 }}vw - 10rem), (min-width: 750px) calc((100vw - 11.5rem) / 2), calc(100vw - 4rem)"
+                          loading="lazy"
+                          width="973"
+                          height="{{ 973 | divided_by: current_video.preview_image.aspect_ratio | ceil }}"
+                          alt="{{ current_video.preview_image.alt | escape }}"
+                        >
+                      </modal-opener>
+                      {% if current_video.media_type == 'video' %}
+                        <video-preview class="d-flex align-items-center cursor-pointer">
+                      {% endif %}
+                        {% if current_video.media_type == 'video' %}
+                          {% assign custom_style = 'd-none d-md-block w-100 h-100' %}
+                        {% else %}
+                          {% assign custom_style = 'd-none d-md-block w-100' %}
+                        {% endif %}
+
+                        {%- render 'product-deferred-media',
+                          media: current_video,
+                          loop: section.settings.enable_video_looping,
+                          custom_class: custom_style,
+                          custom_video_class: 'w-100 h-100 object-fit-cover',
+                          auto_play: true
+                        -%}
+
+                        {% if current_video.media_type == 'video' %}
+                          <div class="d-none d-md-block as-video-poster absolute-center">
+                            <div class="absolute-center flex-center icon-wrap-xl as-video-play">
+                              {%- render 'icon-play-circle' -%}
+                            </div>
+                            <img
+                              srcset="{% if current_video.preview_image.width >= 493 %}{{ current_video.preview_image | img_url: '493x' }} 493w,{% endif %}
+                                {% if current_video.preview_image.width >= 600 %}{{ current_video.preview_image | img_url: '600x' }} 600w,{% endif %}
+                                {% if current_video.preview_image.width >= 713 %}{{ current_video.preview_image | img_url: '713x' }} 713w,{% endif %}
+                                {% if current_video.preview_image.width >= 823 %}{{ current_video.preview_image | img_url: '823x' }} 823w,{% endif %}
+                                {% if current_video.preview_image.width >= 990 %}{{ current_video.preview_image | img_url: '990x' }} 990w,{% endif %}
+                                {% if current_video.preview_image.width >= 1100 %}{{ current_video.preview_image | img_url: '1100x' }} 1100w,{% endif %}
+                                {% if current_video.preview_image.width >= 1206 %}{{ current_video.preview_image | img_url: '1206x' }} 1206w,{% endif %}
+                                {% if current_video.preview_image.width >= 1346 %}{{ current_video.preview_image | img_url: '1346x' }} 1346w,{% endif %}
+                                {% if current_video.preview_image.width >= 1426 %}{{ current_video.preview_image | img_url: '1426x' }} 1426w,{% endif %}
+                                {% if current_video.preview_image.width >= 1646 %}{{ current_video.preview_image | img_url: '1646x' }} 1646w,{% endif %}
+                                {% if current_video.preview_image.width >= 1946 %}{{ current_video.preview_image | img_url: '1946x' }} 1946w,{% endif %}
+                                {{ current_video.preview_image | img_url: 'master' }} {{ current_video.preview_image.width }}w"
+                              src="{{ current_video | img_url: '1946x' }}"
+                              class="w-100 h-100 object-fit-cover"
+                              sizes="(min-width: 1920px) {{ 1920 | minus: 100 | times: 0.5 | round }}px, (min-width: 990px) calc({{ 0.5 | times: 100 }}vw - 10rem), (min-width: 750px) calc((100vw - 11.5rem) / 2), calc(100vw - 4rem)"
+                              loading="lazy"
+                              width="973"
+                              height="{{ 973 | divided_by: current_video.preview_image.aspect_ratio | ceil }}"
+                              alt="{{ current_video.preview_image.alt | escape }}"
+                            >
+                          </div>
+                        </video-preview>
+                        {% endif %}
+                    </div>
+                  </div>
+                  {%- endif -%}
+                  {%- if first_3d_model -%}
+                    <div class="swiper-slide as-outer-slide outer-slide swiper-no-swiping">
+                      <div class="{% if section.settings.thumbnail_layout_on_desktop == 'left' %}thumbnail-left-space{% endif %}">
+                        <div class="ratio {{ section.settings.media_size }} mb-0 bg-default">
+                          <product-model class="product-media product-media--model product-media--frame"
+                            data-media-type="{{ first_3d_model.media_type }}"
+                            data-media-id="{{ first_3d_model.id }}">
+                            <button
+                              class="product__xr-button bg-transparent border-0 end-0 p-0 position-absolute rounded-0 top-0"
+                              type="button"
+                              aria-label="{{ 'products.product.xr_button_label' | t }}"
+                              data-shopify-xr
+                              data-shopify-model3d-id="{{ first_3d_model.id }}"
+                              data-shopify-title="{{ first_3d_model.title | escape }}"
+                              data-shopify-xr-hidden
+                            >
+                              {% render 'icon-3d-model' %}
+                            </button>
+                            {{ first_3d_model | model_viewer_tag: image_size: 'master', loading: lazy, reveal: auto, toggleable: true, data-model-id: first_3d_model.id, touch-action: none,
+                            class: 'w-100 h-100', preload: true, touch-action: 'none' }}
+                          </product-model>
+                        </div>
+                      </div>
+                    </div>
+                  {%- endif -%}
+                </div>
+                {%- if show_video or first_3d_model -%}
+                  <div class="as-outside-pagination opacity-0 media-tab mt-3 d-flex justify-content-center {% if section.settings.thumbnail_layout_on_desktop == 'left' %}thumbnail-left-space{% endif %}">
+                    <script class="as-media-tab-template" type="text/x-handlebars-template">
+                      <div class="swiper-pagination-bullet d-flex align-items-center px-2 py-1 w-auto h-auto">
+                        {% render 'icon-gallery' %}
+                        <span class="ms-1 fs-small">{{ 'products.product_gallery.photos' | t }}</span>
+                      </div>
+                    </script>
+                    {%- if show_video -%}
+                    <script class="as-media-tab-template" type="text/x-handlebars-template">
+                      <div class="swiper-pagination-bullet d-flex align-items-center px-2 py-1 w-auto h-auto">
+                        {% render 'icon-video' %}
+                        <span class="ms-1 fs-small">{{ 'products.product_gallery.video' | t }}</span>
+                      </div>
+                    </script>
+                    {%- endif -%}
+                    {%- if first_3d_model -%}
+                      <script class="as-media-tab-template" type="text/x-handlebars-template">
+                        <div class="swiper-pagination-bullet d-flex align-items-center px-2 py-1 w-auto h-auto">
+                          {% render 'icon-3d' %}
+                          <span class="ms-1 fs-small">{{ 'products.product_gallery.3d' | t }}</span>
+                        </div>
+                      </script>
+                    {%- endif -%}
+                  </div>
+                {%- endif -%}
+              </div>
+            </media-gallery>
+          {% endfor %}
+          {% comment %} <div class="d-none d-lg-block {% if section.settings.thumbnail_layout_on_desktop == 'left' %}thumbnail-left-space{% endif %}">
+            {% render 'product-block-icon-with-text' %}
+          </div> {% endcomment %}
+        </div>
+      </div>
+      <div class="info-wrap-col ps-lg-6" style="width: {{ 100 | minus: section.settings.desktop_media_width | append: '%' }}">
+        {% render 'product-info' %}
+        {% render 'notify-me' %}
+      </div>
+    </div>
+  </div>
+
+  {%- if show_video -%}
+    <video-modal class="modal" id="as-video-modal-{{product.id}}" tabindex="-1">
+      <div class="modal-dialog modal-fullscreen bg-default">
+        <div class="modal-content">
+          <div class="modal-close-btn" data-bs-dismiss="modal">
+            {%- render 'icon-close-circle' -%}
+          </div>
+          <div class="modal-body h-100 p-0">
+            <div class="h-100 modal-media-wrap">
+              {% if current_video.media_type == 'external_video' and current_video.host == 'youtube'  %}<div class="ratio ratio-16x9">{% endif %}
+                {%- render 'product-deferred-media',
+                  media: current_video,
+                  loop: section.settings.enable_video_looping,
+                  custom_class: 'w-100',
+                  custom_video_class: 'w-100',
+                  auto_play: true
+                -%}
+                {% if current_video.media_type == 'external_video' and current_video.host == 'youtube'  %}</div>{% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </video-modal>
+  {%- endif -%}
+
+  {% if section.settings.enable_image_zoom %}
+    {%- for variant in product.variants -%}
+      {% capture variant_image_strs %}{%- render 'get-product-images-by-variant-id', image_list: image_list, target_variant: variant, all_images: product.images -%}{% endcapture %}
+      {%- liquid assign variant_image_strs = variant_image_strs | split: ';;' -%}
+      <gallery-modal data-current-index="0" class="modal gallery-modal" id="as-gallery-modal-{{ variant.id }}" tabindex="-1">
+        <div class="modal-dialog modal-fullscreen bg-default">
+          <div class="modal-content">
+            <div class="modal-close-btn" data-bs-dismiss="modal">
+              {%- render 'icon-close-circle' -%}
+            </div>
+            <div class="modal-body p-0">
+              <div class="swiper as-media-swiper-inside media-swiper-inside h-100"
+                data-swiper-number="{{ variant_image_strs.size }}">
+                <div class="swiper-wrapper">
+                  {%- for variant_image_str in variant_image_strs -%}
+                    {%- liquid
+                      assign variant_image = variant_image_str | split: '||'
+                      assign variant_image_pos = variant_image[0] | plus: 0 | minus: 1
+                      assign variant_image_alt = variant_image[1]
+                    -%}
+                    {%- assign image = product.images[variant_image_pos] -%}
+                    <div class="swiper-slide">
+                      <div class="h-100">
+                        <div class="d-flex align-items-center h-100">
+                          <figure class="ratio {{ section.settings.media_size }} mb-0 text-center">
+                            {% if image != blank %}
+                              <picture>
+                                <source media="(max-width: 575px)"
+                                  srcset="{{ image | img_url: '375x375' }} 1x, {{ image | img_url: '375x375', scale: 2 }} 2x" />
+                                <img class="h-100 object-fit-cover fs-0" width="auto" height="auto"
+                                  srcset="{{ image | img_url: '1200x1200' }} 1x, {{ image | img_url: '1200x1200', scale: 2 }} 2x"
+                                  src="{{ image | img_url: '600x600' }}"
+                                  loading="lazy"
+                                  alt="{{ variant_image_alt | escape | strip }}">
+                              </picture>
+                            {% else %}
+                              <picture>
+                                <div class="object-fit-cover img-placeholder h-100 w-100">
+                                  {{ 'image' | placeholder_svg_tag: 'placeholder-svg h-100' }}
+                                </div>
+                              </picture>
+                            {% endif %}
+                          </figure>
+                        </div>
+                      </div>
+                    </div>
+                  {%- endfor -%}
+                </div>
+                {%- if variant_image_strs.size > 1 -%}
+                  <div class="as-inside-prev swiper-button-prev swiper-button-translate-y d-none d-md-block">
+                    <span>{% render 'icon-chevron-circle-left' %}</span>
+                  </div>
+                  <div class="as-inside-next swiper-button-next swiper-button-translate-y d-none d-md-block">
+                    <span>{% render 'icon-chevron-circle-right' %}</span>
+                  </div>
+                  <div class="as-inside-pagination swiper-pagination inside-swiper-pagination"></div>
+                {%- endif -%}
+              </div>
+              {%- if section.settings.thumbnail_layout_on_desktop != 'hide_thumbnails' -%}
+                {%- if variant_image_strs.size > 1 -%}
+                  <thumbnail-gallery class="thumbnail-swiper as-thumbnail-gallery d-none d-md-block opacity-0" style="max-width: 29rem;">
+                    <div class="position-relative">
+                      <div thumbsSlider="" class="swiper as-gallery-modal-thumnails-swiper">
+                        <div class="swiper-wrapper">
+                          {%- for variant_image_str in variant_image_strs -%}
+                            {%- liquid
+                              assign variant_image = variant_image_str | split: '||'
+                              assign variant_image_pos = variant_image[0] | plus: 0 | minus: 1
+                              assign variant_image_alt = variant_image[1]
+                            -%}
+                            {%- assign image = product.images[variant_image_pos] -%}
+                            <div class="swiper-slide rounded-pill {% if forloop.first %}swiper-gallery-thumb-active{% endif %}">
+                              <figure class="ratio ratio-1x1 mb-0">
+                                {% if image != blank %}
+                                  <picture>
+                                    <img class="object-fit-cover fs-0" width="64" height="64"
+                                      srcset="{{ image | img_url: '64x64' }} 1x, {{ image | img_url: '64x64', scale: 2 }} 2x"
+                                      src="{{ image | img_url: '64x64' }}"
+                                      loading="lazy"
+                                      alt="{{ variant_image_alt | escape | strip }}">
+                                  </picture>
+                                {% else %}
+                                  <picture>
+                                    <div class="object-fit-cover img-placeholder ">
+                                      {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                                    </div>
+                                  </picture>
+                                {% endif %}
+                              </figure>
+                            </div>
+                          {%- endfor -%}
+                        </div>
+                      </div>
+                      {% comment %} 大于6个才需要箭头 {% endcomment %}
+                      {%- if variant_image_strs.size > 6 -%}
+                        <div class="as-inside-prev swiper-button-prev d-none d-md-flex flex-column justify-content-center">
+                          <div>{% render 'icon-chevron-left' %}</div>
+                        </div>
+                        <div class="as-inside-next swiper-button-next d-none d-md-flex flex-column justify-content-center">
+                          <div>{% render 'icon-chevron-right' %}</div>
+                        </div>
+                      {%- endif -%}
+                    </div>
+                  </thumbnail-gallery>
+                {%- endif -%}
+              {%- endif -%}
+            </div>
+          </div>
+        </div>
+      </gallery-modal>
+    {%- endfor -%}
+  {% endif %}
+</div>
+{% render 'structured-product' %}
+
+{% javascript %}
+  (function() {
+    var $url = document.querySelector('.as-main-product-v2-script')
+    if (!window.productV2 && $url && $url.dataset.designMode !== 'yes') {
+      window.productV2 = $url.value
+      var $script = document.createElement('script')
+      $script.src = window.productV2
+      $script.defer = "defer"
+      document.body.appendChild($script)
+    }
+  })()
+{% endjavascript %}
+
+{% comment %}
+{% unless request.design_mode %}
+  <script src="{{ 'main-product-v2.min.js' | asset_url }}" defer></script>
+{% endunless %}
+{% endcomment %}
+
+{% schema %}
+  {
+    "name": "Product",
+    "tag": "section",
+    "class": "main-product-v2 as-main-product-v2",
+    "settings": [
+      {
+        "type": "select",
+        "id": "media_size",
+        "label": "Media size",
+        "options": [
+          {
+            "value": "ratio-4x3",
+            "label": "4:3"
+          },
+          {
+            "value": "ratio-1x1",
+            "label": "1:1"
+          },
+          {
+            "value": "ratio-4x5",
+            "label": "4:5"
+          }
+        ],
+        "default": "ratio-1x1"
+      },
+      {
+        "type": "range",
+        "id": "desktop_media_width",
+        "label": "Desktop media width",
+        "min": 40,
+        "max": 65,
+        "step": 5,
+        "unit": "%",
+        "default": 55
+      },
+      {
+        "type": "select",
+        "id": "thumbnail_layout_on_desktop",
+        "label": "Thumbnail layout on desktop",
+        "options": [
+          {
+            "value": "bottom",
+            "label": "Bottom"
+          },
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "hide_thumbnails",
+            "label": "Hide Thumbnails"
+          }
+        ],
+        "default": "bottom"
+      },
+      {
+        "type": "select",
+        "id": "thumbnail_layout_on_mobile",
+        "label": "Thumbnail layout on mobile",
+        "options": [
+          {
+            "value": "show_thumbnails",
+            "label": "Show Thumbnails"
+          },
+          {
+            "value": "hide_thumbnails",
+            "label": "Hide Thumbnails"
+          }
+        ],
+        "default": "hide_thumbnails"
+      },
+      {
+        "type": "select",
+        "id": "pagination_style",
+        "label": "Pagination style",
+        "options": [
+          {
+            "value": "circle",
+            "label": "Circle"
+          },
+          {
+            "value": "dots",
+            "label": "Dots"
+          },
+          {
+            "value": "line",
+            "label": "Line"
+          }
+        ],
+        "default": "dots"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_image_zoom",
+        "label": "Enable image zoom",
+        "default": true
+      },
+      {
+        "type": "select",
+        "id": "color_for_zoom_icon",
+        "label": "Color for zoom icon",
+        "options": [
+          {
+            "value": "text-black",
+            "label": "Black"
+          },
+          {
+            "value": "text-white",
+            "label": "White"
+          }
+        ],
+        "default": "text-black"
+      },
+      // {
+      //   "type": "checkbox",
+      //   "id": "sticky_the_buy_button_to_the_bottom",
+      //   "label": "Sticky the buy button to the bottom",
+      //   "default": true,
+      //   "info": "The position of the CTA, price and recommendations will change after selection."
+      // },
+      {
+        "type": "checkbox",
+        "id": "enable_video_looping",
+        "label": "Enable video looping",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "show_product_tag",
+        "label": "Show product tag",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_discount_badge",
+        "label": "Show discount badge",
+        "default": true
+      },
+      {
+        "type": "select",
+        "id": "show_discount_as",
+        "label": "Show discount as",
+        "options": [
+          {
+            "value": "percentage",
+            "label": "Percentage"
+          },
+          {
+            "value": "saving",
+            "label": "Saving"
+          }
+        ],
+        "default": "percentage"
+      },
+      {
+        "type": "header",
+        "content": "Notify me"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_notify_me",
+        "label": "Show notify me",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "notify_me_heading",
+        "label": "Heading",
+        "default": "Nofify me if it arrives"
+      },
+      {
+        "type": "richtext",
+        "id": "notify_me_text",
+        "label": "Text",
+        "default": "<p>Thanks for your interest. Please leave your email and we will send you a notification as soon as we have the item in stock.</p>"
+      },
+      {
+        "type": "richtext",
+        "id": "notify_me_note",
+        "label": "Note",
+        "default": "<p>You can opt-out at any time. See our Privacy Policy and Terms .</p>"
+      },
+      {
+        "type": "text",
+        "id": "subscribe_tag",
+        "label": "Subscribe tag",
+        "default": "notify_me",
+        "info": "Separate each tag with an English comma"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_total_price",
+        "label": "Show total price",
+        "default": true
+      },
+      {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background color",
+        "default": "#F6F6F7"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "title",
+        "name": "Title",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "select",
+            "id": "fontsize",
+            "label": "Fontsize",
+            "options": [
+              {
+                "value": "h3",
+                "label": "Small"
+              },
+              {
+                "value": "h2",
+                "label": "Medium"
+              },
+              {
+                "value": "h1",
+                "label": "Large"
+              }
+            ],
+            "default": "h2"
+          }
+        ]
+      },
+      {
+        "type": "price",
+        "name": "Price",
+        "limit": 1
+      },
+      {
+        "type": "variant_picker",
+        "name": "Variant picker",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "select",
+            "id": "type",
+            "label": "Type",
+            "options": [
+              {
+                "value": "1column",
+                "label": "1 column"
+              },
+              {
+                "value": "2columns",
+                "label": "2 columns"
+              },
+              {
+                "value": "pillscolumn",
+                "label": "Pills"
+              },
+              {
+                "value": "dropdown",
+                "label": "Dropdown"
+              }
+            ],
+            "default": "2columns"
+          },
+          {
+            "type": "select",
+            "id": "text_alignment",
+            "label": "Text alignment",
+            "options": [
+              {
+                "value": "text-start",
+                "label": "Left"
+              },
+              {
+                "value": "text-center",
+                "label": "Center"
+              }
+            ],
+            "default": "text-center",
+            "info": "Only applies when 2 columns is selected."
+          },
+          {
+            "type": "checkbox",
+            "id": "enable_color_swatches",
+            "label": "Enable color swatches",
+            "default": false
+          },
+          {
+            "type": "text",
+            "id": "swatch_option_name",
+            "label": "Swatch option name",
+            "info": "Enter the name of the product option you wish to turn into color swatches (i.e, Color)"
+          },
+          {
+            "type": "checkbox",
+            "id": "show_name_on_color_swatches",
+            "label": "Show name on color swatches",
+            "default": false,
+            "info": "Only applies when Enable color swatches is selected."
+          },
+          {
+            "type": "checkbox",
+            "id": "hide_option_name",
+            "label": "Hide option name",
+            "default": false
+          },
+          {
+            "type": "textarea",
+            "id": "color_swatches_rule_configuration",
+            "label": "Color swatches rule configuration",
+            "info": "Format is \"option value:color value\",Each rule must be separated by a semicolon(\";\"). \",for example:\"Light grey:#e0dddd;Pink:#f127b6;Dark yellow:dark-yellow.png;\""
+          }
+        ]
+      },
+      {
+        "type": "quantity_selector",
+        "name": "Quantity selector",
+        "limit": 1
+      },
+      {
+        "type": "buy_buttons",
+        "name": "Buy buttons",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "checkbox",
+            "id": "show_dynamic_checkout_buttons",
+            "label": "Show dynamic checkout buttons",
+            "default": true,
+            "info": "Using the payment methods available on your store, customers see their preferred option, like PayPal or Apple Pay. [Learn more](https://help.shopify.com/en/manual/online-store/themes/dynamic-checkout)"
+          }
+        ]
+      },
+      {
+        "type": "description",
+        "name": "Description",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "checkbox",
+            "id": "truncate_content",
+            "label": "Truncate content",
+            "default": false
+          },
+          {
+            "type": "select",
+            "id": "text_color",
+            "label": "Text color",
+            "options": [
+              {
+                "value": "text-white",
+                "label": "White"
+              },
+              {
+                "value": "text-body",
+                "label": "Black"
+              }
+            ],
+            "default": "text-body"
+          },
+          {
+            "type": "color",
+            "id": "background_color",
+            "label": "Background color",
+            "default": "transparent"
+          }
+        ]
+      },
+      {
+        "type": "share",
+        "name": "Share",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "paragraph",
+            "content": "A page title and description are included with the preview image. [Learn more](https://help.shopify.com/en/manual/promoting-marketing/seo/adding-keywords#set-a-title-and-description-for-your-online-store)"
+          },
+          {
+            "type": "paragraph",
+            "content": "If you include a link in social media posts, the page’s featured image will be shown as the preview image. [Learn more](https://help.shopify.com/en/manual/online-store/images/showing-social-media-thumbnail-images)"
+          }
+        ]
+      },
+      {
+        "type": "payment_methods",
+        "name": "Payment methods",
+        "limit": 1
+      },
+      {
+        "type": "icon_with_text",
+        "name": "Icon with text",
+        "limit": 1,
+        "settings": [
+          // {
+          //   "type": "select",
+          //   "id": "layout",
+          //   "label": "Layout",
+          //   "options": [
+          //     {
+          //       "value": "top",
+          //       "label": "Icon on top"
+          //     },
+          //     {
+          //       "value": "left",
+          //       "label": "Icon on left"
+          //     }
+          //   ],
+          //   "default": "top"
+          // },
+          {
+            "type": "header",
+            "content": "CONTENT"
+          },
+          {
+            "type": "image_picker",
+            "id": "first_icon",
+            "label": "First Icon"
+          },
+          {
+            "type": "richtext",
+            "id": "first_text",
+            "label": "First text"
+          },
+          {
+            "type": "image_picker",
+            "id": "second_icon",
+            "label": "Second Icon"
+          },
+          {
+            "type": "richtext",
+            "id": "second_text",
+            "label": "Second text"
+          },
+          {
+            "type": "image_picker",
+            "id": "third_icon",
+            "label": "Third Icon"
+          },
+          {
+            "type": "richtext",
+            "id": "third_text",
+            "label": "Third text"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "name": "Text",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "advert_icon",
+            "label": "Icon"
+          },
+          {
+            "type": "richtext",
+            "id": "text_block",
+            "label": "Text",
+            "default": "<p>Tell a unique detail about this product.</p>"
+          },
+          {
+            "type": "header",
+            "content": "Advanced settings"
+          },
+          {
+            "type": "select",
+            "id": "text_type",
+            "label": "Text type",
+            "options": [
+              {
+                "value": "uppercase",
+                "label": "Uppercase"
+              },
+              {
+                "value": "body",
+                "label": "Body"
+              },
+              {
+                "value": "footnote",
+                "label": "Footnote"
+              }
+            ],
+            "default": "uppercase"
+          },
+          {
+            "type": "select",
+            "id": "text_color",
+            "label": "Text color",
+            "options": [
+              {
+                "value": "text-white",
+                "label": "White"
+              },
+              {
+                "value": "",
+                "label": "Black"
+              }
+            ],
+            "default": ""
+          },
+          {
+            "type": "color",
+            "id": "background_color",
+            "label": "Background color",
+            "default": "#ffffff"
+          }
+        ]
+      },
+      {
+        "type": "badge",
+        "name": "Badge",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "badge_image",
+            "label": "Badge image"
+          },
+          {
+            "type": "select",
+            "id": "image_height",
+            "label": "Image height",
+            "options": [
+              {
+                "value": "product-badge-sm",
+                "label": "Small"
+              },
+              {
+                "value": "product-badge-md",
+                "label": "Medium"
+              },
+              {
+                "value": "product-badge-lg",
+                "label": "Large"
+              },
+              {
+                "value": "adapt_to_image",
+                "label": "Adapt to image"
+              }
+            ],
+            "default": "adapt_to_image"
+          }
+        ]
+      },
+      {
+        "type": "countdown",
+        "name": "Countdown",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "text",
+            "id": "heading_block",
+            "label": "Heading",
+            "default": "Flash sale"
+          },
+          {
+            "type": "text",
+            "id": "start_time",
+            "label": "Start time"
+          },
+          {
+            "type": "text",
+            "id": "end_time",
+            "label": "End time"
+          },
+          {
+            "type": "text",
+            "id": "event_start_text",
+            "label": "Event start text",
+            "default": "Starts in"
+          },
+          {
+            "type": "text",
+            "id": "event_end_text",
+            "label": "Event end text",
+            "default": "Ends in"
+          },
+          {
+            "type": "text",
+            "id": "days",
+            "label": "Days",
+            "default": "Days"
+          }
+        ]
+      },
+      {
+        "type": "collapsible_tab",
+        "name": "Collapsible tab",
+        "settings": [
+          {
+            "type": "text",
+            "id": "heading_block",
+            "label": "Heading",
+            "default": "Collapsible tab"
+          },
+          {
+            "type": "richtext",
+            "id": "tab_content",
+            "label": "Tab content"
+          }
+        ]
+      },
+      {
+        "type": "pop_up",
+        "name": "Pop-up",
+        "settings": [
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "Link label",
+            "default": "Pop-up link text"
+          },
+          {
+            "type": "page",
+            "id": "page_block",
+            "label": "Page"
+          }
+        ]
+      },
+      {
+        "type": "inventory_status",
+        "name": "Inventory status",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "paragraph",
+            "content": "Please edit more details in Theme settings.For best results with stock tips, we recommend put it below the variant picker."
+          }
+        ]
+      },
+      {
+        "type": "complementary_products",
+        "name": "Complementary products",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "text",
+            "id": "heading_block",
+            "label": "Heading"
+          },
+          {
+            "type": "richtext",
+            "id": "description",
+            "label": "Text"
+          },
+          {
+            "type": "select",
+            "id": "alignment",
+            "label": "Alignment",
+            "options": [
+              {
+                "value": "top",
+                "label": "Top"
+              },
+              {
+                "value": "center",
+                "label": "Center"
+              }
+            ],
+            "default": "center"
+          },
+          {
+            "type": "checkbox",
+            "id": "enable_show_more",
+            "label": "Enable show more",
+            "default": false
+          },
+          {
+            "type": "checkbox",
+            "id": "whether_click_image_link_to_purchase_page",
+            "label": " Whether click image link to purchase page ",
+            "default": false
+          }
+        ]
+      },
+      {
+        "type": "sales_channel",
+        "name": "Sales channel",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Channel name"
+          },
+          {
+            "type": "url",
+            "id": "channel_link",
+            "label": "Channel link"
+          },
+          {
+            "label": "Channel logo",
+            "type": "image_picker",
+            "id": "channel_logo"
+          },
+          {
+            "type": "select",
+            "id": "text_color",
+            "label": "Text color",
+            "options": [
+              {
+                "value": "white",
+                "label": "White"
+              },
+              {
+                "value": "black",
+                "label": "Black"
+              }
+            ],
+            "default": "white"
+          },
+          {
+            "type": "color",
+            "id": "button_color",
+            "label": "Button color",
+            "default": "#000000"
+          }
+        ]
+      },
+      {
+        "type": "preorder",
+        "name": "Preorder",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "preorder_image",
+            "label": "Produce image for desktop"
+          },
+          {
+            "type": "image_picker",
+            "id": "preorder_image_mob",
+            "label": "Produce image for mobile"
+          },
+          {
+            "type": "text",
+            "id": "preorder_title",
+            "label": "Heading",
+            "default": "Pre-order Notes:"
+          },
+          {
+            "type": "image_picker",
+            "id": "first_icon",
+            "label": "First Icon"
+          },
+          {
+            "type": "richtext",
+            "id": "first_text",
+            "label": "First text"
+          },
+          {
+            "type": "image_picker",
+            "id": "second_icon",
+            "label": "Second Icon"
+          },
+          {
+            "type": "richtext",
+            "id": "second_text",
+            "label": "Second text"
+          }
+        ]
+      },
+      {
+        "type": "klarna",
+        "name": "Klarna Liquid",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "liquid",
+            "id": "klarna_liquid",
+            "label": "Klarna Liquid",
+            "info": "Add app snippets or other Liquid code to create advanced customizations.",
+            "default": "<script\n  async\n  data-environment=\"production\"\n  src=\"https:\/\/osm.klarnaservices.com\/lib.js\"\n  data-client-id=\"f1415521-349d-5b6d-a5a4-8a97d0810497\"\n><\/script><!-- Placement v2 -->\n<klarna-placement\n  class=\"d-flex\"\n  data-key=\"credit-promotion-badge\"\n  data-locale=\"en-US\"\n  data-purchase-amount=\"{{ product.selected_or_first_available_variant.price }}\"\n><\/klarna-placement>\n<!-- end Placement -->"
+          }
+        ]
+      },
+      {
+        "type": "separator",
+        "name": "Separator"
+      },
+      {
+        "type": "@app"
+      }
+    ],
+    "default": {
+      "blocks": [
+        {
+          "type": "title"
+        },
+        {
+          "type": "price"
+        },
+        {
+          "type": "variant_picker"
+        },
+        {
+          "type": "buy_buttons"
+        }
+      ]
+    }
+  }
+{% endschema %}
