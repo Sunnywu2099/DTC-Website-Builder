@@ -3,7 +3,40 @@
 </div>
 
 <script>
-    
+    {%- liquid
+        assign media_grouping_options = section.settings.media_grouping_option | replace: ', ', ',' | split: ','
+        for option in product.options
+          if media_grouping_options contains option
+            assign groupOptionName = option
+            assign groupOptionIndex = forloop.index0
+            assign groupOptionProperty = 'option' | append: forloop.index
+            assign sortedVariants = product.variants | sort: groupOptionProperty
+            break
+          endif
+        endfor
+      -%}
+      {%- if groupOptionName -%}
+        <script class="js-data-variant-media" type="application/json">
+          {
+            "groupOptionName": {{- groupOptionName | json -}},
+            "groupOptionIndex": {{- groupOptionIndex }},
+            "variantMedia": [
+              {% capture data %}
+                {%- for variant in sortedVariants -%}
+                  {%- if variant.featured_media -%}
+                    {
+                      "variantId": {{- variant.id -}},
+                      "mediaId": {{- variant.featured_media.id -}},
+                      "option": {{- variant.options[groupOptionIndex] | json -}}
+                    },
+                  {%- endif -%}
+                {%- endfor -%}
+              {% endcapture %}
+              {{ data | replace_last: ',', '' }}
+            ]
+          }
+        </script>
+      {%- endif -%}
 </script>
 
 
