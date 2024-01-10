@@ -18,7 +18,7 @@
           "settings": {
             "show_unavailable_variants_indicator": true,
             "option_type": "button",
-            "color_option_type": "dropdown"
+            "color_option_type": "swatch"
           }
         },
         "50a84925-71d6-4f27-9fd4-c0e65e75f432": {
@@ -59,8 +59,8 @@
         "color_scheme": "default-with-accent-1",
         "custom_colors": false,
         "color_foreground": "#212121",
-        "color_accent": "#0D91BD",
-        "color_background": "#FFFFFF",
+        "color_accent": "#0d91bd",
+        "color_background": "#ffffff",
         "color_gradient": ""
       }
     },
@@ -84,7 +84,7 @@
         "notify_me_note": "<p>You can opt-out at any time. See our Privacy Policy and Terms .<\/p>",
         "subscribe_tag": "notify_me",
         "show_total_price": true,
-        "background_color": "#F6F6F7"
+        "background_color": "#f6f6f7"
       }
     },
     "text-columns": {
@@ -161,8 +161,8 @@
         "color_scheme": "default-with-accent-1",
         "custom_colors": false,
         "color_foreground": "#212121",
-        "color_accent": "#0D91BD",
-        "color_background": "#FFFFFF",
+        "color_accent": "#0d91bd",
+        "color_background": "#ffffff",
         "color_gradient": ""
       }
     },
@@ -188,8 +188,8 @@
             "color_scheme": "default-with-accent-1",
             "custom_colors": false,
             "color_foreground": "#212121",
-            "color_accent": "#0D91BD",
-            "color_background": "#FFFFFF",
+            "color_accent": "#0d91bd",
+            "color_background": "#ffffff",
             "color_gradient": ""
           }
         },
@@ -212,8 +212,8 @@
             "color_scheme": "default-with-accent-1",
             "custom_colors": false,
             "color_foreground": "#212121",
-            "color_accent": "#0D91BD",
-            "color_background": "#FFFFFF",
+            "color_accent": "#0d91bd",
+            "color_background": "#ffffff",
             "color_gradient": ""
           }
         }
@@ -239,8 +239,8 @@
         "color_scheme": "soft",
         "custom_colors": false,
         "color_foreground": "#212121",
-        "color_accent": "#0D91BD",
-        "color_background": "#FFFFFF",
+        "color_accent": "#0d91bd",
+        "color_background": "#ffffff",
         "color_gradient": ""
       }
     },
@@ -263,8 +263,8 @@
         "color_scheme": "soft",
         "custom_colors": false,
         "color_foreground": "#212121",
-        "color_accent": "#0D91BD",
-        "color_background": "#FFFFFF",
+        "color_accent": "#0d91bd",
+        "color_background": "#ffffff",
         "color_gradient": ""
       }
     }
