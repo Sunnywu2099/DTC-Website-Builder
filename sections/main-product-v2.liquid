@@ -1298,20 +1298,6 @@ endcomment
         ]
       },
       {
-        "type": "klarna",
-        "name": "Klarna Liquid",
-        "limit": 1,
-        "settings": [
-          {
-            "type": "liquid",
-            "id": "klarna_liquid",
-            "label": "Klarna Liquid",
-            "info": "Add app snippets or other Liquid code to create advanced customizations.",
-            "default": "<script\n  async\n  data-environment=\"production\"\n  src=\"https:\/\/osm.klarnaservices.com\/lib.js\"\n  data-client-id=\"f1415521-349d-5b6d-a5a4-8a97d0810497\"\n><\/script><!-- Placement v2 -->\n<klarna-placement\n  class=\"d-flex\"\n  data-key=\"credit-promotion-badge\"\n  data-locale=\"en-US\"\n  data-purchase-amount=\"{{ product.selected_or_first_available_variant.price }}\"\n><\/klarna-placement>\n<!-- end Placement -->"
-          }
-        ]
-      },
-      {
         "type": "separator",
         "name": "Separator"
       },
