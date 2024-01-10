@@ -3,6 +3,24 @@
     "main": {
       "type": "main-product-v2",
       "settings": {
+        "media_size": "ratio-1x1",
+        "desktop_media_width": 55,
+        "thumbnail_layout_on_desktop": "bottom",
+        "thumbnail_layout_on_mobile": "hide_thumbnails",
+        "pagination_style": "dots",
+        "enable_image_zoom": true,
+        "color_for_zoom_icon": "text-black",
+        "enable_video_looping": false,
+        "show_product_tag": true,
+        "show_discount_badge": true,
+        "show_discount_as": "percentage",
+        "show_notify_me": false,
+        "notify_me_heading": "Nofify me if it arrives",
+        "notify_me_text": "<p>Thanks for your interest. Please leave your email and we will send you a notification as soon as we have the item in stock.<\/p>",
+        "notify_me_note": "<p>You can opt-out at any time. See our Privacy Policy and Terms .<\/p>",
+        "subscribe_tag": "notify_me",
+        "show_total_price": true,
+        "background_color": "#F6F6F7"
       }
     },
     "text-columns": {
@@ -13,7 +31,9 @@
           "settings": {
             "icon": "icon-handshake",
             "title": "",
-            "text": "<p>Uniqueness guaranteed with our handcrafted pieces by skilled artisans. Each piece is one-of-a-kind.<\/p>"
+            "text": "<p>Uniqueness guaranteed with our handcrafted pieces by skilled artisans. Each piece is one-of-a-kind.<\/p>",
+            "link": "",
+            "button_label": ""
           }
         },
         "text-column-2": {
@@ -21,7 +41,9 @@
           "settings": {
             "icon": "icon-thumbs-up",
             "title": "",
-            "text": "<p>Elevate your daily routine with expertly designed products that combine functionality and style.<\/p>"
+            "text": "<p>Elevate your daily routine with expertly designed products that combine functionality and style.<\/p>",
+            "link": "",
+            "button_label": ""
           }
         },
         "text-column-3": {
@@ -29,7 +51,9 @@
           "settings": {
             "icon": "icon-leaf",
             "title": "",
-            "text": "<p>Eco-conscious choice with our sustainably sourced materials. Make a difference with your purchase.<\/p>"
+            "text": "<p>Eco-conscious choice with our sustainably sourced materials. Make a difference with your purchase.<\/p>",
+            "link": "",
+            "button_label": ""
           }
         },
         "text-column-4": {
@@ -37,7 +61,9 @@
           "settings": {
             "icon": "icon-megaphone",
             "title": "",
-            "text": "<p>Be the only one with a limited edition piece. Don't miss out on owning a one-of-a-kind product.<\/p>"
+            "text": "<p>Be the only one with a limited edition piece. Don't miss out on owning a one-of-a-kind product.<\/p>",
+            "link": "",
+            "button_label": ""
           }
         }
       },
@@ -47,51 +73,64 @@
         "text-column-3",
         "text-column-4"
       ],
+      "disabled": true,
       "settings": {
         "layout": "fixed-gutter",
+        "soft_background": true,
+        "enable_shadow": false,
+        "slider_large": false,
+        "slider_mobile": true,
         "columns_large": "4",
-        "title": ""
-      }
-    },
-    "slideshow": {
-      "type": "slideshow",
-      "blocks": {
-        "slide-1": {
-          "type": "slide",
-          "settings": {
-          }
-        },
-        "slide-2": {
-          "type": "slide",
-          "settings": {
-            "text_position_large": "center end"
-          }
-        }
-      },
-      "block_order": [
-        "slide-1",
-        "slide-2"
-      ],
-      "settings": {
-        "layout": "full",
-        "enable_background_image": true,
-        "height_large": "large",
-        "auto_play": true,
-        "color_scheme": "soft"
+        "image_ratio": "landscape",
+        "image_width": "1",
+        "image_padding": false,
+        "padding_top": 1,
+        "padding_bottom": 1,
+        "center_heading_text": true,
+        "title": "",
+        "subheading": "",
+        "center_body_text": true,
+        "button_label": "",
+        "button_link": "",
+        "button_style": false,
+        "button_large": "bottom",
+        "button_mobile": "bottom",
+        "color_scheme": "default-with-accent-1",
+        "custom_colors": false,
+        "color_foreground": "#212121",
+        "color_accent": "#0D91BD",
+        "color_background": "#FFFFFF",
+        "color_gradient": ""
       }
     },
     "product-recommendations": {
       "type": "product-recommendations",
       "settings": {
+        "layout": "full",
+        "enable_shadow": true,
+        "limit": 4,
+        "slider_large": true,
+        "slider_mobile": true,
         "padding_top": 0.5,
-        "color_scheme": "soft"
+        "padding_bottom": 1,
+        "center_text": true,
+        "title": "You may also like",
+        "image_container_ratio": "square",
+        "fit_image_to_container": false,
+        "image_padding": 5,
+        "enable_second_image_on_hover": true,
+        "color_scheme": "soft",
+        "custom_colors": false,
+        "color_foreground": "#212121",
+        "color_accent": "#0D91BD",
+        "color_background": "#FFFFFF",
+        "color_gradient": ""
       }
     }
   },
   "order": [
     "main",
     "text-columns",
-    "slideshow",
     "product-recommendations"
   ]
 }
