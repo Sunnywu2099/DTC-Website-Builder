@@ -1,0 +1,583 @@
+{% liquid
+    assign has_only_one_sales_channel_block = false
+    assign complementary_product_blocks = section.blocks | where: 'type', 'complementary_products'
+    assign sales_channel_blocks = section.blocks | where: 'type', 'sales_channel'
+    assign spacing_level = 4
+  %}
+  <div class="sticky-top-section mt-5 mt-lg-0">
+    <variant-lists data-url="{{ product.url }}" data-section="{{ section.id }}" class="d-none">
+      <label for="product-{{ product.id }}-variant" class="form-label visually-hidden">Variant</label>
+      <select id="product-{{ product.id }}-variant" class="as-product-variant" name="id">
+        {%- for variant in product.variants -%}
+          <option class="as-product-variant-option" value="{{ variant.id }}"
+          {% if variant.option1 %}data-option1="{{ variant.option1 }}" {% endif %}
+          {% if variant.option2 %}data-option2="{{ variant.option2 }}" {% endif %}
+          {% if variant.option3 %}data-option3="{{ variant.option3 }}" {% endif %}
+            {%- if variant.id == product.selected_or_first_available_variant.id %} selected="selected" {%- endif -%}>
+            {{ variant.title }}
+          </option>
+        {%- endfor -%}
+      </select>
+    </variant-lists>
+  
+    <div class="purchase-main">
+      {% comment %}
+        当勾选了配置项Sticky the buy button to the bottom，并配置了Sales channel类型的block;
+        或当勾选了配置项Sticky the buy button to the bottom，并同时未配置Complementary products和Sales channel类型的block
+        目的是使用自定义标签complementary-products里面的方法
+      {% endcomment %}
+      {% if section.settings.sticky_the_buy_button_to_the_bottom %}
+        {% if sales_channel_blocks.size > 0 %}
+          <complementary-products
+          data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&intent=complementary">
+            <complementary-mark>
+            </complementary-mark>
+          </complementary-products>
+          {% comment %} 不可与上面的if交换顺序 {% endcomment %}
+        {% elsif complementary_product_blocks.size == 0 %}
+          <complementary-products
+          data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&intent=complementary">
+            <complementary-mark>
+            </complementary-mark>
+          </complementary-products>
+        {% endif %}
+      {% endif %}
+      {%- for block in section.blocks -%}
+        {% comment %} 判断 Collapsible tab 的数量,  {% endcomment %}
+        {%-liquid
+          if block.type == 'collapsible_tab'
+            assign collapsiblePreIndex = forloop.index0
+            if collapsiblePreIndex > 0
+              assign collapsiblePreIndex = collapsiblePreIndex | minus: 1
+              if section.blocks[collapsiblePreIndex].type == 'collapsible_tab'
+                assign noBottomClass = 'product-accordion'
+              else
+                assign noBottomClass = ''
+              endif
+            endif
+          endif
+        -%}
+        {%- case block.type -%}
+          {%- when 'text' -%}
+            {%- liquid
+              case block.settings.text_type
+                when 'uppercase'
+                  assign text_type = 'text-uppercase'
+                when 'footnote'
+                  assign text_type = 'small'
+                else
+                  assign text_type = ''
+              endcase
+  
+              assign text_margin = 'py-3 px-3 rounded-1'
+              if block.settings.background_color.rgba == '0 0 0 / 0.0'
+                assign text_margin = ''
+              endif
+            -%}
+            <div class="text-icon-wrapper d-flex align-items-center mt-{{ spacing_level }} {{ text_type }} {{ text_margin }} {{ block.settings.text_color }}"
+              style="background: {{ block.settings.background_color }};">
+              {% if block.settings.advert_icon != blank %}
+                <img class="advert-icon me-2" style="height: 2em;"
+                  width="auto" height="auto" loading="lazy"
+                  src="{{ block.settings.advert_icon | img_url: 'master' }}" alt="{{ block.settings.advert_icon.alt }}">
+              {% endif %}
+              <div class="no-last-margin">{{ block.settings.text_block }}</div>
+            </div>
+          {%- when 'title' -%}
+            {% if product.tags.size > 0 and section.settings.show_product_tag %}
+              <ul class="mb-1 list-unstyled d-flex fs-small">
+                {% for tag in product.tags %}
+                  {% if forloop.last %}
+                    <li class="bg-secondary px-1 py-1/4 rounded-pill text-uppercase">{{ tag }}</li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+            {% endif %}
+            <h1 class="{{ block.settings.fontsize }} mb-1 product-title">{{ product.title }}</h1>
+          {%- when 'price' -%}
+            <div class="product-price" id="price-{{ section.id }}">
+              {%- render 'price',
+                product: product,
+                use_variant: true,
+                price_class: 'product-price',
+                price_size: 'h4'
+                price_compare_size: 'h5'
+              -%}
+            </div>
+          {%- when 'variant_picker' -%}
+            {%- if product.metafields.custom.option_note -%}
+              <div class="visually-hidden as-metafields-option-note">
+                {{ product.metafields.custom.option_note | metafield_tag }}
+              </div>
+            {%- endif -%}
+            {%- if product.metafields.custom.variant_note -%}
+              <div class="visually-hidden as-metafields-variant-note">
+                {{ product.metafields.custom.variant_note | metafield_tag }}
+              </div>
+            {%- endif -%}
+            <div class="">
+            {%- unless product.has_only_default_variant -%}
+              <variant-options data-levels="{{ product.options_with_values.size }}" data-section="{{ section.id }}" data-url="{{ product.url }}">
+                {%- for option in product.options_with_values -%}
+                  {%- liquid
+                    assign show_color_swatch = false
+                    if block.settings.enable_color_swatches
+                      assign option_name = option.name | downcase
+                      if option_name == 'color' or option.name == block.settings.swatch_option_name
+                        assign show_color_swatch = true
+                      endif
+                    endif
+                  -%}
+  
+                  {% if show_color_swatch %}
+                    {% assign browser_support_color = ',AliceBlue,AntiqueWhite,Aqua,Aquamarine,Azure,Beige,Bisque,Black,BlanchedAlmond,Blue,BlueViolet,Brown,BurlyWood,CadetBlue,Chartreuse,Chocolate,Coral,CornflowerBlue,Cornsilk,Crimson,Cyan,DarkBlue,DarkCyan,DarkGoldenRod,DarkGray,DarkGreen,DarkKhaki,DarkMagenta,DarkOliveGreen,Darkorange,DarkOrchid,DarkRed,DarkSalmon,DarkSeaGreen,DarkSlateBlue,DarkSlateGray,DarkTurquoise,DarkViolet,DeepPink,DeepSkyBlue,DimGray,DodgerBlue,Feldspar,FireBrick,FloralWhite,ForestGreen,Fuchsia,Gainsboro,GhostWhite,Gold,GoldenRod,Gray,Green,GreenYellow,HoneyDew,HotPink,IndianRed,Indigo,Ivory,Khaki,Lavender,LavenderBlush,LawnGreen,LemonChiffon,LightBlue,LightCoral,LightCyan,LightGoldenRodYellow,LightGrey,LightGreen,LightPink,LightSalmon,LightSeaGreen,LightSkyBlue,LightSlateBlue,LightSlateGray,LightSteelBlue,LightYellow,Lime,LimeGreen,Linen,Magenta,Maroon,MediumAquaMarine,MediumBlue,MediumOrchid,MediumPurple,MediumSeaGreen,MediumSlateBlue,MediumSpringGreen,MediumTurquoise,MediumVioletRed,MidnightBlue,MintCream,MistyRose,Moccasin,NavajoWhite,Navy,OldLace,Olive,OliveDrab,Orange,OrangeRed,Orchid,PaleGoldenRod,PaleGreen,PaleTurquoise,PaleVioletRed,PapayaWhip,PeachPuff,Peru,Pink,Plum,PowderBlue,Purple,Red,RosyBrown,RoyalBlue,SaddleBrown,Salmon,SandyBrown,SeaGreen,SeaShell,Sienna,Silver,SkyBlue,SlateBlue,SlateGray,Snow,SpringGreen,SteelBlue,Tan,Teal,Thistle,Tomato,Turquoise,Violet,VioletRed,Wheat,White,WhiteSmoke,Yellow,YellowGreen,' | downcase %}
+                    <fieldset class="as-option-wrap as-color-swatch mt-{{ spacing_level }}">
+                      {% liquid
+                        assign radio_class_name = 'radio-btn'
+                        assign show_color_option_name = false
+                        if block.settings.type == '1column'
+                          assign class_name = 'row-cols-1'
+                          assign label_class_name = 'p-2 align-items-center'
+                          assign flex_grow_1 = 'flex-grow-1 ms-3 text-start'
+                        elsif block.settings.type == 'pillscolumn'
+                          assign class_name = 'row-cols-auto'
+                          assign label_class_name = ''
+                          assign radio_class_name = 'color-swatch-btn'
+                          if block.settings.show_name_on_color_swatches
+                            assign show_color_option_name = true
+                          endif
+                        else block.settings.type == '2columns'
+                          assign class_name = 'row-cols-2'
+                          assign label_class_name = 'p-2 h-100 ' | append: block.settings.text_alignment
+                          if block.settings.text_alignment == 'text-start'
+                            assign label_class_name = label_class_name | append: ' flex-row justify-content-center align-items-center'
+                            assign flex_grow_1 = 'flex-grow-1 ms-3'
+                          else
+                            assign label_class_name = label_class_name | append: ' flex-column justify-content-center'
+                            assign color_name_class = 'mt-2'
+                          endif
+                        endif
+                      %}
+                      {% unless block.settings.hide_option_name %}
+                        <div class="mb-1">
+                        <legend class="mb-0 fs-small fw-bold float-none">{{ option.name }}{% if show_color_option_name %}: <span class="as-color-option-name">{{ option.selected_value }}{% endif %}</span></legend>
+                          <p class="text-muted fs-small mb-0 as-metafileds-option-note-{{ option.name | downcase | replace: ' ', '-' }}"></p>
+                        </div>
+                      {% endunless %}
+  
+                      <div class="row g-2 {{ class_name }} as-color-swatch-input">
+                        {%- for value in option.values -%}
+                          {%- capture is_not_exist -%}{%- render 'filter-options' -%}{%- endcapture -%}
+                          {% assign is_not_exist = is_not_exist | strip %}
+  
+                          <div class="{{ radio_class_name }}">
+                            <input data-position="{{ option.position }}" type="radio" id="{{ section.id }}-{{ option.name }}-{{ forloop.index0 }}"
+                              class="as-step-option radio-btn-input visually-hidden"
+                              name="{{ option.name }}"
+                              value="{{ value | escape }}"
+                              form="as-product-form-{{ section.id }}"
+                              {% if option.selected_value == value %}checked{% endif %}
+                              {% if is_not_exist == 'true' %}disabled{% endif %}
+                            >
+                            <label class="radio-btn-label flex-center {{ label_class_name }}" for="{{ section.id }}-{{ option.name }}-{{ forloop.index0 }}">
+                              {%- liquid
+                                assign search_terms = value | downcase | prepend: ',' | append: ','
+                              -%}
+                              {%- if block.settings.color_swatches_rule_configuration contains value -%}
+                                {%- liquid
+                                  assign files_support_color = block.settings.color_swatches_rule_configuration | split: ";"
+                                  for rule in files_support_color
+                                    assign rule_item = rule | split: ':'
+                                    if rule_item.first == value
+                                      assign rule_value = rule_item.last
+                                      break
+                                    endif
+                                  endfor
+                                  if rule_value contains '#'
+                                    assign option_color = rule_value
+                                  elsif rule_value contains '.'
+                                    assign option_img = images[rule_value]
+                                  endif
+                                -%}
+  
+                                {%- if option_img != blank -%}
+                                  <img width="auto" height="auto" loading="lazy" src="{{ option_img | img_url: 'master' }}" class="radio-color-icon object-fit-cover rounded-pill" alt="{{ value }}">
+                                  {% assign option_img = blank %}
+                                {%- elsif option_color != blank -%}
+                                  <span class="radio-color-icon border d-block rounded-pill mx-auto w-100" style="background: {{ option_color }}"></span>
+                                  {% assign option_color = blank %}
+                                {%- endif -%}
+                              {%- elsif browser_support_color contains search_terms -%}
+                                <span class="radio-color-icon border d-block rounded-pill mx-auto w-100" style="background: {{ value | downcase }};"></span>
+                              {%- else -%}
+                                <span class="bg-white radio-color-icon border d-block rounded-pill mx-auto w-100"></span>
+                              {%- endif -%}
+                              {% if block.settings.show_name_on_color_swatches and block.settings.type != 'pillscolumn' %}
+                                <div class="{{ flex_grow_1 }}">
+                                  <span class="{{ color_name_class }} d-block">{{ value }}</span>
+                                  <span class="as-metafileds-variant-note-{{ value | downcase | replace: ' ', '-' }} text-muted fs-small fw-normal d-block"></span>
+                                </div>
+                              {% endif %}
+                            </label>
+                          </div>
+                        {%- endfor -%}
+                      </div>
+                    </fieldset>
+                  {% endif %}
+  
+                  {%- if block.settings.type contains 'column' and show_color_swatch != true -%}
+                    <fieldset class="as-option-wrap mt-{{ spacing_level }}">
+                      {% unless block.settings.hide_option_name %}
+                        <div class="mb-1">
+                          <legend class="mb-0 fs-small fw-bold float-none">{{ option.name }}</legend>
+                          <p class="text-muted fs-small mb-0 as-metafileds-option-note-{{ option.name | downcase | replace: ' ', '-' }}"></p>
+                        </div>
+                      {% endunless %}
+                      {% liquid
+                        if block.settings.type == '1column'
+                          assign class_name = 'row-cols-1'
+                          assign label_class_name = 'p-2 align-items-start'
+                        elsif block.settings.type == '2columns'
+                          assign class_name = 'row-cols-2'
+                          assign label_class_name = 'p-2 h-100 ' | append: block.settings.text_alignment
+                        elsif block.settings.type == 'pillscolumn'
+                          assign class_name = 'row-cols-auto'
+                          assign label_class_name = 'px-2 py-1 rounded-2'
+                        endif
+                      %}
+                      <ul class="row g-1 list-unstyled mb-0 {{ class_name }}">
+                        {%- for value in option.values -%}
+                          {%- capture is_not_exist -%}{%- render 'filter-options' -%}{%- endcapture -%}
+                          {% assign is_not_exist = is_not_exist | strip %}
+                          <li class="radio-btn">
+                            <input data-position="{{ option.position }}" type="radio" id="{{ section.id }}-{{ option.name }}-{{ forloop.index0 }}"
+                              class="as-step-option radio-btn-input visually-hidden"
+                              name="{{ option.name }}"
+                              value="{{ value | escape }}"
+                              form="as-product-form-{{ section.id }}"
+                              {% if option.selected_value == value %}checked{% endif %}
+                              {% if is_not_exist == 'true' %}disabled{% endif %}
+                            >
+                            <label class="radio-btn-label d-flex flex-column justify-content-center {{ label_class_name }}" for="{{ section.id }}-{{ option.name }}-{{ forloop.index0 }}">
+                              <span>{{ value }}</span>
+                              {% unless block.settings.type == 'pillscolumn' %}
+                                <span class="as-metafileds-variant-note-{{ value | downcase | replace: ' ', '-' }} text-muted fs-small fw-normal"></span>
+                              {% endunless %}
+                            </label>
+                          </li>
+                        {%- endfor -%}
+                      </ul>
+                    </fieldset>
+                  {%- elsif block.settings.type == 'dropdown' and show_color_swatch != true -%}
+                    <div class="{{ block.settings.margin_bottom }} mt-{{ spacing_level }}">
+                      {% unless block.settings.hide_option_name %}
+                        <div class="mb-3">
+                          <legend class="mb-0 fs-small fw-bold float-none" for="Option-{{ section.id }}-{{ forloop.index0 }}">{{ option.name }}</legend>
+                          <p class="text-muted fs-small mb-0 as-metafileds-option-note-{{ option.name | downcase | replace: ' ', '-' }}"></p>
+                        </div>
+                      {% endunless %}
+                      <div class="as-option-wrap">
+                        <select id="Option-{{ section.id }}-{{ forloop.index0 }}"
+                          class="select-btn fs-small px-3 py-3 fw-bold form-select"
+                          name="options[{{ option.name | escape }}]"
+                          form="as-product-form-{{ section.id }}"
+                        >
+                          {%- for value in option.values -%}
+                          {%- capture is_not_exist -%}
+                            {%- render 'filter-options' -%}
+                          {%- endcapture -%}
+                          {% assign is_not_exist = is_not_exist | strip %}
+                            <option data-position="{{ option.position }}" class="as-step-option" value="{{ value | escape }}" {% if is_not_exist == 'true' %}disabled{% endif %} {% if option.selected_value == value %}selected="selected"{% endif %}>
+                              {{ value }}
+                            </option>
+                          {%- endfor -%}
+                        </select>
+                      </div>
+                    </div>
+                  {%- endif -%}
+                {%- endfor -%}
+                <script class="as-variants-data" type="application/json">
+                  {{ product.variants | json }}
+                </script>
+              </variant-options>
+            {%- endunless -%}
+            </div>
+          {%- when 'quantity_selector' -%}
+            <div class="align-items-center d-flex justify-content-between mt-{{ spacing_level }}">
+              <p class="fw-bold mb-0 fs-small">{{ 'products.product.quantity.label' | t }}</p>
+              <div class="d-inline-block">
+                <quantity-input>
+                  <div class="input-group flex-nowrap input-group-sm quantity">
+                    <button class="quantity-btn as-quantity-btn" type="button" name="minus" disabled="true">
+                      <span class="visually-hidden">{{ 'products.product.quantity.decrease' | t: product: product.title | escape }}</span>
+                      {%- render 'icon-minus' -%}
+                    </button>
+                    <input type="number" readonly disabled
+                      id="quantity-input"
+                      name="quantity"
+                      class="fw-bold fs-body as-form-control-number form-control-number form-control text-center bg-transparent"
+                      step="1" min="1" value="1">
+                    <button class="quantity-btn as-quantity-btn" type="button" name="plus" {%- unless product.selected_or_first_available_variant.available -%}disabled="true"{%- endunless -%}>
+                      <span class="visually-hidden">{{ 'products.product.quantity.increase' | t: product: product.title | escape }}</span>
+                      {%- render 'icon-plus' -%}
+                    </button>
+                  </div>
+                </quantity-input>
+              </div>
+            </div>
+          {%- when 'buy_buttons' -%}
+            {% if sales_channel_blocks.size == 0 %}
+              {% render 'product-block-buy-buttons', block: block %}
+            {% endif %}
+          {%- when 'sales_channel' -%}
+            {% unless has_only_one_sales_channel_block %}
+              {% render 'product-block-sales-channel-buttons', blocks: sales_channel_blocks %}
+            {% endunless %}
+            {% assign has_only_one_sales_channel_block = true %}
+          {%- when 'description' -%}
+            {%- liquid
+              assign text_margin = 'p-2 rounded-1'
+              if block.settings.background_color.rgba == '0 0 0 / 0.0'
+                assign text_margin = ''
+              endif
+            -%}
+            {% if product.description != blank %}
+              <truncate-content>
+                <div class="mt-{{ spacing_level }} {{ text_margin }} {{ block.settings.text_color }}"
+                  style="background: {{ block.settings.background_color }};">
+                  <div class="richtext-description truncating {% if block.settings.truncate_content %}as-truncate-content-parent ellipsis-3{% endif %}">
+                    {{ product.description }}
+                  </div>
+                  {%- if block.settings.truncate_content %}
+                    <div class="as-truncate-content-btn opacity-0 mt-2 cursor-pointer">
+                      <div class="d-inline-block">
+                        <span class="as-show-more">{{- 'products.product.read_more' | t -}}</span>
+                        <span class="as-show-less d-none">{{- 'products.product.read_less' | t -}}</span>
+                      </div>
+                      <span class="d-inline-block icon-wrap-sm as-truncate-content-arrow rotatable-arrow">{% render 'icon-chevron-down' %}</span>
+                    </div>
+                  {% endif -%}
+                </div>
+              </truncate-content>
+            {% endif %}
+          {%- when 'payment_methods' -%}
+            <div class="mt-{{ spacing_level }}">
+              <ul class="row row-cols-auto g-1 list-unstyled mb-0" role="list">
+                {% assign enabled_payment_types = 'paypal,visa,master,american_express,maestro,jcb,discover,diners_club,unionpay,klarna' | remove: ' ' | split: ',' %}
+                {% for type in enabled_payment_types %}
+                  <li>
+                    {{ type | payment_type_svg_tag: class: '' }}
+                  </li>
+                {%- endfor -%}
+              </ul>
+            </div>
+          {%- when 'share' -%}
+            <div class="align-items-center d-flex mt-{{ spacing_level }}">
+              <h5 class="fw-bold mb-0 me-2 fs-small">{{ 'products.product.share' | t }}</h5>
+              <ul class="list-unstyled mb-0 d-flex icon-wrap-sm">
+                {% if settings.share_facebook %}
+                  <li class="me-2">
+                    <a rel="noopener" target="_blank" class="link-dark2primary d-flex" href="https://facebook.com/sharer/sharer.php?u=https://{{ shop.domain }}{{ product.url }}&quote={{ page_description }}">
+                      {% render 'icon-social-media-product', media: 'facebook' %}
+                    </a>
+                  </li>
+                {% endif %}
+                {% if settings.share_twitter %}
+                  <li class="me-2">
+                    <a rel="noopener" target="_blank" class="link-dark2primary d-flex" href="https://twitter.com/intent/tweet?url=https://{{ shop.domain }}{{ product.url }}&text={{ page_description }}">
+                      {% render 'icon-social-media-product', media: 'twitter' %}
+                    </a>
+                  </li>
+                {% endif %}
+                {% if settings.share_pinterest %}
+                  <li class="me-2">
+                    <a rel="noopener" target="_blank" class="link-dark2primary d-flex" href="https://pinterest.com/pin/create/button/?url=https://{{ shop.domain }}{{ product.url }}&media=https:{{ product.featured_image | img_url  }}&description={{ page_description }}">
+                      {% render 'icon-social-media-product', media: 'pinterest' %}
+                    </a>
+                  </li>
+                {% endif %}
+              </ul>
+            </div>
+          {%- when 'badge' -%}
+            {%- if block.settings.badge_image != blank -%}
+              <div class="mt-{{ spacing_level }}">
+                <img class="{% if block.settings.image_height != 'adapt_to_image' %}{{ block.settings.image_height }}{% else %}mw-100 h-auto{% endif %}"
+                  {% if block.settings.image_height != 'adapt_to_image' %}
+                    width="auto" height="auto"
+                  {% else %}
+                    width="{{ block.settings.badge_image.width | divided_by: 2 }}"
+                    height="{{ block.settings.badge_image.height | divided_by: 2 }}"
+                  {% endif %}
+                  loading="lazy"
+                  src="{{ block.settings.badge_image | img_url: 'master' }}"
+                  alt="{{ block.settings.badge_image.alt }}" />
+              </div>
+            {%- endif -%}
+          {%- when 'countdown' -%}
+            {%- if block.settings.end_time != '' -%}
+              <count-down class="as-countdown countdown inactive"
+                data-start-time="{{ block.settings.start_time }}"
+                data-end-time="{{ block.settings.end_time }}">
+                <div class="as-countdown-time flex-wrap flex-column flex-md-row flex-lg-column flex-xxl-row bg-countdown d-flex fw-bold justify-content-between rounded-general-sm fs-small p-2 mt-{{ spacing_level }}">
+                  <div class="d-flex align-items-center mb-1 mb-md-0 mb-lg-1 mb-xxl-0 me-2 text-nowrap">
+                    <div class="icon-wrap-md me-1">{% render 'icon-flash' %}</div>
+                    {{ block.settings.heading_block }}
+                  </div>
+                  <div class="as-countdown-time-wrap d-flex align-items-center countdown-time text-nowrap inactive">
+                    <span class="as-countdown-text mx-1 text-nowrap" data-start="{{ block.settings.event_start_text }}" data-end="{{ block.settings.event_end_text }}"></span>
+                    <span class="as-countdown-days flex-center countdown-block-width bg-white">00</span>
+                    <span class="mx-1">{{ block.settings.days }}</span>
+                    <span class="as-countdown-hours flex-center countdown-block-width bg-white">00</span>
+                    <span class="countdown-separator mx-1">:</span>
+                    <span class="as-countdown-minutes flex-center countdown-block-width bg-white">00</span>
+                    <span class="countdown-separator mx-1">:</span>
+                    <span class="as-countdown-seconds flex-center countdown-block-width bg-white">00</span>
+                  </div>
+                </div>
+              </count-down>
+            {%- endif -%}
+          {%- when 'collapsible_tab' -%}
+            {%- if block.settings.heading_block != '' -%}
+              <div class="accordion accordion-flush border-top mt-{{ spacing_level }} {{ noBottomClass }}">
+                <div class="accordion-item border-bottom">
+                  <div class="accordion-header" id="flush-heading{{ block.id }}">
+                    <button class="accordion-button collapsed px-0 py-4 fw-bold fs-5" type="button"
+                      data-bs-toggle="collapse" data-bs-target="#flush-collapse-{{ block.id }}" aria-expanded="false" aria-controls="flush-collapse{{ block.id }}">
+                      {{ block.settings.heading_block }}
+                    </button>
+                  </div>
+                  <div id="flush-collapse-{{ block.id }}" class="accordion-collapse collapse" aria-labelledby="flush-heading{{ block.id }}">
+                    <div class="accordion-body px-0 pt-0 pb-0 pb-4 no-last-margin">{{ block.settings.tab_content }}</div>
+                  </div>
+                </div>
+              </div>
+            {%- endif -%}
+          {%- when 'pop_up' -%}
+            {%- if block.settings.page_block != blank -%}
+              <div class="mt-{{ spacing_level }}">
+                <a class="text-body cursor-pointer" data-bs-toggle="modal" data-bs-target="#modal-{{ block.id  }}">
+                  {{ block.settings.heading }}
+                </a>
+              </div>
+            {%- endif -%}
+          {%- when 'inventory_status' -%}
+            <div id="inventory-{{ section.id }}">
+              {% assign inventory = product.selected_or_first_available_variant.inventory_quantity %}
+              {% if inventory <= settings.show_stock_tips_when_inventory_is_less_than_or_equal_to and inventory > 0 %}
+                <div class="mt-{{ spacing_level }} fs-small text-danger align-items-center d-flex">
+                  <div class="d-inline-flex icon-wrap-md me-2">
+                    {% render 'icon-inventory' %}
+                  </div>
+                  <span>{{ settings.stock_tips | replace: '**', inventory  }}</span>
+                </div>
+              {% endif %}
+            </div>
+          {%- when 'preorder' -%}
+            <div class="mt-{{ spacing_level }} p-2 bg-gray-100 rounded-general-sm">
+              <div class="d-flex flex-nowrap">
+                {% if block.settings.preorder_image %}
+                  <div class="d-md-block d-none overflow-hidden preorder-img-pc rounded-pill me-2">
+                    <img
+                      class="w-100 h-100"
+                      src="{{ block.settings.preorder_image | img_url: 'master' }}"
+                      alt="{{ block.settings.preorder_image.alt | escape }}"
+                      width="{{ block.settings.preorder_image.width }}"
+                      height="{{ block.settings.preorder_image.height }}"
+                      loading="lazy" />
+                  </div>
+                {% endif %}
+                <div class="flew-grow-1">
+                  <div class="align-items-center d-flex justify-content-between">
+                    <div>{{ block.settings.preorder_title }}</div>
+                    {% if block.settings.preorder_image_mob %}
+                      <div class="d-md-none d-block overflow-hidden preorder-img-mob rounded-pill">
+                        <img
+                          class="w-100 h-100"
+                          src="{{ block.settings.preorder_image_mob | img_url: 'master' }}"
+                          alt="{{ block.settings.preorder_image_mob.alt | escape }}"
+                          width="{{ block.settings.preorder_image_mob.width }}"
+                          height="{{ block.settings.preorder_image_mob.height }}"
+                          loading="lazy" />
+                      </div>
+                    {% endif %}
+                  </div>
+                  <ul class="list-unstyled fs-small mt-1 mb-0 text-muted">
+                    <li class="d-flex">
+                      {% if block.settings.first_icon %}
+                        <div class="d-flex icon-wrap-sm me-1">
+                          <img
+                            src="{{ block.settings.first_icon | img_url: 'master' }}"
+                            alt="{{ block.settings.first_icon.alt | escape }}"
+                            width="{{ block.settings.first_icon.width }}"
+                            height="{{ block.settings.first_icon.height }}"
+                            loading="lazy" />
+                        </div>
+                      {% endif %}
+                      <div class="no-last-margin">{{ block.settings.first_text | replace: '/**', '</span>' | replace: '**', '<span class="text-uppercase text-body">' }}</div>
+  
+                    </li>
+                    <li class="d-flex mt-1/2">
+                      {% if block.settings.second_icon %}
+                        <div class="d-flex icon-wrap-sm me-1">
+                          <img
+                            src="{{ block.settings.second_icon | img_url: 'master' }}"
+                            alt="{{ block.settings.second_icon.alt | escape }}"
+                            width="{{ block.settings.second_icon.width }}"
+                            height="{{ block.settings.second_icon.height }}"
+                            loading="lazy" />
+                        </div>
+                      {% endif %}
+                      <div class="no-last-margin">{{ block.settings.second_text | replace: '/**', '</span>' | replace: '**', '<span class="text-nowrap bg-gray-300 px-1 py-1/4 rounded-pill text-body text-uppercase">' | replace: '<a', '<a class="text-body text-decoration-underline"' }}</div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          {%- when 'klarna' -%}
+            <div class="mt-2 overflow-hidden position-relative">
+              {{ block.settings.klarna_liquid }}
+            </div>
+          {%- when 'complementary_products' -%}
+            {% if sales_channel_blocks.size == 0 %}
+              {% render 'product-block-complementary', block: block %}
+            {% endif %}
+          {%- when 'icon_with_text' -%}
+            {% render 'product-block-icon-with-text' %}
+          {%- when '@app' -%}
+            <div class="mt-2">
+              {% render block %}
+            </div>
+          {%- when 'separator' -%}
+            <hr class="my-{{ spacing_level }}" />
+        {%- endcase -%}
+      {% endfor %}
+      {% comment %} <div class="d-block d-lg-none">
+        {% render 'product-block-icon-with-text' %}
+      </div> {% endcomment %}
+    </div>
+  </div>
+  {% comment %} pop_up 弹窗单独拎出来的原因是 父级 有 sticky-top-section, 他限定了 z-index 上线是 1019, 低于蒙层 1050 、.. {% endcomment %}
+  {%- for block in section.blocks -%}
+    {%- case block.type -%}
+      {%- when 'pop_up' -%}
+        <aside>
+          <div class="modal fade" id="modal-{{ block.id }}" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-fullscreen-md-down modal-dialog-scrollable modal-dialog-centered">
+              <div class="modal-content border-0">
+                <button type="button" class="border-0 btn icon-wrap-md p-3 text-end" data-bs-dismiss="modal" aria-label="Close">
+                  {% render 'icon-close' %}
+                </button>
+                  <div class="modal-body p-4 pt-0 richtext-description">
+                    {{ block.settings.page_block.content }}
+                  </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+    {%- endcase -%}
+  {%- endfor-%}
+  
+  {% if sales_channel_blocks.size > 2 %}
+    {% render 'sales-channel-modal', blocks: sales_channel_blocks, section_name: 'product' %}
+  {% endif %}
+  
