@@ -1,7 +1,8 @@
-img{
+img {
     width: 100%;
     display: block;
 }
+
 .hide-mb {
     display: block;
 }
@@ -23,14 +24,16 @@ img{
 .fadein.active,
 .fadein.fadein2.active,
 .swiper-slide-active .fadein,
-.swiper-slide-duplicate-active .fadein{
+.swiper-slide-duplicate-active .fadein {
     opacity: 1;
     transform: translateY(0);
 }
-.btn-progress{
+
+.btn-progress {
     position: relative;
 }
-.btn-progress::after{
+
+.btn-progress::after {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -40,9 +43,40 @@ img{
     width: 0%;
     transition: width 0.3s ease-out;
 }
-.btn-progress:hover::after{
+
+.btn-progress:hover::after {
     width: 100%;
     transition: width 0.3s ease-out;
+}
+
+.size-title {
+    font-weight: 700;
+    font-size: 20px;
+    color: #240700;
+    transform-origin: 10px 0;
+    transform: scale(.6) translateY(-15px) translate(-8px) !important;
+    display: block;
+}
+
+.input-box {
+    width: 30%;
+    max-width: 160px;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    text-align: center;
+    font-size: 16px;
+}
+.size-input{
+    margin-top: -10px;
+    margin-left: -3px;
+    display: flex;
+    gap: 12px;
+}
+.result-box{
+    margin-top: 10px;
+    font-size: 14px;
+    color: green;
 }
 @media screen and (max-width: 768px) {
     .hide-mb {
