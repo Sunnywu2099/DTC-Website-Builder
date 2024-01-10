@@ -4,7 +4,7 @@
 
 <script>
     {%- liquid
-        assign media_grouping_options = section.settings.media_grouping_option | replace: ', ', ',' | split: ','
+        assign media_grouping_options = 'Color' | replace: ', ', ',' | split: ','
         for option in product.options
           if media_grouping_options contains option
             assign groupOptionName = option
