@@ -18,7 +18,7 @@
           "settings": {
             "show_unavailable_variants_indicator": true,
             "option_type": "button",
-            "color_option_type": "swatch"
+            "color_option_type": "dropdown"
           }
         },
         "50a84925-71d6-4f27-9fd4-c0e65e75f432": {
