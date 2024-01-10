@@ -347,6 +347,7 @@
         var i_index = $(this).data('index');
         if(window.innerWidth<=767){
             $('.spx-gs-item-details').addClass('active');
+            $('body').addClass('spx-gs-overflow');
         }
         $('.spx-gs-detail').each(function(i,e){
             var d_index = i+1;
@@ -357,6 +358,7 @@
         })
     })
     $('.spx-gs-item-details_close').on('click',function(){
+        $('body').removeClass('spx-gs-overflow');
         $('.spx-gs-item-details').removeClass('active');
 
     })
