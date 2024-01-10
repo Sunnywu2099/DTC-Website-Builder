@@ -2,6 +2,45 @@
   "sections": {
     "main": {
       "type": "main-product-v2",
+      "blocks": {
+        "df99a6b6-9c4f-4d00-a847-a2c9cc452ba8": {
+          "type": "title",
+          "settings": {
+            "fontsize": "h2"
+          }
+        },
+        "b5ce727d-4b51-4bf9-8c5d-ed82943a89ae": {
+          "type": "variant_picker",
+          "settings": {
+            "type": "2columns",
+            "text_alignment": "text-center",
+            "enable_color_swatches": false,
+            "swatch_option_name": "",
+            "show_name_on_color_swatches": false,
+            "hide_option_name": false,
+            "color_swatches_rule_configuration": ""
+          }
+        },
+        "4d967fac-d863-4a9f-927e-a45a44d53074": {
+          "type": "buy_buttons",
+          "disabled": true,
+          "settings": {
+            "show_dynamic_checkout_buttons": true
+          }
+        },
+        "bfa44280-44f7-4205-bb4b-22b00acecf4f": {
+          "type": "quantity_selector",
+          "disabled": true,
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "df99a6b6-9c4f-4d00-a847-a2c9cc452ba8",
+        "b5ce727d-4b51-4bf9-8c5d-ed82943a89ae",
+        "4d967fac-d863-4a9f-927e-a45a44d53074",
+        "bfa44280-44f7-4205-bb4b-22b00acecf4f"
+      ],
       "settings": {
         "media_size": "ratio-1x1",
         "desktop_media_width": 50,
@@ -20,7 +59,7 @@
         "notify_me_note": "<p>You can opt-out at any time. See our Privacy Policy and Terms .<\/p>",
         "subscribe_tag": "notify_me",
         "show_total_price": true,
-        "background_color": "#F6F6F7"
+        "background_color": "#f6f6f7"
       }
     },
     "text-columns": {
@@ -98,8 +137,8 @@
         "color_scheme": "default-with-accent-1",
         "custom_colors": false,
         "color_foreground": "#212121",
-        "color_accent": "#0D91BD",
-        "color_background": "#FFFFFF",
+        "color_accent": "#0d91bd",
+        "color_background": "#ffffff",
         "color_gradient": ""
       }
     },
@@ -122,8 +161,8 @@
         "color_scheme": "soft",
         "custom_colors": false,
         "color_foreground": "#212121",
-        "color_accent": "#0D91BD",
-        "color_background": "#FFFFFF",
+        "color_accent": "#0d91bd",
+        "color_background": "#ffffff",
         "color_gradient": ""
       }
     }
