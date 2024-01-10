@@ -1,3 +1,5 @@
+{{ 'base.min.css' | asset_url | stylesheet_tag }}
+
 {%- assign first_3d_model = product.media | where: "media_type", "model" | first -%}
 {%- if first_3d_model -%}
   <script type="application/json" id="ProductJSON-{{ product.id }}">
