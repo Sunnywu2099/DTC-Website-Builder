@@ -90,8 +90,7 @@
         "b68335a0-5986-4397-a052-bf4c13170c22",
         "4b720668-5179-40c8-8708-9ca27a213aa1"
       ],
-      "settings": {
-      }
+      "settings": {}
     },
     "1c0c39d6-0db9-4ff6-9c22-5ba99800e65d": {
       "type": "spx-press",
@@ -317,54 +316,74 @@
     "9752e660-9d0e-4d6b-b8e2-384e2ac27bbe": {
       "type": "spx-grid-swap",
       "blocks": {
-        "template--16704114884757__9752e660-9d0e-4d6b-b8e2-384e2ac27bbe-block2-1": {
-          "type": "block2",
-          "settings": {
-            "title01": "title title title",
-            "menu_sub01": "<p>text text text.<\/p>",
-            "btn01": "shop",
-            "link01": "",
-            "title02": "title title title",
-            "menu_sub02": "<p>text text text.<\/p>",
-            "btn02": "shop",
-            "link02": ""
-          }
-        },
         "template--16704114884757__9752e660-9d0e-4d6b-b8e2-384e2ac27bbe-block3-1": {
           "type": "block3",
           "settings": {
             "title01": "title title title",
-            "menu_sub01": "<p>text text text.<\/p>",
+            "subtitle01": "<p>text text text.<\/p>",
+            "image01": "shopify:\/\/shop_images\/cd557478c294724f408a1407dd1842b9.png",
+            "image_aspect01": "shopify:\/\/shop_images\/a8f8170c5cacdab9908e36ca54cb4d24.jpg",
             "btn01": "shop",
             "link01": "",
             "title02": "title title title",
-            "menu_sub02": "<p>text text text.<\/p>",
+            "subtitle02": "<p>text text text.<\/p>",
+            "image02": "shopify:\/\/shop_images\/4e43d76ac3706497b7cad66ec76d3169.png",
+            "image_aspect02": "shopify:\/\/shop_images\/1680617afd6385d8e00022b7bfc4fd4d.jpg",
             "btn02": "shop",
             "link02": "",
             "title03": "title title title",
-            "menu_sub03": "<p>text text text.<\/p>",
+            "subtitle03": "<p>text text text.<\/p>",
+            "image03": "shopify:\/\/shop_images\/1587d65982355d643bc794500a9c5087.png",
+            "image_aspect03": "shopify:\/\/shop_images\/2b78842f48acc25f87317ac80bf55ebb.jpg",
             "btn03": "shop",
             "link03": ""
           }
         },
-        "template--16704114884757__9752e660-9d0e-4d6b-b8e2-384e2ac27bbe-block2-2": {
+        "template--16704114884757__9752e660-9d0e-4d6b-b8e2-384e2ac27bbe-block2-1": {
           "type": "block2",
           "settings": {
+            "title01": "title title title111111",
+            "subtitle01": "<p>text text text.<\/p>",
+            "image01": "shopify:\/\/shop_images\/54b0cc202f3139869ec3662c652ed0c7.png",
+            "image_aspect01": "shopify:\/\/shop_images\/bf43a35faa67766303f122372c2dc149.jpg",
+            "btn01": "shop",
+            "link01": "",
+            "title02": "title title title22222",
+            "subtitle02": "<p>text text text.<\/p>",
+            "image02": "shopify:\/\/shop_images\/10aa7001acef0dc3ba56e2a5beb8d153.png",
+            "image_aspect02": "shopify:\/\/shop_images\/ae8e1b5d5cfdde1f63cc896e1f348d7a.jpg",
+            "btn02": "shop",
+            "link02": ""
+          }
+        },
+        "7c714bb0-dd2d-4ac5-88b9-2f2fc59bc838": {
+          "type": "block3",
+          "settings": {
             "title01": "title title title",
-            "menu_sub01": "<p>text text text.<\/p>",
+            "subtitle01": "<p>text text text.<\/p>",
+            "image01": "shopify:\/\/shop_images\/0c7dbb550384c6b693902cdc676ed750.png",
+            "image_aspect01": "shopify:\/\/shop_images\/b76f9da1e2831c79106046dac4986d64.jpg",
             "btn01": "shop",
             "link01": "",
             "title02": "title title title",
-            "menu_sub02": "<p>text text text.<\/p>",
-            "btn02": "shop",
-            "link02": ""
+            "subtitle02": "<p>text text text.<\/p>",
+            "image02": "shopify:\/\/shop_images\/d7940798c3c710a95d22f50277e761ee.png",
+            "image_aspect02": "shopify:\/\/shop_images\/a8f8170c5cacdab9908e36ca54cb4d24.jpg",
+            "btn02": "shop 2222",
+            "link02": "",
+            "title03": "title title title",
+            "subtitle03": "<p>text text text.<\/p>",
+            "image03": "shopify:\/\/shop_images\/2f6ee8fa70d63d5e51ef10fc44e32d8a.png",
+            "image_aspect03": "shopify:\/\/shop_images\/1680617afd6385d8e00022b7bfc4fd4d.jpg",
+            "btn03": "shop",
+            "link03": ""
           }
         }
       },
       "block_order": [
-        "template--16704114884757__9752e660-9d0e-4d6b-b8e2-384e2ac27bbe-block2-1",
         "template--16704114884757__9752e660-9d0e-4d6b-b8e2-384e2ac27bbe-block3-1",
-        "template--16704114884757__9752e660-9d0e-4d6b-b8e2-384e2ac27bbe-block2-2"
+        "template--16704114884757__9752e660-9d0e-4d6b-b8e2-384e2ac27bbe-block2-1",
+        "7c714bb0-dd2d-4ac5-88b9-2f2fc59bc838"
       ],
       "settings": {
         "title1": "Automatic Base Station",
