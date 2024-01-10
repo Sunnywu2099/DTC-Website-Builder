@@ -12,7 +12,7 @@
         "b5ce727d-4b51-4bf9-8c5d-ed82943a89ae": {
           "type": "variant_picker",
           "settings": {
-            "type": "2columns",
+            "type": "pillscolumn",
             "text_alignment": "text-center",
             "enable_color_swatches": false,
             "swatch_option_name": "",
@@ -44,8 +44,8 @@
       "settings": {
         "media_size": "ratio-1x1",
         "desktop_media_width": 50,
-        "thumbnail_layout_on_desktop": "bottom",
-        "thumbnail_layout_on_mobile": "hide_thumbnails",
+        "thumbnail_layout_on_desktop": "left",
+        "thumbnail_layout_on_mobile": "show_thumbnails",
         "pagination_style": "dots",
         "enable_image_zoom": true,
         "color_for_zoom_icon": "text-black",
