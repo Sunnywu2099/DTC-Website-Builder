@@ -138,6 +138,130 @@
       </script>
     {%- endif -%}
 
+    {% if page.template_suffix contains 'landing-page' %}
+      <style>
+        .test{
+          position: fixed;
+          z-index: 99999;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          pointer-events: none;
+        }
+        .santa{
+          position: fixed;
+          z-index: 99999;
+          max-width: 20%;
+          width: 130px;
+        }
+        .santa img{
+          width: 100%;
+        }
+        .santa-1{
+          top: 0;
+          left: 0;
+        }
+        .santa-2{
+          top: 0;
+          right: 0;
+          display: none;
+        }
+        .santa-3{
+          bottom: 0;
+          left: 0;
+        }
+        .santa-4{
+          bottom: 50%;
+          right: 0;
+        }
+      </style>
+      <div class="santa-box">
+        <img class="santa santa-1" loading="lazy" width="" height="" src="https://cdn.shopify.com/s/files/1/0513/1036/2802/files/left.webp?v=1701747639">
+        <img class="santa santa-3" loading="lazy" width="" height="" src="https://cdn.shopify.com/s/files/1/0513/1036/2802/files/santa2.png?v=1701747639">
+        <div class="santa santa-4">
+          <img class="santa-img" loading="lazy" width="" height="" src="https://cdn.shopify.com/s/files/1/0513/1036/2802/files/santa3.png?v=1701755496">
+        </div>
+      </div>
+      <div class="test">
+        <canvas id="snowCanvas"></canvas>
+      </div>
+      <script defer>
+        // 获取Canvas和上下文
+        const canvas = document.getElementById('snowCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // 设置Canvas大小
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        // 存储雪花信息的数组
+        let snowflakes = [];
+
+        // 自定义雪花形状
+        const snowflakeImage = new Image();
+        snowflakeImage.src = 'https://cdn.shopify.com/s/files/1/0513/1036/2802/files/snow.png?v=1701670190'; // 替换为你的雪花图片路径
+
+        // 创建雪花对象
+        function createSnowflake() {
+          const size = Math.random() * 30 + 5; // 调整雪花大小范围
+          const isBlurred = Math.random() > 1; // 随机选择是否模糊
+          return {
+            x: Math.random() * canvas.width,
+            y: -10,
+            size: size, // 调整雪花大小范围
+            speedY: Math.random() * 1 + 0.5, // 垂直速度变慢
+            speedX: (Math.random() - 0.5) * 1, // 水平速度
+            rotation: Math.random() * 360, // 初始旋转角度
+            isBlurred: isBlurred,
+            // blurAmount: isBlurred ? Math.random() * 2 + 1 : 0, // 添加模糊效果
+            blurAmount: isBlurred ? 2 : 0, // 降低模糊效果的程度
+          };
+        }
+
+        // 绘制雪花
+        function drawSnowflakes() {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          for (let i = 0; i < snowflakes.length; i++) {
+            const flake = snowflakes[i];
+            ctx.save();
+            ctx.translate(flake.x, flake.y);
+            ctx.rotate(flake.rotation * Math.PI / 180); // 将角度转为弧度进行旋转
+            ctx.drawImage(snowflakeImage, -flake.size / 2, -flake.size / 2, flake.size, flake.size);
+            ctx.restore();
+            if (flake.isBlurred) {
+              // ctx.opacity = `0.5`;
+              ctx.filter = `blur(3px)`;
+            }
+
+            flake.y += flake.speedY;
+            flake.x += flake.speedX;
+            flake.rotation += 0.5; // 旋转速度
+            
+            if (flake.y > canvas.height || flake.x > canvas.width || flake.x < 0) {
+              snowflakes[i] = createSnowflake();
+            }
+          }
+        }
+
+        // 更新并绘制动画
+        function animateSnowfall() {
+          drawSnowflakes();
+          requestAnimationFrame(animateSnowfall);
+        }
+
+        // 初始化雪花数组
+        for (let i = 0; i < 60; i++) {
+          snowflakes.push(createSnowflake());
+        }
+
+        // 开始动画
+        animateSnowfall();
+
+        document.querySelector('.santa-4').addEventListener('click', function() {
+          this.style.display = 'none';
+        });
+      </script>
+    {% endif %}
     <main id="MainContent" class="template-{{ template.name }}" role="main">
       {{ content_for_layout }}
     </main>
@@ -156,6 +280,5 @@
     -%}
 
     <loess-overlay class="overlay"></loess-overlay>
-    {{ page.template_suffix }}
   </body>
 </html>
