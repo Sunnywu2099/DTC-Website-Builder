@@ -37,7 +37,7 @@
     gsap.registerPlugin(ScrollTrigger);
 
     const canvas = document.getElementById("scrolling");
-    canvas.width = window.width;
+    canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     const context = canvas.getContext("2d");
     const frameCount = 200;
