@@ -1,4 +1,11 @@
 <style>
+    .faq .section-title{
+        margin-bottom: 20px;
+    }
+    .faq .faq-wrapper{
+        display: flex;
+        justify-content: space-between;
+    }
   @media only screen and (max-width: 768px){
 
   }
@@ -6,8 +13,11 @@
 
 <div class="faq section-vertical-spacer container">
   <div class="faq-box container">
-    <h3 class="section-title">{{ section.settings.title }}</h3>
-    <div class="question-wrapper"></div>
+    <h2 class="section-title">{{ section.settings.title }}</h2>
+    <div class="faq-wrapper">
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
   </div>
 </div>
 
