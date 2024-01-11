@@ -1,63 +1,4 @@
 <div class="sscontent"></div>
-<script>
-  var log = console.log;
-  {%- liquid
-    assign media_grouping_options = section.settings.media_grouping_option | replace: ', ', ',' | split: ','
-    for option in product.options
-      if media_grouping_options contains option
-        assign groupOptionName = option
-        assign groupOptionIndex = forloop.index0
-        assign groupOptionProperty = 'option' | append: forloop.index
-        assign sortedVariants = product.variants | sort: groupOptionProperty
-        break
-      endif
-    endfor
-  -%}
-  {%- if groupOptionName -%}
-    {% comment %} <script class="js-data-variant-media" type="application/json"> {% endcomment %}
-    var  variantGroup ={
-        "groupOptionName": {{- groupOptionName | json -}},
-        "groupOptionIndex": {{- groupOptionIndex }},
-        "variantMedia": [
-          {% capture data %}
-            {%- for variant in sortedVariants -%}
-              {%- if variant.featured_media -%}
-                {
-                  "variantId": {{- variant.id -}},
-                  "mediaId": {{- variant.featured_media.id -}},
-                  "mediaPosition": {{- variant.featured_media.position -}},
-                  "imageId": {{- variant.image.id -}},
-                  "imagePosition": {{- variant.image.position -}},
-                  "option": {{- variant.options[groupOptionIndex] | json -}}
-                },
-              {%- endif -%}
-            {%- endfor -%}
-          {% endcapture %}
-          {{ data | replace_last: ',', '' }}
-        ]
-      }
-    
-  {%- endif -%}
-
-  {% comment %} document.addEventListener('DOMContentLoaded', function() { {% endcomment %}
-    {% comment %} 获得初始变体id {% endcomment %}
-    var init_variantId = new URLSearchParams(window.location.search).get('variant');
-    var has_selected_variant = init_variantId ? true : false;
-    {% comment %} 缩略图 {% endcomment %}
-    var thumbArray = $('.main-product-media__thumbnails li');
-    
-    if( !has_selected_variant ){
-      log(222)
-      thumbArray.each(function(i,e){
-        log(i);
-      })
-    }else{
-      log(111)
-    
-    }
-  {% comment %} }) {% endcomment %}
-      
-</script>
 
 
 {%- liquid
@@ -204,6 +145,67 @@
     ]
   }
 </script>
+
+<script>
+  var log = console.log;
+  {%- liquid
+    assign media_grouping_options = section.settings.media_grouping_option | replace: ', ', ',' | split: ','
+    for option in product.options
+      if media_grouping_options contains option
+        assign groupOptionName = option
+        assign groupOptionIndex = forloop.index0
+        assign groupOptionProperty = 'option' | append: forloop.index
+        assign sortedVariants = product.variants | sort: groupOptionProperty
+        break
+      endif
+    endfor
+  -%}
+  {%- if groupOptionName -%}
+    {% comment %} <script class="js-data-variant-media" type="application/json"> {% endcomment %}
+    var  variantGroup ={
+        "groupOptionName": {{- groupOptionName | json -}},
+        "groupOptionIndex": {{- groupOptionIndex }},
+        "variantMedia": [
+          {% capture data %}
+            {%- for variant in sortedVariants -%}
+              {%- if variant.featured_media -%}
+                {
+                  "variantId": {{- variant.id -}},
+                  "mediaId": {{- variant.featured_media.id -}},
+                  "mediaPosition": {{- variant.featured_media.position -}},
+                  "imageId": {{- variant.image.id -}},
+                  "imagePosition": {{- variant.image.position -}},
+                  "option": {{- variant.options[groupOptionIndex] | json -}}
+                },
+              {%- endif -%}
+            {%- endfor -%}
+          {% endcapture %}
+          {{ data | replace_last: ',', '' }}
+        ]
+      }
+    
+  {%- endif -%}
+
+  document.addEventListener('DOMContentLoaded', function() {
+    {% comment %} 获得初始变体id {% endcomment %}
+    var init_variantId = new URLSearchParams(window.location.search).get('variant');
+    var has_selected_variant = init_variantId ? true : false;
+    {% comment %} 缩略图 {% endcomment %}
+    var thumbArray = $('.main-product-media__thumbnails li');
+    
+    if( !has_selected_variant ){
+      log(222)
+      thumbArray.each(function(i,e){
+        log(i);
+      })
+    }else{
+      log(111)
+    
+    }
+  })
+      
+</script>
+
 
 {% schema %}
 {
