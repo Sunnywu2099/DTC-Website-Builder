@@ -177,7 +177,7 @@
 
     $('.faq .right .right-wrapper .faq-item .question').click(function(){
         $(this).parent().find('.answer').slideToggle();
-        {% comment %} $(this).parent().toggleClass('active'); {% endcomment %}
+        {% comment %} $(this).parent().find('.question').toggleClass('active'); {% endcomment %}
     })
 </script>
 
