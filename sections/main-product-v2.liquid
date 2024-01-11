@@ -113,6 +113,10 @@
   {%- endfor -%}
 {%- endcapture -%}
 
+image_list:
+{{ image_list }}
+
+
 {%- liquid
   assign show_video = false
   for media in product.media
