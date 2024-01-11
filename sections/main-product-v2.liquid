@@ -113,7 +113,9 @@
   {%- endfor -%}
 {%- endcapture -%}
 
-
+{% for i in product.images %}
+  {{ i | json }} --------------------
+{% endfor %}
 
 image_list: <br/>
 {{ image_list }}
