@@ -79,7 +79,7 @@
       <script type="module" src="{{ 'size.js' | asset_url }}"></script>
     {% endif %}
 
-    {{ page.template.suffix }}
+    
 
     {{ content_for_header }}
 
@@ -156,5 +156,6 @@
     -%}
 
     <loess-overlay class="overlay"></loess-overlay>
+    {{ page.template.suffix }}
   </body>
 </html>
