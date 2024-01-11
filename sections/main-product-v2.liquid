@@ -39,7 +39,7 @@
     
   {%- endif -%}
 
-  document.addEventListener('DOMContentLoaded', function() {
+  {% comment %} document.addEventListener('DOMContentLoaded', function() { {% endcomment %}
     {% comment %} 获得初始变体id {% endcomment %}
     var init_variantId = new URLSearchParams(window.location.search).get('variant');
     var has_selected_variant = init_variantId ? true : false;
@@ -55,7 +55,7 @@
       log(111)
     
     }
-  })
+  {% comment %} }) {% endcomment %}
       
 </script>
 
