@@ -142,7 +142,7 @@ endcomment
             {% capture variant_image_strs %}{%- render 'get-product-images-by-variant-id', image_list: image_list, target_variant: variant, all_images: product.images -%}{% endcapture %}
 
             {%- liquid assign variant_image_strs = variant_image_strs | split: ';;' -%}
-            <media-gallery style="display: block;" class="as-gallery-wrapper {% if current_variant.id != variant.id %}d-none{% endif %}" data-variant-id="{{ variant.id }}">
+            {% comment %} <media-gallery style="display: block;" class="as-gallery-wrapper {% if current_variant.id != variant.id %}d-none{% endif %}" data-variant-id="{{ variant.id }}">
               <div class="swiper as-media-swiper-outside">
                 <div class="swiper-wrapper">
                   <div class="swiper-slide as-outer-slide outer-slide{% if section.settings.thumbnail_layout_on_desktop == 'left' %}{% if variant_image_strs.size <= 1 %} thumbnail-left-space{% endif %} d-md-flex flex-row-reverse{% endif %}">
@@ -405,7 +405,7 @@ endcomment
                   </div>
                 {%- endif -%}
               </div>
-            </media-gallery>
+            </media-gallery> {% endcomment %}
           {% endfor %}
           {% comment %} <div class="d-none d-lg-block {% if section.settings.thumbnail_layout_on_desktop == 'left' %}thumbnail-left-space{% endif %}">
             {% render 'product-block-icon-with-text' %}
@@ -557,26 +557,9 @@ endcomment
     {%- endfor -%}
   {% endif %}
 </div>
-{% render 'structured-product' %}
 
-{% javascript %}
-  (function() {
-    var $url = document.querySelector('.as-main-product-v2-script')
-    if (!window.productV2 && $url && $url.dataset.designMode !== 'yes') {
-      window.productV2 = $url.value
-      var $script = document.createElement('script')
-      $script.src = window.productV2
-      $script.defer = "defer"
-      document.body.appendChild($script)
-    }
-  })()
-{% endjavascript %}
 
-{% comment %}
-{% unless request.design_mode %}
-  <script src="{{ 'main-product-v2.min.js' | asset_url }}" defer></script>
-{% endunless %}
-{% endcomment %}
+
 
 {% schema %}
   {

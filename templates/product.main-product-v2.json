@@ -1,5 +1,10 @@
 {
   "sections": {
+    "main_product_v2_aV9B4J": {
+      "type": "main-product-v2",
+      "settings": {
+      }
+    },
     "main": {
       "type": "main-product",
       "blocks": {
@@ -140,84 +145,6 @@
         "color_gradient": ""
       }
     },
-    "slideshow": {
-      "type": "slideshow",
-      "blocks": {
-        "slide-1": {
-          "type": "slide",
-          "settings": {
-            "subheading": "",
-            "title": "Slide heading",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "text_size": "large",
-            "text_position_large": "center start",
-            "content_width_large": 50,
-            "text_position_mobile": "start",
-            "first_button_label": "",
-            "first_button_link": "",
-            "first_button_style": false,
-            "second_button_label": "",
-            "second_button_link": "",
-            "second_button_style": true,
-            "color_scheme": "default-with-accent-1",
-            "custom_colors": false,
-            "color_foreground": "#212121",
-            "color_accent": "#0D91BD",
-            "color_background": "#FFFFFF",
-            "color_gradient": ""
-          }
-        },
-        "slide-2": {
-          "type": "slide",
-          "settings": {
-            "subheading": "",
-            "title": "Slide heading",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "text_size": "large",
-            "text_position_large": "center end",
-            "content_width_large": 50,
-            "text_position_mobile": "start",
-            "first_button_label": "",
-            "first_button_link": "",
-            "first_button_style": false,
-            "second_button_label": "",
-            "second_button_link": "",
-            "second_button_style": true,
-            "color_scheme": "default-with-accent-1",
-            "custom_colors": false,
-            "color_foreground": "#212121",
-            "color_accent": "#0D91BD",
-            "color_background": "#FFFFFF",
-            "color_gradient": ""
-          }
-        }
-      },
-      "block_order": [
-        "slide-1",
-        "slide-2"
-      ],
-      "settings": {
-        "layout": "full",
-        "enable_shadow": true,
-        "enable_background_image": true,
-        "height_large": "large",
-        "height_mobile": "medium",
-        "padding_top": 1,
-        "padding_bottom": 1,
-        "overlay": 25,
-        "enable_parallax": false,
-        "animation": "fade",
-        "maintain_background_color_first_slide": false,
-        "auto_play": true,
-        "auto_play_delay": 5,
-        "color_scheme": "soft",
-        "custom_colors": false,
-        "color_foreground": "#212121",
-        "color_accent": "#0D91BD",
-        "color_background": "#FFFFFF",
-        "color_gradient": ""
-      }
-    },
     "product-recommendations": {
       "type": "product-recommendations",
       "settings": {
@@ -244,9 +171,9 @@
     }
   },
   "order": [
+    "main_product_v2_aV9B4J",
     "main",
     "text-columns",
-    "slideshow",
     "product-recommendations"
   ]
 }
