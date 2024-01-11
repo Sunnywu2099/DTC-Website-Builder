@@ -40,8 +40,9 @@
   {%- endif -%}
 
   {% comment %} 获得初始变体id {% endcomment %}
-  let init_variantId = new URLSearchParams(window.location.search).get('variant');
-
+  var init_variantId = new URLSearchParams(window.location.search).get('variant');
+  var has_selected_variant = init_variantId ? true : false;
+  
       
 </script>
 
