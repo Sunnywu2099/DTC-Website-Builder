@@ -292,7 +292,8 @@
         if($(this).parent().find('.icon').hasClass('active')){
             $(this).parent().find('.icon').removeClass('active').addClass('draft');
         }else{
-            $(this).parent().find('.icon').removeClass('draft').addClass('active');
+            $(this).parent().find('.close').removeClass('draft').addClass('active');
+            $(this).parent().find('.open').removeClass('draft').addClass('active');
         }
     })
 </script>
