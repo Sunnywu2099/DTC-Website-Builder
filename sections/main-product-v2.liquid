@@ -147,7 +147,7 @@
 </script>
 
 <script>
-  {% comment %} window.document.addEventListener('DOMContentLoaded', function() { {% endcomment %}
+  {% comment %} document.addEventListener('DOMContentLoaded', function() { {% endcomment %}
   var log = console.log;
   {%- liquid
     assign media_grouping_options = section.settings.media_grouping_option | replace: ', ', ',' | split: ','
