@@ -38,7 +38,7 @@
       }
     
   {%- endif -%}
-  
+
   document.addEventListener('DOMContentLoaded', function() {
     {% comment %} 获得初始变体id {% endcomment %}
     var init_variantId = new URLSearchParams(window.location.search).get('variant');
@@ -47,6 +47,7 @@
     var thumbArray = $('.main-product-media__thumbnails li');
     
     if( !has_selected_variant ){
+      log(222)
       thumbArray.each(function(i,e){
         log(i);
       })
