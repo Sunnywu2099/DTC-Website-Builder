@@ -4,7 +4,7 @@
   {% endfor %}
 {% endfor %}
 
-
+<div class="sscontent"></div>
 <script>
     {%- liquid
         assign media_grouping_options = 'Color' | replace: ', ', ',' | split: ','
@@ -19,8 +19,8 @@
         endfor
       -%}
       {%- if groupOptionName -%}
-        <script class="js-data-variant-media" type="application/json">
-          var s = {
+        {% comment %} <script class="js-data-variant-media" type="application/json"> {% endcomment %}
+       {
             "groupOptionName": {{- groupOptionName | json -}},
             "groupOptionIndex": {{- groupOptionIndex }},
             "variantMedia": [
@@ -38,10 +38,10 @@
               {{ data | replace_last: ',', '' }}
             ]
           }
-
-          console.log(s)
-        </script>
+        {% comment %} </script> {% endcomment %}
       {%- endif -%}
+
+      $('.sscontent').html($('.js-data-variant-media').html())
 </script>
 
 
