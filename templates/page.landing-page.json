@@ -91,6 +91,12 @@
         "link": "\/"
       }
     },
+    "spx_scroll_images_TkFJze": {
+      "type": "spx-scrollImages",
+      "settings": {
+        "text": ""
+      }
+    },
     "7b2998ff-1a6a-457c-b570-e93884904d71": {
       "type": "spx-blocks-with-img",
       "blocks": {
@@ -569,6 +575,7 @@
     "408f1dee-a11f-4c82-b89e-1ae0a132e30d",
     "main",
     "bb4f18df-9766-4275-9f4d-c2ac2bab2cf0",
+    "spx_scroll_images_TkFJze",
     "7b2998ff-1a6a-457c-b570-e93884904d71",
     "448d7502-868c-4841-b553-69d9bf739815",
     "fbaf67e7-7ce3-47be-b302-6bf254e4b860",
