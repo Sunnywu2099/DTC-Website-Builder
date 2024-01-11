@@ -113,8 +113,10 @@
   {%- endfor -%}
 {%- endcapture -%}
 
-{% for i in product.images %}
-  {{ i.variant }} <br>--------------------<br>
+{% for image in product.images %}
+  {% for variant in image.variants %}
+    {{ image.src }} - used for the variant: {{ variant.title }}
+  {% endfor %}
 {% endfor %}
 
 image_list: <br/>
