@@ -37,37 +37,39 @@
     const html = document.documentElement;
     const canvas = document.getElementById("scrolling");
     canvas.width = window.innerWidth;
-    canvas.height = window.innerWidth * 810/1440;
+    canvas.height = window.innerWidth * 810 / 1440;
     const context = canvas.getContext("2d");
-    const frameCount = 200;
+    const frameCount = 93;
     const img = new Image();
     let index = 0;
 
     function picFn(index) {
-      const paddedIndex = index.toString().padStart(3, '0');
+      const paddedIndex = index.toString().padStart(4, '0');
       return `https://cdn.shopify.com/s/files/1/0644/1870/9653/files/${paddedIndex}.jpg`;
     }
 
-    const render0 = function(){
+    const render0 = function () {
       img.src = `https://cdn.shopify.com/s/files/1/0644/1870/9653/files/0000.jpg`;
-      img.onload = function(){
-        context.clearRect(0,0,canvas.width,canvas.height);
+      img.onload = function () {
+        context.clearRect(0, 0, canvas.width, canvas.height);
         context.drawImage(img, 0, 0);
-      }
-    }
-    const render = function(){
+      };
+    };
+
+    const render = function () {
       img.src = picFn(index);
-      img.onload = function(){
-        context.clearRect(0,0,canvas.width,canvas.height);
+      img.onload = function () {
+        context.clearRect(0, 0, canvas.width, canvas.height);
         context.drawImage(img, 0, 0);
-      }
-    }
+      };
+    };
+
     render0();
 
-    window.addEventListener('scroll', throttle(() => {  
+    window.addEventListener('scroll', throttle(() => {
       const scrollTop = html.scrollTop;
-      const percent = scrollTop / window.innerHeight;
-      index = Math.min(499, Math.ceil(percent * 93));
+      const percent = scrollTop / (document.body.scrollHeight - window.innerHeight);
+      index = Math.min(199, Math.ceil(percent * 199));
       requestAnimationFrame(render);
     }, 100));
 
@@ -81,7 +83,7 @@
 
     function throttle(func, delay) {
       let timer = null;
-      return function() {
+      return function () {
         if (!timer) {
           func.apply(this, arguments);
           timer = setTimeout(() => {
@@ -91,7 +93,7 @@
       };
     }
 
-    window.onload = function() {
+    window.onload = function () {
       preloadImages();
     };
 </script>
