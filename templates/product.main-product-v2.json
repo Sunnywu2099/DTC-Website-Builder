@@ -1,69 +1,8 @@
 {
   "sections": {
-    "main_product_v2_aV9B4J": {
+    "main": {
       "type": "main-product-v2",
       "settings": {
-      }
-    },
-    "main": {
-      "type": "main-product",
-      "blocks": {
-        "title_6Cjqrm": {
-          "type": "title",
-          "settings": {
-          }
-        },
-        "price_RXfYhJ": {
-          "type": "price",
-          "settings": {
-          }
-        },
-        "variant_picker_4RtpQb": {
-          "type": "variant-picker",
-          "settings": {
-            "show_unavailable_variants_indicator": true,
-            "option_type": "button",
-            "color_option_type": "swatch"
-          }
-        },
-        "quantity_selector_t3ijg8": {
-          "type": "quantity-selector",
-          "settings": {
-          }
-        },
-        "buy_buttons_kCHwww": {
-          "type": "buy-buttons",
-          "settings": {
-            "show_dynamic_checkout_buttons": true,
-            "show_gift_card_recipient": true
-          }
-        }
-      },
-      "block_order": [
-        "title_6Cjqrm",
-        "price_RXfYhJ",
-        "variant_picker_4RtpQb",
-        "quantity_selector_t3ijg8",
-        "buy_buttons_kCHwww"
-      ],
-      "settings": {
-        "layout": "full",
-        "enable_shadow": true,
-        "enable_sticky_media_large": true,
-        "media_thumbnails_position_large": "left",
-        "enable_thumbnails_mobile": true,
-        "enable_image_zoom": true,
-        "enable_video_looping": true,
-        "animation": "fade",
-        "show_soft_background": true,
-        "padding_top": 1,
-        "padding_bottom": 1,
-        "color_scheme": "default-with-accent-1",
-        "custom_colors": false,
-        "color_foreground": "#212121",
-        "color_accent": "#0D91BD",
-        "color_background": "#FFFFFF",
-        "color_gradient": ""
       }
     },
     "text-columns": {
@@ -74,9 +13,7 @@
           "settings": {
             "icon": "icon-handshake",
             "title": "",
-            "text": "<p>Uniqueness guaranteed with our handcrafted pieces by skilled artisans. Each piece is one-of-a-kind.<\/p>",
-            "link": "",
-            "button_label": ""
+            "text": "<p>Uniqueness guaranteed with our handcrafted pieces by skilled artisans. Each piece is one-of-a-kind.<\/p>"
           }
         },
         "text-column-2": {
@@ -84,9 +21,7 @@
           "settings": {
             "icon": "icon-thumbs-up",
             "title": "",
-            "text": "<p>Elevate your daily routine with expertly designed products that combine functionality and style.<\/p>",
-            "link": "",
-            "button_label": ""
+            "text": "<p>Elevate your daily routine with expertly designed products that combine functionality and style.<\/p>"
           }
         },
         "text-column-3": {
@@ -94,9 +29,7 @@
           "settings": {
             "icon": "icon-leaf",
             "title": "",
-            "text": "<p>Eco-conscious choice with our sustainably sourced materials. Make a difference with your purchase.<\/p>",
-            "link": "",
-            "button_label": ""
+            "text": "<p>Eco-conscious choice with our sustainably sourced materials. Make a difference with your purchase.<\/p>"
           }
         },
         "text-column-4": {
@@ -104,9 +37,7 @@
           "settings": {
             "icon": "icon-megaphone",
             "title": "",
-            "text": "<p>Be the only one with a limited edition piece. Don't miss out on owning a one-of-a-kind product.<\/p>",
-            "link": "",
-            "button_label": ""
+            "text": "<p>Be the only one with a limited edition piece. Don't miss out on owning a one-of-a-kind product.<\/p>"
           }
         }
       },
@@ -118,62 +49,49 @@
       ],
       "settings": {
         "layout": "fixed-gutter",
-        "soft_background": true,
-        "enable_shadow": false,
-        "slider_large": false,
-        "slider_mobile": true,
         "columns_large": "4",
-        "image_ratio": "landscape",
-        "image_width": "1",
-        "image_padding": false,
-        "padding_top": 1,
-        "padding_bottom": 1,
-        "center_heading_text": true,
-        "title": "",
-        "subheading": "",
-        "center_body_text": true,
-        "button_label": "",
-        "button_link": "",
-        "button_style": false,
-        "button_large": "bottom",
-        "button_mobile": "bottom",
-        "color_scheme": "default-with-accent-1",
-        "custom_colors": false,
-        "color_foreground": "#212121",
-        "color_accent": "#0D91BD",
-        "color_background": "#FFFFFF",
-        "color_gradient": ""
+        "title": ""
+      }
+    },
+    "slideshow": {
+      "type": "slideshow",
+      "blocks": {
+        "slide-1": {
+          "type": "slide",
+          "settings": {
+          }
+        },
+        "slide-2": {
+          "type": "slide",
+          "settings": {
+            "text_position_large": "center end"
+          }
+        }
+      },
+      "block_order": [
+        "slide-1",
+        "slide-2"
+      ],
+      "settings": {
+        "layout": "full",
+        "enable_background_image": true,
+        "height_large": "large",
+        "auto_play": true,
+        "color_scheme": "soft"
       }
     },
     "product-recommendations": {
       "type": "product-recommendations",
       "settings": {
-        "layout": "full",
-        "enable_shadow": true,
-        "limit": 4,
-        "slider_large": true,
-        "slider_mobile": true,
         "padding_top": 0.5,
-        "padding_bottom": 1,
-        "center_text": true,
-        "title": "You may also like",
-        "image_container_ratio": "square",
-        "fit_image_to_container": false,
-        "image_padding": 5,
-        "enable_second_image_on_hover": true,
-        "color_scheme": "soft",
-        "custom_colors": false,
-        "color_foreground": "#212121",
-        "color_accent": "#0D91BD",
-        "color_background": "#FFFFFF",
-        "color_gradient": ""
+        "color_scheme": "soft"
       }
     }
   },
   "order": [
-    "main_product_v2_aV9B4J",
     "main",
     "text-columns",
+    "slideshow",
     "product-recommendations"
   ]
 }
