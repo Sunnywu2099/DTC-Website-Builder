@@ -7,6 +7,24 @@
         display: flex;
         justify-content: space-between;
     }
+    .faq .faq-wrapper .title{
+        padding-left: 16px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 16px;
+    }
+    .faq .faq-wrapper .left{
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        width: 24%;
+    }
+    .faq .faq-wrapper .title.active{
+        border-left: 4px solid #4263EB;
+        font-weight: 700;
+    }
   @media only screen and (max-width: 768px){
 
   }
@@ -19,7 +37,7 @@
         <div class="left">
             {% for block in section.blocks %}
                 <div class="item">
-                    <h3>{{ block.settings.nametab }}</h3>
+                    <h3 class="title">{{ block.settings.nametab }}</h3>
                 </div>
             {% endfor %}
         </div>
