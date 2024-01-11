@@ -16,7 +16,13 @@
   <div class="faq-box container">
     <h2 class="section-title">{{ section.settings.title }}</h2>
     <div class="faq-wrapper">
-        <div class="left"></div>
+        <div class="left">
+            {% for block in section.settings %}
+                <div class="item">
+                    <h3>{{ block.settings.nametab }}</h3>
+                </div>
+            {% endfor %}
+        </div>
         <div class="right"></div>
     </div>
   </div>
