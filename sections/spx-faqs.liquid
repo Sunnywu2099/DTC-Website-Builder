@@ -145,7 +145,10 @@
 </div>
 
 <script type="module">
-
+    $('.faq .left .item').click(function(){
+        $('.faq .left .item .title').removeClass('active');
+        $(this).find('.title').addClass('active');
+    })
 </script>
 
 {% schema %}
