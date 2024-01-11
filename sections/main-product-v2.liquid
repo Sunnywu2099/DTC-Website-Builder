@@ -148,7 +148,7 @@
 
 <script>
   window.document.addEventListener('DOMContentLoaded', function() {
-  var log = console.log;
+  let log = console.log;
   {%- liquid
     assign media_grouping_options = section.settings.media_grouping_option | replace: ', ', ',' | split: ','
     for option in product.options
