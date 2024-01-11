@@ -46,7 +46,7 @@
   var thumbArray = $('.main-product-media__thumbnails li');
   
   if( !has_selected_variant ){
-    thumbArray.each(function(i,e){
+    thumbArray.on('each',function(i,e){
       log(i);
     })
   }
