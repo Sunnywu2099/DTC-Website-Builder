@@ -413,8 +413,8 @@ endcomment
         </div>
       </div>
       <div class="info-wrap-col ps-lg-6" style="width: {{ 100 | minus: section.settings.desktop_media_width | append: '%' }}">
-        {% render 'product-info' %}
-        {% render 'notify-me' %}
+        {% comment %} {% render 'product-info' %}
+        {% render 'notify-me' %} {% endcomment %}
       </div>
     </div>
   </div>
