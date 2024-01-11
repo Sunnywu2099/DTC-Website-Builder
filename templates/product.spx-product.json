@@ -104,6 +104,130 @@
         "color_gradient": ""
       }
     },
+    "spx_faqs_YHWtnC": {
+      "type": "spx-faqs",
+      "blocks": {
+        "block_yYAtkb": {
+          "type": "block",
+          "settings": {
+            "nametab": "Performance",
+            "name": "Performance",
+            "FAQ_question1": "Can the cleaner be used in different pools, such as a vinyl pool liner? Would it need to be remapped each time?",
+            "FAQ_answer1": "Yes, you can purchase Genkinno Warranty Plus up to 60 days after you’ve purchased the product.",
+            "FAQ_question2": "",
+            "FAQ_answer2": "",
+            "FAQ_question3": "",
+            "FAQ_answer3": "",
+            "FAQ_question4": "",
+            "FAQ_answer4": "",
+            "FAQ_question5": "",
+            "FAQ_answer5": "",
+            "FAQ_question6": "",
+            "FAQ_answer6": "",
+            "FAQ_question7": "",
+            "FAQ_answer7": "",
+            "FAQ_question8": "",
+            "FAQ_answer8": "",
+            "FAQ_question9": "",
+            "FAQ_answer9": "",
+            "FAQ_question10": "",
+            "FAQ_answer10": "",
+            "FAQ_question11": "",
+            "FAQ_answer11": "",
+            "FAQ_question12": "",
+            "FAQ_answer12": "",
+            "FAQ_question13": "",
+            "FAQ_answer13": "",
+            "FAQ_question14": "",
+            "FAQ_answer14": "",
+            "FAQ_question15": "",
+            "FAQ_answer15": ""
+          }
+        },
+        "block_QNLfcm": {
+          "type": "block",
+          "settings": {
+            "nametab": "Performance",
+            "name": "Performance",
+            "FAQ_question1": "Can the cleaner be used in different pools, such as a vinyl pool liner? Would it need to be remapped each time?",
+            "FAQ_answer1": "Yes, you can purchase Genkinno Warranty Plus up to 60 days after you’ve purchased the product.",
+            "FAQ_question2": "",
+            "FAQ_answer2": "",
+            "FAQ_question3": "",
+            "FAQ_answer3": "",
+            "FAQ_question4": "",
+            "FAQ_answer4": "",
+            "FAQ_question5": "",
+            "FAQ_answer5": "",
+            "FAQ_question6": "",
+            "FAQ_answer6": "",
+            "FAQ_question7": "",
+            "FAQ_answer7": "",
+            "FAQ_question8": "",
+            "FAQ_answer8": "",
+            "FAQ_question9": "",
+            "FAQ_answer9": "",
+            "FAQ_question10": "",
+            "FAQ_answer10": "",
+            "FAQ_question11": "",
+            "FAQ_answer11": "",
+            "FAQ_question12": "",
+            "FAQ_answer12": "",
+            "FAQ_question13": "",
+            "FAQ_answer13": "",
+            "FAQ_question14": "",
+            "FAQ_answer14": "",
+            "FAQ_question15": "",
+            "FAQ_answer15": ""
+          }
+        },
+        "block_LxM83T": {
+          "type": "block",
+          "settings": {
+            "nametab": "Performance",
+            "name": "Performance",
+            "FAQ_question1": "Can the cleaner be used in different pools, such as a vinyl pool liner? Would it need to be remapped each time?",
+            "FAQ_answer1": "Yes, you can purchase Genkinno Warranty Plus up to 60 days after you’ve purchased the product.",
+            "FAQ_question2": "",
+            "FAQ_answer2": "",
+            "FAQ_question3": "",
+            "FAQ_answer3": "",
+            "FAQ_question4": "",
+            "FAQ_answer4": "",
+            "FAQ_question5": "",
+            "FAQ_answer5": "",
+            "FAQ_question6": "",
+            "FAQ_answer6": "",
+            "FAQ_question7": "",
+            "FAQ_answer7": "",
+            "FAQ_question8": "",
+            "FAQ_answer8": "",
+            "FAQ_question9": "",
+            "FAQ_answer9": "",
+            "FAQ_question10": "",
+            "FAQ_answer10": "",
+            "FAQ_question11": "",
+            "FAQ_answer11": "",
+            "FAQ_question12": "",
+            "FAQ_answer12": "",
+            "FAQ_question13": "",
+            "FAQ_answer13": "",
+            "FAQ_question14": "",
+            "FAQ_answer14": "",
+            "FAQ_question15": "",
+            "FAQ_answer15": ""
+          }
+        }
+      },
+      "block_order": [
+        "block_yYAtkb",
+        "block_QNLfcm",
+        "block_LxM83T"
+      ],
+      "settings": {
+        "title": "FAQ"
+      }
+    },
     "text-columns": {
       "type": "text-columns",
       "blocks": {
@@ -210,6 +334,7 @@
   },
   "order": [
     "main",
+    "spx_faqs_YHWtnC",
     "text-columns",
     "product-recommendations"
   ]
