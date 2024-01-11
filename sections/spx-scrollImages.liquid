@@ -1,262 +1,34 @@
 <style>
-  .scroll-video{
-    position: relative;
-    overflow:  hidden;
-  }
-  .scroll-video .post-video{
-    position: relative;
-    height: 100vh;
-    max-height: 1470px;
-  }
-  .scroll-video .post-video .cover{
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .scroll-video .post-video .video-box{
-    width: 100%;
-    height: 100%;
-  }
-  .scroll-video .post-video .video-box .post-player{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .scroll-video .content-box{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform:translate(-50%,-50%);
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0,0,0,.3);
-    opacity: 0;
-    z-index: 20;
-  }
-  .scroll-video .content-box .wrapper{
-    color: #fff;
-    text-align: center;
-    width: 45%;
-  }
-  .scroll-video .content-box .wrapper .text{
-    font-size: 28px;
-    line-height: 32px;
-    margin-bottom: 56px;
-    font-weight: 600;
-  }
-  .scroll-video .content-box .wrapper .open-video{
-    font-size: 16px;
-    line-height: 24px;
-    border-radius: 16px;
-    overflow: hidden;
-    border: 1px solid #fff;
-    display: flex;
-    width: fit-content;
-    margin: 0 auto;
-    padding: 8px 16px;
-    cursor: pointer;
-    align-items: center;
-  }
-  .scroll-video .scroll-banner{
-    position: absolute;
-    top: 0;
-    left: 0;
-    /* transform:translate(-50%,-50%); */
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-  }
-  .scroll-video .scroll-banner .title{
-    font-size: 64px;
-    text-align: center;
-  }
-  .scroll-video .scroll-banner img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .main-video{
-    position: fixed;
-    display: none;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: #111;
-    justify-content: center;
-    align-items: center;
-    z-index: 999999;
-  }
-  #main-player{
-    width: 840px;
-    max-width: 840px;
-    position: relative;
-  }
-  .main-video .close-btn{
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    top: calc(50vh - 300px);
-    right: calc(50vw - 500px);
-    opacity: .3;
-  }
-  .main-video .close-btn:hover{
-    opacity: 1;
-  }
+
   @media only screen and (max-width: 1000px){
-    .main-video .close-btn{
-      top: 8%;
-      right: 8%;
-    }
+
   }
   @media only screen and (max-width: 768px){
-    .scroll-video .content-box .wrapper{
-      width: 70%;
-    }
-    .scroll-video .content-box .wrapper .text{
-      font-size: 16px;
-      line-height: 24px;
-      margin-bottom: 40px;
-    }
+
   }
 </style>
 
-<div class="scroll-video">
-  <div class="post-video">
-    <img class="cover" lazy="loading" src="{{ section.settings.cover | img_url:'master' }}" width="" height="">
-    <div class="video-box">
-      <video id="post-player" class="post-player" playsinline muted autoplay loop>
-        <source src="{{ section.settings.post_video }}" type="video/mp4" />
-        <source src="{{ section.settings.post_video }}" type="video/webm" />
-      </video>
-    </div>
-    <div class="content-box">
-      <div class="wrapper">
-        {% if section.settings.text != blank %}
-          <p class="text">{{ section.settings.text }}</p>  
-        {% endif %}
-        {% if section.settings.main_video != blank and section.settings.btn_name != blank %}
-          <div class="open-video">
-            <span style="margin-right:4px;">{{ section.settings.btn_name }}</span>
-            {% render 'open-video' %}
-          </div>
-        {% endif %}
-      </div>
-    </div>
-  </div>
-  <div class="scroll-banner">
-    <img class="hide-mb" src="{{ section.settings.img | img_url:'master' }}">
-    <img class="hide-pc" src="{{ section.settings.img_m | img_url:'master' }}">
-  </div>
-</div>
-
-<div id="main-video" class="main-video">
-  <svg stroke="#fff" fill="#fff" stroke-width="0" viewBox="0 0 512 512" class="close-btn" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M256 48C140.559 48 48 140.559 48 256c0 115.436 92.559 208 208 208 115.435 0 208-92.564 208-208 0-115.441-92.564-208-208-208zm104.002 282.881l-29.12 29.117L256 285.117l-74.881 74.881-29.121-29.117L226.881 256l-74.883-74.881 29.121-29.116L256 226.881l74.881-74.878 29.12 29.116L285.119 256l74.883 74.881z"></path></svg>
-  <div class="plyr__video-embed" id="main-player">
-    <iframe
-      src=""
-      allowtransparency
-      allow="autoplay"
-    ></iframe>
-  </div>
+<div class="scroll-imgs">
+  
 </div>
 
 <script type="module">
-    $(document).ready(function() {
-        let post = $('#post-player'); 
-        post.on('play', function() {
-          $('.scroll-video .cover').css('display','none');
-        });
-    });
-  
-    ScrollTrigger.create({
-      trigger: '.scroll-video',
-      start: 'top top',
-      end: '+=2000',
-      markers: false,
-      pin: true,
-      scrub: 0.1,
-      animation:
-        gsap.timeline()
-          .fromTo('.scroll-banner img',{ width: '100%',height: '100%' },{ width: '800%',height: '800%' },"-=80%" )
-          .set('.scroll-banner img',{ opacity: '0', scale: 1.8,  transition: 'all .2s linear' })
-          .fromTo('.scroll-video .content-box',{ opacity: '0' },{ opacity: '1' } )
-    })
     
-    let videolink = `{{ section.settings.main_video }}?origin=https://plyr.io&amp;iv_load_policy=3&amp;modestbranding=1&amp;playsinline=1&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1`;
-    $('.open-video').click(function(){
-      $('.main-video').css('display','flex');
-      $('html').css('overflow','hidden');
-      $('#main-player iframe').attr('src', videolink);
-    })
-
-    $('.main-video .close-btn').click(function(){
-      $('#main-player iframe').attr('src', '');
-      $('html').css('overflow-y','auto');
-      $('.main-video').css('display','none');
-    })
 </script>
 
 {% schema %}
   {
-    "name": "SPX Scroll video",
+    "name": "SPX Scroll images",
     "settings": [
-      {
-        "type": "image_picker",
-        "id": "img",
-        "label": "Image pc"
-      },
-      {
-        "type": "image_picker",
-        "id": "img_m",
-        "label": "Image m"
-      },
-      {
-        "type": "image_picker",
-        "id": "cover",
-        "label": "Cover"
-      },
-      {
-        "type": "textarea",
-        "id": "title",
-        "label": "Title"
-      },
       {
         "type": "textarea",
         "id": "text",
         "label": "Text"
-      },
-      {
-        "type": "text",
-        "id": "btn_name",
-        "label": "Buttom"
-      },
-      {
-        "type": "textarea",
-        "id": "post_video",
-        "label": "Post video link"
-      },
-      {
-        "type": "textarea",
-        "id": "main_video",
-        "label": "Main video link"
       }
     ],
   "presets": [
     {
-      "name": "SPX Scroll video"
+      "name": "SPX Scroll images"
     }
   ]
     
