@@ -318,7 +318,7 @@
         $('.faq .left .item .title').removeClass('active');
         $(this).find('.title').addClass('active');
         $('.faq .right .right-wrapper').removeClass('active');
-        $('.faq .right .right-wrapper[data-index="'+currIndex+'"]').addClass('active');
+        {% comment %} $('.faq .right .right-wrapper[data-index="'+currIndex+'"]').addClass('active'); {% endcomment %}
     })
 
     $('.faq .right .right-wrapper .faq-item .question').click(function(){
