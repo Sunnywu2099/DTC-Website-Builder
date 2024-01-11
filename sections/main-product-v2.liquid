@@ -106,7 +106,7 @@
     {%- if product_image.variants.first.id != blank -%}
       {%- comment -%} If product image is attached to a variant, image.attached_to_variant not working! {%- endcomment -%}
       {%- unless forloop.first -%}$${%- endunless -%}
-      {{ product_image.id }}::{{ product_image.position }}||{{ product_image.alt }}
+      {{ product_image.id }}::{{ product_image.position }}||{{ product_image.alt }}    ----------------------------------   
     {%- else -%}
       {%- unless forloop.first -%};;{%- endunless -%}{{ product_image.position }}||{{ product_image.alt }}
     {%- endif -%}
