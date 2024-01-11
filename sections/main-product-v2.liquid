@@ -38,18 +38,20 @@
       }
     
   {%- endif -%}
-
-  {% comment %} 获得初始变体id {% endcomment %}
-  var init_variantId = new URLSearchParams(window.location.search).get('variant');
-  var has_selected_variant = init_variantId ? true : false;
-  {% comment %} 缩略图 {% endcomment %}
-  var thumbArray = $('.main-product-media__thumbnails li');
   
-  if( !has_selected_variant ){
-    thumbArray.each(function(i,e){
-      log(i);
-    })
-  }
+  document.addEventListener('DOMContentLoaded', function() {
+    {% comment %} 获得初始变体id {% endcomment %}
+    var init_variantId = new URLSearchParams(window.location.search).get('variant');
+    var has_selected_variant = init_variantId ? true : false;
+    {% comment %} 缩略图 {% endcomment %}
+    var thumbArray = $('.main-product-media__thumbnails li');
+    
+    if( !has_selected_variant ){
+      thumbArray.each(function(i,e){
+        log(i);
+      })
+    }
+  })
       
 </script>
 
