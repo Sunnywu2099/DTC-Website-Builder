@@ -67,6 +67,10 @@
     .faq .icon.open{
         opacity: 1;
     }
+    .faq .icon.open.active{
+        opacity: 0;
+        transform: rotate(45deg);
+    }
     .faq .icon.close{
         position: absolute;
         top: 0%;
@@ -74,18 +78,11 @@
         opacity: 0;
         transform: rotate(45deg);
     }
-    .faq .icon.open.active{
-        animation: openRotate 0.3s forwards;
-    }
     .faq .icon.close.active{
-        animation: closeRotate 0.3s forwards;
+        opacity: 1;
+        transform: rotate(180degdeg);
     }
-    .faq .icon.close.draft{
-        animation: closeBack 0.5s forwards;
-    }
-    .faq .icon.open.draft{
-        animation: openBack 0.5s forwards;
-    }
+    
     .faq .faq-wrapper .right .right-wrapper .question h3{
         font-size: 20px;
         color: #A5814F;
@@ -323,12 +320,7 @@
 
     $('.faq .right .right-wrapper .faq-item .question').click(function(){
         $(this).parent().find('.answer').slideToggle();
-        if($(this).parent().find('.icon').hasClass('active')){
-            $(this).parent().find('.close').removeClass('active').addClass('draft');
-            $(this).parent().find('.open').removeClass('active').addClass('draft');
-        }else{
-            $(this).parent().find('.icon').removeClass('draft').addClass('active');
-        } 
+        $(this).parent().find('.icon').toggleClass('active');
     })
 </script>
 
