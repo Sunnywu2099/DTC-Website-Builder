@@ -1,4 +1,5 @@
 {% for image in product.images %}
+  +++++++++++{{image.position}}:{{ variant.title }}++++++++++++
   {% for variant in image.variants %}
     {{ image.id }}- position: {{ image.position }} - used for the variant: {{ variant.title }}  <br/>----------------------<br/>
   {% endfor %}
