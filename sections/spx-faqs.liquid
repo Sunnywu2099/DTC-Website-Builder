@@ -37,7 +37,7 @@
         <div class="left">
             {% for block in section.blocks %}
                 <div class="item">
-                    <h3 class="title">{{ block.settings.nametab }}</h3>
+                    <h3 class="title {% if forloop.first %}active{% endif %}">{{ block.settings.nametab }}</h3>
                 </div>
             {% endfor %}
         </div>
