@@ -64,7 +64,7 @@
     <div class="faq-wrapper">
         <div class="left">
             {% for block in section.blocks %}
-                <div class="item">
+                <div class="item" data-index="{{ forloop.index0 }}">
                     <h3 class="title {% if forloop.first %}active{% endif %}">{{ block.settings.nametab }}</h3>
                 </div>
             {% endfor %}
@@ -145,7 +145,7 @@
 </div>
 
 <script type="module">
-    
+
 </script>
 
 {% schema %}
