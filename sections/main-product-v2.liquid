@@ -31,6 +31,7 @@
                       "variantId": {{- variant.id -}},
                       "mediaId": {{- variant.featured_media.id -}},
                       "imageId": {{- variant.image.id -}},
+                      "imagePosition": {{- variant.image.position -}},
                       "option": {{- variant.options[groupOptionIndex] | json -}}
                     },
                   {%- endif -%}
