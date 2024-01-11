@@ -31,17 +31,18 @@
         position: relative;
     }
     .faq .faq-wrapper .right .right-wrapper{
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 100%;
         width: 100%;
         padding: 24px;
         box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.08);
         border-radius: 8px;
         z-index: 10;
     }
-    .faq .faq-wrapper .right .right-wrapper:not(:first-of-type){
-        display: none;
-        position: absolute;
-        left: 0;
-        top: 100%;
+    .faq .faq-wrapper .right .right-wrapper.active{
+        display: block;
     }
     .faq .faq-wrapper .right .right-wrapper h2{
         margin-bottom: 24px;
@@ -71,7 +72,7 @@
         </div>
         <div class="right">
             {% for block in section.blocks %}
-                <div class="right-wrapper" data-index="{{ forloop.index0 }}">
+                <div class="right-wrapper {% if forloop.first %}active{% endif %}" data-index="{{ forloop.index0 }}">
                     <h2>{{ block.settings.nametab }}</h2>
                     {% if block.settings.FAQ_question1 != blank %}
                         <div class="question">
@@ -146,8 +147,10 @@
 
 <script type="module">
     $('.faq .left .item').click(function(){
+        let currIndex = $(this).attr('data-index');
         $('.faq .left .item .title').removeClass('active');
         $(this).find('.title').addClass('active');
+        $('.faq .right .right-wrapper').removeClass('active');
     })
 </script>
 
