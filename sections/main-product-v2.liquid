@@ -16,7 +16,7 @@
       log('{{groupOptionName }}')
       {%- if groupOptionName -%}
         {% comment %} <script class="js-data-variant-media" type="application/json"> {% endcomment %}
-       var  v ={
+       var  variantGroup ={
             "groupOptionName": {{- groupOptionName | json -}},
             "groupOptionIndex": {{- groupOptionIndex }},
             "variantMedia": [
