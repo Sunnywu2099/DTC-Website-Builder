@@ -1,5 +1,6 @@
 <div class="sscontent"></div>
 <script>
+  var log = console.log;
     {%- liquid
         assign media_grouping_options = section.settings.media_grouping_option | replace: ', ', ',' | split: ','
         for option in product.options
@@ -12,6 +13,7 @@
           endif
         endfor
       -%}
+      log('{{media_grouping_options }}')
       {%- if groupOptionName -%}
         {% comment %} <script class="js-data-variant-media" type="application/json"> {% endcomment %}
        var  v ={
