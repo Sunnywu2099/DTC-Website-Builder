@@ -20,7 +20,7 @@
       -%}
       {%- if groupOptionName -%}
         {% comment %} <script class="js-data-variant-media" type="application/json"> {% endcomment %}
-       {
+       var  s ={
             "groupOptionName": {{- groupOptionName | json -}},
             "groupOptionIndex": {{- groupOptionIndex }},
             "variantMedia": [
@@ -41,7 +41,7 @@
         {% comment %} </script> {% endcomment %}
       {%- endif -%}
 
-      $('.sscontent').html($('.js-data-variant-media').html())
+      $('.sscontent').html($('.s').html())
 </script>
 
 
