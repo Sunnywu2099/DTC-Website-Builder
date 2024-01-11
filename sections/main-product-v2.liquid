@@ -1,13 +1,7 @@
-{% for image in product.images %}
-  {% for variant in image.variants %}
-    {{ image.id }}- position: {{ image.position }} - used for the variant: {{ variant.title }}  <br/>----------------------<br/>
-  {% endfor %}
-{% endfor %}
-
 <div class="sscontent"></div>
 <script>
     {%- liquid
-        assign media_grouping_options = 'Color' | replace: ', ', ',' | split: ','
+        assign media_grouping_options = section.settings.media_grouping_option | replace: ', ', ',' | split: ','
         for option in product.options
           if media_grouping_options contains option
             assign groupOptionName = option
@@ -20,7 +14,7 @@
       -%}
       {%- if groupOptionName -%}
         {% comment %} <script class="js-data-variant-media" type="application/json"> {% endcomment %}
-       var  s ={
+       var  v ={
             "groupOptionName": {{- groupOptionName | json -}},
             "groupOptionIndex": {{- groupOptionIndex }},
             "variantMedia": [
@@ -41,7 +35,7 @@
               {{ data | replace_last: ',', '' }}
             ]
           }
-        {% comment %} </script> {% endcomment %}
+        
       {%- endif -%}
 
       
