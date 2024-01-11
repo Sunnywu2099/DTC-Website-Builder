@@ -30,10 +30,11 @@
 </div>
 
 <script type="module">
-    const html = document.documentElement;
-    const canvas = document.getElementById("scrolling");
+    gsap.registerPlugin(ScrollTrigger);
+
+    const canvas = document.getElementById("airpods-scrolling");
     canvas.width = window.innerWidth;
-    canvas.height = window.innerWidth * 810 / 1440;
+    canvas.height = window.innerHeight;
     const context = canvas.getContext("2d");
     const frameCount = 93;
     const img = new Image();
@@ -44,14 +45,6 @@
       return `https://cdn.shopify.com/s/files/1/0644/1870/9653/files/${paddedIndex}.jpg`;
     }
 
-    const render0 = function () {
-      img.src = `https://cdn.shopify.com/s/files/1/0644/1870/9653/files/0000.jpg`;
-      img.onload = function () {
-        context.clearRect(0, 0, canvas.width, canvas.height);
-        context.drawImage(img, 0, 0);
-      };
-    };
-
     const render = function () {
       img.src = picFn(index);
       img.onload = function () {
@@ -60,34 +53,28 @@
       };
     };
 
-    render0();
+    // 使用 ScrollTrigger 实现滚动触发
+    gsap.to(img, {
+      scrollTrigger: {
+        trigger: canvas,
+        scrub: true,
+        start: "top top",
+        end: `+=${(document.body.scrollHeight - window.innerHeight) / (frameCount - 1) * 199}`,
+        onUpdate: (self) => {
+          const percent = self.progress;
+          index = Math.min(199, Math.ceil(percent * 199));
+          render();
+        },
+      },
+    });
 
-    window.addEventListener('scroll', throttle(() => {
-      const scrollTop = html.scrollTop;
-      const percent = scrollTop / (document.body.scrollHeight - window.innerHeight);
-      index = Math.min(199, Math.ceil(percent * 199));
-      requestAnimationFrame(render);
-    }, 100));
-
-    // 修改 preloadImages 函数
+    // 预加载图片
     const preloadImages = () => {
       for (let i = 1; i < frameCount; i++) {
         const img = new Image();
         img.src = picFn(i);
       }
     };
-
-    function throttle(func, delay) {
-      let timer = null;
-      return function () {
-        if (!timer) {
-          func.apply(this, arguments);
-          timer = setTimeout(() => {
-            timer = null;
-          }, delay);
-        }
-      };
-    }
 
     window.onload = function () {
       preloadImages();
