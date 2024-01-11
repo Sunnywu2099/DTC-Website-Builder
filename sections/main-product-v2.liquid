@@ -20,7 +20,7 @@
       -%}
       {%- if groupOptionName -%}
         <script class="js-data-variant-media" type="application/json">
-          {
+          var s = {
             "groupOptionName": {{- groupOptionName | json -}},
             "groupOptionIndex": {{- groupOptionIndex }},
             "variantMedia": [
