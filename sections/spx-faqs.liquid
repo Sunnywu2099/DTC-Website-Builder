@@ -71,7 +71,7 @@
         </div>
         <div class="right">
             {% for block in section.blocks %}
-                <div class="right-wrapper">
+                <div class="right-wrapper" data-index="{{ forloop.index0 }}">
                     <h2>{{ block.settings.nametab }}</h2>
                     {% if block.settings.FAQ_question1 != blank %}
                         <div class="question">
