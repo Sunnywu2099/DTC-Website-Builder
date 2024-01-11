@@ -186,7 +186,8 @@
     
   {%- endif -%}
 
-  window.document.addEventListener('DOMContentLoaded', function() {
+    log(222255)
+    window.document.addEventListener('DOMContentLoaded', function() {
     log(2222)
     {% comment %} 获得初始变体id {% endcomment %}
     var init_variantId = new URLSearchParams(window.location.search).get('variant');
