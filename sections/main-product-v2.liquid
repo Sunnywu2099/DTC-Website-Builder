@@ -1,6 +1,6 @@
 {% for image in product.images %}
   {% for variant in image.variants %}
-    {{ image.id }} - used for the variant: {{ variant.title }}  <br/>----------------------<br/>
+    {{ image.id }}- position: {{ image.position }} - used for the variant: {{ variant.title }}  <br/>----------------------<br/>
   {% endfor %}
 {% endfor %}
 
@@ -41,7 +41,7 @@
         {% comment %} </script> {% endcomment %}
       {%- endif -%}
 
-      $('.sscontent').html(s)
+      
 </script>
 
 
