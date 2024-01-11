@@ -66,7 +66,6 @@
     }
     .faq .icon.open{
         opacity: 1;
-        animation: openBack 0.5s forwards;
     }
     .faq .icon.close{
         position: absolute;
@@ -74,7 +73,6 @@
         left: 0%;
         opacity: 0;
         transform: rotate(45deg);
-        animation: closeBack 0.5s forwards;
     }
     .faq .icon.open.active{
         animation: openRotate 0.3s forwards;
@@ -325,15 +323,12 @@
 
     $('.faq .right .right-wrapper .faq-item .question').click(function(){
         $(this).parent().find('.answer').slideToggle();
-        {% comment %} if($(this).parent().find('.icon').hasClass('active')){
+        if($(this).parent().find('.icon').hasClass('active')){
             $(this).parent().find('.close').removeClass('active').addClass('draft');
             $(this).parent().find('.open').removeClass('active').addClass('draft');
         }else{
             $(this).parent().find('.icon').removeClass('draft').addClass('active');
-        } {% endcomment %}
-
-            $(this).parent().find('.icon').toggleClass('active');
-
+        } 
     })
 </script>
 
