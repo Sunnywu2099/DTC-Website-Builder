@@ -67,7 +67,16 @@
           x = (canvas.width - renderWidth) / 2;
         }
 
-        context.drawImage(img, 0, 0, canvas.width, canvas.height);
+        const sourceX = 0;
+        const sourceY = 0;
+        const sourceWidth = img.width;
+        const sourceHeight = img.height;
+        const destX = 0;
+        const destY = 0;
+        const destWidth = canvas.width;
+        const destHeight = canvas.height;
+        context.drawImage(img, 0, 0, sourceWidth, sourceHeight, 0, 0, destWidth, destHeight);
+        {% comment %} context.drawImage(img, 0, 0, canvas.width, canvas.height); {% endcomment %}
       };
     };
 
