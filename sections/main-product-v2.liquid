@@ -167,12 +167,12 @@
           {%- for variant in sortedVariants -%}
             {%- if variant.featured_media -%}
               {
+                "option": {{- variant.options[groupOptionIndex] | json -}},
                 "variantId": {{- variant.id -}},
                 "mediaId": {{- variant.featured_media.id -}},
                 "mediaPosition": {{- variant.featured_media.position -}},
                 "imageId": {{- variant.image.id -}},
-                "imagePosition": {{- variant.image.position -}},
-                "option": {{- variant.options[groupOptionIndex] | json -}}
+                "imagePosition": {{- variant.image.position -}}
               },
             {%- endif -%}
           {%- endfor -%}
