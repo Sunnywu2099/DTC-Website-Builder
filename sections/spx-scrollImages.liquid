@@ -81,7 +81,7 @@
         context.scale(scale, scale);
 
         // 将图像移到中心点，上半部分可见
-        context.drawImage(img, -scaledWidth / 2, scaledHeight, scaledWidth, scaledHeight);
+        context.drawImage(img, -scaledWidth / 2, scaledHeight / 2, scaledWidth, scaledHeight);
 
         // 还原绘制原点
         context.setTransform(1, 0, 0, 1, 0, 0);
