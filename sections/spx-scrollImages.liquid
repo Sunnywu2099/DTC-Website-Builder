@@ -49,6 +49,7 @@
     const render = function () {
       img.src = picFn(index);
       img.onload = function () {
+        const scale = 2;
         context.clearRect(0, 0, canvas.width, canvas.height);
         context.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -69,7 +70,7 @@
           x = (canvas.width - renderWidth) / 2;
         }
 
-        context.drawImage(img, x, y, renderWidth, renderHeight);
+        context.drawImage(img, x, y, renderWidth * scale, renderHeight * scale );
       };
     };
 
