@@ -49,7 +49,7 @@
     const render = function () {
       img.src = picFn(index);
       img.onload = function () {
-        const scale = 1;
+        const scale = 1.1;
         context.clearRect(0, 0, canvas.width, canvas.height);
         context.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -76,7 +76,7 @@
 
         // 计算中心点
         const centerX = canvas.width / 2;
-        const centerY = canvas.height;
+        const centerY = canvas.height / 2;
 
         // 移动绘制原点到中心点
         context.translate(centerX, centerY);
