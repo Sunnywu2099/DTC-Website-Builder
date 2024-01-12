@@ -58,19 +58,19 @@
     };
 
     // 使用 ScrollTrigger 实现滚动触发
-    gsap.to(img, {
-      scrollTrigger: {
-        trigger: canvas,
-        scrub: true,
-        start: "top top",
-        end: `+=${(document.body.scrollHeight - window.innerHeight) / (frameCount - 1) * 199}`,
+    ScrollTrigger.create({
+      trigger: '.scroll-imgs',
+      start: 'top top',
+      end: '+=2000',
+      markers: false,
+      pin: true,
+      scrub: 0.1,
         onUpdate: (self) => {
           const percent = self.progress;
           index = Math.min(199, Math.ceil(percent * 199));
           render();
         },
-      },
-    });
+    })
 
     // 预加载图片
     const preloadImages = () => {
