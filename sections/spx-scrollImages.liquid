@@ -67,8 +67,8 @@
         //}
 
         // 计算缩放后的宽高
-        const scaledWidth = image.width * scale;
-        const scaledHeight = image.height * scale;
+        const scaledWidth = img.width * scale;
+        const scaledHeight = img.height * scale;
 
         // 计算中心点
         const centerX = canvas.width / 2;
@@ -81,7 +81,7 @@
         context.scale(scale, scale);
 
         // 将图像移到中心点，上半部分可见
-        context.drawImage(image, -scaledWidth / 2, -scaledHeight, scaledWidth, scaledHeight);
+        context.drawImage(img, -scaledWidth / 2, -scaledHeight, scaledWidth, scaledHeight);
 
         // 还原绘制原点
         context.setTransform(1, 0, 0, 1, 0, 0);
