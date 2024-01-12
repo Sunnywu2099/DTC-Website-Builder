@@ -132,9 +132,13 @@
         index = Math.min(199, Math.ceil(percent * 199));
         render();
       },
-      animation:
-        gsap.timeline()
-          .fromTo('#text1',{ opacity: '0',translateY: '0px' },{ opacity: '1',translateY: '-60px' } )
+      animation: gsap.timeline()
+      .to('#text1', { opacity: 1, translateY: -60 })
+      .to('#text2', { opacity: 1, translateY: -60 })
+      .to('#text3', { opacity: 1, translateY: -60 })
+      .to('#text4', { opacity: 1, translateY: -60 })
+      .to('#text5', { opacity: 1, translateY: -60 })
+      .to(['#text1', '#text2', '#text3', '#text4', '#text5'], { opacity: 0, translateY: 0 }, '-=0.5')
           
     })
 
