@@ -50,12 +50,9 @@
       img.src = picFn(index);
       img.onload = function () {
         context.clearRect(0, 0, canvas.width, canvas.height);
-
         const imageAspectRatio = img.width / img.height;
         const canvasAspectRatio = canvas.width / canvas.height;
-
         let renderWidth, renderHeight, x, y;
-
         if (imageAspectRatio > canvasAspectRatio) {
           renderWidth = canvas.width;
           renderHeight = canvas.width / imageAspectRatio;
