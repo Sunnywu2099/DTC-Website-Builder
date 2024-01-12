@@ -147,7 +147,6 @@
 </script>
 
 <script>
-  {% comment %} document.addEventListener('DOMContentLoaded', function() { {% endcomment %}
   var log = console.log;
   {%- liquid
     assign media_grouping_options = section.settings.media_grouping_option | replace: ', ', ',' | split: ','
@@ -184,7 +183,6 @@
   var imageGroup = [];
   variantGroup.forEach(variant => {
     const { variantId, option, mediaPosition } = variant;
-  
     imageGroup.push({
       variantId:variantId,
       color: option,
@@ -201,13 +199,14 @@
     
     if( !has_selected_variant ){
       
-
-      
     }else{
       log(111)
     }
-  {% comment %} }) {% endcomment %}
-      
+    
+    function(variantId){
+      let v_id = variantId;
+    }
+
 </script>
 
 
