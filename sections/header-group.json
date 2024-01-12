@@ -31,8 +31,8 @@
             "color_scheme": "accent-3",
             "custom_colors": false,
             "color_foreground": "#212121",
-            "color_accent": "#0D91BD",
-            "color_background": "#FFFFFF",
+            "color_accent": "#0d91bd",
+            "color_background": "#ffffff",
             "color_gradient": ""
           }
         }
@@ -50,7 +50,7 @@
         "color_scheme": "soft-background",
         "custom_colors": false,
         "color_foreground": "#212121",
-        "color_background": "#FFFFFF",
+        "color_background": "#ffffff",
         "color_gradient": ""
       }
     },
@@ -66,7 +66,7 @@
         "layout": "center-inline",
         "enable_sticky": true,
         "header_style": "transparent",
-        "transparent_header_color": "#FFFFFF",
+        "transparent_header_color": "#240700",
         "enable_search": true,
         "show_separator_line": false,
         "collapse_navigation_on_tablet": true,
@@ -75,8 +75,8 @@
         "color_scheme": "default-with-accent-1",
         "custom_colors": false,
         "color_foreground": "#212121",
-        "color_accent": "#0D91BD",
-        "color_background": "#FFFFFF"
+        "color_accent": "#0d91bd",
+        "color_background": "#ffffff"
       }
     }
   },
