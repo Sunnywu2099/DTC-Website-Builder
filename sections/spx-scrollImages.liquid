@@ -51,13 +51,9 @@
       img.onload = function () {
         const scale = 1.1;
         context.clearRect(0, 0, canvas.width, canvas.height);
-        context.clearRect(0, 0, canvas.width, canvas.height);
-
-        const imageAspectRatio = img.width / img.height;
-        const canvasAspectRatio = canvas.width / canvas.height;
-
+        //const imageAspectRatio = img.width / img.height;
+        //const canvasAspectRatio = canvas.width / canvas.height;
         //let renderWidth, renderHeight, x, y;
-
         //if (imageAspectRatio > canvasAspectRatio) {
           //renderWidth = canvas.width;
           //renderHeight = renderWidth / imageAspectRatio;
@@ -70,9 +66,9 @@
           //x = (canvas.width - renderWidth) / 2;
         //}
 
-          // 计算缩放后的宽高
-        const scaledWidth = img.width * scale;
-        const scaledHeight = img.height * scale;
+        // 计算缩放后的宽高
+        const scaledWidth = image.width * scale;
+        const scaledHeight = image.height * scale;
 
         // 计算中心点
         const centerX = canvas.width / 2;
@@ -84,8 +80,8 @@
         // 进行缩放
         context.scale(scale, scale);
 
-        // 将图像移到中心点
-        context.drawImage(img, -scaledWidth / 2, -scaledHeight / 2, scaledWidth, scaledHeight);
+        // 将图像移到中心点，上半部分可见
+        context.drawImage(image, -scaledWidth / 2, -scaledHeight, scaledWidth, scaledHeight);
 
         // 还原绘制原点
         context.setTransform(1, 0, 0, 1, 0, 0);
