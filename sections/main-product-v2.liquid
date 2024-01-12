@@ -156,7 +156,7 @@
         assign groupOptionName = option
         assign groupOptionIndex = forloop.index0
         assign groupOptionProperty = 'option' | append: forloop.index
-        assign sortedVariants = product.variants | sort: groupOptionProperty
+        assign sortedVariants = product.variants
         break
       endif
     endfor
@@ -182,8 +182,7 @@
         {% endcapture %}
         {{ data | replace_last: ',', '' }}
       ]
-    };
-    
+    };  
   {%- endif -%}
 
     
@@ -194,9 +193,11 @@
     var thumbArray = $('.main-product-media__thumbnails li');
     
     if( !has_selected_variant ){
-      log(222)
+      
+
+      
     }else{
-      console.log(111)
+      log(111)
     }
   {% comment %} }) {% endcomment %}
       
