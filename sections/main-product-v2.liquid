@@ -162,28 +162,27 @@
     endfor
   -%}
   {%- if groupOptionName -%}
-    {% comment %} <script class="js-data-variant-media" type="application/json"> {% endcomment %}
     var  variantGroup ={
-        "groupOptionName": {{- groupOptionName | json -}},
-        "groupOptionIndex": {{- groupOptionIndex }},
-        "variantMedia": [
-          {% capture data %}
-            {%- for variant in sortedVariants -%}
-              {%- if variant.featured_media -%}
-                {
-                  "variantId": {{- variant.id -}},
-                  "mediaId": {{- variant.featured_media.id -}},
-                  "mediaPosition": {{- variant.featured_media.position -}},
-                  "imageId": {{- variant.image.id -}},
-                  "imagePosition": {{- variant.image.position -}},
-                  "option": {{- variant.options[groupOptionIndex] | json -}}
-                },
-              {%- endif -%}
-            {%- endfor -%}
-          {% endcapture %}
-          {{ data | replace_last: ',', '' }}
-        ]
-      }
+      "groupOptionName": {{- groupOptionName | json -}},
+      "groupOptionIndex": {{- groupOptionIndex }},
+      "variantMedia": [
+        {% capture data %}
+          {%- for variant in sortedVariants -%}
+            {%- if variant.featured_media -%}
+              {
+                "variantId": {{- variant.id -}},
+                "mediaId": {{- variant.featured_media.id -}},
+                "mediaPosition": {{- variant.featured_media.position -}},
+                "imageId": {{- variant.image.id -}},
+                "imagePosition": {{- variant.image.position -}},
+                "option": {{- variant.options[groupOptionIndex] | json -}}
+              },
+            {%- endif -%}
+          {%- endfor -%}
+        {% endcapture %}
+        {{ data | replace_last: ',', '' }}
+      ]
+    }
     
   {%- endif -%}
 
