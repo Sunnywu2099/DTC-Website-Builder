@@ -44,6 +44,39 @@
     const img = new Image();
     let index = 0;
 
+
+    {% comment %} window.addEventListener("resize", () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      drawImageOnCanvas();
+    });
+
+    function drawImageOnCanvas() {
+      const image = new Image();
+      image.src = 'your-image-url.jpg'; // 替换为你的图片地址
+
+      image.onload = function () {
+        const imageAspectRatio = image.width / image.height;
+        const canvasAspectRatio = canvas.width / canvas.height;
+
+        let renderWidth, renderHeight, x, y;
+
+        if (imageAspectRatio > canvasAspectRatio) {
+          renderWidth = canvas.width;
+          renderHeight = renderWidth / imageAspectRatio;
+          x = 0;
+          y = (canvas.height - renderHeight) / 2;
+        } else {
+          renderHeight = canvas.height;
+          renderWidth = renderHeight * imageAspectRatio;
+          y = 0;
+          x = (canvas.width - renderWidth) / 2;
+        }
+
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.drawImage(image, x, y, renderWidth, renderHeight);
+      };
+    } {% endcomment %}
     function picFn(index) {
       const paddedIndex = index.toString().padStart(4, '0');
       return `https://cdn.shopify.com/s/files/1/0644/1870/9653/files/${paddedIndex}.jpg`;
@@ -53,7 +86,7 @@
       img.src = picFn(index);
       img.onload = function () {
         context.clearRect(0, 0, canvas.width, canvas.height);
-        context.drawImage(img, 0, 0);
+        context.drawImage(img, canvas.width, canvas.height);
       };
     };
 
