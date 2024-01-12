@@ -56,19 +56,19 @@
         const imageAspectRatio = img.width / img.height;
         const canvasAspectRatio = canvas.width / canvas.height;
 
-        let renderWidth, renderHeight, x, y;
+        //let renderWidth, renderHeight, x, y;
 
-        if (imageAspectRatio > canvasAspectRatio) {
-          renderWidth = canvas.width;
-          renderHeight = renderWidth / imageAspectRatio;
-          x = 0;
-          y = (canvas.height - renderHeight) / 2;
-        } else {
-          renderHeight = canvas.height;
-          renderWidth = renderHeight * imageAspectRatio;
-          y = 0;
-          x = (canvas.width - renderWidth) / 2;
-        }
+        //if (imageAspectRatio > canvasAspectRatio) {
+          //renderWidth = canvas.width;
+          //renderHeight = renderWidth / imageAspectRatio;
+          //x = 0;
+          //y = (canvas.height - renderHeight) / 2;
+        //} else {
+          //renderHeight = canvas.height;
+          //renderWidth = renderHeight * imageAspectRatio;
+          //y = 0;
+          //x = (canvas.width - renderWidth) / 2;
+        //}
 
           // 计算缩放后的宽高
         const scaledWidth = img.width * scale;
