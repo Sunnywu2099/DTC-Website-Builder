@@ -131,11 +131,16 @@
       markers: false,
       pin: true,
       scrub: 0.1,
-        onUpdate: (self) => {
-          const percent = self.progress;
-          index = Math.min(199, Math.ceil(percent * 199));
-          render();
-        },
+      
+      onUpdate: (self) => {
+        const percent = self.progress;
+        index = Math.min(199, Math.ceil(percent * 199));
+        render();
+      },
+      animation:
+        gsap.timeline()
+          .fromTo('#text1',{ opacity: '0',translateY: '0px' },{ opacity: '1',translateY: '0px' } )
+          
     })
 
     // 预加载图片
