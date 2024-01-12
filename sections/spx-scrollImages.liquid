@@ -49,7 +49,7 @@
     const render = function () {
       img.src = picFn(index);
       img.onload = function () {
-        const scale = 1.2;
+        const scale = 1.5;
         context.clearRect(0, 0, canvas.width, canvas.height);
         context.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -70,7 +70,27 @@
           x = (canvas.width - renderWidth) / 2;
         }
 
-        context.drawImage(img, x, y, renderWidth * scale, renderHeight * scale );
+          // 计算缩放后的宽高
+        const scaledWidth = img.width * scale;
+        const scaledHeight = img.height * scale;
+
+        // 计算中心点
+        const centerX = canvas.width / 2;
+        const centerY = canvas.height / 2;
+
+        // 移动绘制原点到中心点
+        context.translate(centerX, centerY);
+
+        // 进行缩放
+        context.scale(scale, scale);
+
+        // 将图像移到中心点
+        context.drawImage(img, -scaledWidth / 2, -scaledHeight / 2, scaledWidth, scaledHeight);
+
+        // 还原绘制原点
+        context.setTransform(1, 0, 0, 1, 0, 0);
+
+        //context.drawImage(img, x, y, renderWidth * scale, renderHeight * scale );
       };
     };
 
