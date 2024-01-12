@@ -181,10 +181,16 @@
       ];
   {%- endif -%}
 
-  variantGroup.forEach(function(value,index){
-    
-  })
-
+  var imageGroup = [];
+  variantGroup.forEach(variant => {
+    const { option, imageId } = variant;
+  
+    imageGroup.push({
+      color: option,
+      imageId: imageId  
+    });
+  });
+  log(imageGroup)
     
     {% comment %} 获得初始变体id {% endcomment %}
     var init_variantId = new URLSearchParams(window.location.search).get('variant');
