@@ -66,7 +66,7 @@
         "layout": "center-inline",
         "enable_sticky": true,
         "header_style": "transparent",
-        "transparent_header_color": "#240700",
+        "transparent_header_color": "#FFFFFF",
         "enable_search": true,
         "show_separator_line": false,
         "collapse_navigation_on_tablet": true,
