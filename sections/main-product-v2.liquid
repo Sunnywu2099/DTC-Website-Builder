@@ -156,7 +156,7 @@
         assign groupOptionName = option
         assign groupOptionIndex = forloop.index0
         assign groupOptionProperty = 'option' | append: forloop.index
-        assign sortedVariants = product.variants
+        assign sortedVariants = product.variants | sort: groupOptionProperty
         break
       endif
     endfor
