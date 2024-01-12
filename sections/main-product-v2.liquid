@@ -162,10 +162,7 @@
     endfor
   -%}
   {%- if groupOptionName -%}
-    var  variantGroup ={
-      "groupOptionName": {{- groupOptionName | json -}},
-      "groupOptionIndex": {{- groupOptionIndex }},
-      "variantMedia": [
+    var  variantGroup =[
         {% capture data %}
           {%- for variant in sortedVariants -%}
             {%- if variant.featured_media -%}
@@ -181,8 +178,7 @@
           {%- endfor -%}
         {% endcapture %}
         {{ data | replace_last: ',', '' }}
-      ]
-    };  
+      ];
   {%- endif -%}
 
     
