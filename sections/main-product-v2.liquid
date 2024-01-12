@@ -182,11 +182,10 @@
 
   var imageGroup = [];
   variantGroup.forEach(variant => {
-    const { variantId, option, mediaPosition } = variant;
+    const { option, mediaPosition } = variant;
     imageGroup.push({
-      variantId:variantId,
       color: option,
-      mediaPosition: mediaPosition  
+      mediaPosition: mediaPosition
     });
   });
   log(imageGroup)
