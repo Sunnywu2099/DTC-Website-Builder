@@ -131,20 +131,14 @@
         const percent = self.progress;
         index = Math.min(199, Math.ceil(percent * 199));
         render();
-
-        // 定义文字的出现和消失条件
-        const conditions = [0.2, 0.4, 0.6, 0.8, 1.0];
-
-        // 判断是否满足文字切换的条件
-        if (percent > conditions[currentIndex]) {
-          gsap.to(`#text${currentIndex + 1}`, { opacity: 0, translateY: 0 });
-          currentIndex = (currentIndex + 1) % conditions.length; // 切换到下一个文字
-          gsap.to(`#text${currentIndex + 1}`, { opacity: 1, translateY: -60 });
-        }
       },
       animation: gsap.timeline()
       .to('#text1', { opacity: 1, translateY: -60 })
-      .to(['#text2', '#text3', '#text4', '#text5'], { opacity: 0, translateY: 0 }, '-=0.5')
+      .to('#text2', { opacity: 1, translateY: -60 })
+      .to('#text3', { opacity: 1, translateY: -60 })
+      .to('#text4', { opacity: 1, translateY: -60 })
+      .to('#text5', { opacity: 1, translateY: -60 })
+      .to(['#text1', '#text2', '#text3', '#text4', '#text5'], { opacity: 0, translateY: 0 }, '-=0.5')
           
     })
 
