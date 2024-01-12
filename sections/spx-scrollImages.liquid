@@ -54,7 +54,22 @@
       img.src = picFn(index);
       img.onload = function () {
         context.clearRect(0, 0, canvas.width, canvas.height);
-        context.drawImage(img, 0, 0);
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        const imageAspectRatio = img.width / img.height;
+        const canvasAspectRatio = canvas.width / canvas.height;
+        let renderWidth, renderHeight, x, y;
+        if (imageAspectRatio > canvasAspectRatio) {
+          renderWidth = canvas.width;
+          renderHeight = renderWidth / imageAspectRatio;
+          x = 0;
+          y = (canvas.height - renderHeight) / 2;
+        } else {
+          renderHeight = canvas.height;
+          renderWidth = renderHeight * imageAspectRatio;
+          y = 0;
+          x = (canvas.width - renderWidth) / 2;
+        }
+        context.drawImage(img, x, y, renderWidth, renderHeight);
       };
     };
 
