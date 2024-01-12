@@ -16,11 +16,15 @@
         "variant_picker_NYHqzP": {
           "type": "variant-picker",
           "settings": {
+            "show_unavailable_variants_indicator": true,
+            "option_type": "button",
+            "color_option_type": "swatch"
           }
         },
         "buy_buttons_37DMXe": {
           "type": "buy-buttons",
           "settings": {
+            "show_dynamic_checkout_buttons": true,
             "show_gift_card_recipient": true
           }
         }
@@ -32,7 +36,24 @@
         "buy_buttons_37DMXe"
       ],
       "settings": {
-        "enable_video_looping": true
+        "media_grouping_option": "Color,Colour,Couleur,Farbe,Size",
+        "layout": "full",
+        "enable_shadow": true,
+        "enable_sticky_media_large": true,
+        "media_thumbnails_position_large": "left",
+        "enable_thumbnails_mobile": true,
+        "enable_image_zoom": true,
+        "enable_video_looping": true,
+        "animation": "fade",
+        "show_soft_background": true,
+        "padding_top": 1,
+        "padding_bottom": 1,
+        "color_scheme": "default-with-accent-1",
+        "custom_colors": false,
+        "color_foreground": "#212121",
+        "color_accent": "#0D91BD",
+        "color_background": "#FFFFFF",
+        "color_gradient": ""
       }
     },
     "text-columns": {
