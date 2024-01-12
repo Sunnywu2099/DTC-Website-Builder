@@ -33,6 +33,7 @@
 </div>
 
 <script type="module">
+    
     gsap.registerPlugin(ScrollTrigger);
 
     const canvas = document.getElementById("scrolling");
@@ -81,6 +82,7 @@
 
     window.onload = function () {
       preloadImages();
+      img.src = picFn(0);
     };
 </script>
 
