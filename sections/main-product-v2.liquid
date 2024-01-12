@@ -188,7 +188,7 @@
   {%- endif -%}
 
     
-    log(2222)
+    console.log(2222)
     {% comment %} 获得初始变体id {% endcomment %}
     var init_variantId = new URLSearchParams(window.location.search).get('variant');
     var has_selected_variant = init_variantId ? true : false;
@@ -196,9 +196,9 @@
     var thumbArray = $('.main-product-media__thumbnails li');
     
     if( !has_selected_variant ){
-      log(222)
+      console.log(222)
     }else{
-      log(111)
+      console.log(111)
     }
   {% comment %} }) {% endcomment %}
       
