@@ -104,6 +104,14 @@
         "color_gradient": ""
       }
     },
+    "spx_hover_wa8zJg": {
+      "type": "spx-hover",
+      "settings": {
+        "video": "",
+        "title": "",
+        "text": ""
+      }
+    },
     "spx_faqs_YHWtnC": {
       "type": "spx-faqs",
       "blocks": {
@@ -289,6 +297,7 @@
   },
   "order": [
     "main",
+    "spx_hover_wa8zJg",
     "spx_faqs_YHWtnC",
     "text-columns",
     "product-recommendations"
