@@ -8,8 +8,15 @@
   }
   .img-rotate{
     transform: rotate(30deg) scale(0);
-    z-index: -1;
+    z-index: 1;
     transition: transform .6s ease-out;
+    transform-origin: center;
+    position: absolute;
+    top: 50px;
+  }
+  .img-main{
+    position: relative;
+    z-index: 2;
   }
   .img-wrapper:hover .img-rotate{
     transform: rotate(0) scale(1.5);
@@ -23,7 +30,7 @@
   <div class="container">
     <div class="img-wrapper">
       <img class="img-rotate" src="https://cdn.shopify.com/s/files/1/0644/1870/9653/files/rotate.png?v=1705307888">
-      <img class="img-main" src="https://cdn.shopify.com/s/files/1/0644/1870/9653/files/oak.png?v=1705308358">
+      <img class="img-main" style="" src="https://cdn.shopify.com/s/files/1/0644/1870/9653/files/oak.png?v=1705308358">
     </div>
   </div>
 </div>
