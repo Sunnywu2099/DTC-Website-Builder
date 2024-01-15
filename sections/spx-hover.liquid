@@ -1,0 +1,143 @@
+
+
+<style>
+  .spx-video {
+    background: #000000;
+  }
+  .spx-video .title-box{
+    width: 70%;
+    margin: 0 auto;
+  }
+  .spx-video .title-box .title{
+    font-size: 38px;
+    line-height: 46px;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+  .spx-video .title-box .text{
+    font-size: 20px;
+    line-height: 28px;
+    color: #fff;
+    text-align: center;
+  }
+  .spx-video .img-box{
+    border-radius: 16px;
+    overflow: hidden;
+    margin-top: 48px;
+    position: relative;
+  }
+  .spx-video .img-box .cover{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .spx-video .post-player{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  @media only screen and (max-width: 768px){
+    .spx-video .custom-container{
+      padding-top: 40px;
+    }
+    .spx-video .title-box{
+      width: calc(100% - 32px);
+    }
+    .spx-video .title-box .title{
+      font-size: 24px;
+      line-height: 32px;
+      margin-bottom: 8px;
+      text-align: left;
+    }
+    .spx-video .title-box .text{
+      font-size: 16px;
+      line-height: 24px;
+      text-align: left;
+    }
+    .spx-video .img-box{
+      border-radius: 8px;
+      margin-top: 24px;
+    }
+  }
+</style>
+
+<div class="spx-video section-vertical-spacer">
+  <div class="container">
+    <div class="title-box">
+      {% if section.settings.title != blank %}
+        <h2 class="title">{{ section.settings.title }}</h2>
+      {% endif %}
+      {% if section.settings.text != blank %}
+        <p class="text">{{ section.settings.text }}</p>
+      {% endif %}
+    </div>
+    <div class="img-box">
+      {% if section.settings.video != blank %}
+        <video id="post-player2" class="post-player" playsinline muted autoplay loop>
+          <source src="{{ section.settings.video }}" type="video/mp4" />
+          <source src="{{ section.settings.video }}" type="video/webm" />
+        </video>
+        <img class="cover" src="{{ section.settings.img | img_url:'master' }}">
+      {% else %}
+        <img class="hide-mb" src="{{ section.settings.img | img_url:'master' }}">
+        <img class="hide-pc" src="{{ section.settings.img_m | img_url:'master' }}">
+      {% endif %}
+    </div>
+    
+  </div>
+</div>
+
+<script type="module">
+  $(document).ready(function() {
+      let post_player = $('#post-player2'); 
+      post_player.on('play', function() {
+        $('.spx-video .cover').css('display','none');
+      });
+  });
+</script>
+
+{% schema %}
+  {
+    "name": "SPX Video",
+    "settings": [
+          {
+            "type": "textarea",
+            "id": "video",
+            "label": "Video link"
+          },
+          {
+            "type": "image_picker",
+            "id": "img",
+            "label": "Image pc"
+          },
+          {
+            "type": "image_picker",
+            "id": "img_m",
+            "label": "Image m"
+          },
+          {
+            "type": "textarea",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "textarea",
+            "id": "text",
+            "label": "Text"
+          }
+    ],
+  "presets": [
+    {
+      "name": "SPX Video"
+    }
+  ]
+    
+  }
+{% endschema %}
