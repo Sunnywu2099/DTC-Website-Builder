@@ -13,9 +13,15 @@
         "color_scheme": "default-with-accent-1",
         "custom_colors": false,
         "color_foreground": "#212121",
-        "color_accent": "#0D91BD",
-        "color_background": "#FFFFFF",
+        "color_accent": "#0d91bd",
+        "color_background": "#ffffff",
         "color_gradient": ""
+      }
+    },
+    "spx_scroll_images2_FCtRXT": {
+      "type": "spx-scrollImages2",
+      "settings": {
+        "text": ""
       }
     },
     "spx_scroll_images_eMaGY3": {
@@ -27,6 +33,7 @@
   },
   "order": [
     "main",
+    "spx_scroll_images2_FCtRXT",
     "spx_scroll_images_eMaGY3"
   ]
 }
