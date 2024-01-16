@@ -207,7 +207,7 @@
     function selectImage (variantId){
       let v_id = variantId;
       if(v_id){
-        log(222)
+        console.log(222)
         imageGroup_only.forEach(function(el,i){
           var select_init_color = $('fieldset input[name="Color"][checked]').prop('value');
           if(el['color'] == select_init_color){
