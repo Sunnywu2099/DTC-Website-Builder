@@ -200,13 +200,13 @@
     var thumbArray = $('.main-product-media__thumbnails li');
     
     if( !has_selected_variant ){
-      selectImage(22);
+      selectImage();
     }else{
     }
     
     function selectImage (variantId){
       let v_id = variantId;
-      v_id == true ? log(1) : log(2); 
+      v_id ? log(1) : log(2); 
     }
 
 </script>
