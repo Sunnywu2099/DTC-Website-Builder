@@ -206,7 +206,10 @@
     
     function selectImage (variantId){
       let v_id = variantId;
-      v_id ? log(1) : log(2); 
+      if(v_id){
+        var select_init_color = $('fieldset input[name="Color"][checked]').prop('value');
+      }else{
+      } 
     }
 
 </script>
