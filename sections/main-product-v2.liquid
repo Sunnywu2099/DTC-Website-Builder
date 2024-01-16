@@ -189,6 +189,11 @@
       mediaPosition: mediaPosition
     });
   });
+  array.forEach(obj => {
+    if(!imageGroup.includes(obj)) {
+      imageGroup.push(obj); 
+    }
+  });
   log('imageGroup =>',imageGroup)
     
     {% comment %} 获得初始变体id {% endcomment %}
