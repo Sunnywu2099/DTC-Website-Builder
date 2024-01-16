@@ -191,7 +191,6 @@
   });
   {% comment %} 去重 {% endcomment %}
   var imageGroup_only = Array.from(new Set(imageGroup.map(JSON.stringify))).map(JSON.parse)
-  log('imageGroup =>',imageGroup)
   log('imageGroup_only =>',imageGroup_only)
     
     {% comment %} 获得初始变体id {% endcomment %}
