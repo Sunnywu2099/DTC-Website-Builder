@@ -69,63 +69,7 @@
 </div>
 
 <script type="module">
-    gsap.registerPlugin(ScrollTrigger);
-    const canvas = document.getElementById("scrolling");
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    const context = canvas.getContext("2d");
-    const frameCount = 200;
-    const img = new Image();
-    img.setAttribute('crossOrigin', 'anonymous');
-    let index = 0;
 
-    function picFn(index) {
-      const paddedIndex = index.toString().padStart(4, '0');
-      return `https://cdn.shopify.com/s/files/1/0644/1870/9653/files/${paddedIndex}.jpg`;
-    }
-
-    const render = function () {
-      img.src = picFn(index);
-      img.onload = function () {
-        const scale = 1.1;
-        context.clearRect(0, 0, canvas.width, canvas.height);
-        
-        // 计算缩放后的宽高
-        const scaledWidth = img.width * scale;
-        const scaledHeight = img.height * scale;
-
-        // 计算中心点
-        const centerX = canvas.width / 2;
-        const centerY = canvas.height / 2;
-
-        // 移动绘制原点到中心点
-        context.translate(centerX, centerY);
-
-        // 进行缩放
-        context.scale(scale, scale);
-
-        // 将图像移到中心点，上半部分可见
-        context.drawImage(img, -scaledWidth / 2, -scaledHeight / 3.2, scaledWidth, scaledHeight);
-
-        // 还原绘制原点
-        context.setTransform(1, 0, 0, 1, 0, 0);
-      };
-    };
-
-    // 使用 ScrollTrigger 实现滚动触发
-    ScrollTrigger.create({
-      trigger: '.scroll-imgs',
-      start: 'top top',
-      end: '+=6000',
-      markers: false,
-      pin: true,
-      scrub: 0.1,
-      onUpdate: (self) => {
-        const percent = self.progress;
-        index = Math.min(199, Math.ceil(percent * 199));
-        render();
-      },
-    })
 
 </script>
 
