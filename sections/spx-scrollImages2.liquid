@@ -82,6 +82,7 @@
     width: 960px;
     height: 608px;
     position: relative;
+    z-index: 2;
   }
   @media only screen and (max-width: 1000px){
 
@@ -133,7 +134,7 @@
         .fromTo('.scroll-imgs2 .img-3',{ translateY: '0' },{ translateY: '-600' },"<2%" ) 
         .fromTo('.scroll-imgs2 .img-4',{ translateY: '0' },{ translateY: '-600' },"<1%" ) 
         .fromTo('.scroll-imgs2 .video-wrapper',{ translateY: '0' },{ translateY: '-300' },"<15%" )
-        .fromTo('.scroll-imgs2 .img-6',{ translateY: '0',opacity: '1',zIndex: '1' },{ translateY: '-300',opacity: '0',zIndex: '0' } ,"<0%"),
+        .fromTo('.scroll-imgs2 .img-6',{ translateY: '0',opacity: '1',zIndex: '2' },{ translateY: '-300',opacity: '0',zIndex: '0' } ,"<0%"),
     })
 
 </script>
