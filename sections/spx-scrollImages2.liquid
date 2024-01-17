@@ -119,8 +119,7 @@
 </div>
 
 <script type="module">
-  const videoDuration = Number( $('#video-main')[0].duration );
-  console.log(videoDuration);
+  
   ScrollTrigger.create({
       trigger: '.scroll-imgs2 .sticky-wrapper',
       start: 'top top+=450',
@@ -137,7 +136,10 @@
         .fromTo('.scroll-imgs2 .video-wrapper',{ translateY: '0' },{ translateY: '-300' },"<15%" )
         .fromTo('.scroll-imgs2 .img-6',{ translateY: '0',opacity: '1' },{ translateY: '-300',opacity: '0' } ,"<0%"),
     })
-
+    window.addEventListener('load', function(){
+      const videoDuration = Number( $('#video-main')[0].duration );
+      console.log(videoDuration);
+    })
 </script>
 
 {% schema %}
