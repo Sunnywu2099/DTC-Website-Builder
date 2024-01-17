@@ -204,6 +204,7 @@
     }else{
     }
     
+    {% comment %} 获取图片组 {% endcomment %}
     function selectImage (variantId){
       let v_id = variantId;
       if(!v_id){
@@ -211,9 +212,10 @@
         var select_init_color_position;
         log(imageGroup_only.length)
         imageGroup_only.forEach(function(el,i){
-          log('i=>',i)
+          log('i=>',i);
           if(el['color'] == select_init_color){
             select_init_color_position = el['mediaPosition']-1;
+            i < imageGroup_only.length-1 ? console.log('>>>>') : log('>>>')
             select_init_color_position_next = imageGroup_only[i+1]['mediaPosition']-1;
             
             log('select_init_color',select_init_color_position,select_init_color_position_next);
