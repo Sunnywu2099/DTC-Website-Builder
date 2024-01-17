@@ -202,13 +202,13 @@
     if( !has_selected_variant ){
       selectImage();
     }else{
-      log('init_variantId =>',init_variantId)
       selectImage(init_variantId);
     }
     
     {% comment %} 获取图片组 {% endcomment %}
     function selectImage (variantId){
       let v_id = variantId;
+      log('v_id =>',v_id)
       let thumbnails = $('.main-product-media__thumbnails li');
       if(!v_id){
         var select_init_color = $('fieldset input[name="Color"][checked]').prop('value');
