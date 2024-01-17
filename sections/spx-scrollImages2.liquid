@@ -123,7 +123,7 @@
     const videoDuration = Number( $('#video-main')[0].duration );
     console.log(videoDuration);
   })
-  
+
   ScrollTrigger.create({
       trigger: '.scroll-imgs2 .sticky-wrapper',
       start: 'top top+=450',
@@ -131,7 +131,7 @@
       markers: false,
       pin: true,
       scrub: 0.1,
-      animation: gsap.timeline()
+      animation: timeline()
         .fromTo('.scroll-imgs2 .img-1',{ translateY: '0' },{ translateY: '-1000' } )
         .fromTo('.scroll-imgs2 .img-6',{ zIndex: '2' },{ zIndex: '0' } ,"<0%")
         .fromTo('.scroll-imgs2 .img-2',{ translateY: '0' },{ translateY: '-900' },"<5%" ) 
