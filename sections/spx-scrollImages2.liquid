@@ -119,7 +119,7 @@
 </div>
 
 <script type="module">
-  const videoDuration = $('#video-main')[0].duration;
+  const videoDuration = Number( $('#video-main')[0].duration );
   console.log(videoDuration);
   ScrollTrigger.create({
       trigger: '.scroll-imgs2 .sticky-wrapper',
