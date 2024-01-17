@@ -209,9 +209,12 @@
   {% comment %} $('.main-product__blocks loess-variant-radios .input__list label').each(function(){
   }) {% endcomment %}
     $('.main-product__blocks').on('click','loess-variant-radios .input__list label',function(){
-      var vid = new URLSearchParams(window.location.search).get('variant');
-      log(vid)
-      selectImage(vid);
+      setTimeout(function(){ 
+        log(vid)
+        var vid = new URLSearchParams(window.location.search).get('variant');
+        console.log('Hello');
+        selectImage(vid);
+      }, 500);
     })
   
   {% comment %} 获取图片组 {% endcomment %}
