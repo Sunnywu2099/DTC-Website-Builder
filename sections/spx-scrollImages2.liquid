@@ -44,6 +44,14 @@
     right: 0;
     top: 0;
   }
+  .scroll-imgs2 .sticky-wrapper .start-img{
+    z-index: 1;
+    position: relative;
+  }
+  .scroll-imgs2 .sticky-wrapper .end-img{
+    z-index: 1;
+    position: relative;
+  }
   @media only screen and (max-width: 1000px){
 
   }
@@ -61,12 +69,12 @@
     </div>
     <div class="sticky-wrapper">
       <div class="img-wrapper">
-        <img class="img-1" src="https://cdn.shopify.com/s/files/1/0644/1870/9653/files/a1.png?v=1705401044">
-        <img class="img-2 innner-img" src="https://cdn.shopify.com/s/files/1/0644/1870/9653/files/a2.png?v=1705401045">
-        <img class="img-3 innner-img" src="https://cdn.shopify.com/s/files/1/0644/1870/9653/files/a3.png?v=1705401044">
-        <img class="img-4 innner-img" src="https://cdn.shopify.com/s/files/1/0644/1870/9653/files/a4.png?v=1705401044">
-        <img class="img-5 innner-img" src="https://cdn.shopify.com/s/files/1/0644/1870/9653/files/a5.png?v=1705401045">
-        <img class="img-7" src="https://cdn.shopify.com/s/files/1/0644/1870/9653/files/a7.png?v=1705401045">
+        <img class="img-1 start-img" src="https://cdn.shopify.com/s/files/1/0644/1870/9653/files/a1.png?v=1705401044">
+        <img class="img-2 innner-img" style="z-index:0" src="https://cdn.shopify.com/s/files/1/0644/1870/9653/files/a2.png?v=1705401045">
+        <img class="img-3 innner-img" style="z-index:-1" src="https://cdn.shopify.com/s/files/1/0644/1870/9653/files/a3.png?v=1705401044">
+        <img class="img-4 innner-img" style="z-index:-2" src="https://cdn.shopify.com/s/files/1/0644/1870/9653/files/a4.png?v=1705401044">
+        <img class="img-5 innner-img" style="z-index:-3" src="https://cdn.shopify.com/s/files/1/0644/1870/9653/files/a5.png?v=1705401045">
+        <img class="img-7 end-img" src="https://cdn.shopify.com/s/files/1/0644/1870/9653/files/a7.png?v=1705401045">
       </div>
     </div>
   </div>
