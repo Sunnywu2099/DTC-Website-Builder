@@ -206,10 +206,12 @@
   }
   
   {% comment %} 为选项添加事件 {% endcomment %}
-  $('loess-variant-radios .input__list label').on('click',function(){
-    var vid = new URLSearchParams(window.location.search).get('variant');
-    log(vid)
-    selectImage(vid);
+  $('loess-variant-radios .input__list label').each(function(){
+    $(this).on('click',function(){
+      var vid = new URLSearchParams(window.location.search).get('variant');
+      log(vid)
+      selectImage(vid);
+    })
   })
   
   {% comment %} 获取图片组 {% endcomment %}
