@@ -139,6 +139,13 @@
         .fromTo('.scroll-imgs2 .img-4',{ translateY: '0' },{ translateY: '-600' },"<1%" ) 
         .fromTo('.scroll-imgs2 .video-wrapper',{ translateY: '0' },{ translateY: '-300' },"<15%" )
         .fromTo('.scroll-imgs2 .img-6',{ translateY: '0',opacity: '1' },{ translateY: '-300',opacity: '0' } ,"<0%"),
+      onUpdate: () => {
+        const progress = timeline.progress();
+        const videoCurrentTime = progress * videoDuration;
+        if (progress >= 0.15) {
+          mainVideo.play();
+        }
+      }
     })
     
 </script>
