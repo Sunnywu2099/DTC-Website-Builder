@@ -119,7 +119,7 @@
 </div>
 
 <script type="module">
-  ScrollTrigger.create({
+  {% comment %} ScrollTrigger.create({
       trigger: '.scroll-imgs2 .sticky-wrapper',
       start: 'top top+=450',
       end: '+=6000',
@@ -132,7 +132,7 @@
         .fromTo('.scroll-imgs2 .img-3',{ translateY: '0' },{ translateY: '-600' },"<2%" ) 
         .fromTo('.scroll-imgs2 .img-4',{ translateY: '0' },{ translateY: '-600' },"<1%" ) 
         .fromTo('.scroll-imgs2 .img-6',{ translateY: '0' },{ translateY: '-300' },"<15%" ) 
-    })
+    }) {% endcomment %}
 
 </script>
 
