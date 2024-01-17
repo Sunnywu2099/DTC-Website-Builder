@@ -193,47 +193,46 @@
   var imageGroup_only = Array.from(new Set(imageGroup.map(JSON.stringify))).map(JSON.parse)
   log('imageGroup_only =>',imageGroup_only)
     
-    {% comment %} 获得初始变体id {% endcomment %}
-    var init_variantId = new URLSearchParams(window.location.search).get('variant');
-    var has_selected_variant = init_variantId ? true : false;
-    {% comment %} 缩略图 {% endcomment %}
-    var thumbArray = $('.main-product-media__thumbnails li');
-    
-    if( !has_selected_variant ){
-      selectImage();
+  {% comment %} 获得初始变体id {% endcomment %}
+  var init_variantId = new URLSearchParams(window.location.search).get('variant');
+  var has_selected_variant = init_variantId ? true : false;
+  {% comment %} 缩略图 {% endcomment %}
+  var thumbArray = $('.main-product-media__thumbnails li');
+  
+  if( !has_selected_variant ){
+    selectImage();
+  }else{
+    selectImage(init_variantId);
+  }
+  
+  {% comment %} 获取图片组 {% endcomment %}
+  function selectImage (variantId){
+    let v_id = variantId;
+    let thumbnails = $('.main-product-media__thumbnails li');
+    var select_init_color;
+    var select_init_color_position;
+    if(!v_id){
+      select_init_color = $('fieldset input[name="Color"][checked]').prop('value');
     }else{
-      selectImage(init_variantId);
-    }
-    
-    {% comment %} 获取图片组 {% endcomment %}
-    function selectImage (variantId){
-      let v_id = variantId;
-      let thumbnails = $('.main-product-media__thumbnails li');
-      var select_init_color;
-      var select_init_color_position;
-      if(!v_id){
-        select_init_color = $('fieldset input[name="Color"][checked]').prop('value');
-      }else{
-        variantGroup.forEach(function(e,i){
-          if(e['variantId']==v_id){
-            select_init_color = e.option;
-          }
-        })
-        
-      } 
-      imageGroup_only.forEach(function(el,i){
-        if(el['color'] == select_init_color){
-          select_init_color_position = el['mediaPosition']-1;
-          i < imageGroup_only.length-1 ? select_init_color_position_next = imageGroup_only[i+1]['mediaPosition']-2 : select_init_color_position_next = thumbnails.length-1;
+      variantGroup.forEach(function(e,i){
+        if(e['variantId']==v_id){
+          select_init_color = e.option;
         }
-      });
-      thumbnails.each(function(i,e){
-        if(i<select_init_color_position || i>select_init_color_position_next){
-          $(this).hide();
-        }
-      });
-      log('select_init_color',select_init_color_position,select_init_color_position_next);
-    }
+      })
+    } 
+    imageGroup_only.forEach(function(el,i){
+      if(el['color'] == select_init_color){
+        select_init_color_position = el['mediaPosition']-1;
+        i < imageGroup_only.length-1 ? select_init_color_position_next = imageGroup_only[i+1]['mediaPosition']-2 : select_init_color_position_next = thumbnails.length-1;
+      }
+    });
+    thumbnails.each(function(i,e){
+      if(i<select_init_color_position || i>select_init_color_position_next){
+        $(this).hide();
+      }
+    });
+    log('select_init_color',select_init_color_position,select_init_color_position_next);
+  }
 
 </script>
 
