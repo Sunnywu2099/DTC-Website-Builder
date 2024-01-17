@@ -204,10 +204,11 @@
   }else{
     selectImage(init_variantId);
   }
-
+  
   {% comment %} 为选项添加事件 {% endcomment %}
   $('loess-variant-radios .input__list label').on('click',function(){
-    log(12333)
+    var vid = new URLSearchParams(window.location.search).get('variant');
+    selectImage(vid);
   })
   
   {% comment %} 获取图片组 {% endcomment %}
