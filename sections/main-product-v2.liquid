@@ -217,7 +217,10 @@
             select_init_color_position = el['mediaPosition']-1;
             i < imageGroup_only.length-1 ? select_init_color_position_next = imageGroup_only[i+1]['mediaPosition']-2 : select_init_color_position_next = thumbnails.length-1;
             }
-          })
+          });
+          thumbnails.forEach(function (e) {
+            console.log(e)
+        })
           log('select_init_color',select_init_color_position,select_init_color_position_next);
       }else{
       } 
