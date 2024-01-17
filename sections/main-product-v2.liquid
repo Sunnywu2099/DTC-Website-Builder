@@ -206,7 +206,7 @@
   }
   
   {% comment %} 为选项添加事件 {% endcomment %}
-  $('loess-variant-radios .input__list label').each(function(){
+  $('.main-product__blocks loess-variant-radios .input__list label').each(function(){
     $(this).on('click',function(){
       var vid = new URLSearchParams(window.location.search).get('variant');
       log(vid)
