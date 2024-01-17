@@ -119,6 +119,8 @@
 </div>
 
 <script type="module">
+  const mainVideo = document.getElementById('video-main');
+  const videoDuration = mainVideo.duration;
   ScrollTrigger.create({
       trigger: '.scroll-imgs2 .sticky-wrapper',
       start: 'top top+=450',
@@ -132,7 +134,15 @@
         .fromTo('.scroll-imgs2 .img-3',{ translateY: '0' },{ translateY: '-600' },"<2%" ) 
         .fromTo('.scroll-imgs2 .img-4',{ translateY: '0' },{ translateY: '-600' },"<1%" ) 
         .fromTo('.scroll-imgs2 .video-wrapper',{ translateY: '0' },{ translateY: '-300' },"<15%" )
-        .fromTo('.scroll-imgs2 .img-6',{ translateY: '0',opacity: '1' },{ translateY: '-300',opacity: '0' } ,"<0%")  
+        .fromTo('.scroll-imgs2 .img-6',{ translateY: '0',opacity: '1' },{ translateY: '-300',opacity: '0' } ,"<0%"),
+      onUpdate: (self) => {
+      const scrollProgress = self.progress;
+      const videoCurrentTime = scrollProgress * videoDuration;
+
+      // 设置视频的当前播放时间
+      mainVideo.currentTime = videoCurrentTime;
+    },
+      
     })
 
 </script>
