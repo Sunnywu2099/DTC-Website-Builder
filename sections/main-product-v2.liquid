@@ -209,9 +209,10 @@
     function selectImage (variantId){
       let v_id = variantId;
       let thumbnails = $('.main-product-media__thumbnails li');
+      var select_init_color;
+      var select_init_color_position;
       if(!v_id){
-        var select_init_color = $('fieldset input[name="Color"][checked]').prop('value');
-        var select_init_color_position;
+        select_init_color = $('fieldset input[name="Color"][checked]').prop('value');
         imageGroup_only.forEach(function(el,i){
           if(el['color'] == select_init_color){
             select_init_color_position = el['mediaPosition']-1;
