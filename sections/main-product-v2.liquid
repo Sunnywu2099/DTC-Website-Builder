@@ -227,7 +227,9 @@
         log('select_init_color',select_init_color_position,select_init_color_position_next);
       }else{
         variantGroup.forEach(function(e,i){
-          log('i=>',i,e)
+          if(e['variantId']==v_id){
+            log('i=>',i,e)
+          }
         })
         log(v_id)
 
