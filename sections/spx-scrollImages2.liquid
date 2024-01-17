@@ -106,7 +106,7 @@
         <div class="img same-img img-5"></div>
         <div class="img same-img img-3"></div>
         <div class="img same-img img-4"></div>
-        {% comment %} <div class="img end img-6"></div> {% endcomment %}
+        <div class="img end img-6"></div>
       </div>
       <div class="video-wrapper">
         <video id="video-main" class="video-main" playsinline muted>
@@ -128,11 +128,12 @@
       scrub: 0.1,
       animation: gsap.timeline()
         .fromTo('.scroll-imgs2 .img-1',{ translateY: '0' },{ translateY: '-1000' } )
+        .fromTo('.scroll-imgs2 .img-6',{ opacity: '1' },{ opacity: '0' } ,"<") 
         .fromTo('.scroll-imgs2 .img-2',{ translateY: '0' },{ translateY: '-900' },"<5%" ) 
         .fromTo('.scroll-imgs2 .img-3',{ translateY: '0' },{ translateY: '-600' },"<2%" ) 
         .fromTo('.scroll-imgs2 .img-4',{ translateY: '0' },{ translateY: '-600' },"<1%" ) 
         .fromTo('.scroll-imgs2 .video-wrapper',{ translateY: '0' },{ translateY: '-300' },"<15%" )
-        .fromTo('.scroll-imgs2 .img-6',{ opacity: '1' },{ opacity: '0' } ,"<") 
+        
          
         
     })
