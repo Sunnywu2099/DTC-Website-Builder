@@ -120,7 +120,7 @@
 
 <script type="module">
   const mainVideo = document.getElementById('video-main');
-  const videoDuration = mainVideo.duration;
+  const videoDuration = document.getElementById('video-main').duration;
   console.log(videoDuration);
   ScrollTrigger.create({
       trigger: '.scroll-imgs2 .sticky-wrapper',
