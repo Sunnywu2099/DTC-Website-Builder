@@ -213,28 +213,26 @@
       var select_init_color_position;
       if(!v_id){
         select_init_color = $('fieldset input[name="Color"][checked]').prop('value');
-        imageGroup_only.forEach(function(el,i){
-          if(el['color'] == select_init_color){
-            select_init_color_position = el['mediaPosition']-1;
-            i < imageGroup_only.length-1 ? select_init_color_position_next = imageGroup_only[i+1]['mediaPosition']-2 : select_init_color_position_next = thumbnails.length-1;
-          }
-        });
-        thumbnails.each(function(i,e){
-          if(i<select_init_color_position || i>select_init_color_position_next){
-            $(this).hide();
-          }
-        });
-        log('select_init_color',select_init_color_position,select_init_color_position_next);
       }else{
         variantGroup.forEach(function(e,i){
           if(e['variantId']==v_id){
-          select_init_color = e.option;
-          log('select_init_color=>',i,e.option,select_init_color)
+            select_init_color = e.option;
           }
         })
-        log(v_id)
-
+        
       } 
+      imageGroup_only.forEach(function(el,i){
+        if(el['color'] == select_init_color){
+          select_init_color_position = el['mediaPosition']-1;
+          i < imageGroup_only.length-1 ? select_init_color_position_next = imageGroup_only[i+1]['mediaPosition']-2 : select_init_color_position_next = thumbnails.length-1;
+        }
+      });
+      thumbnails.each(function(i,e){
+        if(i<select_init_color_position || i>select_init_color_position_next){
+          $(this).hide();
+        }
+      });
+      log('select_init_color',select_init_color_position,select_init_color_position_next);
     }
 
 </script>
