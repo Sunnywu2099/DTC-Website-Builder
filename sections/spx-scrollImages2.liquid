@@ -104,7 +104,21 @@
 </div>
 
 <script type="module">
-
+  ScrollTrigger.create({
+      trigger: '.sticky-wrapper',
+      start: 'top top',
+      end: '+=6000',
+      markers: false,
+      pin: true,
+      scrub: 0.1,
+      animation: gsap.timeline()
+      gsap.timeline()
+        .fromTo('.scroll-imgs2 .img-1',{ translateY: '0' },{ translateY: '-100' })
+        .fromTo('.scroll-imgs2 .img-2',{ translateY: '0' },{ translateY: '-80' } ) 
+        .fromTo('.scroll-imgs2 .img-3',{ translateY: '0' },{ translateY: '-60' } ) 
+        .fromTo('.scroll-imgs2 .img-4',{ translateY: '0' },{ translateY: '-50' } ) 
+        .fromTo('.scroll-imgs2 .img-5',{ translateY: '0' },{ translateY: '-40' } ) 
+    })
 
 </script>
 
