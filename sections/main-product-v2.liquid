@@ -228,7 +228,8 @@
       }else{
         variantGroup.forEach(function(e,i){
           if(e['variantId']==v_id){
-            log('i=>',i,e.option)
+          select_init_color = e.option;
+          log('select_init_color=>',i,e.option,select_init_color)
           }
         })
         log(v_id)
