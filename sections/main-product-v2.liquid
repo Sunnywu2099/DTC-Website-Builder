@@ -237,6 +237,7 @@
       }
     });
     thumbnails.each(function(i,e){
+      log($(this))
       if(i<select_init_color_position || i>select_init_color_position_next){
         $(this).hide();
       }else{
