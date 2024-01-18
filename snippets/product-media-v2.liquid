@@ -243,39 +243,41 @@
           </div>
         {%- endif -%}
       {%- endif -%}
-    </div>
-    {% for media in product.media %}
-      {%- case media.media_type -%}
-        {% when 'image' %}
-          {% assign has_image = true %}  
-        {% when 'video' %}
-          {% assign has_video = true %}  
-        {%- when 'external_video' -%}
-          {% assign has_video = true %}  
-        {%- when 'model' -%}
-          {% assign has_model = true %}  
-        {% endcase %} 
-    {% endfor %}
 
-    {% if has_model or has_video %}
-      <style>
-        .mediaOptions-bar{
-          display:flex;
-          
-        }
-      </style>
-      <div class="mediaOptions-bar">
-        {% if has_image %}
-          <div class="media_photos">Photos</div>
-        {% endif %}
-        {% if has_video %}
-          <div class="media_video">Video</div>
-        {% endif %}
-        {% if has_model %}
-          <div class="media_model">Model</div>
-        {% endif %}
-      </div>
-    {% endif %}
+      
+      {% for media in product.media %}
+        {%- case media.media_type -%}
+          {% when 'image' %}
+            {% assign has_image = true %}  
+          {% when 'video' %}
+            {% assign has_video = true %}  
+          {%- when 'external_video' -%}
+            {% assign has_video = true %}  
+          {%- when 'model' -%}
+            {% assign has_model = true %}  
+          {% endcase %} 
+      {% endfor %}
+  
+      {% if has_model or has_video %}
+        <style>
+          .mediaOptions-bar{
+            display:flex;
+            
+          }
+        </style>
+        <div class="mediaOptions-bar">
+          {% if has_image %}
+            <div class="media_photos">Photos</div>
+          {% endif %}
+          {% if has_video %}
+            <div class="media_video">Video</div>
+          {% endif %}
+          {% if has_model %}
+            <div class="media_model">Model</div>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
   </div>
   
   {%- if section.settings.enable_image_zoom and product.media.size > 0 -%}
