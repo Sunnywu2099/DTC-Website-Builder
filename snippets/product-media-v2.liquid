@@ -130,7 +130,7 @@
           role="list"
         >
           {%- for media in product.media -%}
-            <li>
+            <li data-type="{{ media.type }}">
               {%- liquid
                 if media.aspect_ratio == null
                   assign aspect_ratio = 1
