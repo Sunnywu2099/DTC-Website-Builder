@@ -38,7 +38,7 @@
 <div class="{% if section.settings.layout != 'full' and section.settings.enable_shadow %}shadow{% endif %} {% if section.settings.custom_colors %}color-custom color-gradient{% else %}{% if section.settings.color_scheme != 'soft-background' %}color color-{{ section.settings.color_scheme }} color-gradient{% else %}color-soft-background{% endif %}{% endif %}" {% if section.settings.layout != 'full' %}style="border-radius: var(--radius);"{% endif %}>
   <div class="{% if section.settings.layout == 'full' %}section-vertical-spacer{% else %}vertical-spacer{% endif %} container container--capped">
     <loess-product class="main-product main-product--half-half {% if section.settings.custom_colors == false and section.settings.color_scheme == 'soft-background' %}color-default{% endif %}">
-      {% render 'product-media', first_3d_model: first_3d_model %}
+      {% render 'product-media-v2', first_3d_model: first_3d_model %}
       {% render 'product-blocks', product_form_id: product_form_id, is_product_page: true %}
     </loess-product>
   </div>
