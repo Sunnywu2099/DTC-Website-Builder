@@ -186,6 +186,12 @@
         {% endfor %}
 
         {% if has_model or has_video %}
+          <style>
+            .mediaOptions-bar{
+              display:flex;
+              
+            }
+          </style>
           <div class="mediaOptions-bar">
             {% if has_image %}
               <div class="media_photos">Photos</div>
