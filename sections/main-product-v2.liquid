@@ -208,19 +208,13 @@
   {% comment %} 为选项添加事件 {% endcomment %}
     $('.main-product__blocks').on('click','loess-variant-radios .input__list label',function(){
       var old_vid = new URLSearchParams(window.location.search).get('variant');
-      log('old_vid= > ',old_vid)
       var check_id_Interval = setInterval(function(){ 
         var new_vid = new URLSearchParams(window.location.search).get('variant');
-        log('new_vid= > ',new_vid)
         if( new_vid != old_vid ){
           clearInterval(check_id_Interval);
           selectImage(new_vid);
         }
       }, 50);
-      {% comment %} setTimeout(function(){ 
-        var vid = new URLSearchParams(window.location.search).get('variant');
-        selectImage(vid);
-      }, 100); {% endcomment %}
     })
   
   {% comment %} 获取图片组 {% endcomment %}
@@ -251,7 +245,6 @@
         $(this).show();
       }
     });
-    log('select_init_color',select_init_color_position,select_init_color_position_next);
   }
 
 </script>
