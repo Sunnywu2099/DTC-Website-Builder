@@ -13,23 +13,19 @@
         },
         "title": {
           "type": "title",
-          "settings": {
-          }
+          "settings": {}
         },
         "price": {
           "type": "price",
-          "settings": {
-          }
+          "settings": {}
         },
         "description": {
           "type": "description",
-          "settings": {
-          }
+          "settings": {}
         },
         "a247f251-575c-4871-8e7b-6dd2b18c289e": {
           "type": "size_match",
-          "settings": {
-          }
+          "settings": {}
         },
         "variant-picker": {
           "type": "variant-picker",
@@ -41,8 +37,7 @@
         },
         "quantity-selector": {
           "type": "quantity-selector",
-          "settings": {
-          }
+          "settings": {}
         },
         "stock-availability": {
           "type": "stock-availability",
@@ -52,8 +47,8 @@
             "low_inventory_threshold": 3,
             "enable_label_colors": false,
             "color_in_stock": "#428445",
-            "color_low_stock": "#FFB800",
-            "color_no_stock": "#FF0000"
+            "color_low_stock": "#ffb800",
+            "color_no_stock": "#ff0000"
           }
         },
         "buy-buttons": {
@@ -99,9 +94,96 @@
         "color_scheme": "default-with-accent-1",
         "custom_colors": false,
         "color_foreground": "#212121",
-        "color_accent": "#0D91BD",
-        "color_background": "#FFFFFF",
+        "color_accent": "#0d91bd",
+        "color_background": "#ffffff",
         "color_gradient": ""
+      }
+    },
+    "spx_hover_wa8zJg": {
+      "type": "spx-hover",
+      "settings": {
+        "video": "",
+        "title": "",
+        "text": ""
+      }
+    },
+    "spx_faqs_YHWtnC": {
+      "type": "spx-faqs",
+      "blocks": {
+        "block_yYAtkb": {
+          "type": "block",
+          "settings": {
+            "nametab": "Performance 1",
+            "FAQ_question1": "Can the cleaner be used in different pools, such as a vinyl pool liner? Would it need to be remapped each time?",
+            "FAQ_answer1": "Yes, you can purchase Genkinno Warranty Plus up to 60 days after you’ve purchased the product.",
+            "FAQ_question2": "Can the cleaner be used in different pools, such as a vinyl pool liner? Would it need to be remapped each time?",
+            "FAQ_answer2": "Yes, you can purchase Genkinno Warranty Plus up to 60 days after you’ve purchased the product.",
+            "FAQ_question3": "Can the cleaner be used in different pools, such as a vinyl pool liner? Would it need to be remapped each time?",
+            "FAQ_answer3": "Yes, you can purchase Genkinno Warranty Plus up to 60 days after you’ve purchased the product.",
+            "FAQ_question4": "",
+            "FAQ_answer4": "",
+            "FAQ_question5": "",
+            "FAQ_answer5": "",
+            "FAQ_question6": "",
+            "FAQ_answer6": "",
+            "FAQ_question7": "",
+            "FAQ_answer7": "",
+            "FAQ_question8": "",
+            "FAQ_answer8": ""
+          }
+        },
+        "block_QNLfcm": {
+          "type": "block",
+          "settings": {
+            "nametab": "Performance 2",
+            "FAQ_question1": "Can the cleaner be used in different pools, such as a vinyl pool liner? Would it need to be remapped each time?",
+            "FAQ_answer1": "Yes, you can purchase Genkinno Warranty Plus up to 60 days after you’ve purchased the product.",
+            "FAQ_question2": "Can the cleaner be used in different pools, such as a vinyl pool liner? Would it need to be remapped each time?",
+            "FAQ_answer2": "Yes, you can purchase Genkinno Warranty Plus up to 60 days after you’ve purchased the product.",
+            "FAQ_question3": "Can the cleaner be used in different pools, such as a vinyl pool liner? Would it need to be remapped each time?",
+            "FAQ_answer3": "Yes, you can purchase Genkinno Warranty Plus up to 60 days after you’ve purchased the product.",
+            "FAQ_question4": "",
+            "FAQ_answer4": "",
+            "FAQ_question5": "",
+            "FAQ_answer5": "",
+            "FAQ_question6": "",
+            "FAQ_answer6": "",
+            "FAQ_question7": "",
+            "FAQ_answer7": "",
+            "FAQ_question8": "",
+            "FAQ_answer8": ""
+          }
+        },
+        "block_LxM83T": {
+          "type": "block",
+          "settings": {
+            "nametab": "Performance 3",
+            "FAQ_question1": "Can the cleaner be used in different pools, such as a vinyl pool liner? Would it need to be remapped each time?",
+            "FAQ_answer1": "Yes, you can purchase Genkinno Warranty Plus up to 60 days after you’ve purchased the product.",
+            "FAQ_question2": "",
+            "FAQ_answer2": "",
+            "FAQ_question3": "",
+            "FAQ_answer3": "",
+            "FAQ_question4": "",
+            "FAQ_answer4": "",
+            "FAQ_question5": "",
+            "FAQ_answer5": "",
+            "FAQ_question6": "",
+            "FAQ_answer6": "",
+            "FAQ_question7": "",
+            "FAQ_answer7": "",
+            "FAQ_question8": "",
+            "FAQ_answer8": ""
+          }
+        }
+      },
+      "block_order": [
+        "block_yYAtkb",
+        "block_QNLfcm",
+        "block_LxM83T"
+      ],
+      "settings": {
+        "title": "FAQ"
       }
     },
     "text-columns": {
@@ -178,86 +260,8 @@
         "color_scheme": "default-with-accent-1",
         "custom_colors": false,
         "color_foreground": "#212121",
-        "color_accent": "#0D91BD",
-        "color_background": "#FFFFFF",
-        "color_gradient": ""
-      }
-    },
-    "slideshow": {
-      "type": "slideshow",
-      "blocks": {
-        "slide-1": {
-          "type": "slide",
-          "settings": {
-            "subheading": "",
-            "title": "Slide heading",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "text_size": "large",
-            "text_position_large": "center start",
-            "content_width_large": 50,
-            "text_position_mobile": "start",
-            "first_button_label": "",
-            "first_button_link": "",
-            "first_button_style": false,
-            "second_button_label": "",
-            "second_button_link": "",
-            "second_button_style": true,
-            "color_scheme": "default-with-accent-1",
-            "custom_colors": false,
-            "color_foreground": "#212121",
-            "color_accent": "#0D91BD",
-            "color_background": "#FFFFFF",
-            "color_gradient": ""
-          }
-        },
-        "slide-2": {
-          "type": "slide",
-          "settings": {
-            "subheading": "",
-            "title": "Slide heading",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "text_size": "large",
-            "text_position_large": "center end",
-            "content_width_large": 50,
-            "text_position_mobile": "start",
-            "first_button_label": "",
-            "first_button_link": "",
-            "first_button_style": false,
-            "second_button_label": "",
-            "second_button_link": "",
-            "second_button_style": true,
-            "color_scheme": "default-with-accent-1",
-            "custom_colors": false,
-            "color_foreground": "#212121",
-            "color_accent": "#0D91BD",
-            "color_background": "#FFFFFF",
-            "color_gradient": ""
-          }
-        }
-      },
-      "block_order": [
-        "slide-1",
-        "slide-2"
-      ],
-      "settings": {
-        "layout": "full",
-        "enable_shadow": true,
-        "enable_background_image": true,
-        "height_large": "large",
-        "height_mobile": "medium",
-        "padding_top": 1,
-        "padding_bottom": 1,
-        "overlay": 25,
-        "enable_parallax": false,
-        "animation": "fade",
-        "maintain_background_color_first_slide": false,
-        "auto_play": true,
-        "auto_play_delay": 5,
-        "color_scheme": "soft",
-        "custom_colors": false,
-        "color_foreground": "#212121",
-        "color_accent": "#0D91BD",
-        "color_background": "#FFFFFF",
+        "color_accent": "#0d91bd",
+        "color_background": "#ffffff",
         "color_gradient": ""
       }
     },
@@ -280,16 +284,17 @@
         "color_scheme": "soft",
         "custom_colors": false,
         "color_foreground": "#212121",
-        "color_accent": "#0D91BD",
-        "color_background": "#FFFFFF",
+        "color_accent": "#0d91bd",
+        "color_background": "#ffffff",
         "color_gradient": ""
       }
     }
   },
   "order": [
     "main",
+    "spx_hover_wa8zJg",
+    "spx_faqs_YHWtnC",
     "text-columns",
-    "slideshow",
     "product-recommendations"
   ]
 }

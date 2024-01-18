@@ -1,0 +1,163 @@
+<style>
+  .scroll-imgs2{
+    background: #000;
+    overflow: hidden;
+  }
+  .scroll-imgs2 .main-wrapper{
+    width: 1000px;
+    padding-top: 100px;
+    margin: 0 auto;
+  }
+  .scroll-imgs2 .scroll-text{
+    max-width: 280px;
+    color: #999;
+  }
+  .scroll-imgs2 .sub-title{
+    font-size: 24px;
+  }
+  .scroll-imgs2 .title{
+    font-size: 80px;
+    line-height: 1;
+    margin-top: 20px;
+  }
+  .scroll-imgs2 .content{
+    font-size: 24px;
+    margin-top: 60px;
+  }
+  .scroll-imgs2 .content-wrapper{
+    text-align: center;
+    color: #fff;
+  }
+  .scroll-imgs2 .sticky-wrapper{
+    position: relative;
+    margin-top: -80px;
+  }
+  .scroll-imgs2 .img-wrapper{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .scroll-imgs2 .sticky-wrapper .start{
+    z-index: 2;
+    position: relative;
+  }
+  .scroll-imgs2 .sticky-wrapper .img{
+    will-change: transform;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: bottom;
+  }
+  .scroll-imgs2 .sticky-wrapper .same-img{
+    width: 960px;
+    height: 359px;
+    position: absolute;
+    bottom: 0;
+    z-index: 0;
+  }
+  .scroll-imgs2 .sticky-wrapper .img-1{
+    background-image: url('https://cdn.shopify.com/s/files/1/0644/1870/9653/files/a1.png?v=1705401044');
+  }
+  .scroll-imgs2 .sticky-wrapper .img-2{
+    background-image: url('https://cdn.shopify.com/s/files/1/0644/1870/9653/files/a2.png?v=1705401045');
+  }
+  .scroll-imgs2 .sticky-wrapper .img-3{
+    background-image: url('https://cdn.shopify.com/s/files/1/0644/1870/9653/files/a3.png?v=1705401044');
+    z-index: 0;
+  }
+  .scroll-imgs2 .sticky-wrapper .img-4{
+    background-image: url('https://cdn.shopify.com/s/files/1/0644/1870/9653/files/a4.png?v=1705401044');
+    z-index: -1;
+  }
+  .scroll-imgs2 .sticky-wrapper .img-6{
+    background-image: url('https://cdn.shopify.com/s/files/1/0644/1870/9653/files/a7.png?v=1705401045');
+    z-index: -2;
+  }
+  
+  .scroll-imgs2 .sticky-wrapper .start{
+    z-index: 2;
+  }
+  .scroll-imgs2 .sticky-wrapper .end{
+    width: 960px;
+    height: 608px;
+    position: relative;
+    z-index: 2;
+  }
+  @media only screen and (max-width: 1000px){
+
+  }
+  @media only screen and (max-width: 768px){
+
+  }
+</style>
+
+<div class="scroll-imgs2">
+  <div class="main-wrapper">
+    <div class="content-wrapper">
+      <h2 class="sub-title">Technology</h2>
+      <p class="title">Innovation you can see, hear, and&nbsp;feel.</p>
+      <div class="content">Pushing boundaries from the inside out. Spatial experiences on Apple Vision Pro are only possible through groundbreaking Apple technology. Displays the size of a postage stamp that deliver more pixels than a 4K TV to each eye. Incredible advances in Spatial Audio. A revolutionary dual‑chip design featuring custom Apple silicon. A sophisticated array of cameras and sensors. All the elements work together to create an unprecedented experience you have to see to believe.</div>
+    </div>
+    <div class="sticky-wrapper">
+      <div class="img-wrapper">
+        <div class="img same-img img-2"></div>
+        <div class="img start same-img img-1"></div>
+        <div class="img same-img img-5"></div>
+        <div class="img same-img img-3"></div>
+        <div class="img same-img img-4"></div>
+        <div class="img end img-6"></div>
+      </div>
+      <div class="video-wrapper">
+        <video id="video-main" class="video-main" playsinline muted>
+          <source src="https://cdn.shopify.com/videos/c/o/v/2ab38ebbfa4549f698b0ca7ce3cf26ff.webm" type="video/mp4" />
+          <source src="https://cdn.shopify.com/videos/c/o/v/2ab38ebbfa4549f698b0ca7ce3cf26ff.webm" type="video/webm" />
+        </video>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="module">
+  window.addEventListener('load', function(){
+    const videoDuration = Number( $('#video-main')[0].duration );
+    console.log(videoDuration);
+  })
+  
+  ScrollTrigger.create({
+      trigger: '.scroll-imgs2 .sticky-wrapper',
+      start: 'top top+=450',
+      end: '+=6000',
+      markers: false,
+      pin: true,
+      scrub: 0.1,
+      animation: gsap.timeline()
+        .fromTo('.scroll-imgs2 .img-1',{ translateY: '0' },{ translateY: '-1000' } )
+        .fromTo('.scroll-imgs2 .img-6',{ zIndex: '2' },{ zIndex: '0' } ,"<0%")
+        .fromTo('.scroll-imgs2 .img-2',{ translateY: '0' },{ translateY: '-900' },"<5%" ) 
+        .fromTo('.scroll-imgs2 .img-3',{ translateY: '0' },{ translateY: '-600' },"<2%" ) 
+        .fromTo('.scroll-imgs2 .img-4',{ translateY: '0' },{ translateY: '-600' },"<1%" ) 
+        .fromTo('.scroll-imgs2 .video-wrapper',{ translateY: '0' },{ translateY: '-300' },"<15%" )
+        .fromTo('.scroll-imgs2 .img-6',{ translateY: '0',opacity: '1' },{ translateY: '-300',opacity: '0' } ,"<0%")
+    })
+    
+</script>
+
+{% schema %}
+  {
+    "name": "SPX Scroll images 02",
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "text",
+        "label": "Text"
+      }
+    ],
+  "presets": [
+    {
+      "name": "SPX Scroll images 02"
+    }
+  ]
+    
+  }
+{% endschema %}
