@@ -299,12 +299,14 @@
             $(this).addClass('active').siblings().removeClass('active');
             log(mediaType)
             $('.main-product-media__thumbnails li').each(function(i,e){
-              if($(this).data('type') =='image' ){
+              if($(this).data('type') != mediaType ){
                 $(this).hide();
               }else{
                 $(this).show();
               }
             })
+            
+          })
             
           })
         </script>
