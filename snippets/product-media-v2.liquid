@@ -130,7 +130,7 @@
           role="list"
         >
           {%- for media in product.media -%}
-            <li data-type="{% if media.media_type == 'external_video' %} video {% else %} {{ media.media_type }} {% endif %}">
+            <li data-type="{% if media.media_type == 'external_video' %}video{% else %}{{ media.media_type }}{% endif %}">
               {%- liquid
                 if media.aspect_ratio == null
                   assign aspect_ratio = 1
