@@ -244,7 +244,7 @@
         {%- endif -%}
       {%- endif -%}
 
-      
+
       {% for media in product.media %}
         {%- case media.media_type -%}
           {% when 'image' %}
@@ -257,7 +257,7 @@
             {% assign has_model = true %}  
           {% endcase %} 
       {% endfor %}
-  
+  {{ product.description }}
       {% if has_model or has_video %}
         <style>
           .mediaOptions-bar{
