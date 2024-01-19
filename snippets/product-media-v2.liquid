@@ -294,9 +294,9 @@
 
         <script>
           $('.mediaOptions-bar>div').on('click',function(){
-            var mediaType = 
+            var mediaType = $(this).data('type')
             $(this).addClass('active').siblings().removeClass('active');
-
+            log(mediaType)
           })
         </script>
       {% endif %}
