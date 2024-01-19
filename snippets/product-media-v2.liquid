@@ -298,13 +298,13 @@
             var mediaType = $(this).data('type')
             $(this).addClass('active').siblings().removeClass('active');
             log(mediaType)
-            $('.main-product-media__thumbnails li').each(function(i,e){
+            {% comment %} $('.main-product-media__thumbnails li').each(function(i,e){
               if($(this).data('type') != mediaType ){
                 $(this).hide();
               }else{
                 $(this).show();
               }
-            })
+            }) {% endcomment %}
             
           })
         </script>
