@@ -282,19 +282,21 @@
         </style>
         <div class="mediaOptions-bar">
           {% if has_image %}
-            <div class="media_photos active">Photos</div>
+            <div class="media_photos active" data-type="image">Photos</div>
           {% endif %}
           {% if has_video %}
-            <div class="media_video">Video</div>
+            <div class="media_video" data-type="video">Video</div>
           {% endif %}
           {% if has_model %}
-            <div class="media_model">Model</div>
+            <div class="media_model" data-type="model">Model</div>
           {% endif %}
         </div>
 
         <script>
           $('.mediaOptions-bar>div').on('click',function(){
-            $(this).addClass('active').siblings().removeClass('active')
+            var mediaType = 
+            $(this).addClass('active').siblings().removeClass('active');
+
           })
         </script>
       {% endif %}
