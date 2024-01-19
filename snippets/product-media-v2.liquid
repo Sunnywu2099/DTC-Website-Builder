@@ -294,7 +294,7 @@
 
         <script>
           $('.mediaOptions-bar>div').on('click',function(){
-            log(1121)
+            $(this).addClass('active').siblings().removeClass('active')
           })
         </script>
       {% endif %}
