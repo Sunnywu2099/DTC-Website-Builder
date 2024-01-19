@@ -27,13 +27,19 @@
             "show_dynamic_checkout_buttons": true,
             "show_gift_card_recipient": true
           }
+        },
+        "description_AtAEhd": {
+          "type": "description",
+          "settings": {
+          }
         }
       },
       "block_order": [
         "title_kRkaeC",
         "price_XLAV7j",
         "variant_picker_NYHqzP",
-        "buy_buttons_37DMXe"
+        "buy_buttons_37DMXe",
+        "description_AtAEhd"
       ],
       "settings": {
         "media_grouping_option": "Color,Colour,Couleur,Farbe,Size",
@@ -51,8 +57,8 @@
         "color_scheme": "default-with-accent-1",
         "custom_colors": false,
         "color_foreground": "#212121",
-        "color_accent": "#0D91BD",
-        "color_background": "#FFFFFF",
+        "color_accent": "#0d91bd",
+        "color_background": "#ffffff",
         "color_gradient": ""
       }
     },
