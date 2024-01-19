@@ -260,9 +260,12 @@
   
       {% if has_model or has_video %}
         <style>
-          .mediaOptions-bar{
-            display:flex;
-            
+          .mediaOptions-bar {
+            display: flex;
+            grid-area: 5 / 2 / 6 / 8;
+            margin-top: 5%;
+            justify-content: center;
+            gap: 3%;
           }
         </style>
         <div class="mediaOptions-bar">
