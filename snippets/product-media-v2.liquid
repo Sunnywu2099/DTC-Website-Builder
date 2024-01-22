@@ -299,7 +299,8 @@
             $(this).addClass('active').siblings().removeClass('active');
             switch(mediaType){
               case 'image':
-                log('image')
+                var select_color = $('fieldset input[name="Color"][checked]').prop('value');
+                log(select_color)
                 break;
               case 'video':
                 $('.main-product-media__thumbnails li').each(function(i,e){
