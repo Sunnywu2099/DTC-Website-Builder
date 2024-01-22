@@ -302,19 +302,24 @@
                 log('image')
                 break;
               case 'video':
-                log('video')
+                $('.main-product-media__thumbnails li').each(function(i,e){
+                  if($(this).data('type') != mediaType ){
+                    $(this).hide();
+                  }else{
+                    $(this).show();
+                  }
+                })
                 break;
               case 'model':
-                log('model')
+                $('.main-product-media__thumbnails li').each(function(i,e){
+                  if($(this).data('type') != mediaType ){
+                    $(this).hide();
+                  }else{
+                    $(this).show();
+                  }
+                })
                 break;
             }
-            $('.main-product-media__thumbnails li').each(function(i,e){
-              if($(this).data('type') != mediaType ){
-                $(this).hide();
-              }else{
-                $(this).show();
-              }
-            })
             
           })
         </script>
