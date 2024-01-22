@@ -301,10 +301,10 @@
               case 'image':
                 var has_v_id = new URLSearchParams(window.location.search).get('variant');
                 log(has_v_id)
-                if( !has_selected_variant ){
+                if( !has_v_id ){
                   selectImage();
                 }else{
-                  selectImage(init_variantId);
+                  selectImage(has_v_id);
                 }
                 break;
               case 'video':
