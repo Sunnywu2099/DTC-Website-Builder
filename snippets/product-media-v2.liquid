@@ -305,7 +305,7 @@
                 }else{
                   selectImage(has_v_id);
                 };
-                $('.main-product-media__thumbnails li[data-type="image"]:not([style="display: none;"]):eq(0) button').click();
+                {% comment %} $('.main-product-media__thumbnails li[data-type="image"]:not([style="display: none;"]):eq(0) button').click(); {% endcomment %}
                 break;
               case 'video':
                 $('.main-product-media__thumbnails li').each(function(i,e){
