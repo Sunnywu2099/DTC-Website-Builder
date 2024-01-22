@@ -313,7 +313,8 @@
                   }else{
                     $(this).show();
                   }
-                })
+                });
+                $('.main-product-media__thumbnails li[data-type="video"]:eq(0) button').click();
                 break;
               case 'model':
                 $('.main-product-media__thumbnails li').each(function(i,e){
@@ -322,7 +323,8 @@
                   }else{
                     $(this).show();
                   }
-                })
+                });
+                $('.main-product-media__thumbnails li[data-type="model"]:eq(0) button').click()
                 break;
             }
             
