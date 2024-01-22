@@ -262,10 +262,15 @@
         <style>
           .mediaOptions-bar {
             display: flex;
-            {% comment %} grid-area: 5 / 2 / 6 / 8; {% endcomment %}
+            grid-area: 5 / 2 / 6 / 8;
             margin-top: 5%;
             justify-content: center;
             gap: 3%;
+          }
+          @media (min-width){
+            .mediaOptions-bar {
+              grid-area: 5 / 2 / 6 / 8;
+            }
           }
           .mediaOptions-bar>div {
             background: #6d2412;
