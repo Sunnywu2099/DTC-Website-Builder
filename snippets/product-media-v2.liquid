@@ -301,6 +301,11 @@
               case 'image':
                 var select_color = $('fieldset input[name="Color"][checked]').prop('value');
                 log(select_color)
+                if( !has_selected_variant ){
+                  selectImage();
+                }else{
+                  selectImage(init_variantId);
+                }
                 break;
               case 'video':
                 $('.main-product-media__thumbnails li').each(function(i,e){
