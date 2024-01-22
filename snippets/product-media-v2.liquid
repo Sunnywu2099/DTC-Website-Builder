@@ -300,7 +300,6 @@
             switch(mediaType){
               case 'image':
                 var has_v_id = new URLSearchParams(window.location.search).get('variant');
-                log(has_v_id)
                 if( !has_v_id ){
                   selectImage();
                 }else{
