@@ -299,8 +299,6 @@
             $(this).addClass('active').siblings().removeClass('active');
             switch(mediaType){
               case 'image':
-                var select_color = $('fieldset input[name="Color"][checked]').prop('value');
-                log(select_color)
                 if( !has_selected_variant ){
                   selectImage();
                 }else{
