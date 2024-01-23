@@ -207,6 +207,7 @@
     $('.main-product__blocks').on('click','loess-variant-radios .input__list label',function(){
       if(!$('.media_photos').hasClass('active')){
         var mediaOptionType = $('.mediaOptions-bar>div.active').data('type');
+        log(mediaOptionType)
         setTimeout(function(){
           $(`.main-product-media__thumbnails li[data-type="${mediaOptionType}“]:eq(0) button`).click();
         },50)
