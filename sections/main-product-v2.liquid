@@ -208,9 +208,9 @@
       if(!$('.media_photos').hasClass('active')){
         var mediaOptionType = $('.mediaOptions-bar>div.active').data('type');
         log(mediaOptionType)
-        setTimeout(function(){
+        {% comment %} setTimeout(function(){ {% endcomment %}
           $(`.main-product-media__thumbnails li[data-type="${mediaOptionType}"]:eq(0) button`).click();
-        },50)
+        {% comment %} },50) {% endcomment %}
         return;
       }
       var old_vid = new URLSearchParams(window.location.search).get('variant');
