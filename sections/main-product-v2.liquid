@@ -205,7 +205,11 @@
   
   {% comment %} 为选项添加事件 {% endcomment %}
     $('.main-product__blocks').on('click','loess-variant-radios .input__list label',function(){
-      if(!$('.media_photos').hasClass('active')){return;}
+      if(!$('.media_photos').hasClass('active')){
+        var mediaOptionType = $('.mediaOptions-bar>div.active').data('type');
+        $(`.main-product-media__thumbnails li[data-type="${mediaOptionType}“]:eq(0) button`).click();
+        return;
+      }
       var old_vid = new URLSearchParams(window.location.search).get('variant');
       var check_id_Interval = setInterval(function(){ 
         var new_vid = new URLSearchParams(window.location.search).get('variant');
