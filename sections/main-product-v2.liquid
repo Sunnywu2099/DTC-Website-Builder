@@ -213,7 +213,6 @@
       var old_vid = new URLSearchParams(window.location.search).get('variant');
       var check_id_Interval = setInterval(function(){ 
         var new_vid = new URLSearchParams(window.location.search).get('variant');
-        log(333);
         if( new_vid != old_vid ){
           clearInterval(check_id_Interval);
           selectImage(new_vid);
