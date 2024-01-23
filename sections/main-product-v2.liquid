@@ -209,7 +209,7 @@
         var mediaOptionType = $('.mediaOptions-bar>div.active').data('type');
         log(mediaOptionType)
         {% comment %} setTimeout(function(){ {% endcomment %}
-          $(`.main-product-media__thumbnails li[data-type="${mediaOptionType}"]:eq(0) button`).dblclick();
+          $(`.main-product-media__thumbnails li[data-type="${mediaOptionType}"]:eq(0) button`).click();
         {% comment %} },50) {% endcomment %}
         return;
       }
