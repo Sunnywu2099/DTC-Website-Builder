@@ -21,7 +21,13 @@
     "cart_show_free_shipping_bar": true,
     "colors_soft_background": "rgba(0,0,0,0)",
     "styles_icons_thickness": "bold",
+<<<<<<< HEAD
     "content_for_index": []
+=======
+    "content_for_index": [
+
+    ]
+>>>>>>> 09dff691cd434e4be13ab958f5c21f9cf7cd7852
   },
   "presets": {
     "Flash": {
