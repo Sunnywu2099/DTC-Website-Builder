@@ -1,0 +1,39 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "layout": "fixed-soft",
+        "enable_shadow": true,
+        "width": "medium",
+        "padding_top": 1,
+        "padding_bottom": 1,
+        "show_heading": true,
+        "color_scheme": "default-with-accent-1",
+        "custom_colors": false,
+        "color_foreground": "#212121",
+        "color_accent": "#0d91bd",
+        "color_background": "#ffffff",
+        "color_gradient": ""
+      }
+    },
+    "spx_scroll_images2_FCtRXT": {
+      "type": "spx-scrollImages2",
+      "settings": {
+        "text": ""
+      }
+    },
+    "spx_scroll_images_eMaGY3": {
+      "type": "spx-scrollImages",
+      "settings": {
+        "text": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "spx_scroll_images2_FCtRXT",
+    "spx_scroll_images_eMaGY3"
+  ]
+}

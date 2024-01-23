@@ -1,0 +1,404 @@
+<style>
+    .faq .section-title{
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    .faq .faq-wrapper{
+        display: flex;
+        justify-content: space-between;
+    }
+    .faq .faq-wrapper .title{
+        padding-left: 16px;
+        cursor: pointer;
+        font-size: 16px;
+        border-left: 4px solid transparent;
+    }
+    .faq .faq-wrapper .left{
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        width: 24%;
+        justify-content: center;
+    }
+    .faq .faq-wrapper .title.active{
+        border-left: 4px solid #4263EB;
+        font-weight: 700;
+    }
+    .faq .faq-wrapper .right{
+        position: relative;
+    }
+    .faq .faq-wrapper .right .right-wrapper{
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 100%;
+        width: 100%;
+        padding: 24px;
+        box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.08);
+        border-radius: 8px;
+        z-index: 10;
+        min-height: 400px;
+    }
+    .faq .faq-wrapper .right .right-wrapper.active{
+        position: static;
+        display: block;
+    }
+    .faq .faq-wrapper .right .right-wrapper h2{
+        margin-bottom: 24px;
+    }
+    .faq .faq-wrapper .right .right-wrapper .question{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+    }
+    .faq .faq-wrapper .right .right-wrapper .question .icon-box{
+        position: relative;
+        margin-left: 30px;
+        width: 20px;
+        height: 20px;
+    }
+    .faq .faq-wrapper .right .right-wrapper .question .icon-box .icon{
+        width: 20px;
+        height: 20px;
+        display: block;
+        transition: all 0.3s ease;
+    }
+    .faq .icon.open{
+        opacity: 1;
+    }
+    .faq .icon.open.active{
+        opacity: 0;
+        transform: rotate(45deg);
+    }
+    .faq .icon.close{
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        opacity: 0;
+        transform: rotate(45deg);
+    }
+    .faq .icon.close.active{
+        opacity: 1;
+        transform: rotate(180deg);
+    }
+    
+    .faq .faq-wrapper .right .right-wrapper .question h3{
+        font-size: 20px;
+        color: #A5814F;
+    }
+    .faq .faq-wrapper .right .right-wrapper .answer{
+        display: none;
+    }
+    .faq .faq-wrapper .right .right-wrapper .answer p{
+        padding-top: 10px;
+    }
+    .faq .faq-wrapper .right .right-wrapper .faq-item{
+        margin-bottom: 20px;
+    }
+    
+  @media only screen and (max-width: 768px){
+    .faq .faq-wrapper{
+        flex-direction: column;
+    }
+    .faq .faq-wrapper .left{
+        width: 100%;
+        overflow-x: auto;
+        display: flex;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        flex-direction: row;
+        gap: 0;
+        justify-content: flex-start;
+    }
+    .faq .faq-wrapper .left .item{
+        width: fit-content;
+        margin-right: 24px;
+    }
+    .faq .faq-wrapper .title{
+        padding-left: 0;
+        border-left: none;
+        white-space: nowrap;
+    }
+    .faq .faq-wrapper .title.active{
+        border-left: none;
+        color: #A5814F;
+    }
+    .faq .faq-wrapper .right .right-wrapper .question h3{
+        font-size: 16px;
+    }
+    .faq .faq-wrapper .right .right-wrapper .answer p{
+        padding-top: 10px;
+        font-size: 16px;
+    }
+    .faq .faq-wrapper .right .right-wrapper .question .icon-box{
+        margin-left: 5px;
+    }
+  }
+</style>
+
+<div class="faq section-vertical-spacer container">
+  <div class="faq-box container">
+    <h2 class="section-title">{{ section.settings.title }}</h2>
+    <div class="faq-wrapper">
+        <div class="left">
+            {% for block in section.blocks %}
+                <div class="item" data-index="{{ forloop.index0 }}">
+                    <h3 class="title {% if forloop.first %}active{% endif %}">{{ block.settings.nametab }}</h3>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="right">
+            {% for block in section.blocks %}
+                <div class="right-wrapper {% if forloop.first %}active{% endif %}" data-index="{{ forloop.index0 }}">
+                    <h2>{{ block.settings.nametab }}</h2>
+                    {% if block.settings.FAQ_question1 != blank %}
+                        <div class="faq-item">
+                            <div class="question">
+                                <h3>{{ block.settings.FAQ_question1 }}</h3>
+                                <div class="icon-box">
+                                    {% render 'open-faq' %}
+                                    {% render 'close-faq' %}
+                                </div>
+                            </div>
+                            <div class="answer">
+                                <p>{{ block.settings.FAQ_answer1 }}</p>
+                            </div>
+                        </div>
+                    {% endif %}
+                    {% if block.settings.FAQ_question2 != blank %}
+                        <div class="faq-item">
+                            <div class="question">
+                                <h3>{{ block.settings.FAQ_question2 }}</h3>
+                                <div class="icon-box">
+                                    {% render 'open-faq' %}
+                                    {% render 'close-faq' %}
+                                </div>
+                            </div>
+                            <div class="answer">
+                                <p>{{ block.settings.FAQ_answer2 }}</p>
+                            </div>
+                        </div>
+                    {% endif %}
+                    {% if block.settings.FAQ_question3 != blank %}
+                        <div class="faq-item">
+                            <div class="question">
+                                <h3>{{ block.settings.FAQ_question3 }}</h3>
+                                <div class="icon-box">
+                                    {% render 'open-faq' %}
+                                    {% render 'close-faq' %}
+                                </div>
+                            </div>
+                            <div class="answer">
+                                <p>{{ block.settings.FAQ_answer3 }}</p>
+                            </div>
+                        </div>
+                    {% endif %}
+                    {% if block.settings.FAQ_question4 != blank %}
+                        <div class="faq-item">
+                            <div class="question">
+                                <h3>{{ block.settings.FAQ_question4 }}</h3>
+                                <div class="icon-box">
+                                    {% render 'open-faq' %}
+                                    {% render 'close-faq' %}
+                                </div>
+                            </div>
+                            <div class="answer">
+                                <p>{{ block.settings.FAQ_answer4 }}</p>
+                            </div>
+                        </div>
+                    {% endif %}
+                    {% if block.settings.FAQ_question5 != blank %}
+                        <div class="faq-item">
+                            <div class="question">
+                                <h3>{{ block.settings.FAQ_question5 }}</h3>
+                                <div class="icon-box">
+                                    {% render 'open-faq' %}
+                                    {% render 'close-faq' %}
+                                </div>
+                            </div>
+                            <div class="answer">
+                                <p>{{ block.settings.FAQ_answer5 }}</p>
+                            </div>
+                        </div>
+                    {% endif %}
+                    {% if block.settings.FAQ_question6 != blank %}
+                        <div class="faq-item">
+                            <div class="question">
+                                <h3>{{ block.settings.FAQ_question6 }}</h3>
+                                <div class="icon-box">
+                                    {% render 'open-faq' %}
+                                    {% render 'close-faq' %}
+                                </div>
+                            </div>
+                            <div class="answer">
+                                <p>{{ block.settings.FAQ_answer6 }}</p>
+                            </div>
+                        </div>
+                    {% endif %}
+                    {% if block.settings.FAQ_question7 != blank %}
+                        <div class="faq-item">
+                            <div class="question">
+                                <h3>{{ block.settings.FAQ_question7 }}</h3>
+                                <div class="icon-box">
+                                    {% render 'open-faq' %}
+                                    {% render 'close-faq' %}
+                                </div>
+                            </div>
+                            <div class="answer">
+                                <p>{{ block.settings.FAQ_answer7 }}</p>
+                            </div>
+                        </div>
+                    {% endif %}
+                    {% if block.settings.FAQ_question8 != blank %}
+                        <div class="faq-item">
+                            <div class="question">
+                                <h3>{{ block.settings.FAQ_question8 }}</h3>
+                                <div class="icon-box">
+                                    {% render 'open-faq' %}
+                                    {% render 'close-faq' %}
+                                </div>
+                            </div>
+                            <div class="answer">
+                                <p>{{ block.settings.FAQ_answer8 }}</p>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+  </div>
+</div>
+
+<script type="module">
+    $('.faq .left .item').click(function(){
+        let currIndex = $(this).attr('data-index');
+        $('.faq .left .item .title').removeClass('active');
+        $(this).find('.title').addClass('active');
+        $('.faq .right .right-wrapper').removeClass('active');
+        $('.faq .right .right-wrapper[data-index="'+currIndex+'"]').addClass('active');
+    })
+
+    $('.faq .right .right-wrapper .faq-item .question').click(function(){
+        $(this).parent().find('.answer').slideToggle();
+        $(this).parent().find('.icon').toggleClass('active');
+    })
+</script>
+
+{% schema %}
+{
+  "name": "SPX Faq",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Title"
+    }
+  ],
+  "blocks":[
+    {
+      "type":"block",
+      "name":"text content",
+      "settings":[
+        {
+          "type": "text",
+          "id": "nametab",
+          "label": "Tab title",
+           "default": "Performance"
+        },
+        {
+          "type": "text",
+          "id": "FAQ_question1",
+          "label": "Question 1",
+          "default": "Can the cleaner be used in different pools, such as a vinyl pool liner? Would it need to be remapped each time?"
+        },
+         {
+          "type": "text",
+          "id": "FAQ_answer1",
+          "label": "answer 1",
+          "default": "Yes, you can purchase Genkinno Warranty Plus up to 60 days after you’ve purchased the product."
+        },
+        {
+          "type": "text",
+          "id": "FAQ_question2",
+          "label": "Question 2"
+        },
+         {
+          "type": "text",
+          "id": "FAQ_answer2",
+          "label": "answer 2"
+        },
+        {
+          "type": "text",
+          "id": "FAQ_question3",
+          "label": "Question 3"
+        },
+         {
+          "type": "text",
+          "id": "FAQ_answer3",
+          "label": "answer 3"
+        },
+         {
+          "type": "text",
+          "id": "FAQ_question4",
+          "label": "Question 4"
+        },
+         {
+          "type": "text",
+          "id": "FAQ_answer4",
+          "label": "answer 4"
+        },
+
+        {
+          "type": "text",
+          "id": "FAQ_question5",
+          "label": "Question 5"
+        },
+         {
+          "type": "text",
+          "id": "FAQ_answer5",
+          "label": "answer 5"
+        },
+                  {
+          "type": "text",
+          "id": "FAQ_question6",
+          "label": "Question 6"
+        },
+         {
+          "type": "text",
+          "id": "FAQ_answer6",
+          "label": "answer 6"
+        },
+                  {
+          "type": "text",
+          "id": "FAQ_question7",
+          "label": "Question 7"
+        },
+         {
+          "type": "text",
+          "id": "FAQ_answer7",
+          "label": "answer 7"
+        },
+         {
+          "type": "text",
+          "id": "FAQ_question8",
+          "label": "Question 8"
+        },
+         {
+          "type": "text",
+          "id": "FAQ_answer8",
+          "label": "answer 8"
+
+        }
+      ]
+    }
+  ],
+  "presets": [
+      {
+      "name": "SPX Faq"
+      }
+  ]
+}
+{% endschema %}
