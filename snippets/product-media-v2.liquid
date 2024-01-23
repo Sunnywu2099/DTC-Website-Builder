@@ -225,7 +225,7 @@
         </div>
   
         {%- if first_3d_model -%}
-          <div class="container">
+          {% comment %} <div class="container">
             <button
               class="button button--full-width button--icon-before button--subdued product__xr-button"
               type="button"
@@ -240,7 +240,7 @@
               </span>
               {{ 'products.product.xr_button' | t }}
             </button>
-          </div>
+          </div> {% endcomment %}
         {%- endif -%}
       {%- endif -%}
 
