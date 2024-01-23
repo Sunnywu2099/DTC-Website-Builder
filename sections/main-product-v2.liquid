@@ -205,7 +205,7 @@
   
   {% comment %} 为选项添加事件 {% endcomment %}
     $('.main-product__blocks').on('click','loess-variant-radios .input__list label',function(){
-      if($('.media_photos').hasClass('active')){log(22)}
+      if(!$('.media_photos').hasClass('active')){return;}
       var old_vid = new URLSearchParams(window.location.search).get('variant');
       var check_id_Interval = setInterval(function(){ 
         var new_vid = new URLSearchParams(window.location.search).get('variant');
