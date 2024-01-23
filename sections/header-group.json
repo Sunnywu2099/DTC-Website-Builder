@@ -31,8 +31,8 @@
             "color_scheme": "accent-3",
             "custom_colors": false,
             "color_foreground": "#212121",
-            "color_accent": "#0D91BD",
-            "color_background": "#FFFFFF",
+            "color_accent": "#0d91bd",
+            "color_background": "#ffffff",
             "color_gradient": ""
           }
         }
@@ -50,7 +50,7 @@
         "color_scheme": "soft-background",
         "custom_colors": false,
         "color_foreground": "#212121",
-        "color_background": "#FFFFFF",
+        "color_background": "#ffffff",
         "color_gradient": ""
       }
     },
@@ -75,8 +75,8 @@
         "color_scheme": "default-with-accent-1",
         "custom_colors": false,
         "color_foreground": "#212121",
-        "color_accent": "#0D91BD",
-        "color_background": "#FFFFFF"
+        "color_accent": "#0d91bd",
+        "color_background": "#ffffff"
       }
     }
   },
