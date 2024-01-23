@@ -28,12 +28,7 @@
         },
         "description_AtAEhd": {
           "type": "description",
-<<<<<<< HEAD
           "settings": {}
-=======
-          "settings": {
-          }
->>>>>>> 09dff691cd434e4be13ab958f5c21f9cf7cd7852
         }
       },
       "block_order": [
