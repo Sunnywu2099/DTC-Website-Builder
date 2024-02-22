@@ -95,12 +95,6 @@
     {% if section.settings.title != blank %}
       <h3 class="title">{{ section.settings.title }}</h3>
     {% endif %}
-    {% if section.settings.text != blank %}
-      <p class="text">{{ section.settings.text }}</p>
-    {% endif %}
-    {% if section.settings.btn_name != blank %}
-      <a class="btn" href="{{ section.settings.link }}">{{ section.settings.btn_name }}</a>
-    {% endif %}
   </div>
 </div>
           
@@ -117,26 +111,6 @@
           "type": "image_picker",
           "id": "img_mb",
           "label": "Image mobile"
-        },
-      {
-          "type": "textarea",
-          "id": "title",
-          "label": "Title"
-        },
-      {
-          "type": "textarea",
-          "id": "text",
-          "label": "Text"
-        },
-      {
-          "type": "textarea",
-          "id": "btn_name",
-          "label": "Button name"
-        },
-      {
-          "type": "url",
-          "id": "link",
-          "label": "Link"
         }
     ],
     
