@@ -3,34 +3,34 @@
 </style>
 <div class="ph-test">
     <div class="img-box">
-    <div class="img-wrapper">
-      <img class="hide-mb" src="{{ section.settings.img | img_url:'master' }}" />
-      <img class="hide-pc"  src="{{ section.settings.img_mb | img_url:'master' }}" />
+        <div class="img-wrapper">
+        <img class="hide-mb" src="{{ section.settings.img | img_url:'master' }}" />
+        <img class="hide-pc"  src="{{ section.settings.img_mb | img_url:'master' }}" />
+        </div>
     </div>
-  </div>
 </div>
-          
+
 {% schema %}
-  {
-    "name": "SPX Placeholder",
-    "settings": [
-      {
-          "type": "image_picker",
-          "id": "img",
-          "label": "Image"
-        },
-      {
-          "type": "image_picker",
-          "id": "img_mb",
-          "label": "Image mobile"
-        }
-    ],
-    
-  "presets": [
     {
-      "name": "SPX Placeholder"
+        "name": "SPX Placeholder",
+        "settings": [
+        {
+            "type": "image_picker",
+            "id": "img",
+            "label": "Image"
+            },
+        {
+            "type": "image_picker",
+            "id": "img_mb",
+            "label": "Image mobile"
+            }
+        ],
+        
+    "presets": [
+        {
+        "name": "SPX Placeholder"
+        }
+    ]
+        
     }
-  ]
-    
-  }
 {% endschema %}
