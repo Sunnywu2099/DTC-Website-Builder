@@ -1,82 +1,150 @@
 <style>
-  .spx-hover .img-wrapper {
-    max-width: 200px;
-    margin: 100px auto 0;
+  .product-banner{
     position: relative;
+    height: 900px;
+    width: 100%;
   }
-
-  .img-rotate {
-    transform: rotate(30deg) scale(0);
-    z-index: 1;
-    transition: transform .6s ease-out;
-    transform-origin: center;
+  .product-banner .img-box{
     position: absolute;
-    top: 50px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
   }
-
-  .img-main {
+  .product-banner .img-box .img-wrapper{
     position: relative;
-    z-index: 2;
+    width: 100%;
+    height: 100%;
   }
-
-  .img-wrapper:hover .img-rotate {
-    transform: rotate(0) scale(1.5);
-    transition: transform .6s ease-out;
+  .product-banner .img-box .img-wrapper img{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    color: transparent;
+    object-fit: cover;
+    object-position: bottom center;
   }
-
-  @media only screen and (max-width: 768px) {}
+  .product-banner .text-box{
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+    text-align: center;
+    color: #000;
+  }
+  .product-banner .text-box .title{
+    font-size: 48px;
+    line-height: 56px;
+    margin-bottom: 8px;
+  }
+  .product-banner .text-box .text{
+    font-size: 20px;
+    line-height: 28px;
+    margin-bottom: 24px;
+  }
+  .product-banner .text-box .btn{
+    color: #fff;
+    background: #4263eb;
+    font-size: 16px;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 16px;
+    padding: 8px 16px;
+    line-height: 24px;
+  }
+  .product-banner .text-box .btn:hover{
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.20) 0%, rgba(255, 255, 255, 0.20) 100%), #65A4FC;
+    border-color: transparent;
+  }
+  @media only screen and (max-width: 768px){
+    .product-banner{
+      height: calc( 100vh - 150px);
+    }
+    .product-banner .text-box{
+      top: 32px;
+    }
+    .product-banner .text-box .title{
+      font-size: 32px;
+      line-height: 40px;
+    }
+    .product-banner .text-box .text{
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+  @media only screen and (max-width: 500px){
+    .product-banner{
+      height: 568px;
+    }
+  }
 </style>
-
-<div class="spx-hover section-vertical-spacer">
-  <div class="container">
+<div class="product-banner">
+  <div class="img-box">
     <div class="img-wrapper">
-      <img class="img-rotate" src="https://cdn.shopify.com/s/files/1/0644/1870/9653/files/rotate.png?v=1705307888">
-      <img class="img-main" src="https://cdn.shopify.com/s/files/1/0644/1870/9653/files/oak.png?v=1705308358">
+      <img class="hide-mb" src="{{ section.settings.img | img_url:'master' }}" />
+      <img class="hide-pc"  src="{{ section.settings.img_mb | img_url:'master' }}" />
     </div>
   </div>
+  <div class="text-box">
+    {% if section.settings.title != blank %}
+      <h3 class="title">{{ section.settings.title }}</h3>
+    {% endif %}
+    {% if section.settings.text != blank %}
+      <p class="text">{{ section.settings.text }}</p>
+    {% endif %}
+    {% if section.settings.btn_name != blank %}
+      <a class="btn" href="{{ section.settings.link }}">{{ section.settings.btn_name }}</a>
+    {% endif %}
+  </div>
 </div>
-
-<script type="module">
-  $(document).ready(function () {
-    console.log('done')
-  });
-</script>
-
+          
 {% schema %}
-{
-"name": "SPX Hover",
-"settings": [
-{
-"type": "textarea",
-"id": "video",
-"label": "Video link"
-},
-{
-"type": "image_picker",
-"id": "img",
-"label": "Image pc"
-},
-{
-"type": "image_picker",
-"id": "img_m",
-"label": "Image m"
-},
-{
-"type": "textarea",
-"id": "title",
-"label": "Title"
-},
-{
-"type": "textarea",
-"id": "text",
-"label": "Text"
-}
-],
-"presets": [
-{
-"name": "SPX Hover"
-}
-]
-
-}
+  {
+    "name": "SPX Product Banner",
+    "settings": [
+      {
+          "type": "image_picker",
+          "id": "img",
+          "label": "Image"
+        },
+      {
+          "type": "image_picker",
+          "id": "img_mb",
+          "label": "Image mobile"
+        },
+      {
+          "type": "textarea",
+          "id": "title",
+          "label": "Title"
+        },
+      {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text"
+        },
+      {
+          "type": "textarea",
+          "id": "btn_name",
+          "label": "Button name"
+        },
+      {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+    ],
+    
+  "presets": [
+    {
+      "name": "SPX Product Banner"
+    }
+  ]
+    
+  }
 {% endschema %}
