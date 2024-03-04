@@ -98,24 +98,6 @@
         "color_gradient": ""
       }
     },
-    "17095485680812203d": {
-      "type": "apps",
-      "blocks": {
-        "wiser_product_recommendations_wiser_fbt_LYMBmp": {
-          "type": "shopify:\/\/apps\/wiser-product-recommendations\/blocks\/wiser_fbt\/3f966edc-9a4a-465c-a4df-436d2a39160d",
-          "settings": {
-          }
-        }
-      },
-      "block_order": [
-        "wiser_product_recommendations_wiser_fbt_LYMBmp"
-      ],
-      "settings": {
-        "layout": "full",
-        "padding_top": 1,
-        "padding_bottom": 1
-      }
-    },
     "text-columns": {
       "type": "text-columns",
       "blocks": {
@@ -300,7 +282,6 @@
   },
   "order": [
     "main",
-    "17095485680812203d",
     "text-columns",
     "slideshow",
     "product-recommendations"
