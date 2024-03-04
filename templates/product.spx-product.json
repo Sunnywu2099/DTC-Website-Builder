@@ -13,19 +13,23 @@
         },
         "title": {
           "type": "title",
-          "settings": {}
+          "settings": {
+          }
         },
         "price": {
           "type": "price",
-          "settings": {}
+          "settings": {
+          }
         },
         "description": {
           "type": "description",
-          "settings": {}
+          "settings": {
+          }
         },
         "a247f251-575c-4871-8e7b-6dd2b18c289e": {
           "type": "size_match",
-          "settings": {}
+          "settings": {
+          }
         },
         "variant-picker": {
           "type": "variant-picker",
@@ -37,7 +41,8 @@
         },
         "quantity-selector": {
           "type": "quantity-selector",
-          "settings": {}
+          "settings": {
+          }
         },
         "stock-availability": {
           "type": "stock-availability",
@@ -97,6 +102,24 @@
         "color_accent": "#0d91bd",
         "color_background": "#ffffff",
         "color_gradient": ""
+      }
+    },
+    "1709548204e7943337": {
+      "type": "apps",
+      "blocks": {
+        "wiser_product_recommendations_wiser_fbt_cg6bPc": {
+          "type": "shopify:\/\/apps\/wiser-product-recommendations\/blocks\/wiser_fbt\/3f966edc-9a4a-465c-a4df-436d2a39160d",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "wiser_product_recommendations_wiser_fbt_cg6bPc"
+      ],
+      "settings": {
+        "layout": "full",
+        "padding_top": 1,
+        "padding_bottom": 1
       }
     },
     "spx_hover_wa8zJg": {
@@ -292,6 +315,7 @@
   },
   "order": [
     "main",
+    "1709548204e7943337",
     "spx_hover_wa8zJg",
     "spx_faqs_YHWtnC",
     "text-columns",
