@@ -70,6 +70,12 @@
             "text": "Share",
             "button_style": "subdued"
           }
+        },
+        "sold_count_sold_stock_counter_product_app_block_j3GjQP": {
+          "type": "shopify:\/\/apps\/sold-count-sold-stock-counter\/blocks\/product-app-block\/d9479e74-8eda-475b-87a5-852507caa810",
+          "settings": {
+            "product_id": ""
+          }
         }
       },
       "block_order": [
@@ -82,7 +88,8 @@
         "quantity-selector",
         "stock-availability",
         "buy-buttons",
-        "share"
+        "share",
+        "sold_count_sold_stock_counter_product_app_block_j3GjQP"
       ],
       "settings": {
         "layout": "full",
