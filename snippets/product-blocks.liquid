@@ -244,10 +244,12 @@
             </loess-quantity-input>
           </div>
 
-          <p class="line-item-property__field">
-              <label for="monogram">Monogram (up to 3 letters)</label>
-              <input required id="monogram" style="width:120px; max-width:100%;" type="text" name="properties[Monogram]">
-          </p>
+          <div class="main-product__block-custom-selector small-caption">
+            <label class="small-text " for="Custom-{{ section.id }}">
+              Monogram:
+            </label>
+            <input required id="Custom-{{ section.id }}" style="width:120px; max-width:100%;" type="text" name="properties[Custom-{{ section.id }}]" form="{{ product_form_id }} data-index="{{ section.id }}">
+          </div>
 
         {%- endif -%}
 
