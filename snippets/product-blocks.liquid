@@ -244,12 +244,27 @@
             </loess-quantity-input>
           </div>
 
-          <div class="main-product__block-custom-selector small-caption">
-            <label class="small-text " for="Custom-{{ section.id }}">
-              Monogram:
+          <div class="main-product__block-test-selector small-caption">
+            <label class="small-text " for="Test-{{ section.id }}">
+              Monogram: 
             </label>
-            <input required id="Custom-{{ section.id }}" style="width:120px; max-width:100%;" type="text" name="properties[Custom-{{ section.id }}]" form="{{ product_form_id }} data-index="{{ section.id }}">
+
+            <loess-test-input class="test" {{ block.shopify_attributes }}>
+              
+
+              <input class="test__input"
+                type="number"
+                name="test"
+                value="1"
+                min="1"
+                aria-label="{{ 'products.product.test.input_label' | t: product: product.title }}"
+                id="Test-{{ section.id }}"
+                data-index="{{ section.id }}"
+                form="{{ product_form_id }}"
+              >
+            </loess-test-input>
           </div>
+
 
         {%- endif -%}
 
