@@ -1,1 +1,73 @@
-{"type":"footer","name":"Footer group","sections":{"recently-viewed-products":{"type":"recently-viewed-products","settings":{"color_scheme":"inverse"}},"newsletter":{"type":"newsletter","settings":{"layout":"full","color_scheme":"inverse"}},"footer":{"type":"footer","settings":{}}},"order":["recently-viewed-products","newsletter","footer"]}
+{
+  "type": "footer",
+  "name": "Footer group",
+  "sections": {
+    "nas_selector_TgCUYV": {
+      "type": "Nas-selector",
+      "settings": {
+      }
+    },
+    "recently-viewed-products": {
+      "type": "recently-viewed-products",
+      "settings": {
+        "center_layout": false,
+        "style": "open",
+        "enable_quick_view": false,
+        "enable_clear_history": true,
+        "color_scheme": "inverse",
+        "custom_colors": false,
+        "color_foreground": "#212121",
+        "color_background": "#FFFFFF"
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "layout": "full",
+        "enable_shadow": true,
+        "padding_top": 1,
+        "padding_bottom": 1,
+        "center_text": false,
+        "icon": "icon-email",
+        "title": "",
+        "text": "<p>News and promotions straight to your mailbox.<\/p>",
+        "form_subtext": "Unsubscribe easily, whenever you like.",
+        "text_size": "medium",
+        "image_height_large": "small",
+        "image_height_mobile": "medium",
+        "text_position_large": "left",
+        "text_position_mobile": "top",
+        "enable_parallax": false,
+        "color_scheme": "inverse",
+        "custom_colors": false,
+        "color_foreground": "#212121",
+        "color_accent": "#0D91BD",
+        "color_background": "#FFFFFF",
+        "color_gradient": ""
+      }
+    },
+    "footer": {
+      "type": "footer",
+      "settings": {
+        "show_separator": true,
+        "show_payment_icons": true,
+        "show_copyright": true,
+        "enable_language_selector": true,
+        "enable_country_selector": true,
+        "copyright_text": "",
+        "enable_follow_on_shop": true,
+        "color_scheme": "inverse-with-accent-2",
+        "custom_colors": false,
+        "color_foreground": "#212121",
+        "color_background": "#FFFFFF",
+        "color_gradient": ""
+      }
+    }
+  },
+  "order": [
+    "nas_selector_TgCUYV",
+    "recently-viewed-products",
+    "newsletter",
+    "footer"
+  ]
+}
