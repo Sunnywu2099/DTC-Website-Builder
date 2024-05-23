@@ -6,7 +6,7 @@
 {% assign products = obj.products %}
 {% assign userType = obj.user_type %}
 <div class="nas-selector">
-  {{ obj.value }}
+  {{ obj.value | json }}
   {{ bays.value | json }}
 </div>
 
