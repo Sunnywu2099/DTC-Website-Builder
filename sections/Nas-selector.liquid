@@ -1,14 +1,23 @@
 
-{% assign obj = page.metafields.custom.selector.value %}
-{% assign bays = obj.bays.value.bays %}
-{% assign funcitons = obj.funcitons.value.funcitons %}
+
+{% assign obj = page.metafields.custom.selector.value | parse_json %}
+
+{% assign bays = obj.bays %}
+{% assign functions = obj.functions %}
 {% assign number = obj.number %}
 {% assign products = obj.products %}
 {% assign userType = obj.user_type %}
+
 <div class="nas-selector">
-  {{ obj | json }}
-  {{ bays.value | json }}
+  <!-- Example of displaying JSON data -->
+  <pre>{{ obj | json }}</pre>
+  <pre>{{ bays | json }}</pre>
+  <pre>{{ functions | json }}</pre>
+  <pre>{{ number | json }}</pre>
+  <pre>{{ products | json }}</pre>
+  <pre>{{ userType | json }}</pre>
 </div>
+
 
 <script type="module">
 </script>
