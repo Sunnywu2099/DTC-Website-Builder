@@ -2,11 +2,6 @@
   "type": "footer",
   "name": "Footer group",
   "sections": {
-    "nas_selector_TgCUYV": {
-      "type": "Nas-selector",
-      "settings": {
-      }
-    },
     "recently-viewed-products": {
       "type": "recently-viewed-products",
       "settings": {
@@ -65,7 +60,6 @@
     }
   },
   "order": [
-    "nas_selector_TgCUYV",
     "recently-viewed-products",
     "newsletter",
     "footer"
