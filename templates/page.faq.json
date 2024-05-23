@@ -1,1 +1,74 @@
-{"sections":{"main":{"type":"collapsible-content","blocks":{"category-1":{"type":"category","settings":{"title":"Category 1"}},"row-1":{"type":"row","settings":{"title":"Question","text":"<p>Write any kind of text for your collapsible content. It can be an answer to a frequently asked question, a body of text that explains your store policy, or whatever else you wish!<\/p>"}},"row-2":{"type":"row","settings":{"title":"Question","text":"<p>Write any kind of text for your collapsible content. It can be an answer to a frequently asked question, a body of text that explains your store policy, or whatever else you wish!<\/p>"}},"category-2":{"type":"category","settings":{"title":"Category 2"}},"row-3":{"type":"row","settings":{"title":"Question","text":"<p>Write any kind of text for your collapsible content. It can be an answer to a frequently asked question, a body of text that explains your store policy, or whatever else you wish!<\/p>"}}},"block_order":["category-1","row-1","row-2","category-2","row-3"],"settings":{}}},"order":["main"]}
+{
+  "sections": {
+    "main": {
+      "type": "collapsible-content",
+      "blocks": {
+        "category-1": {
+          "type": "category",
+          "settings": {
+            "title": "Category 1"
+          }
+        },
+        "row-1": {
+          "type": "row",
+          "settings": {
+            "title": "Question",
+            "text": "<p>Write any kind of text for your collapsible content. It can be an answer to a frequently asked question, a body of text that explains your store policy, or whatever else you wish!<\/p>",
+            "page": ""
+          }
+        },
+        "row-2": {
+          "type": "row",
+          "settings": {
+            "title": "Question",
+            "text": "<p>Write any kind of text for your collapsible content. It can be an answer to a frequently asked question, a body of text that explains your store policy, or whatever else you wish!<\/p>",
+            "page": ""
+          }
+        },
+        "category-2": {
+          "type": "category",
+          "settings": {
+            "title": "Category 2"
+          }
+        },
+        "row-3": {
+          "type": "row",
+          "settings": {
+            "title": "Question",
+            "text": "<p>Write any kind of text for your collapsible content. It can be an answer to a frequently asked question, a body of text that explains your store policy, or whatever else you wish!<\/p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "category-1",
+        "row-1",
+        "row-2",
+        "category-2",
+        "row-3"
+      ],
+      "settings": {
+        "layout": "full",
+        "enable_shadow": true,
+        "row_style": "1st-open",
+        "padding_top": 1,
+        "padding_bottom": 1,
+        "center_heading_text": true,
+        "title": "Collapsible content",
+        "heading_size": "h2",
+        "text": "",
+        "text_style": "small-subtext",
+        "center_body_text": false,
+        "color_scheme": "default-with-accent-1",
+        "custom_colors": false,
+        "color_foreground": "#212121",
+        "color_accent": "#0D91BD",
+        "color_background": "#FFFFFF",
+        "color_gradient": ""
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
