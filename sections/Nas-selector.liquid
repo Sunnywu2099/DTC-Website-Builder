@@ -1,12 +1,12 @@
 
-{% assign obj = page.metafields.custom.selector.value %}
+{% assign obj = page.metafields.custom.selector %}
 {% assign bays = obj.bays.value.bays %}
 {% assign funcitons = obj.funcitons.value.funcitons %}
 {% assign number = obj.number %}
 {% assign products = obj.products %}
 {% assign userType = obj.user_type %}
 <div class="nas-selector">
-  {{ obj }}
+  {{ obj.value }}
   {{ bays.value | json }}
 </div>
 
