@@ -1,10 +1,10 @@
 
-{% assign obj = page.metafields.custom.selector %}
-{% assign bays = page.metafields.custom.selector.bays.bays %}
-{% assign funcitons = page.metafields.custom.selector.funcitons.funcitons %}
-{% assign number = page.metafields.custom.selector.number %}
-{% assign products = page.metafields.custom.selector.products %}
-{% assign userType = page.metafields.custom.selector.user_type %}
+{% assign obj = page.metafields.custom.selector.value %}
+{% assign bays = obj.bays.value.bays %}
+{% assign funcitons = obj.funcitons.value.funcitons %}
+{% assign number = obj.number %}
+{% assign products = obj.products %}
+{% assign userType = obj.user_type %}
 <div class="nas-selector">
  
   {{ bays.value | json }}
