@@ -2,6 +2,9 @@
   .text-center{
     text-align: center;
   }
+  .text-bottom{
+    margin-bottom: 32px;
+  }
   .nas-selector .top,
   .step{
     margin: 80px auto;
@@ -27,11 +30,11 @@
 <div class="nas-selector container">
   {% for bay in bays %}<span>{{ bay.type | json | strip_html }}</span>{% endfor %}
   <div class="top text-center">
-    <h1 class="heading">NAS Selector</h1>
+    <h1 class="heading text-bottom">NAS Selector</h1>
     <p>With a wide range of Synology products to offer, we want to make the selection process as easy as possible. Simply enter your requirements below, and this tool will recommend the most suitable NAS server for you.</p>
   </div>
   <div id="step1" class="step">
-    <h2 class="section-title text-center">Which type of user are you?</h2>
+    <h2 class="section-title text-center text-bottom">Which type of user are you?</h2>
     <div class="selector-box">
       {% for type in userType %}
         <div class="step1-selection text-center">{{ type }}</div>  
