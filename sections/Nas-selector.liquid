@@ -138,8 +138,6 @@
       </div>
   </div>
   <!-- step 5 -->
-
-  {{ nasSelectorData }}
 </div>
 
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -164,7 +162,6 @@
     methods: {
       getData(){
         let obj = JSON.parse(`{{ page.metafields.custom.selector.value | json }}`);
-        console.log(obj);
         this.bays = obj.bays.bays;
         this.functions = obj.funcitons.functions;
         this.numbers = obj.number;
