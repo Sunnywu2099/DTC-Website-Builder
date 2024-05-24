@@ -151,12 +151,16 @@
     methods: {
       getData(){
         let obj = JSON.parse(`{{ page.metafields.custom.selector.value | json }}`);
-        console.log(obj)
+        let p = JSON.parse(`({{ page.metafields.custom.selector.value | json }}).products.value`);
+        console.log(p)
         this.bays = obj.bays.bays;
         this.functions = obj.funcitons.functions;
         this.numbers = obj.number;
         this.userType = obj.user_type;
         this.products = obj.products;
+        
+        
+
       }
     }
   }).mount('#nas-selector')
