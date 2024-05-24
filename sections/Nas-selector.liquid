@@ -1,8 +1,11 @@
-{% assign obj = page.metafields.custom.selector.value | parse_json %}
-<script>
-   var nasSelectorData = {{ obj | json }};
-</script>
+<style>
+  .nas-selector .heading{
+    text-align: center;
+  }
+</style>
 
+{% assign obj = page.metafields.custom.selector.value | parse_json %}
+<script>var nasSelectorData = {{ obj | json }};</script>
 {% assign baysObj = obj.bays.value  %}
 {% assign bays = baysObj.bays %}
 {% assign funcitons = obj.funcitons.value %}
@@ -10,9 +13,9 @@
 {% assign products = obj.products.value %}
 {% assign userType = obj.user_type.value %}
 
-<div class="nas-selector page-width">
+<div class="nas-selector container">
   {% for bay in bays %}<span>{{ bay.type | json | strip_html }}</span>{% endfor %}
-  <>
+  <h1 class="heading">NAS Selector</h1>
 </div>
 
 
