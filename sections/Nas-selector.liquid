@@ -160,7 +160,8 @@
     methods: {
       getData: ()=>{
         let obj = `{{ page.metafields.custom.selector.value | json }}`
-        this.nasSelectorData = `{{ obj.numbers }}`
+        console.log(obj)
+        this.nasSelectorData = JSON.parse()`{{ obj.numbers }}`
       }
     }
   }).mount('#nas-selector')
