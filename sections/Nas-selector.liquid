@@ -10,8 +10,9 @@
 {% assign products = obj.products.value %}
 {% assign userType = obj.user_type.value %}
 
-<div class="nas-selector">
+<div class="nas-selector page-width">
   {% for bay in bays %}<span>{{ bay.type | json | strip_html }}</span>{% endfor %}
+  <>
 </div>
 
 
