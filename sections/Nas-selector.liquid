@@ -83,13 +83,28 @@
   </div>
   <!-- step 2 -->
 
-   <!-- step 3 -->
+  <!-- step 3 -->
   <div id="step3" class="step">
     <h3 class="section-title text-center text-bottom">How many users plan to use NAS?</h3>
     <div class="selector-box">
       {% for number in numbers %}
         <div class="step3-selection text-center selection-btn">
           <h3>{{ number | strip_html }}</h3>
+        </div>  
+        
+      {% endfor %}
+    </div>
+  </div>
+  <!-- step 3 -->
+
+  <!-- step 3 -->
+  <div id="step4" class="step">
+    <h3 class="section-title text-center text-bottom">How many bays plan to use NAS?</h3>
+    <div class="selector-box">
+      {% for bay in baysObj %}
+        <div class="step4-selection text-center selection-btn">
+          <h3>{{ bay.type | strip_html }}</h3>
+          <p>{{ bay.description | strip_html }}</p>
         </div>  
         
       {% endfor %}
