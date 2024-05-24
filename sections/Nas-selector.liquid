@@ -151,13 +151,12 @@
     methods: {
       getData(){
         let obj = JSON.parse(`{{ page.metafields.custom.selector.value | json }}`);
-        let p = {{ page.metafields.custom.selector.value.products.value | json }};
-        console.log(p)
+        let productResults = {{ page.metafields.custom.selector.value.products.value | json }};
         this.bays = obj.bays.bays;
         this.functions = obj.funcitons.functions;
         this.numbers = obj.number;
         this.userType = obj.user_type;
-        this.products = obj.products;
+        this.products = productResults;
         
         
 
