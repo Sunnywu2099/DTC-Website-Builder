@@ -165,6 +165,7 @@
     },
     methods: {
       getData: ()=>{
+        {% assign obj = page.metafields.custom.selector.value | parse_json %}
         let nasSelectorData = {{ obj | json }};
       }
     }
