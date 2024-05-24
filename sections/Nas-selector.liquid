@@ -129,7 +129,7 @@
           <div class="product-img">
             {{- product.featured_image | image_url: width: product.featured_image.width | image_tag: is: 'loess-image', loading: 'lazy', sizes: sizes, widths: '200,300,400,500,600,700,800,900,1000,1200,1400,1600,1800,2000,2200,2400,2600,2800,3000,3200', class: 'product-img' -}}
           </div>
-          <div class="product-info">{{ product.title }}</div>
+          <div class="product-info text-center">{{ product.title }}</div>
         </div>
        {% endfor %}
     </div>
