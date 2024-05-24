@@ -166,6 +166,7 @@
         let obj = JSON.parse(`{{ page.metafields.custom.selector.value | json }}`)
         console.log(obj)
         this.bays = [...obj.bays.bays];
+        this.numbers = [1,3]
       }
     }
   }).mount('#nas-selector')
