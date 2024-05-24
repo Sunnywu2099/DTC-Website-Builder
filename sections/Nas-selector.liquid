@@ -151,7 +151,7 @@
 
 <div id="app">{{ message }}</div>
 
-<script>
+<!-- <script>
   const { createApp } = Vue
   createApp({
     data() {
@@ -163,6 +163,26 @@
       
     }
   }).mount('#nas-selector')
+</script> -->
+
+<script>
+
+  new Vue({
+    el: '#nas-selector',
+    delimiters: ['${', '}'],
+    data() {
+      return {
+        nasSelectorData: nasSelectorData,
+      }
+    },
+
+    mounted() {
+    },
+    methods: {
+    }
+
+  })
+
 </script>
 
 
