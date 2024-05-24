@@ -119,7 +119,7 @@
       <div class="selector-box">
           <div v-for="product in products" class="product-item">
             <a :href=`/products/${product.handle}` class="product-image text-bottom">
-              <img :src=`${ product.featured_image}` loading="lazy" class="product-img">
+              <img :src=`product.featured_image` loading="lazy" class="product-img">
             </a>
             <a :href=`/products/${product.handle}` class="product-info text-center">${ product.title }</a>
           </div>
