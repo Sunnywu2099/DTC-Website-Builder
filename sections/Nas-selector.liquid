@@ -1,6 +1,9 @@
 <style>
-  .nas-selector .top{
+  .text-center{
     text-align: center;
+  }
+  .nas-selector .top{
+    
   }
 </style>
 
@@ -15,13 +18,14 @@
 
 <div class="nas-selector container">
   {% for bay in bays %}<span>{{ bay.type | json | strip_html }}</span>{% endfor %}
-  <div class="top">
+  <div class="top text-center">
     <h1 class="heading">NAS Selector</h1>
     <p>With a wide range of Synology products to offer, we want to make the selection process as easy as possible. Simply enter your requirements below, and this tool will recommend the most suitable NAS server for you.</p>
   </div>
   <div id="step1">
+    
     {% for type in userType %}
-      <div class="step1-selection">{{ type }}</div>  
+      <div class="step1-selection text-center">{{ type }}</div>  
     {% endfor %}
   </div>
 </div>
