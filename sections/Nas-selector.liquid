@@ -3,7 +3,7 @@
 {% assign obj = page.metafields.custom.selector.value | parse_json %}
 
 {% assign baysObj = obj.bays.value | json %}
-{% assign bays = baysObj.bays %}
+{% assign bays = baysObj.bays.value %}
 {% assign funcitons = obj.funcitons.value %}
 {% assign number = obj.number.value %}
 {% assign products = obj.products.value %}
