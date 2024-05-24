@@ -117,14 +117,12 @@
   <div id="step5" class="step">
     <h3 class="section-title text-center text-bottom">Based on your needs, the following NAS models are recommended</h3>
       <div class="selector-box">
-        {% for product in products %}
-          <div class="product-item">
+          <div v-for="product in products" class="product-item">
             <a href="{{ product.url }}" class="product-image text-bottom">
               {{- product.featured_image | image_url: width: product.featured_image.width | image_tag: is: 'loess-image', loading: 'lazy', sizes: sizes, widths: '200,300,400,500,600,700,800,900,1000,1200,1400,1600,1800,2000,2200,2400,2600,2800,3000,3200', class: 'product-img' -}}
             </a>
             <a href="{{ product.url }}" class="product-info text-center">{{ product.title }}</a>
           </div>
-         {% endfor %}
       </div>
   </div>
   <!-- step 5 -->
