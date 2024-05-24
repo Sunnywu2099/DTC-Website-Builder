@@ -43,6 +43,10 @@
   .product-item{
     width: calc( (100% - 150px) / 4 );
   }
+  .product-img{
+    aspect-ratio: 5 / 6;
+    object-fit: cover;
+  }
 </style>
 
 {% assign obj = page.metafields.custom.selector.value | parse_json %}
