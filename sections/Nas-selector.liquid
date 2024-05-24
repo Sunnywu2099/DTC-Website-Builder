@@ -11,11 +11,7 @@
 {% assign userType = obj.user_type.value %}
 
 <div class="nas-selector">
-  <pre>{{ bays.size }}</pre>
-  <pre>{{ funcitons | json }}</pre>
-  <pre>{{ number | json }}</pre>
-  <pre>{{ products | json }}</pre>
-  <pre>{{ userType | json }}</pre>
+  {% for bay in bays %}<span>{{ bay }}</span>{% endfor %}
 </div>
 
 
