@@ -4,14 +4,14 @@
 </script>
 
 {% assign baysObj = obj.bays.value  %}
-{% assign bays = baysObj.bays %}
+{% assign bays = baysObj.bays | json %}
 {% assign funcitons = obj.funcitons.value %}
 {% assign number = obj.number.value %}
 {% assign products = obj.products.value %}
 {% assign userType = obj.user_type.value %}
 
 <div class="nas-selector">
-  {% for bay in bays %}<span>{{ bay | json }}</span>{% endfor %}
+  {% for bay in bays %}<span>{{ bay }}</span>{% endfor %}
 </div>
 
 
