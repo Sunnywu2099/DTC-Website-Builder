@@ -151,9 +151,10 @@
 
 <div id="app">{{ message }}</div>
 
-<!-- <script>
+<script>
   const { createApp } = Vue
   createApp({
+    delimiters: ['${', '}'],
     data() {
       return {
         nasSelectorData: nasSelectorData
@@ -161,28 +162,12 @@
     },
     computed: {
       
-    }
-  }).mount('#nas-selector')
-</script> -->
-
-<script>
-
-  new Vue({
-    el: '#nas-selector',
-    delimiters: ['${', '}'],
-    data() {
-      return {
-        nasSelectorData: nasSelectorData,
-      }
     },
-
     mounted() {
     },
     methods: {
     }
-
-  })
-
+  }).mount('#nas-selector')
 </script>
 
 
