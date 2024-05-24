@@ -78,7 +78,7 @@
     </div>
   </div>
   <!-- step 1 -->
-
+{% comment %}
   <!-- step 2 -->
   <div id="step2" class="step">
     <h3 class="section-title text-center text-bottom">Which applications would you like to run on your NAS?</h3>
@@ -89,7 +89,6 @@
           <h3>{{ function.type | strip_html }}</h3>
           <p>{{ function.description | strip_html }}</p>
         </div>  
-        
       {% endfor %}
     </div>
   </div>
@@ -123,7 +122,7 @@
     </div>
   </div>
   <!-- step 4 -->
-
+{% endcomment %}
   <!-- step 5 -->
   {%- capture sizes -%}100vw{%- endcapture -%}
   <div id="step5" class="step">
