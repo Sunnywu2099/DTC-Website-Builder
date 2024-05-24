@@ -151,7 +151,7 @@
     methods: {
       getData(){
         let obj = JSON.parse(`{{ page.metafields.custom.selector.value | json }}`);
-        let p = JSON.parse(`{{ page.metafields.custom.selector.value.products.value | json }}`);
+        let p = `{{ page.metafields.custom.selector.value.products.value | json }}`;
         console.log(p)
         this.bays = obj.bays.bays;
         this.functions = obj.funcitons.functions;
