@@ -159,10 +159,10 @@
     computed: {
     },
     mounted() {
-      getData();
+      this.getData();
     },
     methods: {
-      getData: ()=>{
+      getData(){
         let obj = JSON.parse(`{{ page.metafields.custom.selector.value | json }}`);
         console.log(obj)
         this.bays = [...obj.bays.bays];
