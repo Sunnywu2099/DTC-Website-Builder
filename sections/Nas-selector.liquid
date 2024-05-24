@@ -67,7 +67,7 @@
 {% assign products = obj.products.value %}
 {% assign userType = obj.user_type.value %}
 
-<div class="nas-selector container">
+<div id="nas-selector" class="nas-selector container">
   <div class="top text-center">
     <h1 class="heading text-bottom">NAS Selector</h1>
     <p>With a wide range of Synology products to offer, we want to make the selection process as easy as possible. Simply enter your requirements below, and this tool will recommend the most suitable NAS server for you.</p>
@@ -146,17 +146,22 @@
   <!-- step 5 -->
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.4.27/vue.global.min.js" integrity="sha512-jDpwxJN+g4BhXLdba5Z1rn2MpR9L5Wp3WVf2dJt5A0mkPHnHLZHZerpyX4JC9bM0pkCL7RmAR8FwOm02h7RKFg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script>
-    Vue.config.productionTip = false
-    let demo = new Vue({
-      delimiters: ['${', '}'],
-      el: '#app',
-      data: {},
-      methods: {}
-    })
 
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+<div id="app">{{ message }}</div>
+
+<script>
+  const { createApp } = Vue
+  createApp({
+    data() {
+      return {
+        message: 'Hello Vue!'
+      }
+    }
+  }).mount('#nas-selector')
 </script>
+
 
 {% schema %}
   {
