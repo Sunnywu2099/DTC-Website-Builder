@@ -20,7 +20,9 @@
     <p>With a wide range of Synology products to offer, we want to make the selection process as easy as possible. Simply enter your requirements below, and this tool will recommend the most suitable NAS server for you.</p>
   </div>
   <div id="step1">
-    
+    {% for type in userType %}
+      <div class="step1-selection">{{ type }}</div>  
+    {% endfor %}
   </div>
 </div>
 
