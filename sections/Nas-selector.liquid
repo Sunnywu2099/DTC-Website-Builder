@@ -4,13 +4,14 @@
 </script>
 
 {% assign baysObj = obj.bays.value  %}
+{% assign bays = baysObj.bays %}
 {% assign funcitons = obj.funcitons.value %}
 {% assign number = obj.number.value %}
 {% assign products = obj.products.value %}
 {% assign userType = obj.user_type.value %}
 
 <div class="nas-selector">
-  <pre>{{ baysObj.bays.size }}</pre>
+  <pre>{{ bays.size }}</pre>
   <pre>{{ funcitons | json }}</pre>
   <pre>{{ number | json }}</pre>
   <pre>{{ products | json }}</pre>
