@@ -116,7 +116,7 @@
   <div id="step5" class="step">
     <h3 class="section-title text-center text-bottom">Based on your needs, the following NAS models are recommended</h3>
     <div class="selector-box">
-      {{ products | json }}
+      {% for product in products %}{{ product.title  }}{% endfor %}
     </div>
   </div>
   <!-- step 5 -->
