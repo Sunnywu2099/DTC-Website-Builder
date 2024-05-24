@@ -152,6 +152,7 @@
       getData(){
         let obj = JSON.parse(`{{ page.metafields.custom.selector.value | json }}`);
         let productResults = {{ page.metafields.custom.selector.value.products.value | json }};
+        console.log(productResults)
         this.bays = obj.bays.bays;
         this.functions = obj.funcitons.functions;
         this.numbers = obj.number;
