@@ -126,7 +126,16 @@
   <!-- step 5 -->
   {%- capture sizes -%}100vw{%- endcapture -%}
   <div id="step5" class="step">
-    <h3 class="section-title text-center text-bottom">Based on your needs, the following NAS models are recommended</h3>
+    
+  </div>
+  <!-- step 5 -->
+</div>
+
+
+<script>
+      window.onload = function(){
+        let step = document.querySelector('#step');
+        step.innerHTML(`<h3 class="section-title text-center text-bottom">Based on your needs, the following NAS models are recommended</h3>
     <div class="selector-box">
       {% for product in products %}
         <div class="product-item">
@@ -136,14 +145,8 @@
           <a href="{{ product.url }}" class="product-info text-center">{{ product.title }}</a>
         </div>
        {% endfor %}
-    </div>
-  </div>
-  <!-- step 5 -->
-</div>
-
-
-<script>
-      
+    </div>`)
+      }
 
 
 </script>
