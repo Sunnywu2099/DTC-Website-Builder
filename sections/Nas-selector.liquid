@@ -80,18 +80,7 @@
   <!-- step 1 -->
 {% comment %}
   <!-- step 2 -->
-  <div id="step2" class="step">
-    <h3 class="section-title text-center text-bottom">Which applications would you like to run on your NAS?</h3>
-    <p class="text-center text-bottom">Please select 1-3 most frequently-used applications.</p>
-    <div class="selector-box">
-      {% for function in funcitonsObj %}
-        <div class="step2-selection text-center selection-btn">
-          <h3>{{ function.type | strip_html }}</h3>
-          <p>{{ function.description | strip_html }}</p>
-        </div>  
-      {% endfor %}
-    </div>
-  </div>
+  <div id="step2" class="step"></div>
   <!-- step 2 -->
 
   <!-- step 3 -->
@@ -133,9 +122,23 @@
 
 
 <script>
-      window.onload = function(){
-        let step = document.querySelector('#step5');
-        step.innerHTML = `<h3 class="section-title text-center text-bottom">Based on your needs, the following NAS models are recommended</h3>
+  let step2 = document.querySelector('#step2');
+  let step3 = document.querySelector('#step3');
+  let step4 = document.querySelector('#step4');
+  let step5 = document.querySelector('#step5');
+
+  step2_element = `<h3 class="section-title text-center text-bottom">Which applications would you like to run on your NAS?</h3>
+    <p class="text-center text-bottom">Please select 1-3 most frequently-used applications.</p>
+    <div class="selector-box">
+      {% for function in funcitonsObj %}
+        <div class="step2-selection text-center selection-btn">
+          <h3>{{ function.type | strip_html }}</h3>
+          <p>{{ function.description | strip_html }}</p>
+        </div>  
+      {% endfor %}
+    </div>`
+
+  step5_element = `<h3 class="section-title text-center text-bottom">Based on your needs, the following NAS models are recommended</h3>
     <div class="selector-box">
       {% for product in products %}
         <div class="product-item">
@@ -146,6 +149,11 @@
         </div>
        {% endfor %}
     </div>`
+
+  
+      window.onload = function(){
+        let step = document.querySelector('#step5');
+        step.innerHTML = step5_element;
       }
 
 
