@@ -164,8 +164,8 @@
     methods: {
       getData(){
         let obj = JSON.parse(`{{ page.metafields.custom.selector.value | json }}`);
-        console.log(obj)
-        this.numbers = 1
+        console.log(obj);
+        this.bays = obj.bays.bays
       }
     }
   }).mount('#nas-selector')
