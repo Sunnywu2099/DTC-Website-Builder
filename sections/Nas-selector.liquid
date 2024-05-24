@@ -83,45 +83,22 @@
     </div>
   </div>
   <!-- step 1 -->
-{% comment %}
+
   <!-- step 2 -->
   <div id="step2" class="step"></div>
   <!-- step 2 -->
 
   <!-- step 3 -->
-  <div id="step3" class="step">
-    <h3 class="section-title text-center text-bottom">How many users plan to use NAS?</h3>
-    <div class="selector-box">
-      {% for number in numbers %}
-        <div class="step3-selection text-center selection-btn">
-          <h3>{{ number | strip_html }}</h3>
-        </div>  
-        
-      {% endfor %}
-    </div>
-  </div>
+  <div id="step3" class="step"></div>
   <!-- step 3 -->
 
   <!-- step 4 -->
-  <div id="step4" class="step">
-    <h3 class="section-title text-center text-bottom">How many bays plan to use NAS?</h3>
-    <div class="selector-box">
-      {% for bay in baysObj %}
-        <div class="step4-selection text-center selection-btn">
-          <h3>{{ bay.type | strip_html }}</h3>
-          <p>{{ bay.description | strip_html }}</p>
-        </div>  
-        
-      {% endfor %}
-    </div>
-  </div>
+  <div id="step4" class="step"></div>
   <!-- step 4 -->
-{% endcomment %}
+  
   <!-- step 5 -->
   {%- capture sizes -%}100vw{%- endcapture -%}
-  <div id="step5" class="step">
-    
-  </div>
+  <div id="step5" class="step"></div>
   <!-- step 5 -->
 </div>
 
@@ -141,7 +118,28 @@
           <p>{{ function.description | strip_html }}</p>
         </div>  
       {% endfor %}
-    </div>`
+    </div>`;
+
+  step3_element = `<h3 class="section-title text-center text-bottom">How many users plan to use NAS?</h3>
+    <div class="selector-box">
+      {% for number in numbers %}
+        <div class="step3-selection text-center selection-btn">
+          <h3>{{ number | strip_html }}</h3>
+        </div>  
+        
+      {% endfor %}
+    </div>`;
+
+  step4_element = `<h3 class="section-title text-center text-bottom">How many bays plan to use NAS?</h3>
+    <div class="selector-box">
+      {% for bay in baysObj %}
+        <div class="step4-selection text-center selection-btn">
+          <h3>{{ bay.type | strip_html }}</h3>
+          <p>{{ bay.description | strip_html }}</p>
+        </div>  
+        
+      {% endfor %}
+    </div>`;
 
   step5_element = `<h3 class="section-title text-center text-bottom">Based on your needs, the following NAS models are recommended</h3>
     <div class="selector-box">
@@ -153,7 +151,7 @@
           <a href="{{ product.url }}" class="product-info text-center">{{ product.title }}</a>
         </div>
        {% endfor %}
-    </div>`
+    </div>`;
 
   
       window.onload = function(){
