@@ -151,7 +151,7 @@
       return {
         bays: [],
         functions: [],
-        numbers: 0,
+        numbers: [],
         products: [],
         userTyoe: [],
       }
@@ -165,7 +165,11 @@
       getData(){
         let obj = JSON.parse(`{{ page.metafields.custom.selector.value | json }}`);
         console.log(obj);
-        this.bays = obj.bays.bays
+        this.bays = obj.bays.bays;
+        this.functions = obj.functions.functions;
+        this.numbers = obj.numbers.numbers;
+        this.userTyoe = obj.userTyoe.userTyoe;
+        this.products = obj.products.products;
       }
     }
   }).mount('#nas-selector')
