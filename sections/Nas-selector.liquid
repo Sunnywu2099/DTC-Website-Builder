@@ -168,7 +168,7 @@
         {% assign obj = page.metafields.custom.selector.value | parse_json %}
         let data = [];
         
-        this.nasSelectorData = {{ obj }};
+        this.nasSelectorData = obj.numbers;
       }
     }
   }).mount('#nas-selector')
