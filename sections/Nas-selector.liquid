@@ -71,7 +71,7 @@
   <div id="step1" class="step">
     <h3 class="section-title text-center text-bottom">Which type of user are you?</h3>
     <div class="selector-box">
-        <div v-for="user_item in userType" class="step1-selection text-center selection-btn">${ user_item }</div>  
+        <div v-for="user_item in userType" class="step1-selection text-center selection-btn" @click="handleStep2()">${ user_item }</div>  
     </div>
   </div>
   <!-- step 1 -->
@@ -162,6 +162,10 @@
         this.numbers = obj.number;
         this.userType = obj.user_type;
         this.products = productResults;
+      },
+
+      handleStep2(){
+        this.show_step2 = true;
       }
     }
   }).mount('#nas-selector')
