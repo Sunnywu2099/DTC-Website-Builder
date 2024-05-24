@@ -155,7 +155,7 @@
     delimiters: ['${', '}'],
     data() {
       return {
-        nasSelectorData: nasSelectorData
+        nasSelectorData: []
       }
     },
     computed: {
@@ -166,7 +166,9 @@
     methods: {
       getData: ()=>{
         {% assign obj = page.metafields.custom.selector.value | parse_json %}
-        this.nasSelectorData = {{ obj | json }};
+        let data = [];
+        
+        this.nasSelectorData = {{ obj }};
       }
     }
   }).mount('#nas-selector')
