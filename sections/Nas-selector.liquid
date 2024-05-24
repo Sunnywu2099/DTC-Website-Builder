@@ -148,7 +148,6 @@
   {{ nasSelectorData }}
 </div>
 
-
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <script>
   const { createApp } = Vue
@@ -160,11 +159,13 @@
       }
     },
     computed: {
-      
     },
     mounted() {
     },
     methods: {
+      getData: ()=>{
+        let nasSelectorData = {{ obj | json }};
+      }
     }
   }).mount('#nas-selector')
 </script>
