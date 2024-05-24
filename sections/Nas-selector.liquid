@@ -97,7 +97,7 @@
   </div>
   <!-- step 3 -->
 
-  <!-- step 3 -->
+  <!-- step 4 -->
   <div id="step4" class="step">
     <h3 class="section-title text-center text-bottom">How many bays plan to use NAS?</h3>
     <div class="selector-box">
@@ -110,7 +110,16 @@
       {% endfor %}
     </div>
   </div>
-  <!-- step 3 -->
+  <!-- step 4 -->
+
+  <!-- step 5 -->
+  <div id="step5" class="step">
+    <h3 class="section-title text-center text-bottom">Based on your needs, the following NAS models are recommended</h3>
+    <div class="selector-box">
+      {{ products | json }}
+    </div>
+  </div>
+  <!-- step 5 -->
 </div>
 
 
