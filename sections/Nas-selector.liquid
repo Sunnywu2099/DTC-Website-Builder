@@ -52,6 +52,11 @@
     aspect-ratio: 5 / 6;
     object-fit: cover;
   }
+  @media only screen and (max-width: 768px){
+    .product-item{
+      width: calc( (100% - 150px) / 2 );
+    }
+  }
 </style>
 
 {% assign obj = page.metafields.custom.selector.value | parse_json %}
