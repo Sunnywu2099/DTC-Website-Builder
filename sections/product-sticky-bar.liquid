@@ -150,35 +150,40 @@
     
     <div class="cate-box">
       {% for block in section.blocks %}
-        <div class="item">
-          <a href="{% if block.settings.link != blank%}{{ block.settings.link }}{% else %}#{% endif %}" style="{% if block.settings.link == request.path %}opacity: 1;font-weight: 600;{% else %}opacity: 0.85;{% endif %}">{{ block.settings.content }}</a>
-          {% if block.settings.sub_content_1 != blank or block.settings.sub_content_2 != blank or block.settings.sub_content_3 != blank or block.settings.sub_content_4 != blank %}
-            <div class="sub-menu">
-              <div class="box">
-                {% if block.settings.sub_content_1 != blank %}
-                  <div class="sub-item">
-                    <a href="{{ block.settings.sub_link_1 }}">{{ block.settings.sub_content_1 }}</a>
-                  </div>
-                {% endif %}
-                {% if block.settings.sub_content_2 != blank %}
+        {% if block.type == 'target' %}
+          
+        {% endif %}
+        {% if block.type == 'redirect' %}
+          <div class="item">
+            <a href="{% if block.settings.link != blank%}{{ block.settings.link }}{% else %}#{% endif %}" style="{% if block.settings.link == request.path %}opacity: 1;font-weight: 600;{% else %}opacity: 0.85;{% endif %}">{{ block.settings.content }}</a>
+            {% if block.settings.sub_content_1 != blank or block.settings.sub_content_2 != blank or block.settings.sub_content_3 != blank or block.settings.sub_content_4 != blank %}
+              <div class="sub-menu">
+                <div class="box">
+                  {% if block.settings.sub_content_1 != blank %}
                     <div class="sub-item">
-                      <a href="{{ block.settings.sub_link_2 }}">{{ block.settings.sub_content_2 }}</a>
+                      <a href="{{ block.settings.sub_link_1 }}">{{ block.settings.sub_content_1 }}</a>
                     </div>
                   {% endif %}
-                {% if block.settings.sub_content_3 != blank %}
-                    <div class="sub-item">
-                      <a href="{{ block.settings.sub_link_3 }}">{{ block.settings.sub_content_3 }}</a>
-                    </div>
+                  {% if block.settings.sub_content_2 != blank %}
+                      <div class="sub-item">
+                        <a href="{{ block.settings.sub_link_2 }}">{{ block.settings.sub_content_2 }}</a>
+                      </div>
+                    {% endif %}
+                  {% if block.settings.sub_content_3 != blank %}
+                      <div class="sub-item">
+                        <a href="{{ block.settings.sub_link_3 }}">{{ block.settings.sub_content_3 }}</a>
+                      </div>
+                    {% endif %}
+                  {% if block.settings.sub_content_4 != blank %}
+                      <div class="sub-item">
+                        <a href="{{ block.settings.sub_link_4 }}">{{ block.settings.sub_content_4 }}</a>
+                      </div>
                   {% endif %}
-                {% if block.settings.sub_content_4 != blank %}
-                    <div class="sub-item">
-                      <a href="{{ block.settings.sub_link_4 }}">{{ block.settings.sub_content_4 }}</a>
-                    </div>
-                {% endif %}
+                </div>
               </div>
-            </div>
-          {% endif %}
-        </div>  
+            {% endif %}
+          </div>
+        {% endif %}
       {% endfor %}
       <div class="item buy">
         <a href="{{ section.settings.buy }}">
