@@ -147,7 +147,8 @@
 <div class="top-bar">
   <div class="container">
     <a href="{{ section.settings.link_to }}" class="product-name">{{ section.settings.name }}</a>
-    <div class="cate-box mb-hide">
+    
+    <div class="cate-box">
       {% for block in section.blocks %}
         <div class="item">
           <a href="{% if block.settings.link != blank%}{{ block.settings.link }}{% else %}#{% endif %}" style="{% if block.settings.link == request.path %}opacity: 1;font-weight: 600;{% else %}opacity: 0.85;{% endif %}">{{ block.settings.content }}</a>
@@ -179,55 +180,6 @@
           {% endif %}
         </div>  
       {% endfor %}
-      <div class="item buy">
-        <a href="{{ section.settings.buy }}">
-          <span class="">{{ section.settings.buy_name }}</span>
-        </a>
-      </div>
-    </div>
-    <div class="cate-box pc-hide">
-      <ul>
-        {% for block in section.blocks %}
-          {% if forloop.first %}
-              <div id="first-item" class="item first">
-                  <span>{{ block.settings.content }}</span>
-                  <i>
-                    <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M11 1L6 7L1 1" stroke="white" stroke-width="1.5"/>
-                    </svg>
-                  </i>
-              </div>  
-          {% endif %}
-        {% endfor %} 
-        <div class="menu">
-          {% for block in section.blocks %}
-                <div class="item" style="{% if block.settings.content == 'Support' %}display: none;{% endif %}">
-                  <a href="{{ block.settings.link }}">{{ block.settings.content }}</a>
-                </div>  
-                {% if block.settings.sub_content_1 != blank %}
-                    <div class="item">
-                      <a href="{{ block.settings.sub_link_1 }}">{{ block.settings.sub_content_1 }}</a>
-                    </div>
-                {% endif %}
-                {% if block.settings.sub_content_2 != blank %}
-                    <div class="item">
-                      <a href="{{ block.settings.sub_link_2 }}">{{ block.settings.sub_content_2 }}</a>
-                    </div>
-                  {% endif %}
-                {% if block.settings.sub_content_3 != blank %}
-                    <div class="item">
-                      <a href="{{ block.settings.sub_link_3 }}">{{ block.settings.sub_content_3 }}</a>
-                    </div>
-                  {% endif %}
-                {% if block.settings.sub_content_4 != blank %}
-                    <div class="item">
-                      <a href="{{ block.settings.sub_link_4 }}">{{ block.settings.sub_content_4 }}</a>
-                    </div>
-                {% endif %}
-          {% endfor %}
-        </div>
-      </ul>
-      
       <div class="item buy">
         <a href="{{ section.settings.buy }}">
           <span class="">{{ section.settings.buy_name }}</span>
