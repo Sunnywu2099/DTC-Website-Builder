@@ -59,7 +59,7 @@
       "settings": {
         "name": "Product Name",
         "link_to": "#",
-        "buy_name": "Buy",
+        "buy_name": "Buy Now",
         "buy": "#"
       }
     },
