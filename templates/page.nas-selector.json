@@ -39,13 +39,13 @@
           "type": "redirect",
           "settings": {
             "content": "Support",
-            "link": "",
-            "sub_content_1": "",
-            "sub_link_1": "",
-            "sub_content_2": "",
-            "sub_link_2": "",
-            "sub_content_3": "",
-            "sub_link_3": "",
+            "link": "#",
+            "sub_content_1": "NAS 1",
+            "sub_link_1": "#",
+            "sub_content_2": "NAS 2",
+            "sub_link_2": "#",
+            "sub_content_3": "NAS 3",
+            "sub_link_3": "#",
             "sub_content_4": "",
             "sub_link_4": ""
           }
