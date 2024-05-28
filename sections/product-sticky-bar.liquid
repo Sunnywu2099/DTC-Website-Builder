@@ -34,6 +34,9 @@
     font-size: 14px;
     line-height: 22px;
   }
+  .top-bar .container .cate-box .target_item{
+    opacity: .5;
+  }
   .top-bar .container .cate-box .item.buy{
     font-size: 16px;
     line-height: 24px;
@@ -151,10 +154,10 @@
     <div class="cate-box">
       {% for block in section.blocks %}
         {% if block.type == 'target' %}
-          <div class="item">{{ block.settings.content }}</div>
+          <div class="item target_item">{{ block.settings.content }}</div>
         {% endif %}
         {% if block.type == 'redirect' %}
-          <div class="item">
+          <div class="item redirect_item">
             <a href="{% if block.settings.link != blank%}{{ block.settings.link }}{% else %}#{% endif %}" style="{% if block.settings.link == request.path %}opacity: 1;font-weight: 600;{% else %}opacity: 0.5;{% endif %}">{{ block.settings.content }}</a>
             {% if block.settings.sub_content_1 != blank or block.settings.sub_content_2 != blank or block.settings.sub_content_3 != blank or block.settings.sub_content_4 != blank %}
               <div class="sub-menu">
