@@ -219,7 +219,23 @@
     "blocks":[
       {
         "type":"target",
-        "name":"锚点定位",
+        "name":"页面定位",
+        "settings":[
+          {
+            "type": "textarea",
+            "id": "content",
+            "label": "Content"
+          },
+          {
+            "type": "textarea",
+            "id": "id",
+            "label": "Section id"
+          }
+        ]
+      },
+      {
+        "type":"redirect",
+        "name":"页面跳转",
         "settings":[
           {
             "type": "textarea",
@@ -274,7 +290,7 @@
         ]
       }
     ],
-   "presets": [
+    "presets": [
       {
 		"name": "Top bar"
       }
