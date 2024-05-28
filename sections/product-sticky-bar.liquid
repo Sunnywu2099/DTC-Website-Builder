@@ -164,7 +164,7 @@
         {% endif %}
         {% if block.type == 'redirect' %}
           <div class="item redirect_item">
-            <a href="{% if block.settings.link != blank%}{{ block.settings.link }}{% else %}#{% endif %}" style="{% if block.settings.link == request.path %}opacity: 1;font-weight: 600;{% else %}opacity: 0.5;{% endif %}">{{ block.settings.content }}</a>
+            <a href="{% if block.settings.link != blank%}{{ block.settings.link }}{% else %}#{% endif %}" style="{% if block.settings.link == request.path %}opacity: 1;font-weight: 600;{% endif %}">{{ block.settings.content }}</a>
             {% if block.settings.sub_content_1 != blank or block.settings.sub_content_2 != blank or block.settings.sub_content_3 != blank or block.settings.sub_content_4 != blank %}
               <div class="sub-menu">
                 <div class="box">
