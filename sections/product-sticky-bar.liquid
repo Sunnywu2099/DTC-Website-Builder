@@ -151,7 +151,7 @@
     <div class="cate-box">
       {% for block in section.blocks %}
         {% if block.type == 'target' %}
-          
+          <div class="item">{{ block.settings.content }}</div>
         {% endif %}
         {% if block.type == 'redirect' %}
           <div class="item">
