@@ -21,62 +21,45 @@
     "product_sticky_bar_eg78it": {
       "type": "product-sticky-bar",
       "blocks": {
-        "block_6EF4Fk": {
-          "type": "block",
+        "target_7G7zAC": {
+          "type": "target",
           "settings": {
-            "content": "Overview",
-            "link": "#",
+            "content": "",
+            "id": ""
+          }
+        },
+        "target_ph3KbP": {
+          "type": "target",
+          "settings": {
+            "content": "",
+            "id": ""
+          }
+        },
+        "redirect_JRiYeh": {
+          "type": "redirect",
+          "settings": {
+            "content": "",
+            "link": "",
             "sub_content_1": "",
             "sub_link_1": "",
             "sub_content_2": "",
             "sub_link_2": "",
             "sub_content_3": "",
             "sub_link_3": "",
-            "sub_content_4": "",
-            "sub_link_4": ""
-          }
-        },
-        "block_8CeXMX": {
-          "type": "block",
-          "settings": {
-            "content": "Tech Specs",
-            "link": "#",
-            "sub_content_1": "",
-            "sub_link_1": "",
-            "sub_content_2": "",
-            "sub_link_2": "",
-            "sub_content_3": "",
-            "sub_link_3": "",
-            "sub_content_4": "",
-            "sub_link_4": ""
-          }
-        },
-        "block_reT4Kk": {
-          "type": "block",
-          "settings": {
-            "content": "Support",
-            "link": "#",
-            "sub_content_1": "Compare NAS",
-            "sub_link_1": "#",
-            "sub_content_2": "Downloads",
-            "sub_link_2": "#",
-            "sub_content_3": "Compatibility",
-            "sub_link_3": "#",
             "sub_content_4": "",
             "sub_link_4": ""
           }
         }
       },
       "block_order": [
-        "block_6EF4Fk",
-        "block_8CeXMX",
-        "block_reT4Kk"
+        "target_7G7zAC",
+        "target_ph3KbP",
+        "redirect_JRiYeh"
       ],
       "settings": {
         "name": "Product Name",
         "link_to": "#",
         "buy_name": "Buy",
-        "buy_name_mb": "",
         "buy": "#"
       }
     },
