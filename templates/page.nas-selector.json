@@ -24,21 +24,21 @@
         "target_7G7zAC": {
           "type": "target",
           "settings": {
-            "content": "",
+            "content": "Overview",
             "id": ""
           }
         },
         "target_ph3KbP": {
           "type": "target",
           "settings": {
-            "content": "",
+            "content": "Tech Specs",
             "id": ""
           }
         },
         "redirect_JRiYeh": {
           "type": "redirect",
           "settings": {
-            "content": "",
+            "content": "Support",
             "link": "",
             "sub_content_1": "",
             "sub_link_1": "",
