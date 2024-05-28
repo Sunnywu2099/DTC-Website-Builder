@@ -1,4 +1,8 @@
 <style>
+  .product-sticky-bar{
+    position: sticky;
+    top: 0;
+  }
   .top-bar {
     position: static;
     background: rgba(35, 37, 38, 1);
@@ -147,7 +151,7 @@
 </style>
   
 <div class="top-bar">
-  <div class="container-fluid">
+  <div class="container">
     <a href="{{ section.settings.link_to }}" class="product-name">{{ section.settings.name }}</a>
     <div class="cate-box mb-hide">
       {% for block in section.blocks %}
@@ -244,7 +248,7 @@
 {% schema %}
   {
     "name": "Top bar",
-    "class": "top-bar-1",
+    "class": "product-sticky-bar",
     "settings": [
       {
         "type": "text",
