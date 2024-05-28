@@ -1,6 +1,342 @@
+<style>
+  .top-bar {
+    position: static;
+    background: rgba(35, 37, 38, 1);
+    z-index: 49;
+    left: 0;
+    width: 100%;
+    transition: all .4s ease;
+  }
+  .top-bar .container-fluid{
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    align-items: center;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+  .top-bar .container-fluid .cate-box{
+    display: flex;
+    align-items: center;
+  }
+  .top-bar .container-fluid .cate-box.mb-hide{
+    display: flex;
+  }
+  .top-bar .container-fluid .cate-box.pc-hide{
+    display: none;
+  }
+  .top-bar .container-fluid .cate-box .item{
+    position: relative;
+    font-size: 14px;
+    line-height: 22px;
+  }
+  .top-bar .container-fluid .cate-box .item.buy{
+    font-size: 16px;
+    line-height: 24px;
+    color: #000;
+    background: linear-gradient(270deg, #73B9FF 0%, #65A4FC 100%);
+    border-radius: 12px;
+    padding: 5px 16px;
+  }
+    .top-bar .container-fluid .cate-box .item.buy:hover{
+    border-radius: 12px;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.20) 0%, rgba(255, 255, 255, 0.20) 100%), #65A4FC;
+  }
+  
+  .top-bar .container-fluid .cate-box .item:not(:first-child){
+    margin-left: 24px;
+  }
+  .top-bar .container-fluid .cate-box .item .sub-menu{
+    width: 160px;
+    position: absolute;
+    bottom: auto;
+    left: -40px;
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    color: #000;
+  }
+  .top-bar .container-fluid .cate-box .item .sub-menu .sub-item{
+    padding: 8px 24px;
+    background: #fff;
+  }
+  .top-bar .container-fluid .cate-box .item .sub-menu .sub-item:first-of-type{
+    padding-top: 16px;
+  }
+  .top-bar .container-fluid .cate-box .item .sub-menu .sub-item:last-of-type{
+    padding-bottom: 16px;
+  }
+  .top-bar .container-fluid .cate-box .item .sub-menu .box{
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+  .top-bar .container-fluid .cate-box .item:hover .sub-menu{
+    opacity: 1;
+    visibility: visible;
+  }
+  .top-bar .container-fluid .cate-box ul{
+    position: relative;
+  }
+  .top-bar .container-fluid .cate-box ul .menu{
+    position: absolute;
+    display: none;
+    background: #fff;
+    width: 120px;
+    color: #000;
+    padding: 16px 16px 8px;
+    left: -40%;
+    z-index: 10;
+  }
+  .top-bar .container-fluid .cate-box ul .item{
+    margin-left: 0!important;
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  .top-bar .container-fluid .cate-box ul .item.first{
+    margin-bottom: 0px;
+  }
+  .top-bar .container-fluid .cate-box ul .item i{
+    margin-left: 6px;
+    transition: all .2s;
+  }
+  .top-bar .container-fluid .cate-box ul .item i.open{
+    transform: rotate(180deg);
+    transition: all .5s;
+  }
+  .PC_show{
+    display:block;
+  }
+  .MB_show{
+    display:none
+  }
+  .product-name{
+    color: #FFF;
+
+  /* body/Medium/M */
+  font-family: var(--font-stack-body);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 150% */
+  }
+  @media only screen and (max-width: 1023px){
+  .PC_show{
+    display:none;
+  }
+  .MB_show{
+    display:block;
+  }
+    .top-bar .container-fluid .cate-box.mb-hide{
+      display: none;
+    }
+    .top-bar .container-fluid .cate-box.pc-hide{
+      display: flex;
+      {% if section.settings.name == blank %}
+        width: 100%;
+        justify-content: space-between;
+      {% endif %}
+    }
+    .top-bar .container-fluid .cate-box ul .menu{
+      {% if section.settings.name == blank %}
+        left: 0;
+        top: calc(100% + 30px);
+      {% endif %}
+    }
+  }
+</style>
+  
+<div class="top-bar">
+  <div class="container-fluid">
+    <a href="{{ section.settings.link_to }}" class="product-name">{{ section.settings.name }}</a>
+    <div class="cate-box mb-hide">
+      {% for block in section.blocks %}
+        <div class="item">
+          <a href="{% if block.settings.link != blank%}{{ block.settings.link }}{% else %}#{% endif %}" style="{% if block.settings.link == request.path %}opacity: 1;font-weight: 600;{% else %}opacity: 0.85;{% endif %}">{{ block.settings.content }}</a>
+          {% if block.settings.sub_content_1 != blank or block.settings.sub_content_2 != blank or block.settings.sub_content_3 != blank or block.settings.sub_content_4 != blank %}
+            <div class="sub-menu">
+              <div class="box">
+                {% if block.settings.sub_content_1 != blank %}
+                  <div class="sub-item">
+                    <a href="{{ block.settings.sub_link_1 }}">{{ block.settings.sub_content_1 }}</a>
+                  </div>
+                {% endif %}
+                {% if block.settings.sub_content_2 != blank %}
+                    <div class="sub-item">
+                      <a href="{{ block.settings.sub_link_2 }}">{{ block.settings.sub_content_2 }}</a>
+                    </div>
+                  {% endif %}
+                {% if block.settings.sub_content_3 != blank %}
+                    <div class="sub-item">
+                      <a href="{{ block.settings.sub_link_3 }}">{{ block.settings.sub_content_3 }}</a>
+                    </div>
+                  {% endif %}
+                {% if block.settings.sub_content_4 != blank %}
+                    <div class="sub-item">
+                      <a href="{{ block.settings.sub_link_4 }}">{{ block.settings.sub_content_4 }}</a>
+                    </div>
+                {% endif %}
+              </div>
+            </div>
+          {% endif %}
+        </div>  
+      {% endfor %}
+      <div class="item buy">
+        <a href="{{ section.settings.buy }}">
+           <span class="PC_show">{{ section.settings.buy_name }}</span>
+          <span class="MB_show">{{ section.settings.buy_name_mb }}</span>
+        </a>
+      </div>
+    </div>
+    <div class="cate-box pc-hide">
+      <ul>
+        {% for block in section.blocks %}
+          {% if forloop.first %}
+              <div id="first-item" class="item first">
+                  <span>{{ block.settings.content }}</span>
+                  <i>
+                    <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M11 1L6 7L1 1" stroke="white" stroke-width="1.5"/>
+                    </svg>
+                  </i>
+              </div>  
+          {% endif %}
+        {% endfor %} 
+        <div class="menu">
+          {% for block in section.blocks %}
+                <div class="item" style="{% if block.settings.content == 'Support' %}display: none;{% endif %}">
+                  <a href="{{ block.settings.link }}">{{ block.settings.content }}</a>
+                </div>  
+                {% if block.settings.sub_content_1 != blank %}
+                    <div class="item">
+                      <a href="{{ block.settings.sub_link_1 }}">{{ block.settings.sub_content_1 }}</a>
+                    </div>
+                {% endif %}
+                {% if block.settings.sub_content_2 != blank %}
+                    <div class="item">
+                      <a href="{{ block.settings.sub_link_2 }}">{{ block.settings.sub_content_2 }}</a>
+                    </div>
+                  {% endif %}
+                {% if block.settings.sub_content_3 != blank %}
+                    <div class="item">
+                      <a href="{{ block.settings.sub_link_3 }}">{{ block.settings.sub_content_3 }}</a>
+                    </div>
+                  {% endif %}
+                {% if block.settings.sub_content_4 != blank %}
+                    <div class="item">
+                      <a href="{{ block.settings.sub_link_4 }}">{{ block.settings.sub_content_4 }}</a>
+                    </div>
+                {% endif %}
+          {% endfor %}
+        </div>
+      </ul>
+      
+      <div class="item buy">
+        <a href="{{ section.settings.buy }}">
+           <span class="PC_show">{{ section.settings.buy_name }}</span>
+          <span class="MB_show">{{ section.settings.buy_name_mb }}</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+          
 {% schema %}
   {
-    "name": "Section name",
-    "settings": []
+    "name": "Top bar",
+    "class": "top-bar-1",
+    "settings": [
+      {
+        "type": "text",
+        "id": "name",
+        "label": "Bar name"
+      },
+      {
+         "type": "url",
+         "id": "link_to",
+         "label": "Bar link"
+      },
+      {
+         "type": "textarea",
+         "id": "buy_name",
+         "label": "Right Name",
+          "default":"Buy"
+      },
+       {
+         "type": "textarea",
+         "id": "buy_name_mb",
+         "label": "Right Name(mb)",
+          "default":"Buy"
+      },
+      {
+         "type": "url",
+         "id": "buy",
+         "label": "Right Link"
+      }
+	],
+    "blocks":[
+      {
+        "type":"block",
+        "name":"block",
+        "settings":[
+          {
+            "type": "textarea",
+            "id": "content",
+            "label": "Content"
+          },
+          {
+            "type": "url",
+            "id": "link",
+            "label": "Link"
+          },
+          {
+            "type": "textarea",
+            "id": "sub_content_1",
+            "label": "Sub content1"
+          },
+          {
+            "type": "url",
+            "id": "sub_link_1",
+            "label": "Sub link 1"
+          },
+          {
+            "type": "textarea",
+            "id": "sub_content_2",
+            "label": "Sub content2"
+          },
+          {
+            "type": "url",
+            "id": "sub_link_2",
+            "label": "Sub link 2"
+          },
+          {
+            "type": "textarea",
+            "id": "sub_content_3",
+            "label": "Sub content3"
+          },
+          {
+            "type": "url",
+            "id": "sub_link_3",
+            "label": "Sub link 3"
+          },
+          {
+            "type": "textarea",
+            "id": "sub_content_4",
+            "label": "Sub content4"
+          },
+          {
+            "type": "url",
+            "id": "sub_link_4",
+            "label": "Sub link 4"
+          }
+        ]
+      }
+    ],
+   "presets": [
+      {
+		"name": "Top bar "
+      }
+   ]
   }
 {% endschema %}
+
