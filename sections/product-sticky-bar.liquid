@@ -237,8 +237,7 @@
       
       <div class="item buy">
         <a href="{{ section.settings.buy }}">
-           <span class="PC_show">{{ section.settings.buy_name }}</span>
-          <span class="MB_show">{{ section.settings.buy_name_mb }}</span>
+          <span class="">{{ section.settings.buy_name }}</span>
         </a>
       </div>
     </div>
@@ -263,19 +262,13 @@
       {
          "type": "textarea",
          "id": "buy_name",
-         "label": "Right Name",
-          "default":"Buy"
-      },
-       {
-         "type": "textarea",
-         "id": "buy_name_mb",
-         "label": "Right Name(mb)",
-          "default":"Buy"
+         "label": "Button Name",
+          "default":"Buy Now"
       },
       {
          "type": "url",
          "id": "buy",
-         "label": "Right Link"
+         "label": "Button Link"
       }
 	],
     "blocks":[
@@ -338,7 +331,7 @@
     ],
    "presets": [
       {
-		"name": "Top bar "
+		"name": "Top bar"
       }
    ]
   }
