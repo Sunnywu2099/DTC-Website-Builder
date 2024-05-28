@@ -188,6 +188,29 @@
     </div>
   </div>
 </div>
+
+<script>
+                $(function(){
+                    $(window).scroll(function() {
+                        //为页面添加页面滚动监听事件
+                        var wst = $(window).scrollTop() //滚动条距离顶端值
+                        for (i = 1; i < 7; i++) { //加循环
+                            if ($("#anchor" + i).offset().top <= wst) { //判断滚动条位置
+                                $('.tab_anchor a').removeClass("active"); //清除c类
+                                $("#tab_anchor" + i).addClass("active"); //给当前导航加c类
+                            }
+                        }
+                    })
+                    $('.tab_anchor a').click(function() {
+                        $(this).siblings('a').removeClass('active'); 
+                        $(this).addClass('active');
+                        $("html, body").animate({
+                            scrollTop: $($(this).attr("href")).offset().top + "px"
+                        }, 1000);    
+                        return false;
+                    });
+                });
+</script>
           
 {% schema %}
   {
