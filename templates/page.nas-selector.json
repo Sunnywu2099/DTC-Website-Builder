@@ -18,6 +18,16 @@
         "color_gradient": ""
       }
     },
+    "product_sticky_bar_eg78it": {
+      "type": "product-sticky-bar",
+      "settings": {
+        "name": "",
+        "link_to": "",
+        "buy_name": "Buy",
+        "buy_name_mb": "Buy",
+        "buy": ""
+      }
+    },
     "nas_selector_78i4Xn": {
       "type": "Nas-selector",
       "settings": {
@@ -26,6 +36,7 @@
   },
   "order": [
     "main",
+    "product_sticky_bar_eg78it",
     "nas_selector_78i4Xn"
   ]
 }
