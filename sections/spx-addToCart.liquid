@@ -42,6 +42,31 @@
         <h3>{{ section.settings.product_main.title }}</h3>
         <!-- <p>{{ section.settings.product_main.description }}</p> -->
         <span>{{ section.settings.product_main.price | money_with_currency }}</span>
+        {%- assign english_color_labels = 'Color,Colour' | replace: ', ', ',' | downcase | split: ',' -%}
+        {%- assign color_labels = 'products.option.color' | t | replace: ', ', ',' | downcase | split: ',' -%}
+
+        <div>
+          {%- unless section.settings.product_main.has_only_default_variant -%}
+            <loess-variant-picker id="VariantPickers-{{ section.id }}" class="main-product__block-variant-picker" section-id="{{ section.id }}" product-url="{{ section.settings.product_main.url }}" {% unless is_product_page %}should-update-url="false"{% endunless %}>
+              {%- liquid
+                assign color_swatch_configuration = settings.color_swatch_configuration | newline_to_br | split: '<br />'
+
+                for option in product.options_with_values
+                  assign option_name = option.name | downcase
+
+                  if color_labels contains option_name or english_color_labels contains option_name
+                    render 'product-variant-options', product: section.settings.product_main, option: option, block: block, forloop: forloop, type: block.settings.color_option_type, color_swatch_configuration: color_swatch_configuration
+                  else
+                    render 'product-variant-options', product: section.settings.product_main, option: option, block: block, forloop: forloop, type: block.settings.option_type
+                  endif
+                endfor
+              -%}
+            </loess-variant-picker>
+
+            <script id="ProductVariantData-{{ section.id }}" type="application/json">
+              {{ section.settings.product_main.variants | json }}
+            </script>
+          {%- endunless -%}
       </div>
       <div class="bottom">
         {% for block in section.blocks %}
@@ -89,10 +114,10 @@
   $('.add-to-cart').click(function(){
         let id = $('.left-wrapper').attr('data-id');
         const items = [
-            {
-                id: id,
-                quantity: 1
-            }
+          {
+            id: id,
+            quantity: 1
+          }
         ];
     
         $.ajax({
@@ -102,20 +127,13 @@
             dataType: 'json',
             contentType: 'application/json',
             success: function(response) {
-                alert('Products added to cart!');
-                // window.location.href = '/cart';
             },
             error: function(error) {
                 console.error('Error adding products to cart:', error);
             }
         });
-    
   })
   
-  
-  
-
-
 </script>
 
 {% schema %}
