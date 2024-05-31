@@ -1,6 +1,44 @@
+<style>
+</style>
+
+<div class="spx-addCart">
+  
+</div>
+
+<script type="module">
+
+</script>
+
 {% schema %}
   {
-    "name": "Section name",
-    "settings": []
+    "name": "SPX Add To Cart",
+    "settings": [
+      {
+        "type": "product",
+        "id": "product_main",
+        "label": "Product Main"
+      }
+
+    ],
+    "blocks": [
+    {
+      "type": "block",
+      "name": "Block",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product_bundle",
+          "label": "Product Bundle"
+        }
+
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "SPX Add To Cart"
+    }
+  ]
+    
   }
 {% endschema %}
