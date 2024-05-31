@@ -79,7 +79,7 @@
                 {% if block.settings.product_bundle.options_by_name['Color'].values %}
                   <div class="option">
                       {% for size_option in block.settings.product_bundle.options_by_name['Color'].values %}
-                        <option class="{% if forloop.first or size_option.available %}{% endif %}">{{ size_option }}</option>
+                        <option class="{% if forloop.first or size_option.available %}active{% endif %}">{{ size_option }}</option>
                       {% endfor %}
                   </div>
                 {% endif %}
