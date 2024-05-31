@@ -61,9 +61,9 @@
               <option>{{ color_option }}</option>
             {% endfor %}
             {% for color_option in section.settings.product_main.options_by_name['Size'].values %}
-              {% unless color_option.available %}
+              {% if color_option.available %}
                   <option class="{% if color_option.available %}{% endif %}">{{ color_option }}</option>
-              {% endunless %}
+              {% endif %}
             {% endfor %}
         </div>
       <div class="bottom">
