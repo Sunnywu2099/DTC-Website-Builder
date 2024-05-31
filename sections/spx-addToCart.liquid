@@ -76,7 +76,7 @@
     finals.push(test);
   
     {% for block in section.blocks %}
-      let test = {
+      test = {
         product_id: {{ block.settings.product_bundle.id }},
         variants_main: {{ block.settings.product_bundle.variants | json }}
       }
