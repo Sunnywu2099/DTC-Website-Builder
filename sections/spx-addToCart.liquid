@@ -6,7 +6,14 @@
     <div class="left-wrapper">
       {{- section.settings.product_main.featured_image | image_url: width: section.settings.product_main.featured_image.width | image_tag: is: 'loess-image', loading: 'lazy', sizes: sizes, widths: '200,300,400,500,600,700,800,900,1000,1200,1400,1600,1800,2000,2200,2400,2600,2800,3000,3200', class: 'main-img' -}}
     </div>
-    <div class="right-wrapper"></div>
+    <div class="right-wrapper">
+      <div class="top">
+        <h3>{{ section.settings.product_main.title }}</h3>
+        <p>{{ section.settings.product_main.description }}</p>
+        <span>{{ section.settings.product_main.price }}</span><span>{{ section.settings.product_main.compare_at_price }}</span>
+      </div>
+      <div class="bottom"></div>
+    </div>
   </div>
 </div>
 
