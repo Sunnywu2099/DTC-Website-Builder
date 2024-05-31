@@ -69,7 +69,7 @@
   const id_main = {{ section.settings.product_main.id }}
   const variants_main = {{ section.settings.product_main.variants | json }}
   console.log(id_main)
-  console.log(variants)
+  console.log(variants_main)
   {% for block in section.blocks %}
     console.log({{ block.settings.product_bundle.variants | json }})
   {% endfor %}
