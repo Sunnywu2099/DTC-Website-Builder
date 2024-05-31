@@ -40,31 +40,17 @@
     <div class="right-wrapper">
       <div class="top">
         <h3>{{ section.settings.product_main.title }}</h3>
-        <!-- <p>{{ section.settings.product_main.description }}</p> -->
         <span>{{ section.settings.product_main.price | money_with_currency }}</span>
-        {%- assign english_color_labels = 'Color,Colour' | replace: ', ', ',' | downcase | split: ',' -%}
-        {%- assign color_labels = 'section.settings.product_main.option.color' | t | replace: ', ', ',' | downcase | split: ',' -%}
-
+        
+        {% assign variants = section.settings.product_main.variants %}
         <div>
-            
-              {%- liquid
-                assign color_swatch_configuration = settings.color_swatch_configuration | newline_to_br | split: '<br />'
-
-                for option in section.settings.product_main.options_with_values
-                  assign option_name = option.name | downcase
-
-                  if color_labels contains option_name or english_color_labels contains option_name
-                    render 'product-variant-options', product: section.settings.product_main, option: option, block: block, forloop: forloop, type: block.settings.color_option_type, color_swatch_configuration: color_swatch_configuration
-                  else
-                    render 'product-variant-options', product: section.settings.product_main, option: option, block: block, forloop: forloop, type: block.settings.option_type
-                  endif
-                endfor
-              -%}
-
-            <script id="ProductVariantData-{{ section.id }}" type="application/json">
-              {{ section.settings.product_main.variants | json }}
-            </script>
-      </div>
+            {% for color_option in product.options_by_name['Color'].values %}
+              <option>{{ color_option }}</option>
+            {% endfor %}
+            {% for color_option in product.options_by_name['Size'].values %}
+              <option>{{ color_option }}</option>
+            {% endfor %}
+        </div>
       <div class="bottom">
         {% for block in section.blocks %}
           <div class="bundle-item">
