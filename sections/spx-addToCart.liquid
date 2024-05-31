@@ -86,29 +86,6 @@
     console.log('finals=>',finals)
   });
 
-  
-
-  function mergeProductVariants(products) {
-      const combinedVariants = [];
-      products.forEach(product => {
-          product.variants.forEach(variant => {
-              const combinedVariant = {
-                  productId: product.id,
-                  ...variant // Spread the variant properties into the combined object
-              };
-              // Add the combined object to the combinedVariants array
-              combinedVariants.push(combinedVariant);
-          });
-      });
-      return combinedVariants;
-  }
-  
-  // Usage example
-  const allProducts = [product1, product2, product3];
-  const combinedProductVariants = mergeProductVariants(allProducts);
-  console.log(combinedProductVariants);
-
-  
   $('.add-to-cart').click(function(){
         let id = $('.left-wrapper').attr('data-id');
         const items = [
