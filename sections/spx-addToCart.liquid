@@ -85,17 +85,17 @@
                 <span>{{ block.settings.product_bundle.price | money_with_currency }}</span>
                 {% if block.settings.product_bundle.options_by_name['Color'].values %}
                   <div class="option">
-                      {% for size_option in block.settings.product_bundle.options_by_name['Color'].values %}
-                        {% if size_option.available %}
-                          <option class="{% if forloop.first %}active{% endif %}" data-id="{{ color_option.id }}" data-name="{{ color_option }}">{{ size_option }}</option>
+                      {% for color_option in block.settings.product_bundle.options_by_name['Color'].values %}
+                        {% if color_option.available %}
+                          <option class="{% if forloop.first %}active{% endif %}" data-id="{{ size_option.id }}" data-name="{{ size_option }}">{{ size_option }}</option>
                         {% endif %}
                       {% endfor %}
                   </div>
                 {% endif %}
                 {% if block.settings.product_bundle.options_by_name['Size'].values %}
                   <div class="option">
-                    {% for color_option in block.settings.product_bundle.options_by_name['Size'].values %}
-                      {% if color_option.available %}
+                    {% for size_option in block.settings.product_bundle.options_by_name['Size'].values %}
+                      {% if size_option.available %}
                         <option class="{% if forloop.first %}active{% endif %}" data-id="{{ size_option.id }}" data-name="{{ size_option }}">{{ size_option }}</option>
                       {% endif %}
                     {% endfor %}
