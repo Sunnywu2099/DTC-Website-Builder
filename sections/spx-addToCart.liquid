@@ -48,9 +48,8 @@
       <div class="top">
         <h3>{{ section.settings.product_main.title }}</h3>
         <span>{{ section.settings.product_main.price | money_with_currency }}</span>
-        
-        {% assign variants = section.settings.product_main.variants %}
-        <div>
+
+        <div class="option">
             {% for color_option in section.settings.product_main.options_by_name['Color'].values %}
               <option>{{ color_option }}</option>
             {% endfor %}
