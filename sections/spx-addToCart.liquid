@@ -60,12 +60,14 @@
         <span>{{ section.settings.product_main.price | money_with_currency }}</span>
 
         <div class="option">
-            {% for color_option in section.settings.product_main.options_by_name['Color'].values %}
-              <option>{{ color_option }}</option>
-            {% endfor %}
             {% for color_option in section.settings.product_main.options_by_name['Size'].values %}
               {% if color_option.available %}
                   <option class="{% if forloop.first %}active{% endif %}">{{ color_option }}</option>
+              {% endif %}
+            {% endfor %}
+            {% for size_option in section.settings.product_main.options_by_name['Size'].values %}
+              {% if size_option.available %}
+                  <option class="{% if forloop.first %}active{% endif %}">{{ size_option }}</option>
               {% endif %}
             {% endfor %}
         </div>
