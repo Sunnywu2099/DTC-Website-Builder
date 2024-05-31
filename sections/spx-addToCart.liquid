@@ -87,7 +87,7 @@
                   <div class="option">
                       {% for color_option in block.settings.product_bundle.options_by_name['Color'].values %}
                         {% if color_option.available %}
-                          <option class="{% if forloop.first %}active{% endif %}" data-id="{{ size_option.id }}" data-name="{{ size_option }}">{{ color_option }}</option>
+                          <option class="{% if forloop.first %}active{% endif %}" data-id="{{ color_option.id }}" data-name="{{ color_option }}">{{ color_option }}</option>
                         {% endif %}
                       {% endfor %}
                   </div>
