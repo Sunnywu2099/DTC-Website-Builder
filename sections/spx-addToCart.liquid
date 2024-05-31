@@ -71,6 +71,7 @@
   console.log(id_main)
   console.log(variants_main)
   {% for block in section.blocks %}
+    console.log({{ block.settings.product_bundle.id }})
     console.log({{ block.settings.product_bundle.variants | json }})
   {% endfor %}
   
