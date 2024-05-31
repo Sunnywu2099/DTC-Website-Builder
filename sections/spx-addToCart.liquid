@@ -67,6 +67,9 @@
 <script type="module">
   const variants = {{ section.settings.product_main.variants | json }}
   console.log(variants)
+  {% for block in section.blocks %}
+    console.log({{ block.settings.product_bundle.variants | json }})
+  {% endfor %}
   
   $('.add-to-cart').click(function(){
         let id = $('.left-wrapper').attr('data-id');
