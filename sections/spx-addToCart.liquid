@@ -65,15 +65,49 @@
 </div>
 
 <script>
-  let finals = [];
-  const id_main = {{ section.settings.product_main.id }}
-  const variants_main = {{ section.settings.product_main.variants | json }}
-  console.log(id_main)
-  console.log(variants_main)
-  {% for block in section.blocks %}
-    console.log({{ block.settings.product_bundle.id }})
-    console.log({{ block.settings.product_bundle.variants | json }})
-  {% endfor %}
+  document.addEventListener("DOMContentLoaded", (event) => {
+    let finals = [];
+    const id_main = {{ section.settings.product_main.id }}
+    const variants_main = {{ section.settings.product_main.variants | json }}
+    let test = {
+      product_id: id_main,
+      variants_main: variants_main
+    }
+    finals.push(test);
+  
+    {% for block in section.blocks %}
+      let test = {
+        product_id: {{ block.settings.product_bundle.id }},
+        variants_main: {{ block.settings.product_bundle.variants | json }}
+      }
+      finals.push(test);
+    {% endfor %}
+
+    console.log('finals=>',finals)
+  });
+
+  
+
+  function mergeProductVariants(products) {
+      const combinedVariants = [];
+      products.forEach(product => {
+          product.variants.forEach(variant => {
+              const combinedVariant = {
+                  productId: product.id,
+                  ...variant // Spread the variant properties into the combined object
+              };
+              // Add the combined object to the combinedVariants array
+              combinedVariants.push(combinedVariant);
+          });
+      });
+      return combinedVariants;
+  }
+  
+  // Usage example
+  const allProducts = [product1, product2, product3];
+  const combinedProductVariants = mergeProductVariants(allProducts);
+  console.log(combinedProductVariants);
+
   
   $('.add-to-cart').click(function(){
         let id = $('.left-wrapper').attr('data-id');
