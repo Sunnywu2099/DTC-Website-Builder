@@ -67,12 +67,13 @@
 <script type="module">
   
   $('.add-to-cart').click(function(){
-    let formData = {
-     'items': [{
-      'id': {{ section.settings.product_main.id }},
-      'quantity': 2
-      }]
-    };
+
+        let items = [
+            {
+                id: {{ section.settings.product_main.id }},
+                quantity: 1
+            }
+        ];
     
         $.ajax({
             type: 'POST',
