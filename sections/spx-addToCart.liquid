@@ -84,14 +84,18 @@
                 {% if block.settings.product_bundle.options_by_name['Color'].values %}
                   <div class="option">
                       {% for size_option in block.settings.product_bundle.options_by_name['Color'].values %}
-                        <option class="{% if size_option.available %}active{% endif %}">{{ size_option }}</option>
+                        {% if size_option.available %}
+                          <option class="{% if forloop.first %}active{% endif %}">{{ size_option }}</option>
+                        {% endif %}
                       {% endfor %}
                   </div>
                 {% endif %}
                 {% if block.settings.product_bundle.options_by_name['Size'].values %}
                   <div class="option">
                     {% for color_option in block.settings.product_bundle.options_by_name['Size'].values %}
-                      <option>{{ color_option }}</option>
+                      {% if color_option.available %}
+                        <option class="{% if forloop.first %}active{% endif %}">{{ color_option }}</option>
+                      {% endif %}
                     {% endfor %}
                   </div>
                 {% endif %}
