@@ -67,16 +67,20 @@
                   <h4>{{ block.settings.product_bundle.title }}</h4>
                 </a>
                 <span>{{ block.settings.product_bundle.price | money_with_currency }}</span>
+                {% if block.settings.product_bundle.options_by_name['Color'].values %}
                   <div class="option">
                       {% for size_option in block.settings.product_bundle.options_by_name['Color'].values %}
                         <option>{{ size_option }}</option>
                       {% endfor %}
                   </div>
+                {% endif %}
+                {% if block.settings.product_bundle.options_by_name['Size'].values %}
                   <div class="option">
                     {% for color_option in block.settings.product_bundle.options_by_name['Size'].values %}
                       <option>{{ color_option }}</option>
                     {% endfor %}
                   </div>
+                {% endif %}
               </div>
           </div>  
         {% endfor %}
