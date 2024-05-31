@@ -23,9 +23,23 @@
       <div class="top">
         <h3>{{ section.settings.product_main.title }}</h3>
         <p>{{ section.settings.product_main.description }}</p>
-        <span>{{ section.settings.product_main.price }}</span><span>{{ section.settings.product_main.compare_at_price }}</span>
+        <span>{{ section.settings.product_main.price | money_with_currency }}</span>
       </div>
-      <div class="bottom"></div>
+      <div class="bottom">
+        {% for block in section.blocks %}
+          <div class="bundle-item">
+            <a href="{{ block.settings.product_bundle.url }}">
+              <div class="img">
+                {{- block.settings.product_bundle.featured_image | image_url: width: block.settings.product_bundle.featured_image.width | image_tag: is: 'loess-image', loading: 'lazy', sizes: sizes, widths: '200,300,400,500,600,700,800,900,1000,1200,1400,1600,1800,2000,2200,2400,2600,2800,3000,3200', class: 'main-img' -}}
+              </div>
+              <div class="info">
+                <h4>{{ block.settings.product_bundle.title }}</h4>
+                <span>{{ block.settings.product_bundle.price | money_with_currency }}</span>
+              </div>
+            </a>
+          </div>  
+        {% endfor %}
+      </div>
     </div>
   </div>
 </div>
