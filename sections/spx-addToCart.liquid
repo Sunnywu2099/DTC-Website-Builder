@@ -70,7 +70,7 @@
         let id = $('.left-wrapper').attr('data-id');
         const items = [
             {
-                id: '8108013125781',
+                id: id,
                 quantity: 1
             }
         ];
@@ -82,7 +82,7 @@
             dataType: 'json',
             contentType: 'application/json',
             success: function(response) {
-                console.log(response.json())
+                alert('Products added to cart!');
                 // window.location.href = '/cart';
             },
             error: function(error) {
