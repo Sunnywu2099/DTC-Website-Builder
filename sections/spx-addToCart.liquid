@@ -43,10 +43,9 @@
         <!-- <p>{{ section.settings.product_main.description }}</p> -->
         <span>{{ section.settings.product_main.price | money_with_currency }}</span>
         {%- assign english_color_labels = 'Color,Colour' | replace: ', ', ',' | downcase | split: ',' -%}
-        {%- assign color_labels = 'products.option.color' | t | replace: ', ', ',' | downcase | split: ',' -%}
+        {%- assign color_labels = 'section.settings.product_main.option.color' | t | replace: ', ', ',' | downcase | split: ',' -%}
 
         <div>
-          {%- unless section.settings.product_main.has_only_default_variant -%}
             <loess-variant-picker id="VariantPickers-{{ section.id }}" class="main-product__block-variant-picker" section-id="{{ section.id }}" product-url="{{ section.settings.product_main.url }}" {% unless is_product_page %}should-update-url="false"{% endunless %}>
               {%- liquid
                 assign color_swatch_configuration = settings.color_swatch_configuration | newline_to_br | split: '<br />'
@@ -66,7 +65,6 @@
             <script id="ProductVariantData-{{ section.id }}" type="application/json">
               {{ section.settings.product_main.variants | json }}
             </script>
-          {%- endunless -%}
       </div>
       <div class="bottom">
         {% for block in section.blocks %}
