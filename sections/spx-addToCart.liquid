@@ -46,11 +46,11 @@
         {%- assign color_labels = 'section.settings.product_main.option.color' | t | replace: ', ', ',' | downcase | split: ',' -%}
 
         <div>
-            <loess-variant-picker id="VariantPickers-{{ section.id }}" class="main-product__block-variant-picker" section-id="{{ section.id }}" product-url="{{ section.settings.product_main.url }}" {% unless is_product_page %}should-update-url="false"{% endunless %}>
+            
               {%- liquid
                 assign color_swatch_configuration = settings.color_swatch_configuration | newline_to_br | split: '<br />'
 
-                for option in product.options_with_values
+                for option in section.settings.product_main.options_with_values
                   assign option_name = option.name | downcase
 
                   if color_labels contains option_name or english_color_labels contains option_name
@@ -60,7 +60,6 @@
                   endif
                 endfor
               -%}
-            </loess-variant-picker>
 
             <script id="ProductVariantData-{{ section.id }}" type="application/json">
               {{ section.settings.product_main.variants | json }}
