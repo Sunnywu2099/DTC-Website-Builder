@@ -101,23 +101,23 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", (event) => {
+    // 获取所有产品变体的信息
     let finals = [];
     const id_main = {{ section.settings.product_main.id }}
-    const variants_main = {{ section.settings.product_main.variants | json }}
+    const variants = {{ section.settings.product_main.variants | json }}
     let test = {
       product_id: id_main,
-      variants_main: variants_main
+      variants: variants_main
     }
     finals.push(test);
   
     {% for block in section.blocks %}
       test = {
         product_id: {{ block.settings.product_bundle.id }},
-        variants_main: {{ block.settings.product_bundle.variants | json }}
+        variants: {{ block.settings.product_bundle.variants | json }}
       }
       finals.push(test);
     {% endfor %}
-
     console.log('finals=>',finals)
   });
 
