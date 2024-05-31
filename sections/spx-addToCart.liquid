@@ -3,7 +3,10 @@
 
 <div class="spx-addCart">
   <div class="container">
-    
+    <div class="left-wrapper">
+      {{- section.settings.product_main.featured_image | image_url: width: section.settings.product_main.featured_image.width | image_tag: is: 'loess-image', loading: 'lazy', sizes: sizes, widths: '200,300,400,500,600,700,800,900,1000,1200,1400,1600,1800,2000,2200,2400,2600,2800,3000,3200', class: 'main-img' -}}
+    </div>
+    <div class="right-wrapper"></div>
   </div>
 </div>
 
@@ -14,6 +17,7 @@
 {% schema %}
   {
     "name": "SPX Add To Cart",
+    "max_blocks": 2,
     "settings": [
       {
         "type": "product",
