@@ -64,8 +64,8 @@
   </div>
 </div>
 
-<script type="module">
-  const variants = {{ section.settings.product_main.variants | json }}
+<script>
+  const variants_main = {{ section.settings.product_main.variants | json }}
   console.log(variants)
   {% for block in section.blocks %}
     console.log({{ block.settings.product_bundle.variants | json }})
