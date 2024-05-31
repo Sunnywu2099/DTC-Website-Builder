@@ -59,32 +59,38 @@
           </div>  
         {% endfor %}
       </div>
+      <button class="add-to-cart">Add To Cart</button>
     </div>
   </div>
 </div>
 
 <script type="module">
-  let formData = {
-   'items': [{
-    'id': {{ section.settings.product_main.id }},
-    'quantity': 2
-    }]
-  };
+  $('.add-to-cart').click(function(){
+    let formData = {
+     'items': [{
+      'id': {{ section.settings.product_main.id }},
+      'quantity': 2
+      }]
+    };
+
+    fetch(window.Shopify.routes.root + 'cart/add.js', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    })
+    .then(response => {
+      console.log(response.json())
+      return response.json();
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+  })
   
-  fetch(window.Shopify.routes.root + 'cart/add.js', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(formData)
-  })
-  .then(response => {
-    console.log(response.json())
-    return response.json();
-  })
-  .catch((error) => {
-    console.error('Error:', error);
-  });
+  
+  
 
 
 </script>
