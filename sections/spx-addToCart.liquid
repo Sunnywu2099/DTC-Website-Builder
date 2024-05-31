@@ -44,10 +44,10 @@
         
         {% assign variants = section.settings.product_main.variants %}
         <div>
-            {% for color_option in product.options_by_name['Color'].values %}
+            {% for color_option in section.settings.product_main.options_by_name['Color'].values %}
               <option>{{ color_option }}</option>
             {% endfor %}
-            {% for color_option in product.options_by_name['Size'].values %}
+            {% for color_option in section.settings.product_main.options_by_name['Size'].values %}
               <option>{{ color_option }}</option>
             {% endfor %}
         </div>
