@@ -65,6 +65,7 @@
 </div>
 
 <script type="module">
+  
   $('.add-to-cart').click(function(){
     let formData = {
      'items': [{
@@ -72,21 +73,22 @@
       'quantity': 2
       }]
     };
-
-    fetch(window.Shopify.routes.root + 'cart/add.js', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(formData)
-    })
-    .then(response => {
-      console.log(response.json())
-      return response.json();
-    })
-    .catch((error) => {
-      console.error('Error:', error);
-    });
+    
+        $.ajax({
+            type: 'POST',
+            url: '/cart/add.js',
+            data: JSON.stringify({ items: items }),
+            dataType: 'json',
+            contentType: 'application/json',
+            success: function(response) {
+                console.log(response.json())
+                // window.location.href = '/cart';
+            },
+            error: function(error) {
+                console.error('Error adding products to cart:', error);
+            }
+        });
+    
   })
   
   
