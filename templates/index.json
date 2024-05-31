@@ -56,6 +56,30 @@
         "change_time": 7000
       }
     },
+    "spx_add_to_cart_GpMnD6": {
+      "type": "spx-addToCart",
+      "blocks": {
+        "block_x9TX3J": {
+          "type": "block",
+          "settings": {
+            "product_bundle": "aeropalm-full-finger-gloves"
+          }
+        },
+        "block_33AJFc": {
+          "type": "block",
+          "settings": {
+            "product_bundle": "breezeride-cycling-bib-tights"
+          }
+        }
+      },
+      "block_order": [
+        "block_x9TX3J",
+        "block_33AJFc"
+      ],
+      "settings": {
+        "product_main": "360-reflective-cycling-jacket"
+      }
+    },
     "dc9556c2-4975-49c8-9283-e9e901a02abb": {
       "type": "spx-fixedHeight-blocks",
       "blocks": {
@@ -90,7 +114,8 @@
         "b68335a0-5986-4397-a052-bf4c13170c22",
         "4b720668-5179-40c8-8708-9ca27a213aa1"
       ],
-      "settings": {}
+      "settings": {
+      }
     },
     "1c0c39d6-0db9-4ff6-9c22-5ba99800e65d": {
       "type": "spx-press",
@@ -393,6 +418,7 @@
   },
   "order": [
     "c9f769c3-8de5-46ce-9d1d-502717910573",
+    "spx_add_to_cart_GpMnD6",
     "dc9556c2-4975-49c8-9283-e9e901a02abb",
     "1c0c39d6-0db9-4ff6-9c22-5ba99800e65d",
     "9de2fcbd-01fc-4989-86e1-080c18f3eba5",
