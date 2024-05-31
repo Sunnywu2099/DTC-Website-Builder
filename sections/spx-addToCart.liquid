@@ -10,6 +10,10 @@
   .spx-addCart .right-wrapper{
     width: 50%;
   }
+  .spx-addCart .bottom{
+    display: flex;
+    gap: 50px;
+  }
 </style>
 
 <div class="spx-addCart">
@@ -35,6 +39,7 @@
               <div class="info">
                 <h4>{{ block.settings.product_bundle.title }}</h4>
                 <span>{{ block.settings.product_bundle.price | money_with_currency }}</span>
+                
               </div>
             </a>
           </div>  
