@@ -62,12 +62,12 @@
         <div class="option">
             {% for color_option in section.settings.product_main.options_by_name['Color'].values %}
               {% if color_option.available %}
-                  <option class="{% if forloop.first %}active{% endif %}">{{ color_option }}</option>
+                  <option class="{% if forloop.first %}active{% endif %}" data-id="{{ color_option.id }}" data-name="{{ color_option }}">{{ color_option }}</option>
               {% endif %}
             {% endfor %}
             {% for size_option in section.settings.product_main.options_by_name['Size'].values %}
               {% if size_option.available %}
-                  <option class="{% if forloop.first %}active{% endif %}">{{ size_option }}</option>
+                  <option class="{% if forloop.first %}active{% endif %}" data-id="{{ color_option.id }}" data-name="{{ color_option }}">{{ size_option }}</option>
               {% endif %}
             {% endfor %}
         </div>
@@ -87,7 +87,7 @@
                   <div class="option">
                       {% for size_option in block.settings.product_bundle.options_by_name['Color'].values %}
                         {% if size_option.available %}
-                          <option class="{% if forloop.first %}active{% endif %}">{{ size_option }}</option>
+                          <option class="{% if forloop.first %}active{% endif %}" data-id="{{ color_option.id }}" data-name="{{ color_option }}">{{ size_option }}</option>
                         {% endif %}
                       {% endfor %}
                   </div>
@@ -96,7 +96,7 @@
                   <div class="option">
                     {% for color_option in block.settings.product_bundle.options_by_name['Size'].values %}
                       {% if color_option.available %}
-                        <option class="{% if forloop.first %}active{% endif %}">{{ color_option }}</option>
+                        <option class="{% if forloop.first %}active{% endif %}" data-id="{{ color_option.id }}" data-name="{{ color_option }}">{{ color_option }}</option>
                       {% endif %}
                     {% endfor %}
                   </div>
