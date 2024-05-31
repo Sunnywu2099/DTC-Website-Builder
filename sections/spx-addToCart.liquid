@@ -61,12 +61,16 @@
               <div class="info">
                 <h4>{{ block.settings.product_bundle.title }}</h4>
                 <span>{{ block.settings.product_bundle.price | money_with_currency }}</span>
-                    {% for size_option in block.settings.product_bundle.options_by_name['Color'].values %}
-                      <option>{{ size_option }}</option>
-                    {% endfor %}
+                  <div class="option">
+                      {% for size_option in block.settings.product_bundle.options_by_name['Color'].values %}
+                        <option>{{ size_option }}</option>
+                      {% endfor %}
+                  </div>
+                  <div class="option">
                     {% for color_option in block.settings.product_bundle.options_by_name['Size'].values %}
                       <option>{{ color_option }}</option>
                     {% endfor %}
+                  </div>
               </div>
             </a>
           </div>  
