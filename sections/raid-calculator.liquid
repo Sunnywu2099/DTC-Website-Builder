@@ -1,0 +1,1243 @@
+{% liquid
+    assign section_title = section.settings.section_title
+    assign section_text = section.settings.section_text
+    assign text_color = section.settings.text_color
+    assign pd_top =  section.settings.pd_top
+    assign pd_bottom =  section.settings.pd_bottom
+    assign mobile_pd_top = section.settings.mobile_pd_top
+    assign mobile_pd_bottom = section.settings.mobile_pd_bottom
+    assign blocks = section.blocks
+    assign count = section.settings.num
+    assign collection = section.settings.collection
+%}
+<link
+  rel="stylesheet"
+  href="https://cdn.shopify.com/s/files/1/0257/5246/9566/files/swiper-bundle.min_b4c60233-5e07-47dc-800a-583c16079d0b.css?v=1655275790"
+>
+<style>
+    .calculator .type-wrapper{
+        display: flex;
+        gap: 50px;
+        border-bottom: 1px solid #e7e7e7;
+        
+    }
+    .calculator .type{
+        cursor: pointer;
+        font-weight: 600;
+        padding: 4px 8px;
+    }
+    .calculator .type.active{
+        color: #E9CE9B;
+        border-bottom: 2px solid #E9CE9B;
+    }
+    .calculator .drives{
+        padding: 20px 0 80px;
+    }
+    .calculator .drives .top,
+    .calculator .drives .bottom{
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+    .calculator .drives .top{
+        display: none;
+    }
+    .calculator .drives .top.active{
+        display: flex;
+    }
+    .calculator .drive{
+        cursor: pointer;
+        border: 1px solid rgba(13, 13, 13, 0.6);
+        border-radius: 4px;
+        width: 83px;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+    }
+    .calculator .drive-placeholder{
+        pointer-events: none;
+        border-radius: 8px;
+        text-align: center;
+        height: 180px;
+        background: #1C232A;
+        {% if count == 8 or count == 9 %}
+            flex: 0 0 calc(100% / 8 - 15px);
+        {% endif %}
+        {% if count >= 10 %}
+            flex: 0 0 calc(100% / 10 - 15px);
+        {% endif %}
+    }
+    .calculator .drive-placeholder.active{
+        cursor: pointer;
+        pointer-events: all;
+    }
+    .calculator .total{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .calculator #reset{
+        cursor: pointer;
+        font-weight: 700;
+    }
+    .calculator #reset:hover{
+        text-decoration: underline;
+    }
+    .calculator .progressBar .type-box{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .calculator .progressBar .space-box{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+    }
+    .calculator .progressBar .item{
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 14px;
+        line-height: 21px;
+        color: #0D0D0D;
+    }
+    .calculator .progressBar i{
+        display: block;
+        width: 16px;
+        height: 16px;
+        border-radius: 100%;
+    }
+    .calculator .result-box .bar{
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+    }
+    .calculator .select-box{
+        padding: 12px;
+        width: 304px;
+        height: 44px;
+        font-size: 16px;
+        line-height: 20px;
+        border-color: rgba(13, 13, 13, 0.4);
+        border-radius: 4px;
+        background-image: url('https://cdn.shopify.com/s/files/1/0630/9416/1602/files/Polygon_8_1.png?v=1719906957');
+        background-size: 10px 8px;
+        background-position: right 10px center;
+        color: #000;
+    }
+    .calculator .progress-box{
+        flex: 1;
+        background: #B3B3B3;
+        text-align: center;
+        vertical-align: bottom;
+        line-height: 44px;
+        color: #fff;
+        position: relative;
+        border-radius: 4px;
+        overflow: hidden;
+    }
+    .calculator .progress-box .wrapper{
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        display: flex;
+    }
+    .calculator .progress-box .wrapper .blank{
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+    }
+    .calculator .progress-box .wrapper .reserved{
+        width: 0px;
+        visibility: hidden;
+        transition: all .5s;
+    }
+    .calculator .progress-box .wrapper .reserved.active{
+        width: 8%;
+        visibility: visible;
+        transition: all .5s;
+        min-width: fit-content;
+        padding: 0 8px;
+    }
+    .calculator .progress-box .wrapper .available,
+    .calculator .progress-box .wrapper .protection{
+        width: 0%;
+        visibility: hidden;
+        transition: all .5s;
+        min-width: fit-content;
+    }
+    .calculator .bottom-wrapper{
+        background: #F2F2F2;
+        border-radius: 8px;;
+        margin-top: 40px;
+    }
+    .calculator .bottom .inner{
+        width: 100%;
+        height: 100%;
+        border-radius: 8px;
+        background: none;
+        /* background: #393F46; */
+        display: flex;
+        flex-direction: column;
+    }
+    .calculator .bottom .inner .selected-drive{
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .calculator .bottom .inner .hover-delete{
+        height: 30px;
+        background: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* background: #2A3138; */
+    }
+    .calculator .delete-mark{
+        display: block;
+        width: 28px;
+        height: 4px;
+        border-radius: 4px;
+        background: none;
+        opacity: 0;
+    }
+    .calculator .bottom .inner:hover .delete-mark{
+        opacity: 1;
+    }
+    .calculator .notes{
+        color: rgba(13, 13, 13, 0.8);
+    }
+    .calculator .recommended .no-results{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        font-weight: 600;
+        height: 268px;
+    }
+    .calculator .recommended-btn{
+        margin-left: auto;
+        margin-right: auto;
+        width: fit-content;
+    }
+    .calculator .progressBar .space-box.for-m{
+        display: none;
+    }
+    .calculator .progressBar{
+        display: none;
+    }
+    .calculator .recommended{
+        display: none;
+    }
+    @media screen and (max-width: 1024px) {
+        .calculator .result-box .bar{
+            flex-direction: column;
+            gap: 8px;
+        }
+        .calculator .progress-box{
+            flex: initial;
+            height: 44px;
+        }
+        .calculator .progress-box .wrapper{
+            height: 100%;
+        }
+        .calculator .progress-box .wrapper .reserved.active{
+            width: 66px;
+            flex-shrink: 0;
+        }
+        .calculator .progressBar .type-box .space-box{
+            display: none;
+        }
+        .calculator .progressBar .space-box.for-m{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .calculator .progressBar .space-box.for-m .item{
+            flex: 1 1 calc(50% - 9px);
+            font-size: 12px;
+            line-height: 18px;
+        }
+        .calculator .bottom-wrapper{
+            padding-left: 16px;
+            padding-right: 16px;
+        }
+    }
+    @media screen and (max-width: 768px) {
+        .calculator .drives .top,
+        .calculator .drives .bottom{
+            gap: 20px;
+        }
+        .calculator .drive,
+        .calculator .drive-placeholder{
+            width: calc((100% - 40px) / 3);
+            height: 40px;
+            flex: initial;
+            border-radius: 4px;
+        }
+        .calculator .bottom-wrapper{
+            padding: 12px 0;
+            background: none;
+            border-top: 1px solid rgba(13, 13, 13, 0.2);
+            margin-top: 20px;
+            border-radius: 0;
+        }
+        .calculator #reset svg{
+            display: none;
+        }
+        .calculator #reset span{
+            font-size: 14px;
+            line-height: 21px;
+            font-weight: 400;
+            text-decoration: underline;
+        }
+        .calculator .bottom .inner .hover-delete{
+            display: none!important;
+        }
+    }
+    @media screen and (max-width: 590px){
+        .calculator .select-box{
+            width: 100%;
+        }
+    }
+</style>
+
+{%- capture sizes -%}100vw{%- endcapture -%}
+<section class="calculator-banner relative">
+    {{- section.settings.img | image_url: width: section.settings.img.width | image_tag: is: 'loess-image', loading: 'lazy', sizes: sizes, widths: '200,300,400,500,600,700,800,900,1000,1200,1400,1600,1800,2000,2200,2400,2600,2800,3000,3200', class: 'block max-md:hidden' -}}
+    {{- section.settings.img_m | image_url: width: section.settings.img_m.width | image_tag: is: 'loess-image', loading: 'lazy', sizes: sizes, widths: '200,300,400,500,600,700,800,900,1000,1200,1400,1600,1800,2000,2200,2400,2600,2800,3000,3200', class: 'md:hidden max-md:block' -}}
+    <div class="px-[20px] max-w-[1280px] mx-auto absolute top-0 left-0 bottom-0 right-0 flex flex-col justify-center gap-[16px]">
+        <h3 style="color:{{text_color}};" class="font-bold text-[48px] leading-[52px] max-md:text-[28px] max-md:leading-[28px]">{{section_title}}</h3>
+        <p style="color:{{text_color}};opacity:0.8;" class="w-2/5 text-[20px] leading-[30px] max-md:w-full max-md:text-[16px] max-md:leading-[24px]">{{section_text}}</p>
+    </div>
+</section>
+<section class="calculator px-[20px] pt-[{{pd_top}}px] pb-[{{pd_bottom}}px] max-md:pt-[{{mobile_pd_top}}px] max-md:pb-[{{mobile_pd_bottom}}px]">
+    <div class="max-w-[1280px] mx-auto">
+        {% for block in blocks %} 
+            {% if block.type == 'Drives' %} 
+                <!-- 1.硬盘选择  HDD/SSD 两种类型-->
+                {% assign hdd_data = block.settings.hdd %}
+                {% assign hdd_data_array = hdd_data | split: ':' %}
+                {% assign hdd_title = hdd_data_array[0] %}
+                {% assign hdd_capacities = hdd_data_array[1] | split: ',' %}
+                {% assign ssd_data = block.settings.ssd %}
+                {% assign ssd_data_array = ssd_data | split: ':' %}
+                {% assign ssd_title = ssd_data_array[0] %}
+                {% assign ssd_capacities = ssd_data_array[1] | split: ',' %}
+                <div class="drives-wrapper">
+                    <H2 class="font-bold text-[38px] leading-[46px] mb-[16px] max-md:text-[24px] max-md:leading-[34px]">{{block.settings.title}}</H2>
+                    <div class="type-wrapper">
+                        {% if hdd_data %}  
+                            <span class="type active text-[20px] leading-[30px]" data-type="{{hdd_title}}">{{hdd_title}}</span>
+                        {% endif %}
+                        {% if ssd_data %}  
+                            <span class="type text-[20px] leading-[30px]" data-type="{{ssd_title}}">{{ssd_title}}</span>
+                        {% endif %}
+                    </div>
+                    <div class="drives">
+                        <div class="top active" data-type="{{hdd_title}}">
+                            {% for item in hdd_capacities %} 
+                                <span class="drive" data-storage="{{item}}">{{item}}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="top" data-type="{{ssd_title}}">
+                            {% for item in ssd_capacities %} 
+                                <span class="drive" data-storage="{{item}}">{{item}}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="bottom-wrapper px-[35px] py-[20px]">
+                            <div class="total mb-[20px]">
+                                <h3 class="text-[#0D0D0D] text-[14px] leading-[21px]">{{block.settings.total_text}}: <span id="total-nums">0</span></h3>
+                                <div id="reset" class="flex align-center">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M18.1821 18.364C16.5696 19.9927 14.3419 21 11.8813 21C6.96014 21 2.9707 16.9706 2.9707 12C2.9707 7.02945 6.96014 3 11.8813 3C14.3419 3 16.5696 4.00736 18.1821 5.63605C19.0028 6.46505 20.7919 8.5 20.7919 8.5" stroke="#0D0D0D" stroke-width="2"/>
+                                        <path d="M20.7912 4V8.5H16.3359" stroke="#0D0D0D" stroke-width="2"/>
+                                    </svg>
+                                    <span class="text-[16px] leading-[24px] text-[#0D0D0D] ml-[4px] mt-[2px]">{{block.settings.reset}}</span>
+                                </div>
+                            </div>
+                            {% assign num = section.settings.num %}
+                            <div class="bottom">
+                                {% for i in (1..num) %}
+                                    <div class="block drive-placeholder px-[4px] py-[4px]">
+                                        <div class="inner">
+                                            <div class="selected-drive font-bold text-[16px] leading-[24px]">0</div>
+                                            <div class="hover-delete pt-[18px] pb-[8px]">
+                                                <span class="delete-mark"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+
+            {% if block.type == 'Type' %} 
+                        <!-- 2.硬盘结果计算 -->
+                        <div class="progressBar">
+                            <H2 class="font-bold text-[38px] leading-[46px] mb-[16px] max-md:text-[24px] max-md:leading-[34px]">{{block.settings.title}}</H2>
+                            <div class="type-box mb-[20px]">
+                                <div class="flex items-center gap-[5px]">
+                                    <h3 class="text-[20px] leading-[25px] max-md:text-[16px] max-md:leading-[25px]">{{ block.settings.subtitle }}</h3>
+                                    {% if block.settings.link != blank %}
+                                        <a class="block w-[20px] h-[20px]" href="{{ block.settings.link }}">
+                                            <svg class="w-full h-full" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="14" cy="14" r="14" fill="#0D0D0D"/>
+                                                <path d="M12.768 15.888C12.432 13.376 15.84 12.816 15.84 11.264C15.84 10.288 15.072 9.744 13.808 9.744C12.832 9.744 12.032 10.192 11.248 11.008L9.936 9.808C10.96 8.624 12.368 7.84 14.08 7.84C16.4 7.84 18.096 8.928 18.096 11.056C18.096 13.392 14.592 13.68 14.848 15.888H12.768ZM13.824 20.16C12.992 20.16 12.4 19.568 12.4 18.736C12.4 17.904 13.008 17.328 13.824 17.328C14.624 17.328 15.232 17.904 15.232 18.736C15.232 19.568 14.624 20.16 13.824 20.16Z" fill="white"/>
+                                            </svg>
+                                        </a>
+                                    {% endif %}
+                                </div>
+                                <div class="space-box">
+                                    <div class="item"><i style="background-color: #FC8800;"></i>{{ block.settings.reserved }}</div>
+                                    <div class="item"><i style="background-color: #4EAB46;"></i>{{ block.settings.available }}</div>
+                                    <div class="item"><i style="background-color: #0077FA;"></i>{{ block.settings.protection }}</div>
+                                    <div class="item"><i style="background-color: #B3B3B3;"></i>{{ block.settings.unused }}</div>
+                                </div>
+                            </div>
+                            <div class="result-box">
+                                <div class="bar">
+                                    <select class="select-box" name="select1" id="select1">
+                                        <option value="basic">BASIC</option>
+                                        <option value="jbod">JBOD</option>
+                                        <option value="raid0" selected>RAID 0</option>
+                                        <option value="raid1">RAID 1</option>
+                                        <option value="raid5">RAID 5</option>
+                                        <option value="raid6">RAID 6</option>
+                                        <option value="raid10">RAID 10</option>
+                                    </select>
+
+                                    <div class="progress-box" id="progress1">
+                                        <div class="wrapper text-[14px]">
+                                            <div class="reserved" style="background-color: #FC8800;"></div>
+                                            <div class="available" style="background-color: #4EAB46;"></div>
+                                            <div class="protection" style="background-color: #0077FA;"></div>
+                                            <div class="blank" data-text="{{block.settings.blank}}">{{block.settings.blank}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bar">
+                                    <select class="select-box" name="select2" id="select2">
+                                        <option value="basic">BASIC</option>
+                                        <option value="jbod">JBOD</option>
+                                        <option value="raid0">RAID 0</option>
+                                        <option value="raid1">RAID 1</option>
+                                        <option value="raid5" selected>RAID 5</option>
+                                        <option value="raid6">RAID 6</option>
+                                        <option value="raid10">RAID 10</option>
+                                    </select>
+
+                                    <div class="progress-box" id="progress2">
+                                        <div class="wrapper text-[14px]">
+                                            <div class="reserved" style="background-color: #FC8800;"></div>
+                                            <div class="available" style="background-color: #4EAB46;"></div>
+                                            <div class="protection" style="background-color: #0077FA;"></div>
+                                            <div class="blank" data-text="{{block.settings.blank}}">{{block.settings.blank}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="space-box for-m mt-[16px]">
+                                <div class="item"><i style="background-color: #FC8800;"></i>{{ block.settings.reserved }}</div>
+                                <div class="item"><i style="background-color: #4EAB46;"></i>{{ block.settings.available }}</div>
+                                <div class="item"><i style="background-color: #0077FA;"></i>{{ block.settings.protection }}</div>
+                                <div class="item"><i style="background-color: #B3B3B3;"></i>{{ block.settings.unused }}</div>
+                            </div>
+                        </div>
+            {% endif %}
+
+            {% if block.type == 'recommended' %} 
+                <!-- 3.推荐产品 -->
+                <div class="recommended py-[80px]">
+                    <H2 class="font-bold text-[38px] leading-[46px] mb-[40px] max-md:text-[24px] max-md:leading-[34px]">{{block.settings.title}}</H2>
+                    <div class="no-results">No results.</div>
+                    <div class="swiper result-wrapper">
+                        <div class="swiper-wrapper"></div>
+                    </div>
+                    <a class="recommended-btn text-[16px] font-semibold block items-center justify-center mt-[60px] block border-[#BBA170] rounded-[24px] border-2 py-[8px] pl-[16px] pr-[16px] hover:bg-[#BBA170] hover:text-[#000000] text-[#BBA170]" href="{{ block.settings.link }}">{{ block.settings.btn_name }}</a>
+                </div>
+            {% endif %}
+
+            {% if block.type == 'notes' %} 
+                <!-- 4.底部notes备注-->
+                <div class="notes-wrapper pt-[40px] border-t border-[#E7E7E7]">
+                    <h3 class="font-semibold text-[16px] leading-[20px] mb-[8px]">{{ block.settings.title }}</h3>
+                    <p class="notes text-[14px] leading-[22px]">{{ block.settings.notes }}</p>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</section>  
+
+<script src="https://cdn.shopify.com/s/files/1/0257/5246/9566/files/swiper-bundle.min_23a60c44-0efc-4129-bf9f-c046f688609a.js?v=1655275790"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", (event) => {
+        let type_btns = document.querySelectorAll('.drives-wrapper .type');
+        let max_size = {{ section.settings.num }};
+        let drives_wrappers = document.querySelectorAll('.drives .top');
+        let drives = document.querySelectorAll('.top .drive');
+        let drives_places = document.querySelectorAll('.bottom .drive-placeholder');
+        let reset = document.querySelector('#reset');
+        let progress1 = document.querySelector('#progress1');
+        let progress2 = document.querySelector('#progress2');
+        let selected_box = [];
+        let select1 = document.querySelector('#select1');
+        let option1 = select1.value;
+        let select2 = document.querySelector('#select2');
+        let option2 = select2.value;
+        let totalSelected = [];
+        let size = 0;
+        let progressBar_wrapper = document.querySelector('.calculator .progressBar');
+        let recommended_wrapper = document.querySelector('.calculator .recommended');
+        // 预留系统空间 15.3 GB
+        const reserved = 15.3;
+        // 所选最小容量
+        let min = 0;
+        // 可用空间 需要根据类型计算
+        let availableSpace = 0;
+        // 计算所选内存总量
+        let totalNum = 0;
+        let total = document.querySelector('#total-nums');
+        // 计算保护所需
+        let protected = 0;
+        const calcFunctions = {
+            basic: calcBasic,
+            jbod: calcJBod,
+            raid0: calcRaid0,
+            raid1: calcRaid1,
+            raid5: calcRaid5,
+            raid6: calcRaid6,
+            raid10: calcRaid10
+        };
+        let no_results = document.querySelector('.recommended .no-results');
+        let result_wrapper = document.querySelector('.recommended .result-wrapper .swiper-wrapper');
+        let selected_type = 'HDD';
+        let filteredProducts = [];
+        // 获取推荐产品列表
+        let collection = {
+            products: [
+                {% for product in collection.products %}
+                    {
+                        title: "{{ product.title | escape }}",
+                        url: "{{ product.url }}",
+                        image: "{{ product.featured_image | img_url: 'medium' }}",
+                        max_count: "{{ product.metafields.custom.raid_calculator_count }}"
+                    }{% if forloop.last == false %},{% endif %}
+                {% endfor %}
+            ]
+        };
+
+        // 切换硬盘类型
+        type_btns.forEach(button => {
+            button.addEventListener('click', function() {
+                if (this.classList.contains('active')) {
+                    return;
+                }
+                let type = this.getAttribute('data-type');
+                selected_type = this.getAttribute('data-type');
+                type_btns.forEach(btn => btn.classList.remove('active'));
+                drives_wrappers.forEach(drive => {
+                    if(drive.getAttribute('data-type') == type){
+                        drive.classList.add('active');
+                    }else{
+                        drive.classList.remove('active');
+                    }
+                });
+                this.classList.add('active');
+                reset.click();
+            });
+        });
+
+        // 硬盘点击事件 点击添加
+        drives.forEach((item, index) => {
+            item.addEventListener('click', function () {
+                if (selected_box.length < max_size) {
+                    let item_storage = this.getAttribute('data-storage');
+                    selected_box.push(item_storage);
+                    countTotal();
+                    renderPlaces();
+                    storageCalculate();
+                };
+            })
+        });
+
+        // 硬盘移出事件 点击删除
+        drives_places.forEach((item, index) => {
+            item.addEventListener('click', function () {
+                let currentIndex = index;
+                selected_box.splice(currentIndex, 1);
+                clearPlaces();
+                renderPlaces();
+                countTotal();
+                storageCalculate();
+            })
+        });
+
+        // 清空盘槽
+        function clearPlaces() {
+            drives_places.forEach((item, index) => {
+                item.querySelector('.selected-drive').innerHTML = '';
+                item.querySelector('.inner').style.background = 'none';
+                item.querySelector('.hover-delete').style.background = 'none';
+                item.querySelector('.delete-mark').style.background = 'none';
+                item.style.color = '#000000';
+                item.classList.remove('active');
+            });
+        }
+
+        // 盘槽渲染添加
+        function renderPlaces() {
+            selected_box.forEach((item, index) => {
+                drives_places[index].querySelector('.selected-drive').innerHTML = item;
+                drives_places[index].querySelector('.inner').style.background = '#393f46';
+                drives_places[index].querySelector('.hover-delete').style.background = '#2a3138';
+                drives_places[index].querySelector('.delete-mark').style.background = '#479343';
+                drives_places[index].style.color = '#ffffff';
+                drives_places[index].classList.add('active');
+            })
+        }
+
+        // 硬盘计数
+        function countTotal() {
+            total.innerHTML = selected_box.length;
+        }
+
+        // 重置
+        reset.addEventListener('click', function () {
+            selected_box = [];
+            drives_places.forEach((item, index) => {
+                item.querySelector('.selected-drive').innerHTML = '';
+                item.querySelector('.inner').style.background = 'none';
+                item.querySelector('.hover-delete').style.background = 'none';
+                item.querySelector('.delete-mark').style.background = 'none';
+                item.style.color = '#000000';
+                item.classList.remove('active');
+            })
+            countTotal();
+            storageCalculate();
+        })
+
+        // TB单位转GB
+        function tbToGb(selectedBox) {
+            return selectedBox.map(size => {
+                // 提取数值和单位
+                const value = parseFloat(size);
+                const unit = size.match(/[a-zA-Z]+/)[0];
+                // 如果是GB单位，转换为TB
+                if (unit == 'TB') {
+                    return value * 1024;
+                }
+                // 如果是TB单位，直接返回数值
+                return value;
+            });
+        }
+
+        // RAID 类型更改
+        select1.addEventListener("change", function () {
+            option1 = this.value;
+            storageCalculate();
+        })
+
+        select2.addEventListener("change", function () {
+            option2 = this.value;
+            storageCalculate();
+        })
+
+        // 筛选符合盘数的产品
+        function filterProducts(size, type) {
+            return collection.products.filter(product => {
+                const maxCount = product.max_count;
+                if (maxCount.includes('-')) {
+                    // Handle 'ssd-n' case
+                    const [allowedType, maxSize] = maxCount.split('-');
+                    if (type == allowedType && size <= parseInt(maxSize)) {
+                        return true;
+                    }
+                } else {
+                    if (size <= parseInt(maxCount)) {
+                        return true;
+                    }
+                }
+                return false;
+            });
+        }
+
+        // 动态添加产品
+        function showProducts() {
+            no_results.style.display = 'none';
+            let listdiv = '';
+            result_wrapper.innerHTML = '';
+            filteredProducts.map((item, index) => {
+                listdiv = listdiv +
+                `<div class="swiper-slide">
+                    <a href=${item.url} class="py-[20px] px-[20px] flex flex-col justify-center items-center bg-[#F2F2F2]">
+                        <img class="max-w-[210px]" src=${item.image} loading="lazy">
+                        <h3 class="text-center font-bold mt-[20px] text-[20px] leading-[30px] max-md:text-[16px]">${item.title}</span></h3>
+                    </a>
+                </div>`;
+            });
+            result_wrapper.innerHTML = listdiv;
+            // result_wrapper.insertAdjacentHTML('beforeend', listdiv);
+        }
+
+        function returnSwiper() {
+            let result_swiper = new Swiper('.recommended .result-wrapper', {
+                init: false,
+                observer: true,
+                observeSlideChildren: true, 
+                slidesPerView : 1.1,  
+                spaceBetween: 12,
+                loop: false,
+                threshold: 30,
+                breakpoints: { 
+                    590: {
+                        slidesPerView: 2,
+                        spaceBetween: 12
+                    },
+                    768: { 
+                        slidesPerView: 3,
+                        spaceBetween: 16
+                    },
+                    900: {
+                        slidesPerView: 4,
+                        spaceBetween: 12
+                    }
+                },
+            });
+            result_swiper.init();
+        }
+
+        function convertAndTruncate(num) {
+            const TB = 1024;
+            let result;
+
+            if (num >= TB) {
+                // 转化为TB，并保留一位小数
+                result = (num / TB).toFixed(1) + ' TB';
+            } else {
+                // 保留GB，并保留一位小数
+                result = num.toFixed(1) + ' GB';
+            }
+
+            return result;
+        }
+
+        // 计算最小
+        function calcMin(totalSelected) {
+            if (totalSelected.length === 0) return [];
+            // 找到数组中的最小值
+            const min = (Math.min(...totalSelected)) / 1024;
+            console.log("min",min);
+            // 返回所有等于最小值的元素
+            const min_real = ((min * Math.pow(1000, 4)) / Math.pow(1024, 4)) * 1024;
+            return min_real;
+        }
+
+        // 计算总量
+        function calcTotal(totalSelected) {
+            if (totalSelected.length === 0) return [];
+            const total = totalSelected.reduce((total, size) => total + size, 0) / 1024;
+            const total_real = (total * Math.pow(1000, 4)) / Math.pow(1024, 4);
+            return total_real * 1024;
+        }
+
+        // 计算可用空间
+        function storageCalculate() {
+            if (selected_box.length > 0) {
+                progressBar_wrapper.style.display = "block";
+                recommended_wrapper.style.display = "block";
+                totalSelected = tbToGb(selected_box);
+                // 计算所选盘数
+                size = totalSelected.length;
+                
+                const calculate = (option, elementId) => {
+                    if (calcFunctions[option]) {
+                        const { reservedSpace, minOne, protected } = calcFunctions[option]();
+                        let element = document.querySelector(`#${elementId}`);
+                        renderProgress(element, reservedSpace, minOne, protected);
+                    }
+                };
+                calculate(option1, 'progress1');
+                calculate(option2, 'progress2');
+
+                filteredProducts = filterProducts(size, selected_type);
+                showProducts();
+                setTimeout(() => {
+                    returnSwiper();
+                }, 100);
+            } else {
+                renderProgress(progress1,0,0,0,100);
+                renderProgress(progress2,0,0,0,100);
+                no_results.style.display = 'flex';
+                result_wrapper.innerHTML = '';
+            }
+        }
+
+        function renderProgress(ele, reservedSpace, minOne, protected) {
+            // 计算所选内存总量
+            let totalNum = Number(calcTotal(totalSelected).toFixed(1));
+            let minOne_real = Number(minOne.toFixed(1));
+            let protected_real = Number(protected.toFixed(1));
+            // 未使用空间 需要计算
+            let unusedSpace = totalNum - minOne_real - protected_real - reservedSpace;
+            unusedSpace = Math.round(unusedSpace * 1e10) / 1e10;
+            let availableCalc = (minOne_real / totalNum) * 100;
+            let protectionCalc = (protected_real / totalNum) * 100;
+            let unusedCalc = (unusedSpace / totalNum) * 100;
+            if (availableCalc > 0) {
+                ele.querySelector('.available').innerText = `${convertAndTruncate(minOne)}`;
+                ele.querySelector('.available').style.width = `${availableCalc}%`;
+                ele.querySelector('.available').style.padding = '0 8px';
+                ele.querySelector('.available').style.visibility = 'visible';
+                ele.querySelector('.reserved').classList.add('active');
+                ele.querySelector('.reserved').innerText = `${convertAndTruncate(reservedSpace)}`;
+            } else {
+                ele.querySelector('.available').innerText = '';
+                ele.querySelector('.available').style.width = `0%`;
+                ele.querySelector('.available').style.padding = '0 0px';
+                ele.querySelector('.available').style.visibility = 'hidden';
+                ele.querySelector('.reserved').classList.remove('active');
+                ele.querySelector('.reserved').innerText = '';
+            }
+            if (protectionCalc > 0) {
+                ele.querySelector('.protection').innerText = `${convertAndTruncate(protected)}`;
+                ele.querySelector('.protection').style.width = `${protectionCalc}%`;
+                ele.querySelector('.protection').style.padding = '0 8px';
+                ele.querySelector('.protection').style.visibility = 'visible';
+            } else {
+                ele.querySelector('.protection').innerText = '';
+                ele.querySelector('.protection').style.width = `0%`;
+                ele.querySelector('.protection').style.padding = '0 0px';
+                ele.querySelector('.protection').style.visibility = 'hidden';
+            }
+            if (unusedCalc < 100 && unusedCalc > 0) {
+                ele.querySelector('.blank').innerText = `${convertAndTruncate(unusedSpace)}`;
+                ele.querySelector('.blank').style.width = `${unusedCalc}%`;
+                ele.querySelector('.blank').style.padding = '0 8px';
+                ele.querySelector('.blank').style.visibility = 'visible';
+            } else if(unusedCalc == 0){
+                ele.querySelector('.blank').innerText = '';
+                ele.querySelector('.blank').style.width = `0%`;
+                ele.querySelector('.blank').style.padding = '0 0px';
+                ele.querySelector('.blank').style.visibility = 'hidden';
+            } else {
+                ele.querySelector('.blank').innerText = ele.querySelector('.blank').getAttribute('data-text');
+                ele.querySelector('.blank').style.width = `100%`;
+                ele.querySelector('.blank').style.visibility = 'visible';
+            }
+        }
+
+        // Basic 计算方法
+        function calcBasic() {
+            if (size === 1) {
+                // 预留空间
+                let reservedSpace = reserved;
+                // 可用空间
+                let minOne = calcTotal(totalSelected) - reservedSpace;
+                // 保护所需空间 根据类型计算
+                let protected = 0;
+                return {
+                    reservedSpace,
+                    minOne,
+                    protected
+                };
+
+            } else {
+                return {
+                    reservedSpace: 0,
+                    minOne: 0,
+                    protected: 0
+                };
+            }
+
+        }
+
+        // JBod 计算方法
+        function calcJBod() {
+            if (size >= 1) {
+                // 预留空间
+                let reservedSpace = reserved * size;
+                // 可用空间
+                let minOne = calcTotal(totalSelected) - reservedSpace;
+                // 保护所需空间 根据类型计算
+                let protected = 0;
+                return {
+                    reservedSpace,
+                    minOne,
+                    protected
+                };
+
+            } else {
+                return {
+                    reservedSpace: 0,
+                    minOne: 0,
+                    protected: 0
+                };
+            }
+
+        }
+
+        // RAID 0 计算方法
+        function calcRaid0() {
+            if (size >= 2) {
+                // 预留空间
+                let reservedSpace = reserved * size;
+                // 可用空间
+                let minOne = calcTotal(totalSelected) - reservedSpace;
+                // 保护所需空间 根据类型计算
+                let protected = 0;
+                return {
+                    reservedSpace,
+                    minOne,
+                    protected
+                };
+
+            } else {
+                return {
+                    reservedSpace: 0,
+                    minOne: 0,
+                    protected: 0
+                };
+            }
+
+        }
+
+        // Raid1 计算方法
+        function calcRaid1() {
+            if (size >= 2) {
+                // 预留空间
+                let reservedSpace = reserved * size;
+                // 可用空间
+                let minOne = calcMin(totalSelected) - reserved;
+                // 保护所需空间 根据类型计算
+                let protected = (calcMin(totalSelected) - reserved) * (size - 1);
+                return {
+                    reservedSpace,
+                    minOne,
+                    protected
+                };
+
+            } else {
+                return {
+                    reservedSpace: 0,
+                    minOne: 0,
+                    protected: 0
+                };
+            }
+        }
+
+        // RAID 5 计算方法
+        function calcRaid5() {
+            if (size >= 3) {
+                // 预留空间
+                let reservedSpace = reserved * size;
+                // 可用空间
+                let minOne = (calcMin(totalSelected) - reserved) * (size - 1);
+                // 保护所需空间 根据类型计算
+                let protected = calcMin(totalSelected) - reserved;
+                return {
+                    reservedSpace,
+                    minOne,
+                    protected
+                };
+
+            } else {
+                return {
+                    reservedSpace: 0,
+                    minOne: 0,
+                    protected: 0
+                };
+            }
+        }
+
+        // RAID 6 计算方法
+        function calcRaid6() {
+            if (size >= 4) {
+                // 预留空间
+                let reservedSpace = reserved * size;
+                // 可用空间
+                let minOne = (calcMin(totalSelected) - reserved) * (size - 2);
+                // 保护所需空间 根据类型计算
+                let protected = (calcMin(totalSelected) - reserved) * 2;
+                return {
+                    reservedSpace,
+                    minOne,
+                    protected
+                };
+
+            } else {
+                return {
+                    reservedSpace: 0,
+                    minOne: 0,
+                    protected: 0
+                };
+            }
+        }
+
+        // RAID 10 计算方法
+        function calcRaid10() {
+            if (size >= 4 && size % 2 === 0) {
+                // 预留空间
+                let reservedSpace = reserved * size;
+                // 可用空间
+                let minOne = (calcMin(totalSelected) - reserved) * (size / 2);
+                // 保护所需空间 根据类型计算
+                let protected = (calcMin(totalSelected) - reserved) * (size / 2);
+                return {
+                    reservedSpace,
+                    minOne,
+                    protected
+                };
+
+            } else {
+                return {
+                    reservedSpace: 0,
+                    minOne: 0,
+                    protected: 0
+                };
+            }
+        }
+    });
+</script>
+
+{% schema %}
+{
+    "name": "UG Calculator",
+    "settings": [
+        {
+            "type": "textarea",
+            "id": "section_title",
+            "label": "模块标题",
+            "default": "UGREEN RAID Calculator"
+        },
+        {
+            "type": "textarea",
+            "id": "section_text",
+            "label": "模块二级标题",
+            "default": "Choose the best setup and determine your needs based on storage capacity."
+        },
+        {
+            "type": "image_picker",
+            "id": "img",
+            "label": "PC Banner图片"
+        },
+        {
+            "type": "image_picker",
+            "id": "img_m",
+            "label": "Mobile Banner图片"
+        },
+        {
+            "type": "color",
+            "id": "text_color",
+            "label": "文字颜色",
+            "default": "#ffffff"
+        },
+        {
+            "type": "range",
+            "id": "pd_top",
+            "label": "PC上边距",
+            "min": 0,
+            "max": 300,
+            "step": 10,
+            "unit": "px",
+            "default": 100
+        },
+        {
+            "type": "range",
+            "id": "pd_bottom",
+            "label": "PC下边距",
+            "min": 0,
+            "max": 300,
+            "step": 10,
+            "unit": "px",
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "mobile_pd_top",
+            "label": "Mobile上边距",
+            "min": 0,
+            "max": 300,
+            "step": 10,
+            "unit": "px",
+            "default": 80
+        },
+        {
+            "type": "range",
+            "id": "mobile_pd_bottom",
+            "label": "Mobile下边距",
+            "min": 0,
+            "max": 300,
+            "step": 10,
+            "unit": "px",
+            "default": 0
+        },
+        {
+            "type": "collection",
+            "id": "collection",
+            "label": "参与计算推荐的产品collection"
+        },
+        {
+            "type": "range",
+            "id": "num",
+            "label": "可支持的硬盘数量",
+            "min": 8,
+            "max": 30,
+            "step": 1,
+            "default": 8
+        }
+    ],
+    "blocks": [
+        {
+            "name": "Drives",
+            "type": "Drives",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "block标题",
+                    "default": "Select drives"
+                },
+                {
+                    "type": "html",
+                    "id": "hdd",
+                    "label": "HDD类型",
+                    "info": "类型名与容量类型用 ':' 隔开，各个容量之间用 ',' 隔开"
+                },
+                {
+                    "type": "html",
+                    "id": "ssd",
+                    "label": "SSD类型",
+                    "info": "类型名与容量类型用 ':' 隔开，各个容量之间用 ',' 隔开"
+                },
+                {
+                    "type": "textarea",
+                    "id": "total_text",
+                    "label": "已选择硬盘总数的文案",
+                    "default": "Total number of drives"
+                },
+                {
+                    "type": "text",
+                    "id": "reset",
+                    "label": "重置按钮的文案",
+                    "default": "RESET"
+                }
+            ]
+        },
+        {
+            "name": "Type",
+            "type": "Type",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "textarea",
+                    "id": "title",
+                    "label": "block标题",
+                    "default": "Select RAID Type"
+                },
+                {
+                    "type": "textarea",
+                    "id": "subtitle",
+                    "label": "types小标题",
+                    "default": "RAID Types"
+                },
+                {
+                    "type": "url",
+                    "id": "link",
+                    "label": "Raid types?跳转链接"
+                },
+                {
+                    "type": "text",
+                    "id": "reserved",
+                    "label": "预留空间文案",
+                    "default": "Reserved for system"
+                },
+                {
+                    "type": "text",
+                    "id": "available",
+                    "label": "可用空间文案",
+                    "default": "Available capacity"
+                },
+                {
+                    "type": "text",
+                    "id": "protection",
+                    "label": "保护空间文案",
+                    "default": "Protection"
+                },
+                {
+                    "type": "text",
+                    "id": "unused",
+                    "label": "未使用空间文案",
+                    "default": "Unused space"
+                },
+                {
+                    "type": "textarea",
+                    "id": "blank",
+                    "label": "未选择足够硬盘时文案",
+                    "default": "Insufficient drives. Add more drives for this RAID configuration."
+                }
+            ]
+        },
+        {
+            "name": "Recommended models",
+            "type": "recommended",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "textarea",
+                    "id": "title",
+                    "label": "block标题",
+                    "default": "Recommended models"
+                },
+                {
+                    "type": "url",
+                    "id": "link",
+                    "label": "跳转链接"
+                },
+                {
+                    "type": "text",
+                    "id": "btn_name",
+                    "label": "block按钮标题",
+                    "default": "Product Comparison >"
+                }
+            ]
+        },
+        {
+            "name": "Notes",
+            "type": "notes",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "block标题",
+                    "default": "Notes:"
+                },
+                {
+                    "type": "textarea",
+                    "id": "notes",
+                    "label": "block内容"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+        "name": "UG Calculator"
+        }
+    ]
+    }
+{% endschema %}
