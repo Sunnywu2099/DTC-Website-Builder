@@ -1,3 +1,12 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
     "c9f769c3-8de5-46ce-9d1d-502717910573": {
@@ -51,6 +60,7 @@
         "45017d9b-3d72-4631-ba91-58ee7a6d0fee",
         "e4660ac6-2cbc-4216-a26c-d3ff6963c838"
       ],
+      "disabled": true,
       "settings": {
         "auto_change": false,
         "change_time": 7000
@@ -76,6 +86,7 @@
         "block_x9TX3J",
         "block_33AJFc"
       ],
+      "disabled": true,
       "settings": {
         "product_main": "360-reflective-cycling-jacket"
       }
@@ -151,12 +162,14 @@
         "b2fc4653-9373-47d1-9213-96371d25b187",
         "b9174922-b92f-4d67-afbb-2d8aa5434534"
       ],
+      "disabled": true,
       "settings": {
         "title": "Press Room"
       }
     },
     "9de2fcbd-01fc-4989-86e1-080c18f3eba5": {
       "type": "spx-scrollVideo",
+      "disabled": true,
       "settings": {
         "img": "shopify:\/\/shop_images\/Exclude_1629c84d-6a69-4801-82d8-b30f99f48f13.png",
         "img_m": "shopify:\/\/shop_images\/Exclude_e540f7bb-c81a-4de9-8191-d147311129fb.png",
@@ -280,6 +293,7 @@
         "2c420bfc-2b8f-479a-9ba7-7bb6aebd0080",
         "template--16704114884757__71ea1a10-a1b7-4474-a465-dbd6f6c1373e-slide-7"
       ],
+      "disabled": true,
       "settings": {
         "title1": "Automatic Base Station",
         "title2": "One Station to Take Care of All"
@@ -331,6 +345,7 @@
         "template--16704114884757__9a867374-1d93-481a-8f03-d3f37650ad08-block-4",
         "template--16704114884757__9a867374-1d93-481a-8f03-d3f37650ad08-block-5"
       ],
+      "disabled": true,
       "settings": {
         "heading": "Heading",
         "text": "text text text",
@@ -410,6 +425,7 @@
         "template--16704114884757__9752e660-9d0e-4d6b-b8e2-384e2ac27bbe-block2-1",
         "7c714bb0-dd2d-4ac5-88b9-2f2fc59bc838"
       ],
+      "disabled": true,
       "settings": {
         "title1": "Automatic Base Station",
         "title2": "One Station to Take Care of All"
