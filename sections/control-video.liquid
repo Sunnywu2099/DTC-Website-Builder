@@ -15,7 +15,7 @@
 
 <div class="video-control">
   <div class="video-wrapper">
-    {{ section.settings.video | video_tag:class:"123", autoplay: false, loop: true, muted: true, controls: false, image_size:'master' }}
+    {{ section.settings.video | video_tag:class:"video-banner", autoplay: false, loop: true, muted: true, controls: false, image_size:'master' }}
   </div>
   <div class="btn-box">
     <span class="prev">prev</span>
@@ -25,7 +25,7 @@
 
 
 <script>
-
+  console.log($('.video-banner'))
 </script>
 
 {% schema %}
