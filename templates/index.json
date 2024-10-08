@@ -12,6 +12,7 @@
     "control_video_eeXt3W": {
       "type": "control-video",
       "settings": {
+        "video": "shopify://files/videos/banner_video.mp4"
       }
     },
     "c9f769c3-8de5-46ce-9d1d-502717910573": {
