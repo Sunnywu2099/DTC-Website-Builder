@@ -9,48 +9,53 @@
 */
 {
   "sections": {
+    "control_video_eeXt3W": {
+      "type": "control-video",
+      "settings": {
+      }
+    },
     "c9f769c3-8de5-46ce-9d1d-502717910573": {
       "type": "spx-banner-1",
       "blocks": {
         "ddd49c14-8a47-4c54-8b92-970b3f90036c": {
           "type": "block",
           "settings": {
-            "img": "shopify:\/\/shop_images\/banner1.jpg",
-            "img_mb": "shopify:\/\/shop_images\/banner1-m.jpg",
+            "img": "shopify://shop_images/banner1.jpg",
+            "img_mb": "shopify://shop_images/banner1-m.jpg",
             "title": "DJI INSPIRE 3",
             "text": "Master the Unseen",
             "btn_name": "Learn More >",
-            "link": "\/",
+            "link": "/",
             "btn_name2": "Buy Now >",
-            "link2": "\/",
+            "link2": "/",
             "content_color": "#ffffff"
           }
         },
         "45017d9b-3d72-4631-ba91-58ee7a6d0fee": {
           "type": "block",
           "settings": {
-            "img": "shopify:\/\/shop_images\/banner2.jpg",
-            "img_mb": "shopify:\/\/shop_images\/banner2-m.jpg",
+            "img": "shopify://shop_images/banner2.jpg",
+            "img_mb": "shopify://shop_images/banner2-m.jpg",
             "title": "DJI MAVIC 3 ENTERPRISE SERIES",
             "text": "Your Everyday Commercial Drone",
             "btn_name": "Learn More >",
-            "link": "\/",
+            "link": "/",
             "btn_name2": "Buy Now >",
-            "link2": "\/",
+            "link2": "/",
             "content_color": "#ffffff"
           }
         },
         "e4660ac6-2cbc-4216-a26c-d3ff6963c838": {
           "type": "block",
           "settings": {
-            "img": "shopify:\/\/shop_images\/banner3.jpg",
-            "img_mb": "shopify:\/\/shop_images\/banner3-m.jpg",
+            "img": "shopify://shop_images/banner3.jpg",
+            "img_mb": "shopify://shop_images/banner3-m.jpg",
             "title": "AGRAS T40",
             "text": "One for All",
             "btn_name": "Learn More >",
-            "link": "\/",
+            "link": "/",
             "btn_name2": "Buy Now >",
-            "link2": "\/",
+            "link2": "/",
             "content_color": "#ffffff"
           }
         }
@@ -97,12 +102,12 @@
         "b68335a0-5986-4397-a052-bf4c13170c22": {
           "type": "block",
           "settings": {
-            "img": "shopify:\/\/shop_images\/b1.png",
-            "img_mb": "shopify:\/\/shop_images\/b1-m.png",
+            "img": "shopify://shop_images/b1.png",
+            "img_mb": "shopify://shop_images/b1-m.png",
             "title": "Compare Pool Cleaners",
             "text": "See product overviews and comparisons here",
             "btn_name": "Learn More >",
-            "link": "\/",
+            "link": "/",
             "btn_name2": "",
             "link2": ""
           }
@@ -110,14 +115,14 @@
         "4b720668-5179-40c8-8708-9ca27a213aa1": {
           "type": "block",
           "settings": {
-            "img": "shopify:\/\/shop_images\/b2.png",
-            "img_mb": "shopify:\/\/shop_images\/b2-m.png",
+            "img": "shopify://shop_images/b2.png",
+            "img_mb": "shopify://shop_images/b2-m.png",
             "title": "Genkinno P1",
             "text": "Discover the future of pool cleaning with a robotic device that's powered by water, for water.",
             "btn_name": "Learn More >",
-            "link": "\/",
+            "link": "/",
             "btn_name2": "Buy Now >",
-            "link2": "\/"
+            "link2": "/"
           }
         }
       },
@@ -171,14 +176,14 @@
       "type": "spx-scrollVideo",
       "disabled": true,
       "settings": {
-        "img": "shopify:\/\/shop_images\/Exclude_1629c84d-6a69-4801-82d8-b30f99f48f13.png",
-        "img_m": "shopify:\/\/shop_images\/Exclude_e540f7bb-c81a-4de9-8191-d147311129fb.png",
-        "cover": "shopify:\/\/shop_images\/c1.jpg",
+        "img": "shopify://shop_images/Exclude_1629c84d-6a69-4801-82d8-b30f99f48f13.png",
+        "img_m": "shopify://shop_images/Exclude_e540f7bb-c81a-4de9-8191-d147311129fb.png",
+        "cover": "shopify://shop_images/c1.jpg",
         "title": "",
         "text": "Make the burden of cleaning your pool a distant memory. No more unsightly gunk on the bottom, no more debris floating on the surface, just a flawlessly maintained pool from top to bottom that's inviting you to dive in. And all this is achieved with the simple press of a button.",
         "btn_name": "Watch Now",
-        "post_video": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/f7a8e94be8444a35b718bda56950d401.mp4",
-        "main_video": "https:\/\/www.youtube.com\/embed\/nELCLl-kioI?si=01lxempIMJzEBjJx"
+        "post_video": "https://cdn.shopify.com/videos/c/o/v/f7a8e94be8444a35b718bda56950d401.mp4",
+        "main_video": "https://www.youtube.com/embed/nELCLl-kioI?si=01lxempIMJzEBjJx"
       }
     },
     "71ea1a10-a1b7-4474-a465-dbd6f6c1373e": {
@@ -189,16 +194,16 @@
           "settings": {
             "menu": "Auto Water Exchange",
             "menu_sub": "(Optional)",
-            "menu_desc": "<p>Forget about filling tanks, lugging them around, dumping dirty water, and accidental spills. easy as a washing machine.<\/p>",
+            "menu_desc": "<p>Forget about filling tanks, lugging them around, dumping dirty water, and accidental spills. easy as a washing machine.</p>",
             "menu_remark1": "Is This System Right for My Home?",
             "menu_remark2": "Offered Separately as an Accessory",
             "menu_btn": "Find Out!",
             "menu_btn_link": "",
             "enable_image": true,
-            "menu_pc_backdrop_url": "shopify:\/\/shop_images\/page-fifth-backdrop-2_1920x_7e2867ac-d439-4244-b5bd-e91ebb0fc608.jpg",
-            "menu_mb_backdrop_url": "shopify:\/\/shop_images\/2_750x_3e42bbe2-64cd-42f9-adfb-39de8c543e08.png",
-            "menu_pc_video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/ecc752c45c1e4a4e8b79ab40d3640300.mp4",
-            "menu_mb_video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/af475bf3626d412da3938c6752b2ea41.mp4"
+            "menu_pc_backdrop_url": "shopify://shop_images/page-fifth-backdrop-2_1920x_7e2867ac-d439-4244-b5bd-e91ebb0fc608.jpg",
+            "menu_mb_backdrop_url": "shopify://shop_images/2_750x_3e42bbe2-64cd-42f9-adfb-39de8c543e08.png",
+            "menu_pc_video_url": "https://cdn.shopify.com/videos/c/o/v/ecc752c45c1e4a4e8b79ab40d3640300.mp4",
+            "menu_mb_video_url": "https://cdn.shopify.com/videos/c/o/v/af475bf3626d412da3938c6752b2ea41.mp4"
           }
         },
         "5b7a4e9d-8656-4730-93e9-10a4f93884ff": {
@@ -206,16 +211,16 @@
           "settings": {
             "menu": "Auto Water Exchange",
             "menu_sub": "(2)",
-            "menu_desc": "<p>Forget about filling tanks, lugging them around, dumping dirty water, and accidental spills. easy as a washing machine.<\/p>",
+            "menu_desc": "<p>Forget about filling tanks, lugging them around, dumping dirty water, and accidental spills. easy as a washing machine.</p>",
             "menu_remark1": "",
             "menu_remark2": "",
             "menu_btn": "",
             "menu_btn_link": "",
             "enable_image": true,
-            "menu_pc_backdrop_url": "shopify:\/\/shop_images\/page-fifth-backdrop-3_1920x_0b0a1f9c-16e0-4471-81a6-fb8b4ea8bb3b.jpg",
-            "menu_mb_backdrop_url": "shopify:\/\/shop_images\/3_750x_a86a0934-5979-4b6a-868d-b71f44260d88.png",
-            "menu_pc_video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/ecc752c45c1e4a4e8b79ab40d3640300.mp4",
-            "menu_mb_video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/af475bf3626d412da3938c6752b2ea41.mp4"
+            "menu_pc_backdrop_url": "shopify://shop_images/page-fifth-backdrop-3_1920x_0b0a1f9c-16e0-4471-81a6-fb8b4ea8bb3b.jpg",
+            "menu_mb_backdrop_url": "shopify://shop_images/3_750x_a86a0934-5979-4b6a-868d-b71f44260d88.png",
+            "menu_pc_video_url": "https://cdn.shopify.com/videos/c/o/v/ecc752c45c1e4a4e8b79ab40d3640300.mp4",
+            "menu_mb_video_url": "https://cdn.shopify.com/videos/c/o/v/af475bf3626d412da3938c6752b2ea41.mp4"
           }
         },
         "a9d97c02-71fb-4173-a6db-e81d5b1b8fe0": {
@@ -223,16 +228,16 @@
           "settings": {
             "menu": "Auto Water Exchange",
             "menu_sub": "(3)",
-            "menu_desc": "<p>Disregardabout filling tanks, lugging them around, dumping dirty water, and accidental spills. easy as a washing machine.<\/p>",
+            "menu_desc": "<p>Disregardabout filling tanks, lugging them around, dumping dirty water, and accidental spills. easy as a washing machine.</p>",
             "menu_remark1": "",
             "menu_remark2": "",
             "menu_btn": "Find Out!",
-            "menu_btn_link": "\/",
+            "menu_btn_link": "/",
             "enable_image": true,
-            "menu_pc_backdrop_url": "shopify:\/\/shop_images\/page-fifth-backdrop-4_1920x_a9b5d85b-aea8-4774-86ff-fafa165e7f21.webp",
-            "menu_mb_backdrop_url": "shopify:\/\/shop_images\/4_750x_c86b3053-848b-43bc-9c7e-95f5334fcf60.webp",
-            "menu_pc_video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/ecc752c45c1e4a4e8b79ab40d3640300.mp4",
-            "menu_mb_video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/af475bf3626d412da3938c6752b2ea41.mp4"
+            "menu_pc_backdrop_url": "shopify://shop_images/page-fifth-backdrop-4_1920x_a9b5d85b-aea8-4774-86ff-fafa165e7f21.webp",
+            "menu_mb_backdrop_url": "shopify://shop_images/4_750x_c86b3053-848b-43bc-9c7e-95f5334fcf60.webp",
+            "menu_pc_video_url": "https://cdn.shopify.com/videos/c/o/v/ecc752c45c1e4a4e8b79ab40d3640300.mp4",
+            "menu_mb_video_url": "https://cdn.shopify.com/videos/c/o/v/af475bf3626d412da3938c6752b2ea41.mp4"
           }
         },
         "09abee26-66a9-499c-9884-00b9f15a6266": {
@@ -240,16 +245,16 @@
           "settings": {
             "menu": "Auto Water Exchange",
             "menu_sub": "(4)",
-            "menu_desc": "<p>text<\/p>",
+            "menu_desc": "<p>text</p>",
             "menu_remark1": "",
             "menu_remark2": "",
             "menu_btn": "",
             "menu_btn_link": "",
             "enable_image": true,
-            "menu_pc_backdrop_url": "shopify:\/\/shop_images\/page-fifth-backdrop-6_1920x_b59786df-345d-4b1e-bc09-35eba540386b.jpg",
-            "menu_mb_backdrop_url": "shopify:\/\/shop_images\/6_750x_8370d7fe-920c-4381-bb75-8633d8421824.png",
-            "menu_pc_video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/ecc752c45c1e4a4e8b79ab40d3640300.mp4",
-            "menu_mb_video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/af475bf3626d412da3938c6752b2ea41.mp4"
+            "menu_pc_backdrop_url": "shopify://shop_images/page-fifth-backdrop-6_1920x_b59786df-345d-4b1e-bc09-35eba540386b.jpg",
+            "menu_mb_backdrop_url": "shopify://shop_images/6_750x_8370d7fe-920c-4381-bb75-8633d8421824.png",
+            "menu_pc_video_url": "https://cdn.shopify.com/videos/c/o/v/ecc752c45c1e4a4e8b79ab40d3640300.mp4",
+            "menu_mb_video_url": "https://cdn.shopify.com/videos/c/o/v/af475bf3626d412da3938c6752b2ea41.mp4"
           }
         },
         "2c420bfc-2b8f-479a-9ba7-7bb6aebd0080": {
@@ -257,16 +262,16 @@
           "settings": {
             "menu": "Auto Water Exchange",
             "menu_sub": "(5)",
-            "menu_desc": "<p>Forget about filling tanks, lugging them around, dumping dirty water, and accidental spills. easy as a washing machine.<\/p>",
+            "menu_desc": "<p>Forget about filling tanks, lugging them around, dumping dirty water, and accidental spills. easy as a washing machine.</p>",
             "menu_remark1": "Is This System Right for My Home?",
             "menu_remark2": "Offered Separately as an Accessory",
             "menu_btn": "",
             "menu_btn_link": "",
             "enable_image": true,
-            "menu_pc_backdrop_url": "shopify:\/\/shop_images\/page-fifth-backdrop-5_1920x_f2294748-794a-463f-b0a1-2102d7eff2da.jpg",
-            "menu_mb_backdrop_url": "shopify:\/\/shop_images\/5_750x_a027b2c6-ba2d-48cc-8192-c6a18710a9aa.png",
-            "menu_pc_video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/ecc752c45c1e4a4e8b79ab40d3640300.mp4",
-            "menu_mb_video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/af475bf3626d412da3938c6752b2ea41.mp4"
+            "menu_pc_backdrop_url": "shopify://shop_images/page-fifth-backdrop-5_1920x_f2294748-794a-463f-b0a1-2102d7eff2da.jpg",
+            "menu_mb_backdrop_url": "shopify://shop_images/5_750x_a027b2c6-ba2d-48cc-8192-c6a18710a9aa.png",
+            "menu_pc_video_url": "https://cdn.shopify.com/videos/c/o/v/ecc752c45c1e4a4e8b79ab40d3640300.mp4",
+            "menu_mb_video_url": "https://cdn.shopify.com/videos/c/o/v/af475bf3626d412da3938c6752b2ea41.mp4"
           }
         },
         "template--16704114884757__71ea1a10-a1b7-4474-a465-dbd6f6c1373e-slide-7": {
@@ -280,8 +285,8 @@
             "menu_btn": "",
             "menu_btn_link": "",
             "enable_image": false,
-            "menu_pc_video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/ecc752c45c1e4a4e8b79ab40d3640300.mp4",
-            "menu_mb_video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/af475bf3626d412da3938c6752b2ea41.mp4"
+            "menu_pc_video_url": "https://cdn.shopify.com/videos/c/o/v/ecc752c45c1e4a4e8b79ab40d3640300.mp4",
+            "menu_mb_video_url": "https://cdn.shopify.com/videos/c/o/v/af475bf3626d412da3938c6752b2ea41.mp4"
           }
         }
       },
@@ -305,35 +310,35 @@
         "template--16704114884757__9a867374-1d93-481a-8f03-d3f37650ad08-block-1": {
           "type": "block",
           "settings": {
-            "image": "shopify:\/\/shop_images\/b4_736x_1ed00e7d-e808-42bd-8e67-9b6c2535e106.webp",
+            "image": "shopify://shop_images/b4_736x_1ed00e7d-e808-42bd-8e67-9b6c2535e106.webp",
             "text": "text text text"
           }
         },
         "template--16704114884757__9a867374-1d93-481a-8f03-d3f37650ad08-block-2": {
           "type": "block",
           "settings": {
-            "image": "shopify:\/\/shop_images\/b4_736x_1ed00e7d-e808-42bd-8e67-9b6c2535e106.webp",
+            "image": "shopify://shop_images/b4_736x_1ed00e7d-e808-42bd-8e67-9b6c2535e106.webp",
             "text": "text text text"
           }
         },
         "template--16704114884757__9a867374-1d93-481a-8f03-d3f37650ad08-block-3": {
           "type": "block",
           "settings": {
-            "image": "shopify:\/\/shop_images\/b4_736x_858f68ea-3b25-41a9-a2fa-807070edbd60.webp",
+            "image": "shopify://shop_images/b4_736x_858f68ea-3b25-41a9-a2fa-807070edbd60.webp",
             "text": "text text text"
           }
         },
         "template--16704114884757__9a867374-1d93-481a-8f03-d3f37650ad08-block-4": {
           "type": "block",
           "settings": {
-            "image": "shopify:\/\/shop_images\/b4_736x_858f68ea-3b25-41a9-a2fa-807070edbd60.webp",
+            "image": "shopify://shop_images/b4_736x_858f68ea-3b25-41a9-a2fa-807070edbd60.webp",
             "text": "text text text"
           }
         },
         "template--16704114884757__9a867374-1d93-481a-8f03-d3f37650ad08-block-5": {
           "type": "block",
           "settings": {
-            "image": "shopify:\/\/shop_images\/b4_736x_1ed00e7d-e808-42bd-8e67-9b6c2535e106.webp",
+            "image": "shopify://shop_images/b4_736x_1ed00e7d-e808-42bd-8e67-9b6c2535e106.webp",
             "text": "text text text"
           }
         }
@@ -349,8 +354,8 @@
       "settings": {
         "heading": "Heading",
         "text": "text text text",
-        "image_bg": "shopify:\/\/shop_images\/f1_e1636eb7-c1eb-46dd-b6b4-db91be41ef5f.png",
-        "image_arrow": "shopify:\/\/shop_images\/f2_deeb87cf-c138-460c-ab66-f636df5c3a59.png"
+        "image_bg": "shopify://shop_images/f1_e1636eb7-c1eb-46dd-b6b4-db91be41ef5f.png",
+        "image_arrow": "shopify://shop_images/f2_deeb87cf-c138-460c-ab66-f636df5c3a59.png"
       }
     },
     "9752e660-9d0e-4d6b-b8e2-384e2ac27bbe": {
@@ -360,21 +365,21 @@
           "type": "block3",
           "settings": {
             "title01": "title title title",
-            "subtitle01": "<p>text text text.<\/p>",
-            "image01": "shopify:\/\/shop_images\/cd557478c294724f408a1407dd1842b9.png",
-            "image_aspect01": "shopify:\/\/shop_images\/a8f8170c5cacdab9908e36ca54cb4d24.jpg",
+            "subtitle01": "<p>text text text.</p>",
+            "image01": "shopify://shop_images/cd557478c294724f408a1407dd1842b9.png",
+            "image_aspect01": "shopify://shop_images/a8f8170c5cacdab9908e36ca54cb4d24.jpg",
             "btn01": "shop",
             "link01": "",
             "title02": "title title title",
-            "subtitle02": "<p>text text text.<\/p>",
-            "image02": "shopify:\/\/shop_images\/4e43d76ac3706497b7cad66ec76d3169.png",
-            "image_aspect02": "shopify:\/\/shop_images\/1680617afd6385d8e00022b7bfc4fd4d.jpg",
+            "subtitle02": "<p>text text text.</p>",
+            "image02": "shopify://shop_images/4e43d76ac3706497b7cad66ec76d3169.png",
+            "image_aspect02": "shopify://shop_images/1680617afd6385d8e00022b7bfc4fd4d.jpg",
             "btn02": "shop",
             "link02": "",
             "title03": "title title title",
-            "subtitle03": "<p>text text text.<\/p>",
-            "image03": "shopify:\/\/shop_images\/1587d65982355d643bc794500a9c5087.png",
-            "image_aspect03": "shopify:\/\/shop_images\/2b78842f48acc25f87317ac80bf55ebb.jpg",
+            "subtitle03": "<p>text text text.</p>",
+            "image03": "shopify://shop_images/1587d65982355d643bc794500a9c5087.png",
+            "image_aspect03": "shopify://shop_images/2b78842f48acc25f87317ac80bf55ebb.jpg",
             "btn03": "shop",
             "link03": ""
           }
@@ -383,15 +388,15 @@
           "type": "block2",
           "settings": {
             "title01": "title title title111111",
-            "subtitle01": "<p>text text text.<\/p>",
-            "image01": "shopify:\/\/shop_images\/54b0cc202f3139869ec3662c652ed0c7.png",
-            "image_aspect01": "shopify:\/\/shop_images\/bf43a35faa67766303f122372c2dc149.jpg",
+            "subtitle01": "<p>text text text.</p>",
+            "image01": "shopify://shop_images/54b0cc202f3139869ec3662c652ed0c7.png",
+            "image_aspect01": "shopify://shop_images/bf43a35faa67766303f122372c2dc149.jpg",
             "btn01": "shop",
             "link01": "",
             "title02": "title title title22222",
-            "subtitle02": "<p>text text text.<\/p>",
-            "image02": "shopify:\/\/shop_images\/10aa7001acef0dc3ba56e2a5beb8d153.png",
-            "image_aspect02": "shopify:\/\/shop_images\/ae8e1b5d5cfdde1f63cc896e1f348d7a.jpg",
+            "subtitle02": "<p>text text text.</p>",
+            "image02": "shopify://shop_images/10aa7001acef0dc3ba56e2a5beb8d153.png",
+            "image_aspect02": "shopify://shop_images/ae8e1b5d5cfdde1f63cc896e1f348d7a.jpg",
             "btn02": "shop",
             "link02": ""
           }
@@ -400,21 +405,21 @@
           "type": "block3",
           "settings": {
             "title01": "title title title",
-            "subtitle01": "<p>text text text.<\/p>",
-            "image01": "shopify:\/\/shop_images\/0c7dbb550384c6b693902cdc676ed750.png",
-            "image_aspect01": "shopify:\/\/shop_images\/b76f9da1e2831c79106046dac4986d64.jpg",
+            "subtitle01": "<p>text text text.</p>",
+            "image01": "shopify://shop_images/0c7dbb550384c6b693902cdc676ed750.png",
+            "image_aspect01": "shopify://shop_images/b76f9da1e2831c79106046dac4986d64.jpg",
             "btn01": "shop",
             "link01": "",
             "title02": "title title title",
-            "subtitle02": "<p>text text text.<\/p>",
-            "image02": "shopify:\/\/shop_images\/d7940798c3c710a95d22f50277e761ee.png",
-            "image_aspect02": "shopify:\/\/shop_images\/a8f8170c5cacdab9908e36ca54cb4d24.jpg",
+            "subtitle02": "<p>text text text.</p>",
+            "image02": "shopify://shop_images/d7940798c3c710a95d22f50277e761ee.png",
+            "image_aspect02": "shopify://shop_images/a8f8170c5cacdab9908e36ca54cb4d24.jpg",
             "btn02": "shop 2222",
             "link02": "",
             "title03": "title title title",
-            "subtitle03": "<p>text text text.<\/p>",
-            "image03": "shopify:\/\/shop_images\/2f6ee8fa70d63d5e51ef10fc44e32d8a.png",
-            "image_aspect03": "shopify:\/\/shop_images\/1680617afd6385d8e00022b7bfc4fd4d.jpg",
+            "subtitle03": "<p>text text text.</p>",
+            "image03": "shopify://shop_images/2f6ee8fa70d63d5e51ef10fc44e32d8a.png",
+            "image_aspect03": "shopify://shop_images/1680617afd6385d8e00022b7bfc4fd4d.jpg",
             "btn03": "shop",
             "link03": ""
           }
@@ -433,6 +438,7 @@
     }
   },
   "order": [
+    "control_video_eeXt3W",
     "c9f769c3-8de5-46ce-9d1d-502717910573",
     "spx_add_to_cart_GpMnD6",
     "dc9556c2-4975-49c8-9283-e9e901a02abb",
