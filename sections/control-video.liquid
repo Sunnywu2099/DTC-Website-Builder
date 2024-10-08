@@ -4,7 +4,7 @@
 
 <div class="video-control">
   <div class="video-wrapper">
-    {{ section.settings.video | video_tag }}
+    {{ section.settings.video | video_tag:class:"123", autoplay: false, loop: true, muted: true, controls: false, image_size:'master' }}
   </div>
 </div>
 
