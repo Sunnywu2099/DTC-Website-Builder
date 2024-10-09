@@ -29,6 +29,12 @@
   let banner_video = $('.video-banner');
   let prev_btn = $('.btn-box .prev');
   let next_btn = $('.btn-box .next');
+  next_btn.click(function(){
+    banner_video.currentTime = 2;
+  })
+  prev_btn.click(function(){
+    banner_video.currentTime = 0;
+  })
 </script>
 
 {% schema %}
