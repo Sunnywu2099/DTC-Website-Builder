@@ -37,7 +37,22 @@
     }, 2000); // 2000 毫秒 = 2 秒
   })
   prev_btn.click(function(){
-    banner_video.currentTime = 0;
+    let interval = 100; // 每次更新时间为100毫秒
+    let duration = 2; // 倒序播放的持续时间 (秒)
+    let step = (duration * 1000) / interval; // 倒序的步进值
+    let counter = 0;
+
+    // 创建定时器，倒序更新 currentTime
+    let reverseInterval = setInterval(function(){
+        // 如果倒序超过了2秒，或者当前时间到达0，停止倒序
+        if (counter >= step || banner_video.currentTime <= 0) {
+            clearInterval(reverseInterval); // 停止定时器
+            banner_video.pause(); // 确保视频暂停
+        } else {
+            banner_video.currentTime -= interval / 1000; // 每次减少 100 毫秒
+            counter++;
+        }
+    }, interval);
   })
 </script>
 
