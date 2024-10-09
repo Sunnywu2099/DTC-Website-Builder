@@ -25,35 +25,47 @@
 
 
 <script>
-  console.log($('.video-banner'))
-  let banner_video = $('.video-banner')[0];
+  let banner_video = $('.video-banner')[0]; // 获取 DOM 元素
   let prev_btn = $('.btn-box .prev');
   let next_btn = $('.btn-box .next');
+  
+  // 正序播放2秒
   next_btn.click(function(){
-    banner_video.play(); // 开始播放
-    // 在2秒后停止播放
-    setTimeout(function(){
-        banner_video.pause();
-    }, 2000); // 2000 毫秒 = 2 秒
-  })
+      console.log("正序播放");
+      banner_video.currentTime = 0; // 从头开始播放
+      banner_video.play(); // 开始播放
+  
+      // 在2秒后停止播放
+      setTimeout(function(){
+          banner_video.pause();
+      }, 2000); // 2000 毫秒 = 2 秒
+  });
+  
+  // 倒序播放2秒
   prev_btn.click(function(){
-    let interval = 100; // 每次更新时间为100毫秒
-    let duration = 2; // 倒序播放的持续时间 (秒)
-    let step = (duration * 1000) / interval; // 倒序的步进值
-    let counter = 0;
-
-    // 创建定时器，倒序更新 currentTime
-    let reverseInterval = setInterval(function(){
-        // 如果倒序超过了2秒，或者当前时间到达0，停止倒序
-        if (counter >= step || banner_video.currentTime <= 0) {
-            clearInterval(reverseInterval); // 停止定时器
-            banner_video.pause(); // 确保视频暂停
-        } else {
-            banner_video.currentTime -= interval / 1000; // 每次减少 100 毫秒
-            counter++;
-        }
-    }, interval);
-  })
+      console.log("倒序播放");
+      banner_video.pause(); // 停止当前播放
+  
+      let duration = 2; // 倒序播放的持续时间 (秒)
+      let startTime = performance.now(); // 获取当前时间
+      let targetTime = banner_video.currentTime - duration; // 倒退2秒后的目标时间
+  
+      function reversePlay() {
+          let now = performance.now(); // 当前帧的时间
+          let elapsedTime = (now - startTime) / 1000; // 计算过去的时间(秒)
+          banner_video.currentTime = Math.max(banner_video.currentTime - elapsedTime, 0); // 减去过去的时间，确保不小于0
+          startTime = now; // 更新开始时间
+  
+          // 如果未达到目标时间并且 currentTime 大于 0，继续倒序播放
+          if (banner_video.currentTime > targetTime && banner_video.currentTime > 0) {
+              requestAnimationFrame(reversePlay); // 下一帧继续倒序播放
+          } else {
+              banner_video.pause(); // 停止播放
+          }
+      }
+  
+      requestAnimationFrame(reversePlay); // 开始倒序播放
+  });
 </script>
 
 {% schema %}
