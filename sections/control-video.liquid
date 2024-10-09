@@ -25,47 +25,35 @@
 
 
 <script>
-  const bannerVideo = $('.video-banner')[0]; // 获取 DOM 元素
-  const prevBtn = $('.btn-box .prev');
-  const nextBtn = $('.btn-box .next');
-  
-  // 正序播放2秒
-  const playForward = () => {
-      console.log("正序播放");
-      bannerVideo.currentTime = 0; // 从头开始
-      bannerVideo.play(); // 播放视频
-  
-      setTimeout(() => {
-          bannerVideo.pause(); // 2秒后停止
-      }, 2000);
-  };
-  
-  // 倒序播放2秒
-  const playReverse = () => {
-      console.log("倒序播放");
-      let startTime = bannerVideo.currentTime;
-      let duration = 2; // 倒序播放时长2秒
-      let startTimestamp = null;
-  
-      // 使用 requestAnimationFrame 进行平滑的倒序播放
-      const step = (timestamp) => {
-          if (!startTimestamp) startTimestamp = timestamp;
-          const elapsed = (timestamp - startTimestamp) / 1000; // 转换为秒
-  
-          if (elapsed <= duration && bannerVideo.currentTime > 0) {
-              bannerVideo.currentTime = startTime - elapsed; // 减少currentTime
-              requestAnimationFrame(step); // 继续下一帧
-          } else {
-              bannerVideo.pause(); // 停止倒序播放
-          }
-      };
-  
-      requestAnimationFrame(step); // 启动倒序播放
-  };
-  
-  // 按钮事件绑定
-  nextBtn.click(playForward);
-  prevBtn.click(playReverse);
+  console.log($('.video-banner'))
+  let banner_video = $('.video-banner')[0];
+  let prev_btn = $('.btn-box .prev');
+  let next_btn = $('.btn-box .next');
+  next_btn.click(function(){
+    banner_video.play(); // 开始播放
+    // 在2秒后停止播放
+    setTimeout(function(){
+        banner_video.pause();
+    }, 2000); // 2000 毫秒 = 2 秒
+  })
+  prev_btn.click(function(){
+    let interval = 100; // 每次更新时间为100毫秒
+    let duration = 2; // 倒序播放的持续时间 (秒)
+    let step = (duration * 1000) / interval; // 倒序的步进值
+    let counter = 0;
+
+    // 创建定时器，倒序更新 currentTime
+    let reverseInterval = setInterval(function(){
+        // 如果倒序超过了2秒，或者当前时间到达0，停止倒序
+        if (counter >= step || banner_video.currentTime <= 0) {
+            clearInterval(reverseInterval); // 停止定时器
+            banner_video.pause(); // 确保视频暂停
+        } else {
+            banner_video.currentTime -= interval / 1000; // 每次减少 100 毫秒
+            counter++;
+        }
+    }, interval);
+  })
 </script>
 
 {% schema %}
