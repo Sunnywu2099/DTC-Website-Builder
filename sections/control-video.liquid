@@ -25,47 +25,47 @@
 
 
 <script>
-  let banner_video = $('.video-banner')[0]; // 获取 DOM 元素
-  let prev_btn = $('.btn-box .prev');
-  let next_btn = $('.btn-box .next');
+  const bannerVideo = $('.video-banner')[0]; // 获取 DOM 元素
+  const prevBtn = $('.btn-box .prev');
+  const nextBtn = $('.btn-box .next');
   
   // 正序播放2秒
-  next_btn.click(function(){
+  const playForward = () => {
       console.log("正序播放");
-      banner_video.currentTime = 0; // 从头开始播放
-      banner_video.play(); // 开始播放
+      bannerVideo.currentTime = 0; // 从头开始
+      bannerVideo.play(); // 播放视频
   
-      // 在2秒后停止播放
-      setTimeout(function(){
-          banner_video.pause();
-      }, 2000); // 2000 毫秒 = 2 秒
-  });
+      setTimeout(() => {
+          bannerVideo.pause(); // 2秒后停止
+      }, 2000);
+  };
   
   // 倒序播放2秒
-  prev_btn.click(function(){
+  const playReverse = () => {
       console.log("倒序播放");
-      banner_video.pause(); // 停止当前播放
+      let startTime = bannerVideo.currentTime;
+      let duration = 2; // 倒序播放时长2秒
+      let startTimestamp = null;
   
-      let duration = 2; // 倒序播放的持续时间 (秒)
-      let startTime = performance.now(); // 获取当前时间
-      let targetTime = banner_video.currentTime - duration; // 倒退2秒后的目标时间
+      // 使用 requestAnimationFrame 进行平滑的倒序播放
+      const step = (timestamp) => {
+          if (!startTimestamp) startTimestamp = timestamp;
+          const elapsed = (timestamp - startTimestamp) / 1000; // 转换为秒
   
-      function reversePlay() {
-          let now = performance.now(); // 当前帧的时间
-          let elapsedTime = (now - startTime) / 1000; // 计算过去的时间(秒)
-          banner_video.currentTime = Math.max(banner_video.currentTime - elapsedTime, 0); // 减去过去的时间，确保不小于0
-          startTime = now; // 更新开始时间
-  
-          // 如果未达到目标时间并且 currentTime 大于 0，继续倒序播放
-          if (banner_video.currentTime > targetTime && banner_video.currentTime > 0) {
-              requestAnimationFrame(reversePlay); // 下一帧继续倒序播放
+          if (elapsed <= duration && bannerVideo.currentTime > 0) {
+              bannerVideo.currentTime = startTime - elapsed; // 减少currentTime
+              requestAnimationFrame(step); // 继续下一帧
           } else {
-              banner_video.pause(); // 停止播放
+              bannerVideo.pause(); // 停止倒序播放
           }
-      }
+      };
   
-      requestAnimationFrame(reversePlay); // 开始倒序播放
-  });
+      requestAnimationFrame(step); // 启动倒序播放
+  };
+  
+  // 按钮事件绑定
+  nextBtn.click(playForward);
+  prevBtn.click(playReverse);
 </script>
 
 {% schema %}
