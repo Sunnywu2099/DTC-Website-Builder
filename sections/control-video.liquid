@@ -88,7 +88,7 @@
 </div>
 
 <div class="video-container">
-    {{ section.settings.video | video_tag:class:"video-banner", autoplay: false, loop: false, muted: true, controls: false, image_size:'master' }}
+    {{ section.settings.video | video_tag:id:"scroll-video", class:"video-banner", autoplay: false, loop: false, muted: true, controls: false, image_size:'master' }}
 </div>
 
 <div class="content-after-video placeholder">
