@@ -1,4 +1,4 @@
-<style>
+{% comment %} <style>
   video{
     display: block;
     width: 100%;
@@ -54,6 +54,83 @@
         }
     }, interval);
   })
+</script> {% endcomment %}
+
+<style>
+  .scroll-container {
+      height: 100vh;
+      background-color: #f0f0f0;
+  }
+  
+  .video-container {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+  }
+  
+  #scroll-video {
+      width: 100%;
+      height: auto;
+      max-height: 100%;
+  }
+  
+  .content-after-video {
+      height: 200vh;
+      background-color: #e0e0e0;
+  }
+</style>
+
+<div class="scroll-container placeholder">
+    <!-- 其他内容 -->
+</div>
+
+<div class="video-container">
+    {{ section.settings.video | video_tag:class:"video-banner", autoplay: false, loop: false, muted: true, controls: false, image_size:'master' }}
+</div>
+
+<div class="content-after-video placeholder">
+    <!-- 其他内容 -->
+</div>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const video = document.getElementById("scroll-video");
+    const videoContainer = document.querySelector(".video-container");
+
+    // 创建 Intersection Observer 以检测视频何时进入视口
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        });
+    }, {
+        threshold: 0.5 // 视频进入一半时开始播放
+    });
+
+    observer.observe(videoContainer);
+
+    // 滚动时更新播放进度
+    window.addEventListener("scroll", () => {
+        const rect = videoContainer.getBoundingClientRect();
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const offsetTop = scrollTop + rect.top;
+
+        const start = offsetTop - window.innerHeight * 0.5; // 控制开始播放的滚动位置
+        const end = offsetTop + rect.height - window.innerHeight * 0.5; // 控制结束播放的滚动位置
+
+        if (scrollTop > start && scrollTop < end) {
+            const scrollProgress = (scrollTop - start) / (end - start);
+            video.currentTime = scrollProgress * video.duration;
+        }
+    });
+});
 </script>
 
 {% schema %}
