@@ -1,12 +1,12 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "control_video_eeXt3W": {
@@ -131,8 +131,7 @@
         "b68335a0-5986-4397-a052-bf4c13170c22",
         "4b720668-5179-40c8-8708-9ca27a213aa1"
       ],
-      "settings": {
-      }
+      "settings": {}
     },
     "1c0c39d6-0db9-4ff6-9c22-5ba99800e65d": {
       "type": "spx-press",
@@ -431,7 +430,6 @@
         "template--16704114884757__9752e660-9d0e-4d6b-b8e2-384e2ac27bbe-block2-1",
         "7c714bb0-dd2d-4ac5-88b9-2f2fc59bc838"
       ],
-      "disabled": true,
       "settings": {
         "title1": "Automatic Base Station",
         "title2": "One Station to Take Care of All"
