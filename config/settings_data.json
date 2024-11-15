@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "current": {
     "colors_default_text": "#240700",
@@ -21,15 +30,17 @@
     "cart_show_free_shipping_bar": true,
     "colors_soft_background": "rgba(0,0,0,0)",
     "styles_icons_thickness": "bold",
-    "content_for_index": [
-
-    ],
+    "content_for_index": [],
     "blocks": {
       "10115289292966514107": {
-        "type": "shopify:\/\/apps\/wiser-product-recommendations\/blocks\/wiser-block\/3f966edc-9a4a-465c-a4df-436d2a39160d",
+        "type": "shopify://apps/wiser-product-recommendations/blocks/wiser-block/3f966edc-9a4a-465c-a4df-436d2a39160d",
         "disabled": true,
-        "settings": {
-        }
+        "settings": {}
+      },
+      "144831480468751239": {
+        "type": "shopify://apps/essential-upsell/blocks/app-embed/50627fd9-24fd-4250-8614-accc12826d80",
+        "disabled": false,
+        "settings": {}
       }
     }
   },
