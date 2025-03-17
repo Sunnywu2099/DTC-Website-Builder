@@ -434,6 +434,68 @@
         "title1": "Automatic Base Station",
         "title2": "One Station to Take Care of All"
       }
+    },
+    "contact_form_Mn4HtC": {
+      "type": "contact-form",
+      "blocks": {
+        "text_field_cmhx7L": {
+          "type": "text-field",
+          "settings": {
+            "required": true,
+            "multi_line_field": false,
+            "title": "Name"
+          }
+        },
+        "text_field_9WVGXi": {
+          "type": "text-field",
+          "settings": {
+            "required": true,
+            "multi_line_field": false,
+            "title": "email"
+          }
+        },
+        "text_field_FYdTrc": {
+          "type": "text-field",
+          "settings": {
+            "required": true,
+            "multi_line_field": false,
+            "title": "test"
+          }
+        },
+        "text_field_VqQQET": {
+          "type": "text-field",
+          "settings": {
+            "required": true,
+            "multi_line_field": false,
+            "title": "country"
+          }
+        }
+      },
+      "block_order": [
+        "text_field_cmhx7L",
+        "text_field_9WVGXi",
+        "text_field_FYdTrc",
+        "text_field_VqQQET"
+      ],
+      "settings": {
+        "layout": "full",
+        "enable_shadow": true,
+        "padding_top": 1,
+        "padding_bottom": 1,
+        "title": "Contact",
+        "heading_size": "h2",
+        "text": "",
+        "text_style": "small-subtext",
+        "image_height_large": "medium",
+        "image_height_mobile": "medium",
+        "form_first": false,
+        "color_scheme": "default-with-accent-1",
+        "custom_colors": false,
+        "color_foreground": "#212121",
+        "color_accent": "#0D91BD",
+        "color_background": "#FFFFFF",
+        "color_gradient": ""
+      }
     }
   },
   "order": [
@@ -445,6 +507,7 @@
     "9de2fcbd-01fc-4989-86e1-080c18f3eba5",
     "71ea1a10-a1b7-4474-a465-dbd6f6c1373e",
     "9a867374-1d93-481a-8f03-d3f37650ad08",
-    "9752e660-9d0e-4d6b-b8e2-384e2ac27bbe"
+    "9752e660-9d0e-4d6b-b8e2-384e2ac27bbe",
+    "contact_form_Mn4HtC"
   ]
 }
