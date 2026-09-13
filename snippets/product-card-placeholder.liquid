@@ -59,12 +59,7 @@
         <ul class='card-swatches' role='list'>
           {%- for i in (1..5) -%}
             {%- capture swatch_color -%}
-              {%- cycle
-                settings.colors_default_background,
-                settings.colors_accent_1,
-                settings.colors_accent_2,
-                settings.colors_accent_3
-              -%}
+              {%- cycle settings.colors_default_background, settings.colors_accent_1, settings.colors_accent_2, settings.colors_accent_3 -%}
             {%- endcapture -%}
             {%- assign color_swatch_count = color_swatch_count | plus: 1 -%}
 
@@ -92,3 +87,20 @@
     {%- endif -%}
   </div>
 </loess-product-card>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {%- cycle
+                    settings.colors_default_background,
+                    settings.colors_accent_1,
+                    settings.colors_accent_2,
+                    settings.colors_accent_3
+                  -%}
+  to: "{%- cycle settings.colors_default_background, settings.colors_accent_1, settings.colors_accent_2,
+    settings.colors_accent_3 -%}"
+  position: 2971..3097
+{% endcomment %}
